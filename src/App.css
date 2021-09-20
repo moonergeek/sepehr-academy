@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: Dirooz;
+  src: url('./assets/fonts/Dirooz.ttf') ;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  direction: rtl;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: Dirooz;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar {
+  background-color: #F3FCF8;
+  box-shadow: 0 3px 10px #E1F7ED;
+  border-radius: 10px;
+  height: 70px;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar-light .navbar-nav .nav-link {
+  color: #323E73;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.active {
+  color: #198643 !important;
+}
+
+.logo {
+  width: 40px;
+  height: 35px;
+}
+
+.nav-link {
+  font-size: 17px;
+}
+
+.nav-link:hover {
+  color: #198643 !important;
+}
+
+.nav-item {
+  padding-left: 13px;
+}
+.header-icons{
+  margin-left:-10px ;
+  margin-top: 5px;
+}
+
+.banner {
+  width: 95%;
+  height: 100%;
+  background-image: url("./assets/img/background-4.png");
+  box-shadow: 0 3px 6px #E1F7ED;
+  border-radius: 10px;
+}
+
+.banner-img {
+  width: 275px;
+  height: 300px;
+}
+
+.banner-text {
+  color: #323E73;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.banner-detail {
+  color: #323E73;
+  font-size: 16px;
+  opacity: 80%;
 }
