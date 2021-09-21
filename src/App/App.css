@@ -1,0 +1,12 @@
+@font-face {
+  font-family: Dirooz;
+  src: url('./../assets/fonts/Dirooz.ttf') ;
+}
+
+html {
+  direction: rtl;
+}
+
+body {
+  font-family: Dirooz !important;
+}
