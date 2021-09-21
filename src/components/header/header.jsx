@@ -45,8 +45,9 @@ class Header extends Component {
                                     <div className="d-flex justify-content-start">
                                         <form className="d-flex header-icons">
                                             <a className="nav-link" href="#">
-                                                <img src="./../../assets/img/Group%2012.svg" alt="user-icon" width="45px"/>
-                                                    <img src="./../../assets/img/user.svg" alt="user-icon" width="45px"/>
+                                                <img src="./../../assets/img/Group%2012.svg" alt="user-icon"
+                                                     width="45px"/>
+                                                <img src="./../../assets/img/user.png" alt="user-icon" width="45px"/>
                                             </a>
                                         </form>
                                     </div>

@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  font-family: Dirooz;
+  font-family: Dirooz !important;
 }
 
 .navbar {
@@ -36,7 +36,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #198643 !important;
+  color: #198643 !important ;
 }
 
 .nav-item {
@@ -47,27 +47,3 @@ body {
   margin-top: 5px;
 }
 
-.banner {
-  width: 95%;
-  height: 100%;
-  background-image: url("./assets/img/background-4.png");
-  box-shadow: 0 3px 6px #E1F7ED;
-  border-radius: 10px;
-}
-
-.banner-img {
-  width: 275px;
-  height: 300px;
-}
-
-.banner-text {
-  color: #323E73;
-  font-size: 19px;
-  font-weight: 600;
-}
-
-.banner-detail {
-  color: #323E73;
-  font-size: 16px;
-  opacity: 80%;
-}
