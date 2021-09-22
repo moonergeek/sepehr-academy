@@ -1,25 +1,15 @@
-
 .navbar {
     background-color: #F3FCF8;
     box-shadow: 0 3px 10px #E1F7ED;
     border-radius: 10px;
     height: 70px;
 }
-
-.navbar-light .navbar-nav {
+.navbar-light .navbar-nav .nav-link {
     color: #323E73 ;
-}
-.nav-link{
-    color: #323E73;
 }
 
 .active {
     color: #198643 !important ;
-}
-
-.logo {
-    width: 40px;
-    height: 35px;
 }
 
 .nav-link {
@@ -37,4 +27,9 @@
     margin-left:-10px ;
     margin-top: 5px;
 }
+.logo {
+    width: 40px;
+    height: 35px;
+}
+
 

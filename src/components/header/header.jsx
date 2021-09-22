@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import style from "./header.module.css"
 import logoGreen from "../../assets/img/logo green.png";
 import group12 from "../../assets/img/Group 12.svg";
 import user from "../../assets/img/user.svg";
+import "./header.css"
 
 
 class Header extends Component {
@@ -11,10 +11,10 @@ class Header extends Component {
             <>
                 <div className="container mt-3">
                     <div className="row">
-                        <nav className={`navbar navbar-expand-lg navbar-light ${style.navbar} ${style.navbarLight}`}>
+                        <nav className={"navbar navbar-expand-lg navbar-light"}>
                             <div className="container-fluid">
                                 <a className="navbar-brand" href="#">
-                                    <img src={logoGreen} className={style.logo}/>
+                                    <img src={logoGreen} className="logo"/>
                                 </a>
                                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#navbarNav"
@@ -22,12 +22,12 @@ class Header extends Component {
                                     <span className="navbar-toggler-icon"></span>
                                 </button>
                                 <div className="collapse navbar-collapse" id="navbarNav">
-                                    <ul className= {`navbar-nav  mx-auto mb-2 mb-lg-0 ${style.navbarNav}`}>
+                                    <ul className= {"navbar-nav  mx-auto mb-2 mb-lg-0"}>
                                         <li className="nav-item">
-                                            <a className={`nav-link active ${style.navLink} ${style.active}`} aria-current="page" href="#">خانه </a>
+                                            <a className={"nav-link active"} aria-current="page" href="#">خانه </a>
                                         </li>
-                                        <li className="nav-item">
-                                            <a className={`nav-link ${style.navLink}`} href="#">دوره ها</a>
+                                        <li className="nav-item" >
+                                            <a className="nav-link" href="#">دوره ها</a>
                                         </li>
                                         <li className="nav-item">
                                             <a className="nav-link" href="#">معرفی مدرسین</a>
