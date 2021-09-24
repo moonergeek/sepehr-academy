@@ -11,7 +11,7 @@ class Header extends Component {
             <>
                 <div className="container mt-3">
                     <div className="row">
-                        <nav className={"navbar navbar-expand-lg navbar-light"}>
+                        <nav className="navbar navbar-expand-lg navbar-light">
                             <div className="container-fluid">
                                 <a className="navbar-brand" href="#">
                                     <img src={logoGreen} className="logo"/>
@@ -22,36 +22,17 @@ class Header extends Component {
                                     <span className="navbar-toggler-icon"></span>
                                 </button>
                                 <div className="collapse navbar-collapse" id="navbarNav">
-                                    <ul className= {"navbar-nav  mx-auto mb-2 mb-lg-0"}>
-                                        <li className="nav-item">
-                                            <a className={"nav-link active"} aria-current="page" href="#">خانه </a>
-                                        </li>
-                                        <li className="nav-item" >
-                                            <a className="nav-link" href="#">دوره ها</a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a className="nav-link" href="#">معرفی مدرسین</a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a className="nav-link" href="#">بلاگ</a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a className="nav-link" href="#">پرسش و پاسخ</a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a className="nav-link" href="#"> درخواست مشاوره </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a className="nav-link" href="#">درباره ما</a>
-                                        </li>
-
+                                    <ul className="navbar-nav  mx-auto mb-2 mb-lg-0">
+                                        {this.props.menuList.map(item => <li key={item} className={"nav-item"}>
+                                            <a className="nav-link" aria-current="page" href="#">{item} </a>
+                                        </li>)}
                                     </ul>
                                     <div className="d-flex justify-content-start">
                                         <form className="d-flex header-icons">
                                             <a className="nav-link" href="#">
-                                                <img src={group12}  alt="user-icon"
+                                                <img src={group12} alt="user-icon"
                                                      width="45px"/>
-                                                <img  src={user}  alt="user-icon" width="45px"/>
+                                                <img src={user} alt="user-icon" width="45px" className={"me-1"}/>
                                             </a>
                                         </form>
                                     </div>

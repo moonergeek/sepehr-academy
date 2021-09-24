@@ -1,0 +1,29 @@
+
+.form-control {
+    border: none;
+    background: #FFFFFF;
+    color: #198643 !important;
+    width: 420px;
+    box-shadow: 0 3px 10px #E1F7ED;
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form-control::placeholder {
+    color: #198643;
+    padding-right: 8px;
+    font-size: 15px;
+    opacity: 80%;
+}
+
+.search-icon {
+    width: 19px;
+}
+
+.button-search {
+    margin-right: -63px;
+}

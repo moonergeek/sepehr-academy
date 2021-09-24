@@ -19,17 +19,19 @@
 .nav-link:hover {
     color: #198643 !important ;
 }
-
-.nav-item {
-    padding-left: 13px;
-}
-.header-icons{
-    margin-left:-10px ;
-    margin-top: 5px;
-}
 .logo {
     width: 40px;
     height: 35px;
+    margin-right: -20px;
 }
+
+.nav-item {
+    padding-left: 12px;
+}
+.header-icons{
+    margin-right:-10px ;
+    margin-top: 5px;
+}
+
 
 
