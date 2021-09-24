@@ -1,0 +1,23 @@
+
+.course-header {
+    margin-top: 80px;
+}
+
+.header-title {
+    color: #23A455;
+    font-size: 22px;
+}
+
+.line-image {
+    width: 255px;
+    margin-right: -12px;
+    margin-top: -15px;
+}
+
+.btn-see-all {
+    background: #F3FCF8;
+    color: #323E73;
+    font-size: 17px;
+    box-shadow: 0 3px 6px #E1F7ED;
+    margin-top: -32px;
+}
