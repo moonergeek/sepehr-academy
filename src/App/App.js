@@ -1,8 +1,6 @@
 import './App.css';
 import React, {Component} from 'react';
-import Header from "../components/header/header";
-import Banner from "../components/banner/banner";
-import TechLogos from "../components/tech-logos/techLogos";
+import HomePage from "../screens/homePage";
 
 
 class App extends Component {
@@ -17,12 +15,11 @@ class App extends Component {
         const {menuList, placeHolder, bannerDetail, bannerTitle} = this.state;
         return (
             <>
-                <Header menuList={menuList}/>
-                <Banner
-                    placeholder={placeHolder}
-                    title={bannerTitle}
-                    details={bannerDetail}/>
-                <TechLogos/>
+             <HomePage menuList={menuList}
+                       placeholder={placeHolder}
+                       bannerTitle={bannerTitle}
+                       bannerDetail={bannerDetail}
+             />
             </>
         );
     }
