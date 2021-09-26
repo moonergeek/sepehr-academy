@@ -13,6 +13,8 @@ import blogBanner3 from "../assets/img/009.jpg"
 import blogBanner4 from "../assets/img/007.jpg"
 import blogBanner5 from "../assets/img/003.jpg"
 import blogBanner6 from "../assets/img/008.jpg"
+import teacherImg1 from "../assets/img/test_1.png"
+import teacherImg2 from "../assets/img/test_2.png"
 
 
 class App extends Component {
@@ -138,6 +140,66 @@ class App extends Component {
         },
         blogTitle: "اخرین مقالات سایت",
         blogBtnTitle: "مشاهده همه مقالات",
+
+        teachersInfo: {
+            th1: {
+                imgAddress: teacherImg1,
+                lastName: "حسامی",
+            },
+            th2: {
+                imgAddress: teacherImg2,
+                lastName: "جعفری",
+            },
+            th3: {
+                imgAddress: teacherImg1,
+                lastName: "رستمی",
+            },
+            th4: {
+                imgAddress: teacherImg2,
+                lastName: "حسامی"
+            },
+            th5: {
+                imgAddress: teacherImg1,
+                lastName: "رضایی",
+            },
+            th6: {
+                imgAddress: teacherImg2,
+                lastName: "جعفری",
+            },
+        },
+        teachersTitle: "مدرسین نمونه مجموعه آموزشی ما",
+
+        favCoursesTitle: "دوره های محبوب",
+        favCoursesInfo: {
+            obj1: {
+                imgAddress: image3,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "جعفری",
+                time: "9:22:00",
+                price: " 300،000 تومان",
+            },
+            obj2: {
+                imgAddress: image6,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "رستمی",
+                time: "6:28:00",
+                price: " 250،000 تومان",
+            },
+            obj3: {
+                imgAddress: image4,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "حسامی",
+                time: "5:27:00",
+                price: " 400،000 تومان",
+            },
+            obj4: {
+                imgAddress: image5,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "رضایی",
+                time: "7:28:00",
+                price: " 500،000 تومان",
+            },
+        },
     }
 
 
@@ -153,6 +215,10 @@ class App extends Component {
             blogTitle,
             blogBtnTitle,
             blogInfo,
+            teachersInfo,
+            teachersTitle,
+            favCoursesInfo,
+            favCoursesTitle,
         } = this.state;
         return (
             <>
@@ -166,6 +232,10 @@ class App extends Component {
                           blogTitle={blogTitle}
                           blogBtnTitle={blogBtnTitle}
                           blogInfo={blogInfo}
+                          teachersInfo={teachersInfo}
+                          teachersTitle={teachersTitle}
+                          favCoursesInfo={favCoursesInfo}
+                          favCoursesTitle={favCoursesTitle}
                 />
             </>
         );
