@@ -78,6 +78,7 @@ const Login = () => {
                 onChange={formik.handleChange}
                 value={formik.values.name}
                 onBlur={formik.handleBlur}
+                autoComplete="off"
               />
               <div className="text-danger mt-1">
                 {formik.touched.name && formik.errors.name ? (

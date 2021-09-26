@@ -1,10 +1,10 @@
-import Header from "../components/Header/Header";
+import Login from "../components/Login/Login";
 import "./App.css";
 
 const App = () => {
   return (
     <>
-      <Header />
+      <Login />
     </>
   );
 };
