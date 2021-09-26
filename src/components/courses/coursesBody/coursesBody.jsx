@@ -18,7 +18,8 @@ const CoursesBody = (props) => {
                                     <div className="mt-2">
                                         <img className="card-user-image col-8" src={userIcon}
                                              alt=""/>
-                                        <span className="course-teacher col-sm-4 me-1 ">{props.courseInfo[item].teacher}</span>
+                                        <span
+                                            className="course-teacher col-sm-4 me-1 ">{props.courseInfo[item].teacher}</span>
                                         <div className="row">
                                             <div className="col-sm-12">
                                                 <img src={lineImage} className="card-line"
@@ -30,11 +31,13 @@ const CoursesBody = (props) => {
                                                 <div className="col-sm-12 col-md-6">
                                                     <img src={stopWatch} className="card-stopwatch"
                                                          alt=""/>
-                                                    <span className="card-time me-1">{props.courseInfo[item].time}</span>
+                                                    <span
+                                                        className="card-time me-1">{props.courseInfo[item].time}</span>
                                                 </div>
                                                 <div className="col-sm-12 col-md-6">
                                                     <div className="d-flex justify-content-end">
-                                                        <span className="card-price"> {props.courseInfo[item].price}</span>
+                                                        <span
+                                                            className="card-price"> {props.courseInfo[item].price}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -45,7 +48,6 @@ const CoursesBody = (props) => {
                         </div>
                     </div>)}
                 </div>
-
             </div>
 
         </>

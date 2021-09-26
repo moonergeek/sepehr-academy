@@ -3,6 +3,7 @@ import Header from "../components/header/header";
 import Banner from "../components/banner/banner";
 import TechLogos from "../components/tech-logos/techLogos";
 import Courses from "../components/courses/courses";
+import Blog from "../components/blog/blog";
 
 const HomePage = (props) => {
     return (
@@ -16,6 +17,10 @@ const HomePage = (props) => {
             <Courses coursesTitle={props.coursesTitle}
                      coursesBtnTitle={props.coursesBtnTitle}
                      courseInfo={props.courseInfo}
+            />
+            <Blog blogTitle={props.blogTitle}
+                  blogBtnTitle={props.blogBtnTitle}
+                  blogInfo={props.blogInfo}
             />
         </>
     );
