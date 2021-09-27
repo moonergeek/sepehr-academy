@@ -13,7 +13,7 @@ const Banner = (props) => {
                     <div className="row">
                         <div className="col-sm-12">
                             <div className="row">
-                                <div className="col-sm-8 col-lg-7 col-md-8">
+                                <div className="col-sm-12 col-lg-7 col-md-8">
                                     <div className="row ms-1">
                                         <div className="col-sm-12 me-4 pt-4">
                                             <span className="banner-text">{props.title}</span>

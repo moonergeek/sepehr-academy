@@ -25,6 +25,12 @@ body {
   .teachers-banner{
     display: none;
   }
+  .nav-link{
+    text-align: center ;
+  }
+  .nav-link-footer{
+    text-align: right;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -68,6 +74,10 @@ body {
     margin-bottom: 5px !important;
 
   }
-
-
+  .nav-link{
+    text-align: center ;
+  }
+  .nav-link-footer{
+    text-align: right;
+  }
 }

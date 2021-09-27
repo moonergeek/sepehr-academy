@@ -3,6 +3,7 @@ import logoGreen from "../../assets/img/logo green.png";
 import group12 from "../../assets/img/Group 12.svg";
 import user from "../../assets/img/user.svg";
 import "./header.css"
+import {BsThreeDots} from "react-icons/all";
 
 
 class Header extends Component {
@@ -19,7 +20,7 @@ class Header extends Component {
                                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#navbarNav"
                                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span className="navbar-toggler-icon"></span>
+                                    <BsThreeDots/>
                                 </button>
                                 <div className="collapse navbar-collapse" id="navbarNav">
                                     <ul className="navbar-nav  mx-auto mb-2 mb-lg-0">
