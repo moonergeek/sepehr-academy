@@ -6,6 +6,7 @@ import Courses from "../components/courses/courses";
 import Blog from "../components/blog/blog";
 import TeachersBanner from "../components/teachers_banner/teachersBanner";
 import FavCourses from "../components/courses/favCourses/favCourses";
+import Footer from "../components/footer/footer";
 
 const HomePage = (props) => {
     return (
@@ -31,6 +32,7 @@ const HomePage = (props) => {
                         favCoursesTitle={props.favCoursesTitle}
                         coursesBtnTitle={props.coursesBtnTitle}
             />
+            <Footer footerInfo={props.footerInfo}/>
         </>
     );
 };

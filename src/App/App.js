@@ -15,13 +15,14 @@ import blogBanner5 from "../assets/img/003.jpg"
 import blogBanner6 from "../assets/img/008.jpg"
 import teacherImg1 from "../assets/img/test_1.png"
 import teacherImg2 from "../assets/img/test_2.png"
+import footerLine from "../assets/img/Path 1.svg";
 
 
 class App extends Component {
     state = {
         menuList: ["خانه", "دوره ها", "معرفی مدرسین", "بلاگ", "پرسش و پاسخ", "درخواست مشاوره", "درباره ما",],
 
-        placeHolder: " جستوجو دوره های مختلف ...",
+        placeHolder: " جستجو دوره های مختلف ...",
         bannerTitle: "آموزش برنامه نویسی ، خودآموزی ، ورود به بازارکار ",
         bannerDetail: "حرفه ایی شدن رو از امروز شروع کن ",
 
@@ -169,7 +170,7 @@ class App extends Component {
         },
         teachersTitle: "مدرسین نمونه مجموعه آموزشی ما",
 
-        favCoursesTitle: "دوره های محبوب",
+        favCoursesTitle: "دوره های محبوب سایت",
         favCoursesInfo: {
             obj1: {
                 imgAddress: image3,
@@ -200,6 +201,30 @@ class App extends Component {
                 price: " 500،000 تومان",
             },
         },
+
+        footerInfo:{
+            item1:{
+                title:"دسترسی",
+                lineImage:footerLine,
+                it1:" دوره ها",
+                it2:"معرفی مدرسین",
+                it3:"بلاگ",
+            },
+            item2:{
+                title:"متداول",
+                lineImage:footerLine,
+                it1:" پرسش و پاسخ ",
+                it2:"درخواست مشاوره",
+                it3:"ورود",
+            },
+            item3:{
+                title:"ارتباط با ما",
+                lineImage:footerLine,
+                it1:"تماس با ما",
+                it2:" درباره ما",
+                it3:"رزومه",
+            },
+        },
     }
 
 
@@ -219,6 +244,7 @@ class App extends Component {
             teachersTitle,
             favCoursesInfo,
             favCoursesTitle,
+            footerInfo,
         } = this.state;
         return (
             <>
@@ -236,6 +262,7 @@ class App extends Component {
                           teachersTitle={teachersTitle}
                           favCoursesInfo={favCoursesInfo}
                           favCoursesTitle={favCoursesTitle}
+                          footerInfo={footerInfo}
                 />
             </>
         );
