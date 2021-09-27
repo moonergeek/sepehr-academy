@@ -2,3 +2,22 @@
   margin: 0;
   padding: 0;
 }
+
+.login-form .form-control {
+  border: none;
+  background: #ffffff;
+  color: #198643 !important;
+  box-shadow: 0 3px 10px #e1f7ed;
+  border-radius: 5px;
+}
+
+.login-form .form-control:focus {
+  border-color: #28a745 !important;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+}
+
+.login-form .form-control::placeholder {
+  color: #198643;
+  padding-right: 8px;
+  opacity: 80%;
+}
