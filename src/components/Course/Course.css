@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.price {
+  color: #323e73;
+}
+
+.sign-btn {
+  width: 300px;
+}

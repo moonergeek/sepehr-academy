@@ -1,10 +1,11 @@
-import Login from "../components/Login/Login";
+import Course from "../components/Course/Course";
+import NotFound from "../components/NotFound/NotFound";
 import "./App.css";
 
 const App = () => {
   return (
     <>
-      <Login />
+      <NotFound />
     </>
   );
 };
