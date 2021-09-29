@@ -39,7 +39,7 @@ const Login = () => {
         <div className="login-image order-lg-last mt-4 col-md-12 col-lg-7 d-flex justify-content-center align-items-start">
           <img src={login} alt="login" />
         </div>
-        <div className="login-form order-lg-first col-md-12 col-lg-5 mt-5 d-flex flex-column">
+        <div className="login-form shadow-sm order-lg-first col-md-12 col-lg-5 mt-5 d-flex flex-column">
           <div
             style={{
               backgroundColor: "#82D8B9",

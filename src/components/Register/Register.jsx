@@ -1,5 +1,5 @@
 import React from "react";
-import login from "../../assets/img/login.svg";
+import register from "../../assets/img/register.svg";
 import "./Register.css";
 import { useFormik } from "formik";
 
@@ -46,8 +46,12 @@ const Register = () => {
   return (
     <div className="container">
       <div className="row mt-5">
-        <div className="login-image order-lg-last mt-4 col-md-12 col-lg-7 d-flex justify-content-center align-items-start">
-          <img src={login} alt="login" />
+        <div className="shadow-sm login-image order-lg-last mt-4 col-md-12 col-lg-7 d-flex justify-content-center align-items-start">
+          <img
+            src={register}
+            alt="register"
+            style={{ width: "573px", height: "316px" }}
+          />
         </div>
         <div className="login-form order-lg-first col-md-12 col-lg-5 mt-5 d-flex flex-column">
           <div
