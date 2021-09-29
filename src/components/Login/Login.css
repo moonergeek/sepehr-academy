@@ -21,3 +21,21 @@
   padding-right: 8px;
   opacity: 80%;
 }
+
+.btn-container {
+  background: #82d8b9;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.text-color {
+  color: #323e73 !important;
+}
+
+.forget-pass {
+  text-decoration: none;
+}
+
+.login-btn {
+  background: #82d8b9 !important;
+}
