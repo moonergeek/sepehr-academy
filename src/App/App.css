@@ -1,0 +1,83 @@
+@font-face {
+  font-family: Dirooz;
+  src: url('./../assets/fonts/Dirooz.ttf') ;
+}
+
+html {
+  direction: rtl;
+}
+
+body {
+  font-family: Dirooz !important;
+}
+
+
+/*responsive*/
+
+@media screen and (max-width: 992px) {
+  .banner-text {
+    font-size: 15px;
+  }
+
+  .banner-detail {
+    font-size: 13px;
+  }
+  .teachers-banner{
+    display: none;
+  }
+  .nav-link{
+    text-align: center ;
+  }
+  .nav-link-footer{
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .banner-text {
+    font-size: 19px;
+  }
+
+  .banner-detail {
+    font-size: 16px;
+  }
+
+  .tech-logos {
+    display: none;
+  }
+
+  .header-title {
+    font-size: 18px !important;
+  }
+
+  .btn-see-all {
+    font-size: 15px !important;
+  }
+
+  .line-image {
+    width: 220px !important;
+    margin-top: -5px !important;
+  }
+
+  .card-price {
+    margin-top: -16px;
+  }
+
+  .doc-icon {
+    margin-top: -20px !important;
+  }
+  .teachers-banner{
+    display: none;
+  }
+  .namad-footer{
+    width: 55px !important;
+    margin-bottom: 5px !important;
+
+  }
+  .nav-link{
+    text-align: center ;
+  }
+  .nav-link-footer{
+    text-align: right;
+  }
+}
