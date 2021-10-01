@@ -256,7 +256,7 @@ class App extends Component {
             <>
                             <Router>
                 <switch>
-                    <Route path="/" exact component={() =>                                <HomePage menuList={menuList}
+                    <Route path="/" exact component={() =>                              <HomePage menuList={menuList}
                           placeholder={placeHolder}
                           bannerTitle={bannerTitle}
                           bannerDetail={bannerDetail}
@@ -275,6 +275,7 @@ class App extends Component {
 <Route path="/maghalat" component={() =>                 <Maghalat menuList={menuList}
                                                                    placeholder={placeHolder}
 />} />
+
 
                 </switch>
                 </Router>

@@ -14,6 +14,7 @@ const Maghalat = (props) =>{
 
 const [maghale,setMaghale] = useState([
          {
+                id:1,
                 docNumber: "مقاله شماره 1",
                     title: "میشه یه شبه برنامه نویس شد؟ ",
                     imgAddress: blogBanner1,
@@ -22,6 +23,7 @@ const [maghale,setMaghale] = useState([
                 "                                                    هم کار می‌کنید مشتری",
         },
         {
+                id:2,
                 docNumber: "مقاله شماره 2",
                     title: " نگاهی به نمونه کارهای شما ",
                     imgAddress: blogBanner2,
@@ -30,7 +32,8 @@ const [maghale,setMaghale] = useState([
                 "                                                    هم کار می‌کنید مشتری",
         },
         {
-                docNumber: "مقاله شماره 3",
+            id:3,
+            docNumber: "مقاله شماره 3",
                     title: "خودآموزی ، ورود به بازارکار ",
                     imgAddress: blogBanner3,
                     docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
@@ -38,6 +41,7 @@ const [maghale,setMaghale] = useState([
                 "                                                    هم کار می‌کنید مشتری",
         },
         {
+                id:4,
                 docNumber: "مقاله شماره 4",
                     title: " نگاهی به نمونه کارهای شما ",
                     imgAddress: blogBanner4,
@@ -46,6 +50,7 @@ const [maghale,setMaghale] = useState([
                 "                                                    هم کار می‌کنید مشتری",
         },
          {
+                id:5,
                 docNumber: "مقاله شماره 5",
                     title: "میشه یه شبه برنامه نویس شد؟ ",
                     imgAddress: blogBanner5,
@@ -54,6 +59,7 @@ const [maghale,setMaghale] = useState([
                 "                                                    هم کار می‌کنید مشتری",
         },
          {
+                id:6,
                 docNumber: "مقاله شماره 6",
                     title: "حرفه ایی شدن رو از امروز شروع کن ",
                     imgAddress: blogBanner6,
@@ -62,6 +68,7 @@ const [maghale,setMaghale] = useState([
                 "                                                    هم کار می‌کنید مشتری",
         },
     {
+        id:7,
         docNumber: "مقاله شماره 7",
         title: "میشه یه شبه برنامه نویس شد؟ ",
         imgAddress: blogBanner1,
@@ -70,6 +77,7 @@ const [maghale,setMaghale] = useState([
             "                                                    هم کار می‌کنید مشتری",
     },
     {
+        id:8,
         docNumber: "مقاله شماره 8",
         title: " نگاهی به نمونه کارهای شما ",
         imgAddress: blogBanner2,
@@ -78,6 +86,7 @@ const [maghale,setMaghale] = useState([
             "                                                    هم کار می‌کنید مشتری",
     },
     {
+        id:9,
         docNumber: "مقاله شماره 9",
         title: "خودآموزی ، ورود به بازارکار ",
         imgAddress: blogBanner3,
@@ -86,6 +95,7 @@ const [maghale,setMaghale] = useState([
             "                                                    هم کار می‌کنید مشتری",
     },
     {
+        id:10,
         docNumber: "مقاله شماره 10",
         title: " نگاهی به نمونه کارهای شما ",
         imgAddress: blogBanner4,
@@ -94,6 +104,7 @@ const [maghale,setMaghale] = useState([
             "                                                    هم کار می‌کنید مشتری",
     },
     {
+        id:11,
         docNumber: "مقاله شماره 11",
         title: "میشه یه شبه برنامه نویس شد؟ ",
         imgAddress: blogBanner5,
@@ -102,6 +113,7 @@ const [maghale,setMaghale] = useState([
             "                                                    هم کار می‌کنید مشتری",
     },
     {
+        id:12,
         docNumber: "مقاله شماره 12",
         title: "حرفه ایی شدن رو از امروز شروع کن ",
         imgAddress: blogBanner6,
@@ -110,6 +122,7 @@ const [maghale,setMaghale] = useState([
             "                                                    هم کار می‌کنید مشتری",
     },
     {
+        id:13,
         docNumber: "مقاله شماره 13",
         title: "میشه یه شبه برنامه نویس شد؟ ",
         imgAddress: blogBanner1,
@@ -118,6 +131,7 @@ const [maghale,setMaghale] = useState([
             "                                                    هم کار می‌کنید مشتری",
     },
     {
+        id:14,
         docNumber: "مقاله شماره 14",
         title: " نگاهی به نمونه کارهای شما ",
         imgAddress: blogBanner2,
@@ -126,6 +140,7 @@ const [maghale,setMaghale] = useState([
             "                                                    هم کار می‌کنید مشتری",
     },
     {
+        id:15,
         docNumber: "مقاله شماره 15",
         title: "خودآموزی ، ورود به بازارکار ",
         imgAddress: blogBanner3,
@@ -134,6 +149,7 @@ const [maghale,setMaghale] = useState([
             "                                                    هم کار می‌کنید مشتری",
     },
     {
+        id:16,
         docNumber: "مقاله شماره 16",
         title: " نگاهی به نمونه کارهای شما ",
         imgAddress: blogBanner4,
@@ -142,6 +158,7 @@ const [maghale,setMaghale] = useState([
             "                                                    هم کار می‌کنید مشتری",
     },
     {
+        id:17,
         docNumber: "مقاله شماره 17",
         title: "میشه یه شبه برنامه نویس شد؟ ",
         imgAddress: blogBanner5,
@@ -150,6 +167,7 @@ const [maghale,setMaghale] = useState([
             "                                                    هم کار می‌کنید مشتری",
     },
     {
+        id:18,
         docNumber: "مقاله شماره 18",
         title: "حرفه ایی شدن رو از امروز شروع کن ",
         imgAddress: blogBanner6,
