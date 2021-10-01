@@ -16,6 +16,8 @@ import blogBanner6 from "../assets/img/008.jpg"
 import teacherImg1 from "../assets/img/test_1.png"
 import teacherImg2 from "../assets/img/test_2.png"
 import footerLine from "../assets/img/Path 1.svg";
+import CoursesPage from "../screens/coursesPage/coursesPage";
+import {paginate} from "../utils/paginate";
 
 
 class App extends Component {
@@ -88,6 +90,150 @@ class App extends Component {
         },
         coursesTitle: "اخرین دوره های مجموعه",
         coursesBtnTitle: "مشاهده همه دوره ها",
+        fullCoursesInfo: {
+            obj1: {
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                imgAddress: image1,
+                teacher: "حسامی",
+                time: "7:28:00",
+                price: " 500،000 تومان",
+            },
+            obj2: {
+                imgAddress: image4,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "حسامی",
+                time: "5:27:00",
+                price: " 400،000 تومان",
+            },
+            obj3: {
+                imgAddress: image2,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "رستمی",
+                time: "4:29:00",
+                price: " 450،000 تومان",
+            },
+            obj4: {
+                imgAddress: image3,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "جعفری",
+                time: "9:22:00",
+                price: " 300،000 تومان",
+            },
+            obj5: {
+                imgAddress: image4,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "رضایی",
+                time: "7:28:00",
+                price: " 500،000 تومان",
+            },
+            obj6: {
+                imgAddress: image3,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "حسامی",
+                time: "7:32:00",
+                price: " 200،000 تومان",
+            },
+            obj7: {
+                imgAddress: image5,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "رضایی",
+                time: "7:28:00",
+                price: " 500،000 تومان",
+            },
+            obj8: {
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                imgAddress: image1,
+                teacher: "حسامی",
+                time: "7:28:00",
+                price: " 500،000 تومان",
+            },
+            obj9: {
+                imgAddress: image4,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "حسامی",
+                time: "5:27:00",
+                price: " 400،000 تومان",
+            },
+            obj10: {
+                imgAddress: image2,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "رستمی",
+                time: "4:29:00",
+                price: " 450،000 تومان",
+            },
+            obj11: {
+                imgAddress: image3,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "جعفری",
+                time: "9:22:00",
+                price: " 300،000 تومان",
+            },
+            obj12: {
+                imgAddress: image4,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "رضایی",
+                time: "7:28:00",
+                price: " 500،000 تومان",
+            },
+            obj13: {
+                imgAddress: image3,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "حسامی",
+                time: "7:32:00",
+                price: " 200،000 تومان",
+            },
+            obj14: {
+                imgAddress: image5,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "رضایی",
+                time: "7:28:00",
+                price: " 500،000 تومان",
+            },
+            obj15: {
+                imgAddress: image6,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "رستمی",
+                time: "6:28:00",
+                price: " 250،000 تومان",
+            },
+            obj16: {
+                imgAddress: image2,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "رستمی",
+                time: "4:29:00",
+                price: " 450،000 تومان",
+            },
+            obj17: {
+                imgAddress: image3,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "جعفری",
+                time: "9:22:00",
+                price: " 300،000 تومان",
+            },
+            obj18: {
+                imgAddress: image4,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "رضایی",
+                time: "7:28:00",
+                price: " 500،000 تومان",
+            },
+            obj19: {
+                imgAddress: image3,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "حسامی",
+                time: "7:32:00",
+                price: " 200،000 تومان",
+            },
+            obj20: {
+                imgAddress: image6,
+                title: "آموزش جامع زبان پایتون از صفر تا صد",
+                teacher: "رستمی",
+                time: "6:28:00",
+                price: " 250،000 تومان",
+            },
+
+
+        },
 
         blogInfo: {
             bl1: {
@@ -202,29 +348,35 @@ class App extends Component {
             },
         },
 
-        footerInfo:{
-            item1:{
-                title:"دسترسی",
-                lineImage:footerLine,
-                it1:" دوره ها",
-                it2:"معرفی مدرسین",
-                it3:"بلاگ",
+        footerInfo: {
+            item1: {
+                title: "دسترسی",
+                lineImage: footerLine,
+                it1: " دوره ها",
+                it2: "معرفی مدرسین",
+                it3: "بلاگ",
             },
-            item2:{
-                title:"متداول",
-                lineImage:footerLine,
-                it1:" پرسش و پاسخ ",
-                it2:"درخواست مشاوره",
-                it3:"ورود",
+            item2: {
+                title: "متداول",
+                lineImage: footerLine,
+                it1: " پرسش و پاسخ ",
+                it2: "درخواست مشاوره",
+                it3: "ورود",
             },
-            item3:{
-                title:"ارتباط با ما",
-                lineImage:footerLine,
-                it1:"تماس با ما",
-                it2:" درباره ما",
-                it3:"رزومه",
+            item3: {
+                title: "ارتباط با ما",
+                lineImage: footerLine,
+                it1: "تماس با ما",
+                it2: " درباره ما",
+                it3: "رزومه",
             },
         },
+
+        pageSize: 12,
+        currentPage: 1,
+    }
+    handlePageChange = page => {
+        this.setState({currentPage: page})
     }
 
 
@@ -245,25 +397,41 @@ class App extends Component {
             favCoursesInfo,
             favCoursesTitle,
             footerInfo,
+            fullCoursesInfo,
+            pageSize,
+            currentPage
         } = this.state;
+
+        const paginatedCourses = paginate(Object.keys(fullCoursesInfo),currentPage,pageSize);
+
         return (
             <>
-                <HomePage menuList={menuList}
-                          placeholder={placeHolder}
-                          bannerTitle={bannerTitle}
-                          bannerDetail={bannerDetail}
-                          coursesTitle={coursesTitle}
-                          coursesBtnTitle={coursesBtnTitle}
-                          courseInfo={coursesInfo}
-                          blogTitle={blogTitle}
-                          blogBtnTitle={blogBtnTitle}
-                          blogInfo={blogInfo}
-                          teachersInfo={teachersInfo}
-                          teachersTitle={teachersTitle}
-                          favCoursesInfo={favCoursesInfo}
-                          favCoursesTitle={favCoursesTitle}
-                          footerInfo={footerInfo}
+                {/*<HomePage menuList={menuList}*/}
+                {/*          placeholder={placeHolder}*/}
+                {/*          bannerTitle={bannerTitle}*/}
+                {/*          bannerDetail={bannerDetail}*/}
+                {/*          coursesTitle={coursesTitle}*/}
+                {/*          coursesBtnTitle={coursesBtnTitle}*/}
+                {/*          courseInfo={coursesInfo}*/}
+                {/*          blogTitle={blogTitle}*/}
+                {/*          blogBtnTitle={blogBtnTitle}*/}
+                {/*          blogInfo={blogInfo}*/}
+                {/*          teachersInfo={teachersInfo}*/}
+                {/*          teachersTitle={teachersTitle}*/}
+                {/*          favCoursesInfo={favCoursesInfo}*/}
+                {/*          favCoursesTitle={favCoursesTitle}*/}
+                {/*          footerInfo={footerInfo}*/}
+                {/*/>*/}
+                <CoursesPage menuList={menuList}
+                             placeHolder={placeHolder}
+                             fullCourseInfo={fullCoursesInfo}
+                             itemsCount4Paginate={Object.keys(fullCoursesInfo).length}
+                             pageSize={pageSize}
+                             currentPage={currentPage}
+                             onPageChange={this.handlePageChange}
+
                 />
+
             </>
         );
     }

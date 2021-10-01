@@ -1,0 +1,21 @@
+.form-check-label{
+    color: #323E73;
+    font-size: 14px;
+}
+.form-check-input:focus{
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 255, 0, 0.25)
+}
+.form-check-input:active{
+    background-color: #C8FFC8;
+}
+.form-check-input:checked{
+    background-color: #323E73!important;
+}
+.dropdown-menu{
+    background: #FBFEFD;
+    border: 1px solid  #E1F7ED;
+}
+.dropdown-toggle-split{
+    font-size: 15px;
+    color: #E1F7ED;
+}

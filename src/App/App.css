@@ -31,6 +31,11 @@ body {
   .nav-link-footer{
     text-align: right;
   }
+  .namad-footer{
+    width: 55px !important;
+    margin-bottom: 5px !important;
+
+  }
 }
 
 @media screen and (max-width: 600px) {

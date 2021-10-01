@@ -1,0 +1,14 @@
+.page-link{
+    color: #323E73;
+    border-radius: 3px;
+    border-color: #BFC3D6;
+}
+.page-item{
+    margin: 2px;
+    font-size: 15px;
+    cursor: pointer;
+}
+li.active > a.page-link{
+    background-color: #323E73 !important;
+    color: #E1F7ED !important;
+}
