@@ -4,7 +4,7 @@ import login from "../../../assets/img/login.svg";
 const LoginImg = () => {
   return (
     <>
-      <img src={login} alt="login" />
+      <img className="login-image" src={login} alt="login" />
     </>
   );
 };

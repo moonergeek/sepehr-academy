@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.container {
+  background: url("../../assets/img/bglog.png") repeat-x 30%;
+}
+
 .login-form .form-control {
   border: none;
   background: #ffffff;
@@ -29,8 +33,10 @@
 }
 
 .register-img {
-  width: 573px;
-  height: 316px;
+  width: 400px;
+  height: 380px;
+  margin-right: 80px;
+  margin-top: 20px;
 }
 
 .text-color {
@@ -39,4 +45,23 @@
 
 .register-btn {
   background: #82d8b9 !important;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    background: url("../../assets/img/bglog.png") repeat-x;
+  }
+
+  .register-img {
+    margin-left: 90px;
+    width: 400px;
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .register-img {
+    width: 300px;
+    height: 250px;
+  }
 }

@@ -9,11 +9,11 @@ import "./Register.css";
 const Register = () => {
   return (
     <div className="container">
-      <div className="mt-5 row">
-        <div className="mt-5 col-md-12 col-lg-7 order-lg-last d-flex justify-content-center shadow-sm">
+      <div className="mt-5 row p-4">
+        <div className="mt-4 col-lg-12 col-xl-7 order-xl-last d-flex justify-content-center">
           <RegisterImg />
         </div>
-        <div className="login-form order-lg-first col-md-12 col-lg-5 mt-5 d-flex flex-column">
+        <div className="order-xl-first col-lg-12 col-xl-5 mt-5 d-flex flex-column login-form">
           <BtnContainer />
           <RegisterTitle />
           <RegisterForm />

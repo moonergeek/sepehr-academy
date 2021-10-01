@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.container {
+  background: url("../../assets/img/bglog.png") repeat-x 30%;
+}
+
 .login-form .form-control {
   border: none;
   background: #ffffff;
@@ -38,4 +42,31 @@
 
 .login-btn {
   background: #82d8b9 !important;
+}
+
+.login-image {
+  margin-right: 80px;
+  width: 530px;
+  height: 420px;
+  position: relative;
+  bottom: 15px;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    background: url("../../assets/img/bglog.png") repeat-x;
+  }
+
+  .login-image {
+    width: 450px;
+    height: 350px;
+    position: relative;
+    left: 40px;
+  }
+
+  .form-change {
+    position: relative;
+    top: -50px;
+  }
 }

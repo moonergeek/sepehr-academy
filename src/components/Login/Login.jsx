@@ -8,11 +8,11 @@ import "./Login.css";
 const Login = () => {
   return (
     <div className="container">
-      <div className="mt-5 row">
-        <div className="mt-4 col-md-12 col-lg-7 order-lg-last d-flex justify-content-center align-items-start">
+      <div className="row mt-5 p-4">
+        <div className="mb-3 col-lg-12 col-xl-7 order-xl-last d-flex justify-content-center align-items-start">
           <LoginImg />
         </div>
-        <div className="login-form mt-5 p-1 col-md-12 col-lg-5 order-lg-first d-flex flex-column shadow-sm">
+        <div className="login-form col-lg-12 order-xl-first col-xl-5 p-5 mt-4 d-flex flex-column form-change">
           <BtnContainer />
           <LoginTitle />
           <LoginForm />
