@@ -7,7 +7,7 @@ import "./Login.css";
 
 const Login = () => {
   return (
-    <div className="container">
+    <div className="container login-container">
       <div className="row mt-5 p-4">
         <div className="mb-3 col-lg-12 col-xl-7 order-xl-last d-flex justify-content-center align-items-start">
           <LoginImg />

@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-.container {
+.login-container {
   background: url("../../assets/img/bglog.png") repeat-x 30%;
 }
 
@@ -54,7 +54,7 @@
 
 
 @media only screen and (max-width: 1200px) {
-  .container {
+  .login-container {
     background: url("../../assets/img/bglog.png") repeat-x;
   }
 
