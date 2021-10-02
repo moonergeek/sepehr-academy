@@ -5,8 +5,7 @@ import SearchBox from "../../components/searchBox/serachbox";
 import DropDownBtn from "../../components/dropDownBtn/dropDownBtn";
 import CoursesBody from "../../components/courses/coursesBody/coursesBody";
 import Pagination from "../../components/common/pagination/pagination";
-import group12 from "../../assets/img/Group 12.svg";
-import user from "../../assets/img/user.svg";
+import Footer from "../../components/footer/footer";
 
 const CoursesPage = (props) => {
     return (
@@ -20,14 +19,14 @@ const CoursesPage = (props) => {
                             <SearchBox placeHolder={props.placeHolder}/>
                         </form>
                         <div className={"col-lg-3 col-md-4 col-sm-5 col-5 pe-2"}>
-                           <DropDownBtn/>
+                            <DropDownBtn/>
                         </div>
                     </div>
                 </div>
                 <CoursesBody courseInfo={props.fullCourseInfo}/>
 
                 <div className="d-flex justify-content-center">
-                    <form className="d-flex">
+                    <form className="d-flex mb-2">
                         <Pagination itemsCount={props.itemsCount4Paginate}
                                     pageSize={props.pageSize}
                                     currentPage={props.currentPage}
@@ -36,6 +35,7 @@ const CoursesPage = (props) => {
                     </form>
                 </div>
             </div>
+            <Footer footerInfo={props.footerInfo}/>
         </>
     );
 };

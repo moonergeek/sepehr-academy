@@ -4,9 +4,11 @@ import group12 from "../../assets/img/Group 12.svg";
 import user from "../../assets/img/user.svg";
 import "./header.css"
 import {BsThreeDots} from "react-icons/all";
+import {NavLink} from "react-router-dom";
 
 
 class Header extends Component {
+
     render() {
         return (
             <>
@@ -23,11 +25,13 @@ class Header extends Component {
                                     <BsThreeDots/>
                                 </button>
                                 <div className="collapse navbar-collapse" id="navbarNav">
-                                    <ul className="navbar-nav  mx-auto mb-2 mb-lg-0">
-                                        {this.props.menuList.map(item => <li key={item} className={"nav-item"}>
-                                            <a className="nav-link" aria-current="page" href="#">{item} </a>
-                                        </li>)}
-                                    </ul>
+                                    <div className="navbar-nav mx-auto mb-2 mb-lg-0">
+                                        {Object.keys(this.props.menuList).map(item => <NavLink
+                                            key={item} className={"nav-item nav-link"}
+                                            to={this.props.menuList[item].routeAddress}>
+                                            {this.props.menuList[item].menuItem}
+                                        </NavLink>)}
+                                    </div>
                                     <div className="d-flex justify-content-start">
                                         <form className="d-flex header-icons">
                                             <a className="nav-link" href="#">

@@ -4,21 +4,24 @@
     border-radius: 10px;
     height: 100%;
 }
+
 .navbar-light .navbar-nav .nav-link {
-    color: #323E73 ;
+    color: #323E73;
 }
 
-.active {
-    color: #198643 !important ;
-}
+/*.active {*/
+/*    color: #198643 !important ;*/
+/*}*/
 
 .nav-link {
     font-size: 17px;
+    margin-right: 7px;
 }
 
 .nav-link:hover {
-    color: #198643 !important ;
+    color: #198643 !important;
 }
+
 .logo {
     width: 40px;
     height: 35px;
@@ -28,16 +31,19 @@
 .nav-item {
     padding-left: 14px;
 }
-.header-icons{
-    margin-right:-10px ;
+
+.header-icons {
+    margin-right: -10px;
     margin-top: 5px;
 }
+
 .navbar-toggler {
     color: #323E73 !important;
     border-radius: 10px;
 }
+
 .navbar-toggler:focus {
-    color: #323E73 ;
+    color: #323E73;
     outline: none;
     opacity: 80%;
 }
