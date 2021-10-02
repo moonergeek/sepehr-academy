@@ -6,10 +6,12 @@ import "./NotFound.css";
 
 const NotFound = () => {
   return (
-    <div className="container d-flex flex-column align-items-center">
-      <NotFoundImg />
-      <NotFoundTitle />
-      <BackButton />
+    <div className="not-found">
+      <div className="container d-flex flex-column align-items-center">
+        <NotFoundImg />
+        <NotFoundTitle />
+        <BackButton />
+      </div>
     </div>
   );
 };
