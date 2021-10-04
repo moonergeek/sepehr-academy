@@ -23,6 +23,7 @@ import {
     Route,
     Link
   } from "react-router-dom";
+import Maghale from "../screens/maghale";
 
 class App extends Component {
     state = {
@@ -254,32 +255,32 @@ class App extends Component {
         } = this.state;
         return (
             <>
-                            <Router>
-                <switch>
-                    <Route path="/" exact component={() =>                              <HomePage menuList={menuList}
-                          placeholder={placeHolder}
-                          bannerTitle={bannerTitle}
-                          bannerDetail={bannerDetail}
-                          coursesTitle={coursesTitle}
-                          coursesBtnTitle={coursesBtnTitle}
-                          courseInfo={coursesInfo}
-                          blogTitle={blogTitle}
-                          blogBtnTitle={blogBtnTitle}
-                          blogInfo={blogInfo}
-                          teachersInfo={teachersInfo}
-                          teachersTitle={teachersTitle}
-                          favCoursesInfo={favCoursesInfo}
-                          favCoursesTitle={favCoursesTitle}
-                          footerInfo={footerInfo}
-                />} />
-<Route path="/maghalat" component={() =>                 <Maghalat menuList={menuList}
-                                                                   placeholder={placeHolder}
-/>} />
+{/*                            <Router>*/}
+{/*                <switch>*/}
+{/*                    <Route path="/" exact component={() =>                              <HomePage menuList={menuList}*/}
+{/*                          placeholder={placeHolder}*/}
+{/*                          bannerTitle={bannerTitle}*/}
+{/*                          bannerDetail={bannerDetail}*/}
+{/*                          coursesTitle={coursesTitle}*/}
+{/*                          coursesBtnTitle={coursesBtnTitle}*/}
+{/*                          courseInfo={coursesInfo}*/}
+{/*                          blogTitle={blogTitle}*/}
+{/*                          blogBtnTitle={blogBtnTitle}*/}
+{/*                          blogInfo={blogInfo}*/}
+{/*                          teachersInfo={teachersInfo}*/}
+{/*                          teachersTitle={teachersTitle}*/}
+{/*                          favCoursesInfo={favCoursesInfo}*/}
+{/*                          favCoursesTitle={favCoursesTitle}*/}
+{/*                          footerInfo={footerInfo}*/}
+{/*                />} />*/}
+{/*<Route path="/maghalat" component={() =>                 <Maghalat menuList={menuList}*/}
+{/*                                                                   placeholder={placeHolder}*/}
+{/*/>} />*/}
 
 
-                </switch>
-                </Router>
-
+{/*                </switch>*/}
+{/*                </Router>*/}
+<Maghale menuList={menuList}    footerInfo={footerInfo}/>
             </>
         );
     }
