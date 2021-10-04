@@ -41,6 +41,14 @@ const DropDownBtn = () => {
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
                             <label className="form-check-label" htmlFor="flexCheckDefault">
+                                دوره های محبوب
+                            </label>
+                        </div>
+                    </a></li>
+                    <li><a className="dropdown-item" href="#">
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                            <label className="form-check-label" htmlFor="flexCheckDefault">
                                 دوره های به اتمام رسیده
                             </label>
                         </div>
