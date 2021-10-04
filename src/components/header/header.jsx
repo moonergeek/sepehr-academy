@@ -4,7 +4,7 @@ import group12 from "../../assets/img/Group 12.svg";
 import user from "../../assets/img/user.svg";
 import "./header.css"
 import {BsThreeDots} from "react-icons/all";
-import {NavLink} from "react-router-dom";
+import {NavLink, Link} from "react-router-dom";
 
 
 class Header extends Component {
@@ -16,9 +16,9 @@ class Header extends Component {
                     <div className="row">
                         <nav className="navbar navbar-expand-lg navbar-light">
                             <div className="container-fluid">
-                                <a className="navbar-brand" href="#">
+                                <Link className="navbar-brand" to="/">
                                     <img src={logoGreen} className="logo"/>
-                                </a>
+                                </Link>
                                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#navbarNav"
                                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,11 +34,11 @@ class Header extends Component {
                                     </div>
                                     <div className="d-flex justify-content-start">
                                         <form className="d-flex header-icons">
-                                            <a className="nav-link" href="#">
+                                            <Link className="nav-link">
                                                 <img src={group12} alt="user-icon"
                                                      width="45px"/>
                                                 <img src={user} alt="user-icon" width="45px" className={"me-1"}/>
-                                            </a>
+                                            </Link>
                                         </form>
                                     </div>
                                 </div>

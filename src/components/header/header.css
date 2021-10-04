@@ -9,9 +9,9 @@
     color: #323E73;
 }
 
-/*.active {*/
-/*    color: #198643 !important ;*/
-/*}*/
+.active {
+    color: #198643 !important ;
+}
 
 .nav-link {
     font-size: 17px;

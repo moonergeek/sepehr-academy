@@ -18,7 +18,7 @@ import teacherImg2 from "../assets/img/test_2.png"
 import footerLine from "../assets/img/Path 1.svg";
 import CoursesPage from "../screens/coursesPage/coursesPage";
 import {paginate} from "../utils/paginate";
-import {Route, Switch} from "react-router-dom";
+import {Route, Switch,Redirect} from "react-router-dom";
 
 
 class App extends Component {
@@ -34,23 +34,23 @@ class App extends Component {
             },
             {
                 menuItem: "معرفی مدرسین",
-                routeAddress: "/",
+                routeAddress: "/teachers",
             },
             {
                 menuItem: "بلاگ",
-                routeAddress: "/",
+                routeAddress: "/blog",
             },
             {
                 menuItem: "پرسش و پاسخ",
-                routeAddress: "/",
+                routeAddress: "/questions",
             },
             {
                 menuItem: "درخواست مشاوره",
-                routeAddress: "/",
+                routeAddress: "/request",
             },
             {
                 menuItem: "درباره ما",
-                routeAddress: "/",
+                routeAddress: "/about",
             },
         ],
 
