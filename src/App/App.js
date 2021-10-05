@@ -255,32 +255,36 @@ class App extends Component {
         } = this.state;
         return (
             <>
-{/*                            <Router>*/}
-{/*                <switch>*/}
-{/*                    <Route path="/" exact component={() =>                              <HomePage menuList={menuList}*/}
-{/*                          placeholder={placeHolder}*/}
-{/*                          bannerTitle={bannerTitle}*/}
-{/*                          bannerDetail={bannerDetail}*/}
-{/*                          coursesTitle={coursesTitle}*/}
-{/*                          coursesBtnTitle={coursesBtnTitle}*/}
-{/*                          courseInfo={coursesInfo}*/}
-{/*                          blogTitle={blogTitle}*/}
-{/*                          blogBtnTitle={blogBtnTitle}*/}
-{/*                          blogInfo={blogInfo}*/}
-{/*                          teachersInfo={teachersInfo}*/}
-{/*                          teachersTitle={teachersTitle}*/}
-{/*                          favCoursesInfo={favCoursesInfo}*/}
-{/*                          favCoursesTitle={favCoursesTitle}*/}
-{/*                          footerInfo={footerInfo}*/}
-{/*                />} />*/}
-{/*<Route path="/maghalat" component={() =>                 <Maghalat menuList={menuList}*/}
-{/*                                                                   placeholder={placeHolder}*/}
-{/*/>} />*/}
+                            <Router>
+                <switch>
+                    <Route path="/" exact component={() =>                              <HomePage menuList={menuList}
+                          placeholder={placeHolder}
+                          bannerTitle={bannerTitle}
+                          bannerDetail={bannerDetail}
+                          coursesTitle={coursesTitle}
+                          coursesBtnTitle={coursesBtnTitle}
+                          courseInfo={coursesInfo}
+                          blogTitle={blogTitle}
+                          blogBtnTitle={blogBtnTitle}
+                          blogInfo={blogInfo}
+                          teachersInfo={teachersInfo}
+                          teachersTitle={teachersTitle}
+                          favCoursesInfo={favCoursesInfo}
+                          favCoursesTitle={favCoursesTitle}
+                          footerInfo={footerInfo}
+                />} />
+<Route path="/maghalat" exact component={() =>                 <Maghalat menuList={menuList}
+                                                                   placeholder={placeHolder}
+                                                                   footerInfo={footerInfo}
+/>} />
+
+            <Route path={"/maghalat/maghale"}  component={() =>              <Maghale menuList={menuList}
+                                                                              footerInfo={footerInfo}/>}     />
 
 
-{/*                </switch>*/}
-{/*                </Router>*/}
-<Maghale menuList={menuList}    footerInfo={footerInfo}/>
+                </switch>
+                </Router>
+
             </>
         );
     }

@@ -18,8 +18,10 @@ const Card = (props) => {
     const usersPerPage = 9;
     const pagesVisited = pageNumber * usersPerPage;
 
+
+
     const displayUsers = Object.keys(props.maghale).slice(pagesVisited, pagesVisited + usersPerPage)
-        .map(blogObj => <div key={blogObj} className="col-sm-12 col-md-6 col-lg-4">
+        .map(blogObj => <div  key={blogObj} className="col-sm-12 col-md-6 col-lg-4">
             <div className="card mb-5">
                 <img src={props.maghale[blogObj].imgAddress} className="card-img-top" alt="..."/>
                 <div className="card-body">
