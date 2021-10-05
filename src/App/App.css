@@ -85,4 +85,11 @@ body {
   .nav-link-footer{
     text-align: right;
   }
+  .dropdown-toggle-split{
+    font-size: 12px !important;
+    margin-top: 3px !important;
+  }
+  .form-check-label{
+    font-size: 12px !important;
+  }
 }

@@ -8,7 +8,7 @@ const DropDownBtn = () => {
             <div className="dropdown mt-3 pe-4">
                 <button className="btn btn-success dropdown-toggle-split" type="button"
                         id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    مرتب سازی دوره ها
+                    مرتب سازی کل دوره ها
                     <IoIosArrowDown/>
                 </button>
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">

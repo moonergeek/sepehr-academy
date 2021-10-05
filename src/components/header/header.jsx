@@ -1,19 +1,9 @@
 import React, {Component} from 'react';
 import logoGreen from "../../assets/img/logo green.png";
-import group12 from "../../assets/img/Group 12.svg";
-import greenCircle from "../../assets/img/Ellipse 1.svg";
-import user from "../../assets/img/user.svg";
 import "./header.css"
-import {
-    BsThreeDots,
-    CgShoppingBag,
-    FaCircle, FaUserCog, FaUserEdit,
-    FcIdea,
-    FiShoppingCart,
-    HiOutlineUserCircle, MdShoppingCart,
-    RiShoppingCartLine
-} from "react-icons/all";
+import {BsThreeDots, FaCircle, FaUserCog, MdShoppingCart,} from "react-icons/all";
 import {NavLink, Link} from "react-router-dom";
+import Badge from '@mui/material/Badge';
 
 
 class Header extends Component {
@@ -44,10 +34,12 @@ class Header extends Component {
                                     <div className="d-flex justify-content-start ">
                                         <form className="d-flex header-icons">
                                             <Link className="nav-link ">
-                                                <FaCircle className={"circle margin"} fontSize={40}/>
-                                                <MdShoppingCart fontSize={22} className={"shopping-card-icon "}/>
-                                                <FaCircle className={"circle"} fontSize={40}/>
-                                                <FaUserCog fontSize={22} className={"user-icon "}/>
+                                                <FaCircle className={"circle margin"} fontSize={42}/>
+                                                <Badge className={"shopping-badge"} badgeContent={4} color="secondary">
+                                                    <MdShoppingCart fontSize={24} className={"shopping-card-icon"}/>
+                                                </Badge>
+                                                <FaCircle className={"circle"} fontSize={42}/>
+                                                <FaUserCog fontSize={24} className={"user-icon "}/>
                                             </Link>
                                         </form>
 

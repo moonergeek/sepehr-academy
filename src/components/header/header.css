@@ -57,22 +57,21 @@
 .circle{
     color: #198643;
     opacity: 78%;
-    box-shadow: 0 3px 10px #E1F7ED;
 }
 .shopping-card-icon{
-    position: relative;
     color: #E1F7ED;
-    right: -17px;
-    top: 1px;
+
 }
 .user-icon{
     position: relative;
     color: #E1F7ED;
-    right: -34px;
+    right: -36px;
 }
 .margin{
     margin-left: -15px;
 }
-
-
-
+.shopping-badge{
+    position: relative;
+    right: -19px;
+    top: 1px;
+}
