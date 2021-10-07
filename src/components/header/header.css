@@ -46,6 +46,7 @@
     color: #323E73;
     outline: none;
     opacity: 80%;
+    box-shadow: none;
 }
 .shopping-icon{
     background-image: url("../../assets/img/Ellipse 1.svg");

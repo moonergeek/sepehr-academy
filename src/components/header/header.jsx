@@ -34,7 +34,7 @@ class Header extends Component {
                                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#navbarNav"
                                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                                    <BsThreeDots/>
+                                    <BsThreeDots className={"rotation"}/>
                                 </button>
                                 <div className="collapse navbar-collapse" id="navbarNav">
                                     <div className="navbar-nav mx-auto mb-2 mb-lg-0">

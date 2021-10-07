@@ -9,8 +9,6 @@
     background-color: #FBFEFD;
 }
 .accordion-button:focus{
-    color: #198643;
-    background-color:#E1F7ED;
     box-shadow: none;
 }
 .accordion-button:checked{

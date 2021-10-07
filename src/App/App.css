@@ -39,6 +39,9 @@ body {
   .question-link{
     font-size: 14px !important;
   }
+  .accordion-item{
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -97,5 +100,14 @@ body {
   }
   .question-link{
     font-size: 12px !important;
+  }
+  .accordion-button{
+    font-size: 13px;
+  }
+  .accordion-item{
+    font-size: 12px;
+  }
+  .nav-item{
+    font-size: 15px !important;
   }
 }
