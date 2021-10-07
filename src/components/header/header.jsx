@@ -1,10 +1,23 @@
 import React, {Component} from 'react';
 import logoGreen from "../../assets/img/logo green.png";
 import "./header.css"
-import {BsThreeDots, FaCircle, FaUserCog, MdShoppingCart,} from "react-icons/all";
+import {BsThreeDots, FaCircle, FaUserPlus, MdShoppingCart,} from "react-icons/all";
 import {NavLink, Link} from "react-router-dom";
 import Badge from '@mui/material/Badge';
+import Tooltip from '@mui/material/Tooltip';
+import { styled } from '@mui/material/styles';
+import {tooltipClasses} from "@mui/material";
 
+const BootstrapTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} arrow classes={{ popper: className }} />
+))(({ theme }) => ({
+    [`& .${tooltipClasses.arrow}`]: {
+        color: theme.palette.common.black,
+    },
+    [`& .${tooltipClasses.tooltip}`]: {
+        backgroundColor: theme.palette.common.black,
+    },
+}));
 
 class Header extends Component {
 
@@ -26,7 +39,7 @@ class Header extends Component {
                                 <div className="collapse navbar-collapse" id="navbarNav">
                                     <div className="navbar-nav mx-auto mb-2 mb-lg-0">
                                         {Object.keys(this.props.menuList).map(item => <NavLink
-                                            key={item} className={"nav-item nav-link"}
+                                            key={item} className={"nav-item nav-link nav-header"}
                                             to={this.props.menuList[item].routeAddress}>
                                             {this.props.menuList[item].menuItem}
                                         </NavLink>)}
@@ -35,11 +48,19 @@ class Header extends Component {
                                         <form className="d-flex header-icons">
                                             <Link className="nav-link ">
                                                 <FaCircle className={"circle margin"} fontSize={42}/>
+                                                <BootstrapTooltip title="سبد خرید">
+                                                    <div className={"inline-block"}>
                                                 <Badge className={"shopping-badge"} badgeContent={4} color="secondary">
                                                     <MdShoppingCart fontSize={24} className={"shopping-card-icon"}/>
                                                 </Badge>
+                                                    </div>
+                                                </BootstrapTooltip>
                                                 <FaCircle className={"circle"} fontSize={42}/>
-                                                <FaUserCog fontSize={24} className={"user-icon "}/>
+                                                    <BootstrapTooltip title="ثبت نام">
+                                                        <div className={"inline-block-2"}>
+                                                <FaUserPlus fontSize={24} className={"user-icon"}/>
+                                                        </div>
+                                                    </BootstrapTooltip>
                                             </Link>
                                         </form>
 

@@ -18,7 +18,9 @@ import teacherImg2 from "../assets/img/test_2.png"
 import footerLine from "../assets/img/Path 1.svg";
 import CoursesPage from "../screens/coursesPage/coursesPage";
 import {paginate} from "../utils/paginate";
-import {Route, Switch,Redirect} from "react-router-dom";
+import {Route, Switch, Redirect} from "react-router-dom";
+import FQA from "../screens/fQA/fQA";
+import Footer from "../components/footer/footer";
 
 
 class App extends Component {
@@ -550,6 +552,9 @@ class App extends Component {
                                                                              onPageChange={this.handlePageChange}
                                                                              footerInfo={footerInfo}
 
+                        />}/>
+                        <Route path={"/questions"} component={() => <FQA
+                            menuList={menuList}
                         />}/>
                     </Switch>
                 </main>

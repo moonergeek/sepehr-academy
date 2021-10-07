@@ -18,7 +18,7 @@
     margin-right: 7px;
 }
 
-.nav-link:hover {
+.nav-link.nav-header:hover {
     color: #198643 !important;
 }
 
@@ -65,13 +65,25 @@
 .user-icon{
     position: relative;
     color: #E1F7ED;
-    right: -36px;
+    right: -2px;
 }
 .margin{
     margin-left: -15px;
 }
 .shopping-badge{
     position: relative;
-    right: -19px;
+    right: 1px;
     top: 1px;
 }
+.inline-block{
+    display: inline-block;
+    position: relative;
+    right: -20px;
+}
+.inline-block-2{
+    display: inline-block;
+    position: relative;
+    right: -34px;
+}
+
+
