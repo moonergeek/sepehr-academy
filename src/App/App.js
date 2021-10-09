@@ -22,8 +22,9 @@ import {
     Switch,
     Route,
     Link
-  } from "react-router-dom";
+} from "react-router-dom";
 import Maghale from "../screens/maghale";
+import DarkhasteMoshavere from "../screens/darkhasteMoshavere";
 
 class App extends Component {
     state = {
@@ -32,6 +33,8 @@ class App extends Component {
         placeHolder: " جستجو دوره های مختلف ...",
         bannerTitle: "آموزش برنامه نویسی ، خودآموزی ، ورود به بازارکار ",
         bannerDetail: "حرفه ایی شدن رو از امروز شروع کن ",
+
+        moshavereTitle: "درخواست مشاوره",
 
         coursesInfo: {
             obj1: {
@@ -209,30 +212,31 @@ class App extends Component {
             },
         },
 
-        footerInfo:{
-            item1:{
-                title:"دسترسی",
-                lineImage:footerLine,
-                it1:" دوره ها",
-                it2:"معرفی مدرسین",
-                it3:"بلاگ",
+        footerInfo: {
+            item1: {
+                title: "دسترسی",
+                lineImage: footerLine,
+                it1: " دوره ها",
+                it2: "معرفی مدرسین",
+                it3: "بلاگ",
             },
-            item2:{
-                title:"متداول",
-                lineImage:footerLine,
-                it1:" پرسش و پاسخ ",
-                it2:"درخواست مشاوره",
-                it3:"ورود",
+            item2: {
+                title: "متداول",
+                lineImage: footerLine,
+                it1: " پرسش و پاسخ ",
+                it2: "درخواست مشاوره",
+                it3: "ورود",
             },
-            item3:{
-                title:"ارتباط با ما",
-                lineImage:footerLine,
-                it1:"تماس با ما",
-                it2:" درباره ما",
-                it3:"رزومه",
+            item3: {
+                title: "ارتباط با ما",
+                lineImage: footerLine,
+                it1: "تماس با ما",
+                it2: " درباره ما",
+                it3: "رزومه",
             },
         },
     }
+
 
 
     render() {
@@ -252,37 +256,41 @@ class App extends Component {
             favCoursesInfo,
             favCoursesTitle,
             footerInfo,
+            moshavereTitle,
         } = this.state;
         return (
             <>
-                            <Router>
-                <switch>
-                    <Route path="/" exact component={() =>                              <HomePage menuList={menuList}
-                          placeholder={placeHolder}
-                          bannerTitle={bannerTitle}
-                          bannerDetail={bannerDetail}
-                          coursesTitle={coursesTitle}
-                          coursesBtnTitle={coursesBtnTitle}
-                          courseInfo={coursesInfo}
-                          blogTitle={blogTitle}
-                          blogBtnTitle={blogBtnTitle}
-                          blogInfo={blogInfo}
-                          teachersInfo={teachersInfo}
-                          teachersTitle={teachersTitle}
-                          favCoursesInfo={favCoursesInfo}
-                          favCoursesTitle={favCoursesTitle}
-                          footerInfo={footerInfo}
-                />} />
-<Route path="/maghalat" exact component={() =>                 <Maghalat menuList={menuList}
-                                                                   placeholder={placeHolder}
-                                                                   footerInfo={footerInfo}
-/>} />
+                <Router>
+                    <switch>
+                        <Route path="/" exact component={() => <HomePage menuList={menuList}
+                                                                         placeholder={placeHolder}
+                                                                         bannerTitle={bannerTitle}
+                                                                         bannerDetail={bannerDetail}
+                                                                         coursesTitle={coursesTitle}
+                                                                         coursesBtnTitle={coursesBtnTitle}
+                                                                         courseInfo={coursesInfo}
+                                                                         blogTitle={blogTitle}
+                                                                         blogBtnTitle={blogBtnTitle}
+                                                                         blogInfo={blogInfo}
+                                                                         teachersInfo={teachersInfo}
+                                                                         teachersTitle={teachersTitle}
+                                                                         favCoursesInfo={favCoursesInfo}
+                                                                         favCoursesTitle={favCoursesTitle}
+                                                                         footerInfo={footerInfo}
+                        />}/>
+                        <Route path="/maghalat" exact component={() => <Maghalat menuList={menuList}
+                                                                                 placeholder={placeHolder}
+                                                                                 footerInfo={footerInfo}
+                        />}/>
 
-            <Route path={"/maghalat/maghale"}  component={() =>              <Maghale menuList={menuList}
-                                                                              footerInfo={footerInfo}/>}     />
+                        <Route path={"/maghalat/maghale"} component={() => <Maghale menuList={menuList}
+                                                                                    footerInfo={footerInfo}/>}/>
 
 
-                </switch>
+                        <Route path={"/darkhasteMoshavere"} component={() => <DarkhasteMoshavere menuList={menuList}
+                                                                                                 footerInfo={footerInfo}
+                                                                                                 moshavereTitle={moshavereTitle}/>}/>
+                    </switch>
                 </Router>
 
             </>
