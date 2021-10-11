@@ -2,7 +2,7 @@
   border: none;
   background: #ffffff;
   color: #198643 !important;
-  width: 400px;
+  width: 600px !important;
   box-shadow: 0 3px 10px #e1f7ed;
   border-radius: 5px;
 }
@@ -13,7 +13,7 @@
 }
 
 .form-control::placeholder {
-  color: #198643;
+  color: #198643 !important;
   padding-right: 8px;
   font-size: 15px;
   opacity: 80%;
