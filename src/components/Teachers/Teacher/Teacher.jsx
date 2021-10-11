@@ -5,7 +5,7 @@ const Teacher = ({ teacherInfo }) => {
   return (
     <>
       {teacherInfo.map((teacher) => (
-        <div className="col-4 mb-4">
+        <div className="col-lg-4 col-md-6 d-flex justify-content-center mb-4">
           <div className="card rounded shadow-sm" style={{ width: "18rem" }}>
             <img
               src={teacher.img}
