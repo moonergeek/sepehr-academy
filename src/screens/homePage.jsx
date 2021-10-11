@@ -12,6 +12,7 @@ const HomePage = (props) => {
     return (
         <>
             <Header menuList={props.menuList}/>
+
             <Banner
                 placeholder={props.placeholder}
                 title={props.bannerTitle}

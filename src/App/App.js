@@ -32,12 +32,12 @@ class App extends Component {
         menuList: ["خانه", "دوره ها", "معرفی مدرسین", "بلاگ", "پرسش و پاسخ", "درخواست مشاوره", "درباره ما",],
 
         placeHolder: " جستجو دوره های مختلف ...",
-        placeHolderForMaghalat:"جستجو مقاله های مختلف ...",
+        placeHolderForMaghalat: "جستجو مقاله های مختلف ...",
         bannerTitle: "آموزش برنامه نویسی ، خودآموزی ، ورود به بازارکار ",
         bannerDetail: "حرفه ایی شدن رو از امروز شروع کن ",
 
         moshavereTitle: "درخواست مشاوره",
-        maghalatTitle:"مقالات",
+        maghalatTitle: "مقالات",
 
         coursesInfo: {
             obj1: {
@@ -156,7 +156,7 @@ class App extends Component {
         blogBtnTitle: "مشاهده همه مقالات",
 
         maghale: [
-             {
+            {
                 id: 1,
                 docNumber: "مقاله شماره 1",
                 title: "میشه یه شبه برنامه نویس شد؟ ",
@@ -169,7 +169,7 @@ class App extends Component {
                     "در این راکت‌کست توضیح میدهم که برنامه نویس شدن راه و رسم خود را دارد و نمیتواند در یک شب، یا یک هفته یا یک ماه تبدیل به یک برنامه نویس کار کشته شد. باید زمان لازم برای تبدیل شدن به یک برنامه نویس طی شود تا شما بتوانید خود را برنامه نویس خطاب کنید.",
 
             },
-             {
+            {
                 id: 2,
                 docNumber: "مقاله شماره 2",
                 title: " نگاهی به نمونه کارهای شما ",
@@ -189,7 +189,7 @@ class App extends Component {
                     "پونه مدیا در کنار شماست تا صفحات وب‌تان را به صدر نتایج برتر گوگل برسانید. آن‌چه ما را از دیگران متمایز می‌کند، سابقه و پایداری‌مان در این حوزه است. همکاری با مطرح‌ترین برندهای ایرانی و به ثمر رساندن بیش از 200 پروژه سئو موفق گواه صحت ادعای ماست.",
 
             },
-             {
+            {
                 id: 3,
                 docNumber: "مقاله شماره 3",
                 title: "خودآموزی ، ورود به بازارکار ",
@@ -202,7 +202,7 @@ class App extends Component {
                     "اگر دنبال کار می‌گردید و هنوز وارد بازار کار نشده‌اید، احتمالاً استرس و نگرانی زیادی دارید که بدون تجربه و سابقه‌ی کاری هیچ جا به شما کار نمی‌دهند. تمام این احساسات درست هستند. اما باور کنید یا نه در دنیای شغلی جدید چیزی فراتر از سابقه و تجربه برای مدیران و کارفرمایان اهمیت دارد. امروزه برای آن‌که بتوانید جایگاه محکمی در فضای کسب و کار برای خودتان دست و پا کنید، نیاز به کسب یک سری از مهارتهای شغلی ضروری دارید.",
 
             },
-             {
+            {
                 id: 4,
                 docNumber: "مقاله شماره 4",
                 title: " نگاهی به نمونه کارهای شما ",
@@ -223,7 +223,7 @@ class App extends Component {
 
 
             },
-             {
+            {
                 id: 5,
                 docNumber: "مقاله شماره 5",
                 title: "میشه یه شبه برنامه نویس شد؟ ",
@@ -237,7 +237,7 @@ class App extends Component {
 
 
             },
-             {
+            {
                 id: 6,
                 docNumber: "مقاله شماره 6",
                 title: "حرفه ایی شدن رو از امروز شروع کن ",
@@ -248,7 +248,7 @@ class App extends Component {
                 desc: "در زندگی پرمشغله‌ی امروز، تلاش برای رسیدن به رویای‌مان کار دشواری است. با وجود شغل تمام‌وقت و داشتن فرزند، این کار حتی غیرممکن به نظر می‌رسد. پس شما چه می‌کنید و چگونه زندگی‌تان را پیش می‌برید؟ اگر هر روز به طور هدفمند زمانی را به پیشرفت و بهسازی اختصاص ندهید، بی‌شک زمان زیادی را در این زندگی پرهیایو از دست خواهید داد. پیش از اینکه به خود بیایید، پیر و پژمرده، مبهوتِ این خواهید بود که عمرتان چقدر سریع گذشت! برای این که این بلا سرتان نیاید، شما هم ۸ کاری که افراد موفق قبل از ۸ صبح انجام می‌دهند، را انجام دهید.",
 
             },
-             {
+            {
                 id: 7,
                 docNumber: "مقاله شماره 7",
                 title: "میشه یه شبه برنامه نویس شد؟ ",
@@ -262,7 +262,7 @@ class App extends Component {
 
 
             },
-             {
+            {
                 id: 8,
                 docNumber: "مقاله شماره 8",
                 title: " نگاهی به نمونه کارهای شما ",
@@ -283,7 +283,7 @@ class App extends Component {
 
 
             },
-             {
+            {
                 id: 9,
                 docNumber: "مقاله شماره 9",
                 title: "خودآموزی ، ورود به بازارکار ",
@@ -297,7 +297,7 @@ class App extends Component {
 
 
             },
-             {
+            {
                 id: 10,
                 docNumber: "مقاله شماره 10",
                 title: " نگاهی به نمونه کارهای شما ",
@@ -318,7 +318,7 @@ class App extends Component {
 
 
             },
-             {
+            {
                 id: 11,
                 docNumber: "مقاله شماره 11",
                 title: "میشه یه شبه برنامه نویس شد؟ ",
@@ -332,7 +332,7 @@ class App extends Component {
 
 
             },
-             {
+            {
                 id: 12,
                 docNumber: "مقاله شماره 12",
                 title: "حرفه ایی شدن رو از امروز شروع کن ",
@@ -344,7 +344,7 @@ class App extends Component {
 
 
             },
-             {
+            {
                 id: 13,
                 docNumber: "مقاله شماره 13",
                 title: "میشه یه شبه برنامه نویس شد؟ ",
@@ -358,7 +358,7 @@ class App extends Component {
 
 
             },
-             {
+            {
                 id: 14,
                 docNumber: "مقاله شماره 14",
                 title: " نگاهی به نمونه کارهای شما ",
@@ -379,7 +379,7 @@ class App extends Component {
 
 
             },
-             {
+            {
                 id: 15,
                 docNumber: "مقاله شماره 15",
                 title: "خودآموزی ، ورود به بازارکار ",
@@ -393,7 +393,7 @@ class App extends Component {
 
 
             },
-             {
+            {
                 id: 16,
                 docNumber: "مقاله شماره 16",
                 title: " نگاهی به نمونه کارهای شما ",
@@ -414,7 +414,7 @@ class App extends Component {
 
 
             },
-             {
+            {
                 id: 17,
                 docNumber: "مقاله شماره 17",
                 title: "میشه یه شبه برنامه نویس شد؟ ",
@@ -428,7 +428,7 @@ class App extends Component {
 
 
             },
-             {
+            {
                 id: 18,
                 docNumber: "مقاله شماره 18",
                 title: "حرفه ایی شدن رو از امروز شروع کن ",
@@ -579,6 +579,7 @@ class App extends Component {
                                                                          favCoursesInfo={favCoursesInfo}
                                                                          favCoursesTitle={favCoursesTitle}
                                                                          footerInfo={footerInfo}
+                                                                         maghale={maghale}
                         />}/>
                         <Route path="/maghalat" exact component={() => <Maghalat menuList={menuList}
                                                                                  maghalatTitle={maghalatTitle}
@@ -594,7 +595,8 @@ class App extends Component {
                         />}/>
 
                         <Route path={"/maghalat/maghale"} component={() => <Maghale menuList={menuList}
-                                                                                    footerInfo={footerInfo}/>}/>
+                                                                                    footerInfo={footerInfo}
+                                                                                    maghale={maghale}/>}/>
 
 
                         <Route path={"/darkhasteMoshavere"} component={() => <DarkhasteMoshavere menuList={menuList}
