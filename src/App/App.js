@@ -9,6 +9,7 @@ import NotFound from "../components/NotFound/NotFound";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import Teachers from "../components/Teachers/Teachers";
+import About from "../components/About/About";
 import "./App.css";
 
 const App = () => {
@@ -30,6 +31,10 @@ const App = () => {
 
           <Route path="/teachers">
             <Teachers />
+          </Route>
+
+          <Route path="/about">
+            <About />
           </Route>
 
           <Route path="/404">
