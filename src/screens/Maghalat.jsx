@@ -6,6 +6,7 @@ import Footer from "../components/footer/footer";
 import {paginate} from "../utils/paginate";
 import Pagination from "../components/pagination/pagination";
 import Title from "../components/Title/Title";
+import SearchBox from "../components/searchBox/serachbox";
 
 const Maghalat = (props) => {
 
@@ -15,7 +16,7 @@ const Maghalat = (props) => {
 
 
             <Header menuList={props.menuList}/>
-            <Sort placeholder={props.placeholder}/>
+            <Sort placeHolder={props.placeHolder}/>
             <Card maghale={props.maghale} fullInfo={props.fullInfo}/>
             <div className="d-flex justify-content-center">
                 <form className="d-flex mb-2">

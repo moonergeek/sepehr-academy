@@ -32,6 +32,7 @@ class App extends Component {
         menuList: ["خانه", "دوره ها", "معرفی مدرسین", "بلاگ", "پرسش و پاسخ", "درخواست مشاوره", "درباره ما",],
 
         placeHolder: " جستجو دوره های مختلف ...",
+        placeHolderForMaghalat:"جستجو مقاله های مختلف ...",
         bannerTitle: "آموزش برنامه نویسی ، خودآموزی ، ورود به بازارکار ",
         bannerDetail: "حرفه ایی شدن رو از امروز شروع کن ",
 
@@ -556,6 +557,7 @@ class App extends Component {
             moshavereTitle,
             maghalatTitle,
             maghale,
+            placeHolderForMaghalat,
         } = this.state;
         const paginatedMaghalat = paginate(maghale, currentPage, pageSize);
         return (
@@ -580,7 +582,7 @@ class App extends Component {
                         />}/>
                         <Route path="/maghalat" exact component={() => <Maghalat menuList={menuList}
                                                                                  maghalatTitle={maghalatTitle}
-                                                                                 placeholder={placeHolder}
+                                                                                 placeHolder={placeHolderForMaghalat}
                                                                                  footerInfo={footerInfo}
                                                                                  maghale={maghale}
                                                                                  fullInfo={paginatedMaghalat}

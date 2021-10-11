@@ -1,29 +1,7 @@
-.main {
-    position: relative;
-    top: 130px;
+
+.back-div {
     background-color: #F3FCF8;
-    height: 70px;
-    /*direction: ltr;*/
-    /*margin-bottom: 50px;*/
-    margin:200px auto;
-}
-
-.sort {
-    position: absolute;
-    left: 20px;
-    top: 15px;
-    /*border: 1px solid black;*/
-    /*direction: ltr;*/
-    text-align: center;
-    border-radius: 10px;
-    width: 250px;
-}
-
-.sort:hover {
-    cursor: pointer;
-}
-
-.nav-link {
-    color: #323E73;
     box-shadow: 0 3px 10px #E1F7ED;
+    border-radius: 10px;
+    height: 100%;
 }
