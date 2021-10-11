@@ -25,6 +25,7 @@ class Header extends Component {
                                 <div className="collapse navbar-collapse" id="navbarNav">
                                     <ul className="navbar-nav  mx-auto mb-2 mb-lg-0">
                                         {this.props.menuList.map(item => <li key={item} className={"nav-item"}>
+
                                             <a className="nav-link" aria-current="page" href="#">{item} </a>
                                         </li>)}
                                     </ul>

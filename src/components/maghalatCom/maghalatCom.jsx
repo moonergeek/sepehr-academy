@@ -6,9 +6,7 @@ import Footer from "../footer/footer";
 
 function MaghalatCom(props) {
 
-    function showMaghale(id) {
 
-    }
 
 
     return (
@@ -16,8 +14,8 @@ function MaghalatCom(props) {
 
             <Header menuList={props.menuList}/>
             <Sort placeholder={props.placeholder}/>
-            <Card onclick={showMaghale(props.id)} maghale={props.maghale}/>
-            <Footer footerInfo={props.footerInfo}/>
+            <Card maghale={props.maghale}/>
+
         </div>
     );
 }

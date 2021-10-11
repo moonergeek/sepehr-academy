@@ -9,7 +9,7 @@ function DarkhasteMoshavere(props) {
         <div>
             <Header menuList={props.menuList}/>
 
-            <Title moshavereTitle={props.moshavereTitle}/>
+            <Title Title={props.moshavereTitle}/>
 
             <Field/>
 

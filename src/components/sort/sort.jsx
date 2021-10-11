@@ -24,7 +24,7 @@ export default function Sort(props) {
     const [showBasic, setShowBasic] = useState(false);
 
     return (
-        <MDBNavbar className='container mt-3 main' expand='lg' >
+        <MDBNavbar className='container mt-0 main' expand='lg' >
             <MDBContainer fluid>
 
 
