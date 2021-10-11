@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Teachers.css";
 import Teacher from "./Teacher/Teacher";
+import SearchBox from "../searchBox/serachbox";
 
 const Teachers = () => {
   const [teacherInfo, setTeacherInfo] = useState([
@@ -16,6 +17,7 @@ const Teachers = () => {
     <>
       <div className="container">
         <div className="row mt-5">
+          <SearchBox />
           <Teacher teacherInfo={teacherInfo} />
         </div>
       </div>
