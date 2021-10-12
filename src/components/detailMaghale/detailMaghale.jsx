@@ -10,372 +10,212 @@ const DetailMaghale = (props) => {
             <Router>
                 <Switch>
                     <Route path={"/maghalat/maghale/1"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[0].imgAddress} className={"container img"} alt={".."}/>
-                            </div>
-                            <h1 className={"Title"}> {props.maghale[0].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[0].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[0].desc}</p>
 
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[0].imgAddress} className="card-img-top" alt="..." />
+                                <div className="card-body">
+                                    <h5 className="card-title">{props.maghale[0].title}</h5>
+                                    <p className="card-text">{props.maghale[0].desc}</p>
+                                    <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
+                                </div>
                         </div>
+
                     </Route>
 
                     <Route path={"/maghalat/maghale/2"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[1].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[1].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[1].title}</h5>
+                                <p className="card-text">{props.maghale[1].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[1].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[1].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[1].desc}</p>
-
                         </div>
                     </Route>
 
                     <Route path={"/maghalat/maghale/3"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[2].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[2].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[2].title}</h5>
+                                <p className="card-text">{props.maghale[2].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[2].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[2].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[2].desc}</p>
-
                         </div>
                     </Route>
 
                     <Route path={"/maghalat/maghale/4"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[3].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[3].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[3].title}</h5>
+                                <p className="card-text">{props.maghale[3].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[3].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[3].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[3].desc}</p>
-
                         </div>
                     </Route>
 
 
                     <Route path={"/maghalat/maghale/5"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[4].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[4].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[4].title}</h5>
+                                <p className="card-text">{props.maghale[4].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[4].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[4].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[4].desc}</p>
-
                         </div>
                     </Route>
 
                     <Route path={"/maghalat/maghale/6"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[5].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[5].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[5].title}</h5>
+                                <p className="card-text">{props.maghale[5].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[5].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[5].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[5].desc}</p>
-
                         </div>
                     </Route>
 
 
                     <Route path={"/maghalat/maghale/7"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[6].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[6].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[6].title}</h5>
+                                <p className="card-text">{props.maghale[6].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[6].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[6].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[6].desc}</p>
-
                         </div>
                     </Route>
 
 
                     <Route path={"/maghalat/maghale/8"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[7].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[7].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[7].title}</h5>
+                                <p className="card-text">{props.maghale[7].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[7].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[7].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[7].desc}</p>
-
                         </div>
                     </Route>
 
 
                     <Route path={"/maghalat/maghale/9"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[8].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[8].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[8].title}</h5>
+                                <p className="card-text">{props.maghale[8].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[8].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[8].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[8].desc}</p>
-
                         </div>
                     </Route>
 
                     <Route path={"/maghalat/maghale/10"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[9].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[9].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[9].title}</h5>
+                                <p className="card-text">{props.maghale[9].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[9].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[9].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[9].desc}</p>
-
                         </div>
                     </Route>
 
 
                     <Route path={"/maghalat/maghale/11"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[10].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[10].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[10].title}</h5>
+                                <p className="card-text">{props.maghale[10].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[10].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[10].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[10].desc}</p>
-
                         </div>
                     </Route>
 
 
                     <Route path={"/maghalat/maghale/12"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[11].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[11].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[11].title}</h5>
+                                <p className="card-text">{props.maghale[11].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[11].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[11].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[11].desc}</p>
-
                         </div>
                     </Route>
 
                     <Route path={"/maghalat/maghale/13"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[12].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[12].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[12].title}</h5>
+                                <p className="card-text">{props.maghale[12].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[12].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[12].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[12].desc}</p>
-
                         </div>
                     </Route>
 
                     <Route path={"/maghalat/maghale/14"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[13].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[13].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[13].title}</h5>
+                                <p className="card-text">{props.maghale[13].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[13].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[13].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[13].desc}</p>
-
                         </div>
                     </Route>
 
 
                     <Route path={"/maghalat/maghale/15"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[14].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[14].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[14].title}</h5>
+                                <p className="card-text">{props.maghale[14].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[14].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[14].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[14].desc}</p>
-
                         </div>
                     </Route>
 
 
                     <Route path={"/maghalat/maghale/16"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[15].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[15].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[15].title}</h5>
+                                <p className="card-text">{props.maghale[15].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[15].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[15].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[15].desc}</p>
-
                         </div>
                     </Route>
 
 
                     <Route path={"/maghalat/maghale/17"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container mt-3 Image"}>
-                                <img src={props.maghale[16].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[16].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[16].title}</h5>
+                                <p className="card-text">{props.maghale[16].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[16].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[16].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[16].desc}</p>
-
                         </div>
                     </Route>
 
 
                     <Route path={"/maghalat/maghale/18"}>
-                        <div className={"main container mt-5"}>
-                            <div className={"container Image"}>
-                                <img src={props.maghale[17].imgAddress} className={"container img"} alt={".."}/>
+                        <div className="card mb-3 main">
+                            <img src={props.maghale[17].imgAddress} className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{props.maghale[17].title}</h5>
+                                <p className="card-text">{props.maghale[17].desc}</p>
+                                <p className="card-text"><small className="text-muted">نوشته شده در تاریخ 1400/07/19</small></p>
                             </div>
-                            <h1 className={"Title"}> {props.maghale[17].title}</h1>
-                            <div className={"container mt-3 Info"}>
-                                <div className={"Author"}>
-                                    نوشته شده توسط <br/> سینا رضایی
-                                </div>
-                                <span className={"Date"}>
-                                نوشته شده در تاریخ <br/> 1400/07/19
-                            </span>
-                            </div>
-                            <h3 className={"Topic"}>{props.maghale[17].docDetails}</h3>
-                            <p className={"Desc container mt-3"}>{props.maghale[17].desc}</p>
-
                         </div>
                     </Route>
 
