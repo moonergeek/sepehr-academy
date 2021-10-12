@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const BtnContainer = () => {
   return (
@@ -6,9 +7,11 @@ const BtnContainer = () => {
       <button className={`btn m-1 rounded-pill text-color bg-light`}>
         ثبت نام
       </button>
-      <button className={`btn m-1 rounded-pill text-color`}>
-        ورود کاربران
-      </button>
+      <Link to="/login">
+        <button className={`btn m-1 rounded-pill text-color`}>
+          ورود کاربران
+        </button>
+      </Link>
     </div>
   );
 };

@@ -44,16 +44,16 @@
 
 .share {
   margin-right: 8px;
-  padding: 14px 0;
-  box-shadow: 0 0 8px 1px #ddd;
+  padding: 10px 0;
+  box-shadow: 0 0 0 0.1rem rgba(40, 167, 69, 0.25) !important;
   color: #323e73;
 }
 
 .share-icon {
   margin-left: 20px;
-  padding: 8px;
+  padding: 4px;
   border-radius: 50%;
-  box-shadow: 0 0 8px 1px #ddd;
+  box-shadow: 0 0 0 0.1rem rgba(40, 167, 69, 0.25) !important;
   cursor: pointer;
 }
 

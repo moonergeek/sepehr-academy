@@ -8,10 +8,12 @@
 }
 
 .login-form .form-control {
+  width: 100% !important;
+  height: 33px;
   border: none;
   background: #ffffff;
   color: #198643 !important;
-  box-shadow: 0 3px 10px #e1f7ed;
+  box-shadow: 0 3px 10px #e1f7ed !important;
   border-radius: 5px;
 }
 
@@ -20,7 +22,7 @@
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
 }
 
-.login-form .form-control::placeholder {
+.login-form .form-control2::placeholder {
   color: #198643;
   padding-right: 8px;
   opacity: 80%;
