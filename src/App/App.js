@@ -20,7 +20,14 @@ import CoursesPage from "../screens/coursesPage/coursesPage";
 import {paginate} from "../utils/paginate";
 import {Route, Switch, Redirect} from "react-router-dom";
 import FQA from "../screens/fQA/fQA";
-import Footer from "../components/footer/footer";
+import About from "../screens/about/About";
+import Teachers from "../screens/teachers/Teachers";
+import DarkhasteMoshavere from "../screens/darkhasteMoshavere";
+import Login from "../screens/Login/Login";
+import Register from "../screens/Register/Register";
+import ForgetPass from "../screens/forgetPass/forgetPass";
+import Course from "../screens/Course/Course";
+import NotFound from "../screens/NotFound/NotFound";
 
 
 class App extends Component {
@@ -493,8 +500,8 @@ class App extends Component {
         //accordion data
         accFullList: [
             {
-                id:"heading1",
-                div_id:"collapse1",
+                id: "heading1",
+                div_id: "collapse1",
                 accTitle: " چطور میتونم در سایت ثبت نام کنم؟",
                 accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
                     "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
@@ -502,24 +509,24 @@ class App extends Component {
                     "                            همین راحتی"
             },
             {
-                id:"heading2",
-                div_id:"collapse2",
+                id: "heading2",
+                div_id: "collapse2",
                 accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
                 accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
                     "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
                     "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
             },
             {
-                id:"heading3",
-                div_id:"collapse3",
+                id: "heading3",
+                div_id: "collapse3",
                 accTitle: "  چطور میتونم حسابم رو ویرایش کنم؟",
                 accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
                     "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
                     "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
             },
             {
-                id:"heading4",
-                div_id:"collapse4",
+                id: "heading4",
+                div_id: "collapse4",
                 accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
                 accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
                     "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
@@ -527,8 +534,8 @@ class App extends Component {
             },
 
             {
-                id:"heading5",
-                div_id:"collapse5",
+                id: "heading5",
+                div_id: "collapse5",
                 accTitle: " چطور میتونم در سایت ثبت نام کنم؟",
                 accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
                     "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
@@ -536,16 +543,16 @@ class App extends Component {
                     "                            همین راحتی"
             },
             {
-                id:"heading6",
-                div_id:"collapse6",
+                id: "heading6",
+                div_id: "collapse6",
                 accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
                 accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
                     "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
                     "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
             },
             {
-                id:"heading7",
-                div_id:"collapse7",
+                id: "heading7",
+                div_id: "collapse7",
                 accTitle: " داده ساختار یافته FAQ چیست؟",
                 accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
                     "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
@@ -553,32 +560,32 @@ class App extends Component {
                     "                            همین راحتی"
             },
             {
-                id:"heading8",
-                div_id:"collapse8",
+                id: "heading8",
+                div_id: "collapse8",
                 accTitle: "  چرا باید از FAQ rich snippet استفاده کنیم؟",
                 accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
                     "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
                     "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
             },
             {
-                id:"heading9",
-                div_id:"collapse9",
+                id: "heading9",
+                div_id: "collapse9",
                 accTitle: "   نمایش پرسش و پاسخ در نتایج گوگل چگونه است؟",
                 accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
                     "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
                     "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
             },
             {
-                id:"heading10",
-                div_id:"collapse10",
+                id: "heading10",
+                div_id: "collapse10",
                 accTitle: "  صفحات دارای خطا",
                 accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
                     "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
                     "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
             },
             {
-                id:"heading11",
-                div_id:"collapse11",
+                id: "heading11",
+                div_id: "collapse11",
                 accTitle: "بررسی خطاهای سوالات متداول در گوگل سرچ کنسول",
                 accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
                     "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
@@ -586,24 +593,24 @@ class App extends Component {
                     "                            همین راحتی"
             },
             {
-                id:"heading12",
-                div_id:"collapse12",
+                id: "heading12",
+                div_id: "collapse12",
                 accTitle: "  پرسش و پاسخ با افزونه یوست",
                 accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
                     "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
                     "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
             },
             {
-                id:"heading13",
-                div_id:"collapse13",
+                id: "heading13",
+                div_id: "collapse13",
                 accTitle: "  آیا نبود درایو نوری دیسک خوان یک ضعف است؟",
                 accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
                     "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
                     "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
             },
             {
-                id:"heading14",
-                div_id:"collapse14",
+                id: "heading14",
+                div_id: "collapse14",
                 accTitle: " قدرت سخت افزاری سرفیس در چه حد است؟",
                 accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
                     "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
@@ -611,8 +618,8 @@ class App extends Component {
             },
 
             {
-                id:"heading15",
-                div_id:"collapse15",
+                id: "heading15",
+                div_id: "collapse15",
                 accTitle: " برتری های سرفیس نسبت به لپ‌تاپ چیست؟ ",
                 accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
                     "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
@@ -621,12 +628,11 @@ class App extends Component {
             },
 
 
-
         ],
         accProfileList: [
             {
-                id:"heading1",
-                div_id:"collapse1",
+                id: "heading1",
+                div_id: "collapse1",
                 accTitle: " چطور میتونم در سایت ثبت نام کنم؟",
                 accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
                     "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
@@ -634,24 +640,24 @@ class App extends Component {
                     "                            همین راحتی"
             },
             {
-                id:"heading2",
-                div_id:"collapse2",
+                id: "heading2",
+                div_id: "collapse2",
                 accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
                 accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
                     "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
                     "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
             },
             {
-                id:"heading3",
-                div_id:"collapse3",
+                id: "heading3",
+                div_id: "collapse3",
                 accTitle: "  چطور میتونم حسابم رو ویرایش کنم؟",
                 accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
                     "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
                     "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
             },
             {
-                id:"heading4",
-                div_id:"collapse4",
+                id: "heading4",
+                div_id: "collapse4",
                 accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
                 accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
                     "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
@@ -659,8 +665,8 @@ class App extends Component {
             },
 
             {
-                id:"heading5",
-                div_id:"collapse5",
+                id: "heading5",
+                div_id: "collapse5",
                 accTitle: " چطور میتونم در سایت ثبت نام کنم؟",
                 accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
                     "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
@@ -668,8 +674,8 @@ class App extends Component {
                     "                            همین راحتی"
             },
             {
-                id:"heading6",
-                div_id:"collapse6",
+                id: "heading6",
+                div_id: "collapse6",
                 accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
                 accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
                     "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
@@ -679,8 +685,8 @@ class App extends Component {
         ],
         accCoursesList: [
             {
-                id:"heading7",
-                div_id:"collapse7",
+                id: "heading7",
+                div_id: "collapse7",
                 accTitle: " داده ساختار یافته FAQ چیست؟",
                 accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
                     "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
@@ -688,24 +694,24 @@ class App extends Component {
                     "                            همین راحتی"
             },
             {
-                id:"heading8",
-                div_id:"collapse8",
+                id: "heading8",
+                div_id: "collapse8",
                 accTitle: "  چرا باید از FAQ rich snippet استفاده کنیم؟",
                 accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
                     "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
                     "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
             },
             {
-                id:"heading9",
-                div_id:"collapse9",
+                id: "heading9",
+                div_id: "collapse9",
                 accTitle: "   نمایش پرسش و پاسخ در نتایج گوگل چگونه است؟",
                 accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
                     "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
                     "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
             },
             {
-                id:"heading10",
-                div_id:"collapse10",
+                id: "heading10",
+                div_id: "collapse10",
                 accTitle: "  صفحات دارای خطا",
                 accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
                     "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
@@ -714,8 +720,8 @@ class App extends Component {
         ],
         accConfigList: [
             {
-                id:"heading11",
-                div_id:"collapse11",
+                id: "heading11",
+                div_id: "collapse11",
                 accTitle: "بررسی خطاهای سوالات متداول در گوگل سرچ کنسول",
                 accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
                     "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
@@ -723,24 +729,24 @@ class App extends Component {
                     "                            همین راحتی"
             },
             {
-                id:"heading12",
-                div_id:"collapse12",
+                id: "heading12",
+                div_id: "collapse12",
                 accTitle: "  پرسش و پاسخ با افزونه یوست",
                 accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
                     "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
                     "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
             },
             {
-                id:"heading13",
-                div_id:"collapse13",
+                id: "heading13",
+                div_id: "collapse13",
                 accTitle: "  آیا نبود درایو نوری دیسک خوان یک ضعف است؟",
                 accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
                     "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
                     "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
             },
             {
-                id:"heading14",
-                div_id:"collapse14",
+                id: "heading14",
+                div_id: "collapse14",
                 accTitle: " قدرت سخت افزاری سرفیس در چه حد است؟",
                 accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
                     "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
@@ -748,8 +754,8 @@ class App extends Component {
             },
 
             {
-                id:"heading15",
-                div_id:"collapse15",
+                id: "heading15",
+                div_id: "collapse15",
                 accTitle: " برتری های سرفیس نسبت به لپ‌تاپ چیست؟ ",
                 accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
                     "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
@@ -758,7 +764,6 @@ class App extends Component {
             },
 
         ],
-
 
 
     }
@@ -836,6 +841,34 @@ class App extends Component {
                             accConfigList={accConfigList}
                             footerInfo={footerInfo}
                         />}/>
+                        <Route path={"/about"} component={() => <About
+                            menuList={menuList}
+                            footerInfo={footerInfo}
+                        />}/>
+
+                        <Route path={"/teachers"} component={() => <Teachers
+                            placeHolder={placeHolder}
+                            menuList={menuList}
+                            footerInfo={footerInfo}
+                            itemsCount4Paginate={Object.keys(fullCoursesInfo).length}
+                            pageSize={pageSize}
+                            currentPage={currentPage}
+                            onPageChange={this.handlePageChange}
+                        />}/>
+                        <Route path={"/request"} component={() => <DarkhasteMoshavere
+                            menuList={menuList}
+                            footerInfo={footerInfo}
+                        />}/>
+
+                        <Route path={"/login"} component={() => <Login/>}/>
+                        <Route path={"/register"} component={() => <Register/>}/>
+                        <Route path={"/forgetPassword"} component={() => <ForgetPass/>}/>
+                        <Route path={"/course"} component={() => <Course
+                            menuList={menuList}
+                            footerInfo={footerInfo}
+                        />}/>
+                        <Route path={"/not-found"} component={()=> <NotFound/>}/>
+
                     </Switch>
                 </main>
 

@@ -6,13 +6,17 @@ import DropDownBtn from "../../components/dropDownBtn/dropDownBtn";
 import CoursesBody from "../../components/courses/coursesBody/coursesBody";
 import Pagination from "../../components/common/pagination/pagination";
 import Footer from "../../components/footer/footer";
+import Title from "../../components/moshavere-req/Title/Title";
+import Course from "../Course/Course";
+import {Route} from "react-router-dom";
 
 const CoursesPage = (props) => {
     return (
         <>
             <Header menuList={props.menuList}/>
+            <Title Title={"دوره ها"}/>
 
-            <div className={"container pt-3 mt-5"}>
+            <div className={"container pt-1 mt-4"}>
                 <div className={"back-div"}>
                     <div className={"row"}>
                         <form className="d-flex pe-4 py-3 col-md-8 col-lg-9 col-sm-7 col-7">
@@ -36,6 +40,7 @@ const CoursesPage = (props) => {
                 </div>
             </div>
             <Footer footerInfo={props.footerInfo}/>
+
         </>
     );
 };

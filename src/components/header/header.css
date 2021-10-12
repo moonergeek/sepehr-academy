@@ -86,5 +86,17 @@
     position: relative;
     right: -34px;
 }
+.headerDrop-menu{
+    background: #FBFEFD!important;
+}
+.headerDrop-item{
+    font-size: 13px;
+    color: #323e73;
+}
+.headerDrop-item:hover{
+    background: none;
+    color: #198643;
+    border-bottom: 1px solid #eee;
+}
 
 

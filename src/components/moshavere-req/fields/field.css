@@ -1,0 +1,14 @@
+.fields{
+    margin:200px auto;
+
+    color: #323E73 ;
+}
+
+mb-3{
+    border-radius: 10px;
+}
+
+.Btn{
+    position: relative;
+    top: 20px;
+}

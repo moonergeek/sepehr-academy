@@ -5,12 +5,12 @@ import {BsThreeDots, FaCircle, FaUserPlus, MdShoppingCart,} from "react-icons/al
 import {NavLink, Link} from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import Tooltip from '@mui/material/Tooltip';
-import { styled } from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
 import {tooltipClasses} from "@mui/material";
 
-const BootstrapTooltip = styled(({ className, ...props }) => (
-    <Tooltip {...props} arrow classes={{ popper: className }} />
-))(({ theme }) => ({
+const BootstrapTooltip = styled(({className, ...props}) => (
+    <Tooltip placement={props.placeMent} {...props} arrow classes={{popper: className}}/>
+))(({theme}) => ({
     [`& .${tooltipClasses.arrow}`]: {
         color: theme.palette.common.black,
     },
@@ -48,19 +48,39 @@ class Header extends Component {
                                         <form className="d-flex header-icons">
                                             <Link className="nav-link ">
                                                 <FaCircle className={"circle margin"} fontSize={42}/>
-                                                <BootstrapTooltip title="سبد خرید">
+                                                <BootstrapTooltip placeMent={"right"} title="سبد خرید">
                                                     <div className={"inline-block"}>
-                                                <Badge className={"shopping-badge"} badgeContent={4} color="secondary">
-                                                    <MdShoppingCart fontSize={24} className={"shopping-card-icon"}/>
-                                                </Badge>
+                                                        <Badge className={"shopping-badge"} badgeContent={4}
+                                                               color="secondary">
+                                                            <MdShoppingCart fontSize={24}
+                                                                            className={"shopping-card-icon"}/>
+                                                        </Badge>
                                                     </div>
                                                 </BootstrapTooltip>
                                                 <FaCircle className={"circle"} fontSize={42}/>
-                                                    <BootstrapTooltip title="ثبت نام">
-                                                        <div className={"inline-block-2"}>
-                                                <FaUserPlus fontSize={24} className={"user-icon"}/>
+                                                <BootstrapTooltip placeMent={"left"} title="ثبت نام">
+                                                    <div className={"inline-block-2"}>
+                                                        <div className="dropdown">
+                                                            <FaUserPlus fontSize={24}
+                                                                        className={"user-icon dropdown-toggle"}
+                                                                        id="dropdownMenuButton1"
+                                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                            />
+                                                            <ul className="dropdown-menu headerDrop-menu"
+                                                                aria-labelledby="dropdownMenuButton1">
+                                                                <div className={"d-flex justify-content-center"}>
+                                                                    <li>
+                                                                        <Link className="dropdown-item headerDrop-item " to={"/login"} >ورود</Link>
+                                                                    </li>
+                                                                </div>
+                                                                <div className={"d-flex justify-content-center"}>
+                                                                    <li><Link className="dropdown-item headerDrop-item" to={"/register"} >ثبت
+                                                                        نام</Link></li>
+                                                                </div>
+                                                            </ul>
                                                         </div>
-                                                    </BootstrapTooltip>
+                                                    </div>
+                                                </BootstrapTooltip>
                                             </Link>
                                         </form>
 

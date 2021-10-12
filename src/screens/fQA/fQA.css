@@ -1,12 +1,12 @@
-.question-link{
+.question-NavLink{
     color: #3C6E71;
     border: 1px solid #E1F7ED !important;
 
 }
-.question-link.active{
+.question-NavLink.active{
     background-color: #E1F7ED  !important;
     box-shadow: 0 3px 10px #E1F7ED;
 }
-.question-link:hover{
+.question-NavLink:hover{
     color: #198643;
 }

@@ -3,28 +3,29 @@ import "./fQA.css"
 import Badge from "@mui/material/Badge";
 import {NavLink, Redirect, Route, Switch} from "react-router-dom";
 import Accordion from "../../components/acc-question/accordion";
-import ForgetPass from "../../components/forgetPass/forgetPass";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
+import Title from "../../components/moshavere-req/Title/Title";
 
 const FQA = (props) => {
     return (
         <>
             <Header menuList={props.menuList}/>
-            <div className={"container mt-5 pt-2"}>
+            <Title Title={"سوالات متداول"}/>
+            <div className={"container mt-4 pt-2"}>
                 <div className={"row"}>
                     <div className={"col-12"}>
                     <nav className="nav nav-pills nav-fill">
 
                         <Badge badgeContent={Object.keys(props.accFullList).length} color="success">
 
-                                <NavLink className="nav-link question-link" aria-current="page" to={"/questions/all"}>همه
+                                <NavLink className="nav-link question-NavLink" aria-current="page" to={"/questions/all"}>همه
                                     موارد</NavLink>
                         </Badge>
 
-                        <NavLink className="nav-link question-link" to={"/questions/courses"}>مربوط به خرید دوره ها </NavLink>
-                        <NavLink className="nav-link question-link" to={"/questions/profile"}>پروفایل و ثبت نام</NavLink>
-                        <NavLink className="nav-link question-link" to={"/questions/config"}>سوالات فنی</NavLink>
+                        <NavLink className="nav-link question-NavLink" to={"/questions/courses"}>مربوط به خرید دوره ها </NavLink>
+                        <NavLink className="nav-link question-NavLink" to={"/questions/profile"}>پروفایل و ثبت نام</NavLink>
+                        <NavLink className="nav-link question-NavLink" to={"/questions/config"}>سوالات فنی</NavLink>
                     </nav>
                 </div>
                 </div>
