@@ -12,11 +12,11 @@ const Course = (props) => {
       <Header menuList={props.menuList}/>
       <div className="container">
         <div className="row mt-5">
-          <div className="details col-lg-4 order-last order-lg-first col-md-12 col-md-12 shadow-sm flex-column justify-content-md-center p-4">
+          <div className="details col-lg-4 order-last order-lg-first col-md-12 col-md-12 light-green-shadow flex-column justify-content-md-center p-4">
             <CourseDetails />
           </div>
 
-          <div className="col-lg-8 order-first order-lg-last d-flex shadow-sm flex-column align-items-center">
+          <div className="col-lg-8 order-first order-lg-last d-flex  flex-column align-items-center">
             <CourseImg />
             <CourseInfo />
           </div>

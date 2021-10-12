@@ -36,11 +36,11 @@ const Teachers = (props) => {
   return (
     <>
       <Header menuList={props.menuList}/>
+      <Title Title={"معرفی مدرسین"}/>
       <div className="container">
-        <Title Title={"معرفی مدرسین"}/>
         <div className="row mt-4">
           <form className="d-flex  mb-5 col-md-12 col-lg-12 col-sm-12 col-12 justify-content-center">
-            <SearchBox placeHolder={props.placeHolder}/>
+            <SearchBox placeHolder={"جستجو نام استاد"}/>
           </form>
           <Teacher teacherInfo={teacherInfo} />
           <form className="d-flex mb-2 justify-content-center mt-5">

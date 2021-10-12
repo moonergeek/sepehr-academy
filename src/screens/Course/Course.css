@@ -74,3 +74,6 @@
   color: #7a81a1;
   font-size: 15px;
 }
+.light-green-shadow{
+  box-shadow: 0 3px 10px #E1F7ED;
+}
