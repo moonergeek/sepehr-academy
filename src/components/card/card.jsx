@@ -13,45 +13,45 @@ const Card = (props) => {
 
         <>
 
-                    <div className="course-body mt-4 container">
-                        <div className="row">
+            <div className="course-body mt-4 container">
+                <div className="row">
 
-                            {Object.keys(props.fullInfo).map(blogObj => <div key={blogObj}
-                                                                             className="col-sm-12 col-md-6 col-lg-4">
-                                <Link to={"/maghalat/maghale/" + props.fullInfo[blogObj].id} className={"Link"}>
-                                    <div className="card mb-5">
-                                        <img src={props.fullInfo[blogObj].imgAddress} className="card-img-top"
-                                             alt="..."/>
-                                        <div className="card-body">
-                                            <p className="document-number">{props.fullInfo[blogObj].docNumber}</p>
-                                            <h5 className="doc-title">{props.fullInfo[blogObj].title} </h5>
-                                            <p className="card-text">
-                                                <div className="mt-2">
-                                                    <p className="document-details">{props.fullInfo[blogObj].docDetails}
-                                                    </p>
-                                                    <div className="row">
-                                                        <BlogLine/>
-                                                    </div>
-                                                    <div className="card-end">
-                                                        <div className="row">
-                                                            <ReadBtn/>
-                                                            <div className="col-sm-12 col-md-6">
-                                                                <div className="d-flex justify-content-end">
-                                                                    <Comment/>
-                                                                    <Like/>
-                                                                </div>
-                                                            </div>
+                    {Object.keys(props.fullInfo).map(blogObj => <div key={blogObj}
+                                                                     className="col-sm-12 col-md-6 col-lg-4">
+                        <Link to={"/maghalat/maghale/" + props.fullInfo[blogObj].id} className={"Link"}>
+                            <div className="card mb-5">
+                                <img src={props.fullInfo[blogObj].imgAddress} className="card-img-top"
+                                     alt="..."/>
+                                <div className="card-body">
+                                    <p className="document-number">{props.fullInfo[blogObj].docNumber}</p>
+                                    <h5 className="doc-title">{props.fullInfo[blogObj].title} </h5>
+                                    <p className="card-text">
+                                        <div className="mt-2">
+                                            <p className="document-details">{props.fullInfo[blogObj].docDetails}
+                                            </p>
+                                            <div className="row">
+                                                <BlogLine/>
+                                            </div>
+                                            <div className="card-end">
+                                                <div className="row">
+                                                    <ReadBtn/>
+                                                    <div className="col-sm-12 col-md-6">
+                                                        <div className="d-flex justify-content-end">
+                                                            <Comment/>
+                                                            <Like/>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </Link>
-                            </div>)}
+                                    </p>
+                                </div>
+                            </div>
+                        </Link>
+                    </div>)}
 
-                        </div>
-                    </div>
+                </div>
+            </div>
 
         </>
     )

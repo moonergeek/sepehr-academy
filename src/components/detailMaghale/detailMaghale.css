@@ -2,6 +2,7 @@
     position: relative;
     top: 130px;
 margin-bottom: 300px;
+
 }
 
 .Title{
@@ -12,18 +13,22 @@ margin-bottom: 300px;
     margin: 200px auto;
     position: relative;
     top:150px;
+    color: #BFC3D6;
 }
 
 .Author{
-    text-align: left;
-    color: #23A455;
+
+
     display: flex;
     justify-content: left;
 }
 
+
 .Date{
     display: flex;
     justify-content: right;
+    position: relative;
+    top: -42px;
 }
 
 .Topic{
@@ -31,4 +36,13 @@ margin-bottom: 300px;
     margin-bottom: 130px;
     position: relative;
     top:50px;
+}
+
+.img{
+    height: 423px;
+}
+.main{
+    box-shadow: 0 3px 10px #E1F7ED;
+    height: 100%;
+    background-color: #F3FCF8;
 }

@@ -34,7 +34,6 @@ export default function Field() {
 
 
                 <MDBInputGroup className='mb-3'>
-                    {/*<MDBInputGroupText>پیام شما</MDBInputGroupText>*/}
                     <MDBInputGroupElement textarea type='text' placeholder="پیام شما"/>
                 </MDBInputGroup>
                 <MDBBtn color='success' className={"Btn"}>ارسال</MDBBtn>
