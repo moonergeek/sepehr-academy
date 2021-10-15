@@ -28,8 +28,8 @@ import Register from "../screens/Register/Register";
 import ForgetPass from "../screens/forgetPass/forgetPass";
 import Course from "../screens/Course/Course";
 import NotFound from "../screens/NotFound/NotFound";
-import Maghalat from "../screens/Maghalat";
-import Maghale from "../screens/maghale";
+import Maghalat from "../screens/blog/Maghalat";
+import Maghale from "../screens/blog/maghale";
 
 
 class App extends Component {
