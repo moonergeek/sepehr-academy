@@ -9,7 +9,7 @@ export default function Sort(props) {
 
     return (
 
-        <div className={"container pt-3 mt-5"}>
+        <div className={"container pt-3 mt-4"}>
             <div className={"back-div"}>
                 <div className={"row"}>
                     <form className="d-flex pe-4 py-3 col-md-8 col-lg-9 col-sm-7 col-7">

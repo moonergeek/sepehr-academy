@@ -4,8 +4,9 @@
     border-radius: 10px;
     height: 100%;
 }
+
 .navbar-light .navbar-nav .nav-link {
-    color: #323E73 ;
+    color: #323E73;
 }
 
 .active {
@@ -14,11 +15,13 @@
 
 .nav-link {
     font-size: 17px;
+    margin-right: 7px;
 }
 
-.nav-link:hover {
-    color: #198643 !important ;
+.nav-link.nav-header:hover {
+    color: #198643 !important;
 }
+
 .logo {
     width: 40px;
     height: 35px;
@@ -28,19 +31,72 @@
 .nav-item {
     padding-left: 14px;
 }
-.header-icons{
-    margin-right:-10px ;
+
+.header-icons {
+    margin-right: -10px;
     margin-top: 5px;
 }
+
 .navbar-toggler {
     color: #323E73 !important;
     border-radius: 10px;
 }
+
 .navbar-toggler:focus {
-    color: #323E73 ;
+    color: #323E73;
     outline: none;
     opacity: 80%;
+    box-shadow: none;
 }
+.shopping-icon{
+    background-image: url("../../assets/img/Ellipse 1.svg");
+    width: 50px;
+    height: 45px;
+    display: inline-block;
+    padding-top: 15px;
+}
+.circle{
+    color: #198643;
+    opacity: 78%;
+}
+.shopping-card-icon{
+    color: #E1F7ED;
 
+}
+.user-icon{
+    position: relative;
+    color: #E1F7ED;
+    right: -2px;
+}
+.margin{
+    margin-left: -15px;
+}
+.shopping-badge{
+    position: relative;
+    right: 1px;
+    top: 1px;
+}
+.inline-block{
+    display: inline-block;
+    position: relative;
+    right: -20px;
+}
+.inline-block-2{
+    display: inline-block;
+    position: relative;
+    right: -34px;
+}
+.headerDrop-menu{
+    background: #FBFEFD!important;
+}
+.headerDrop-item{
+    font-size: 13px;
+    color: #323e73;
+}
+.headerDrop-item:hover{
+    background: none;
+    color: #198643;
+    border-bottom: 1px solid #eee;
+}
 
 

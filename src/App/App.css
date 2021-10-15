@@ -31,6 +31,17 @@ body {
   .nav-link-footer{
     text-align: right;
   }
+  .namad-footer{
+    width: 55px !important;
+    margin-bottom: 5px !important;
+
+  }
+  .question-link{
+    font-size: 14px !important;
+  }
+  .accordion-item{
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -79,5 +90,24 @@ body {
   }
   .nav-link-footer{
     text-align: right;
+  }
+  .dropdown-toggle-split{
+    font-size: 12px !important;
+    margin-top: 3px !important;
+  }
+  .form-check-label{
+    font-size: 12px !important;
+  }
+  .question-link{
+    font-size: 12px !important;
+  }
+  .accordion-button{
+    font-size: 13px;
+  }
+  .accordion-item{
+    font-size: 12px;
+  }
+  .nav-item{
+    font-size: 15px !important;
   }
 }

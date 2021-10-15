@@ -24,7 +24,7 @@ const Footer = (props) => {
                                 <div className="col-sm-9">
                                    <CopyRightText/>
                                 </div>
-                                <div className="col-sm-3">
+                                <div className="col-sm-3 mb-1">
                                     <Social/>
                                 </div>
                             </div>

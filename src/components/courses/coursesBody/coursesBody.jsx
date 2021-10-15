@@ -3,6 +3,7 @@ import "./coursesBody.css"
 import userIcon from "../../../assets/img/user light blue.png"
 import lineImage from "../../../assets/img/Component 8 – 1.png"
 import stopWatch from "../../../assets/img/stopwatch.png"
+import {Link} from "react-router-dom";
 
 const CoursesBody = (props) => {
     return (
@@ -13,7 +14,9 @@ const CoursesBody = (props) => {
                         <div className="card mb-5">
                             <img src={props.courseInfo[item].imgAddress} className="card-img-top" alt="..."/>
                             <div className="card-body">
+                                <Link className={"decoration-none"} to={"/course"}>
                                 <h5 className="card-title">{props.courseInfo[item].title} </h5>
+                                </Link>
                                 <p className="card-text">
                                     <div className="mt-2">
                                         <img className="card-user-image col-8" src={userIcon}

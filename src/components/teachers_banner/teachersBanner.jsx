@@ -1,6 +1,7 @@
 import React from 'react';
 import "./teachersBanner.css"
 import why from "../../assets/img/why.png"
+import "./miniSlider"
 
 const TeachersBanner = (props) => {
     return (
@@ -36,6 +37,7 @@ const TeachersBanner = (props) => {
                         </div>
                     </div>
                 </div>
+
             </section>
         </>
     );
