@@ -1,6 +1,6 @@
 @font-face {
   font-family: Dirooz;
-  src: url("../assets/fonts/Dirooz.ttf");
+  src: url('./../assets/fonts/Dirooz.ttf') ;
 }
 
 html {
@@ -11,38 +11,103 @@ body {
   font-family: Dirooz !important;
 }
 
-.navbar {
-  background-color: #f3fcf8;
-  box-shadow: 0 3px 10px #e1f7ed;
-  border-radius: 10px;
-  height: 70px;
+
+/*responsive*/
+
+@media screen and (max-width: 992px) {
+  .banner-text {
+    font-size: 15px;
+  }
+
+  .banner-detail {
+    font-size: 13px;
+  }
+  .teachers-banner{
+    display: none;
+  }
+  .nav-link{
+    text-align: center ;
+  }
+  .nav-link-footer{
+    text-align: right;
+  }
+  .namad-footer{
+    width: 55px !important;
+    margin-bottom: 5px !important;
+
+  }
+  .question-link{
+    font-size: 14px !important;
+  }
+  .accordion-item{
+    font-size: 14px;
+  }
 }
 
-.navbar-light .navbar-nav .nav-link {
-  color: #323e73;
-}
+@media screen and (max-width: 600px) {
+  .banner-text {
+    font-size: 19px;
+  }
 
-.active {
-  color: #198643 !important;
-}
+  .banner-detail {
+    font-size: 16px;
+  }
 
-.logo {
-  width: 40px;
-  height: 35px;
-}
+  .tech-logos {
+    display: none;
+  }
 
-.nav-link {
-  font-size: 17px;
-}
+  .header-title {
+    font-size: 18px !important;
+  }
 
-.nav-link:hover {
-  color: #198643 !important ;
-}
+  .btn-see-all {
+    font-size: 15px !important;
+  }
 
-.nav-item {
-  padding-left: 13px;
-}
-.header-icons {
-  margin-left: -10px;
-  margin-top: 5px;
+  .line-image {
+    width: 220px !important;
+    margin-top: -5px !important;
+  }
+
+  .card-price {
+    margin-top: -16px;
+  }
+
+  .doc-icon {
+    margin-top: -20px !important;
+  }
+  .teachers-banner{
+    display: none;
+  }
+  .namad-footer{
+    width: 55px !important;
+    margin-bottom: 5px !important;
+
+  }
+  .nav-link{
+    text-align: center ;
+  }
+  .nav-link-footer{
+    text-align: right;
+  }
+  .dropdown-toggle-split{
+    font-size: 12px !important;
+    margin-top: 3px !important;
+  }
+  .form-check-label{
+    font-size: 12px !important;
+  }
+  .question-link{
+    font-size: 12px !important;
+  }
+  .accordion-button{
+    font-size: 13px;
+  }
+  .accordion-item{
+    font-size: 12px;
+  }
+  .nav-item{
+    font-size: 15px !important;
+  }
 }
