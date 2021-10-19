@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from "../components/header/header";
-import Footer from "../components/footer/footer";
-import Field from "../components/moshavere-req/fields/field";
-import Title from "../components/moshavere-req/Title/Title";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
+import Field from "../../components/moshavere-req/fields/field";
+import Title from "../../components/moshavere-req/Title/Title";
 
 function DarkhasteMoshavere(props) {
     return (

@@ -1,6 +1,6 @@
 import './App.css';
 import React, {Component} from 'react';
-import HomePage from "../screens/homePage";
+import HomePage from "../screens/homePage/homePage";
 import image1 from "../assets/img/02.jpg"
 import image2 from "../assets/img/09.jpg"
 import image3 from "../assets/img/06.jpg"
@@ -22,15 +22,15 @@ import {Route, Switch, Redirect} from "react-router-dom";
 import FQA from "../screens/fQA/fQA";
 import About from "../screens/about/About";
 import Teachers from "../screens/teachers/Teachers";
-import DarkhasteMoshavere from "../screens/darkhasteMoshavere";
+import DarkhasteMoshavere from "../screens/moshavere/darkhasteMoshavere";
 import Login from "../screens/Login/Login";
 import Register from "../screens/Register/Register";
 import ForgetPass from "../screens/forgetPass/forgetPass";
 import Course from "../screens/Course/Course";
 import NotFound from "../screens/NotFound/NotFound";
-import Maghalat from "../screens/Maghalat";
+import Maghalat from "../screens/blog/Maghalat";
 import PanelNavbar from "../components/panel-admin/panelNavbar/panelNavbar";
-import Maghale from "../screens/maghale";
+import Maghale from "../screens/blog/maghale";
 
 
 class App extends Component {

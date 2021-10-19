@@ -1,8 +1,8 @@
 import React from "react";
-import CourseInfo from "./CourseInfo/CourseInfo";
-import CourseImg from "./CourseImg/CourseImg";
-import CourseDetails from "./CourseDetails/CourseDetails";
-import "./Course.css";
+import CourseInfo from "../../components/Course/CourseInfo/CourseInfo";
+import CourseImg from "../../components/Course/CourseImg/CourseImg";
+import CourseDetails from "../../components/Course/CourseDetails/CourseDetails";
+import "../../components/Course/Course.css";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 

@@ -1,8 +1,8 @@
 import React from "react";
-import NotFoundImg from "./NotFoundImg/NotFoundImg";
-import NotFoundTitle from "./NotFoundTitle/NotFoundTitle";
-import BackButton from "./BackButton/BackButton";
-import "./NotFound.css";
+import NotFoundImg from "../../components/NotFound/NotFoundImg/NotFoundImg";
+import NotFoundTitle from "../../components/NotFound/NotFoundTitle/NotFoundTitle";
+import BackButton from "../../components/NotFound/BackButton/BackButton";
+import "../../components/NotFound/NotFound.css";
 
 const NotFound = () => {
   return (

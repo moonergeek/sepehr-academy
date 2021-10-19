@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from "../components/header/header";
-import Banner from "../components/banner/banner";
-import TechLogos from "../components/tech-logos/techLogos";
-import Courses from "../components/courses/courses";
-import Blog from "../components/blog/blog";
-import TeachersBanner from "../components/teachers_banner/teachersBanner";
-import FavCourses from "../components/courses/favCourses/favCourses";
-import Footer from "../components/footer/footer";
+import Header from "../../components/header/header";
+import Banner from "../../components/banner/banner";
+import TechLogos from "../../components/tech-logos/techLogos";
+import Courses from "../../components/courses/courses";
+import Blog from "../../components/blog/blog";
+import TeachersBanner from "../../components/teachers_banner/teachersBanner";
+import FavCourses from "../../components/courses/favCourses/favCourses";
+import Footer from "../../components/footer/footer";
 
 const HomePage = (props) => {
     return (
