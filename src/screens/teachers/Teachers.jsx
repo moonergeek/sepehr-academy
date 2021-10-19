@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./Teachers.css";
-import Teacher from "./Teacher/Teacher";
+import "../../components/teachers/Teachers.css";
+import Teacher from "../../components/teachers/Teacher/Teacher";
 import Sn from "../../assets/img/sn.jpg";
 import Mb from "../../assets/img/mb.jpg";
 import Hn from "../../assets/img/hn.jpg";

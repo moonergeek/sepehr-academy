@@ -4,20 +4,8 @@ import "./header.css"
 import {BsThreeDots, FaCircle, FaUserPlus, MdShoppingCart,} from "react-icons/all";
 import {NavLink, Link} from "react-router-dom";
 import Badge from '@mui/material/Badge';
-import Tooltip from '@mui/material/Tooltip';
-import {styled} from '@mui/material/styles';
-import {tooltipClasses} from "@mui/material";
+import {BootstrapTooltip } from "../tooltip/bootstrapTooltip"
 
-const BootstrapTooltip = styled(({className, ...props}) => (
-    <Tooltip placement={props.placeMent} {...props} arrow classes={{popper: className}}/>
-))(({theme}) => ({
-    [`& .${tooltipClasses.arrow}`]: {
-        color: theme.palette.common.black,
-    },
-    [`& .${tooltipClasses.tooltip}`]: {
-        backgroundColor: theme.palette.common.black,
-    },
-}));
 
 class Header extends Component {
 
