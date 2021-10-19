@@ -29,6 +29,8 @@ import ForgetPass from "../screens/forgetPass/forgetPass";
 import Course from "../screens/Course/Course";
 import NotFound from "../screens/NotFound/NotFound";
 import Maghalat from "../screens/Maghalat";
+import PanelNavbar from "../components/panel-admin/panelNavbar/panelNavbar";
+import Maghale from "../screens/maghale";
 
 
 class App extends Component {
@@ -1168,15 +1170,22 @@ class App extends Component {
                         <Route path={"/not-found"} component={() => <NotFound/>}/>
 
                         <Route path="/blog" exact component={() => <Maghalat menuList={menuList}
-                                                                                 maghalatTitle={maghalatTitle}
-                                                                                 placeHolder={placeHolderForMaghalat}
-                                                                                 footerInfo={footerInfo}
-                                                                                 maghale={maghale}
-                                                                                 fullInfo={paginatedMaghalat}
-                                                                                 itemsCount4Paginate={Object.keys(maghale).length}
-                                                                                 pageSize={pageSize}
-                                                                                 currentPage={currentPage}
-                                                                                 onPageChange={this.handlePageChange}
+                                                                             maghalatTitle={maghalatTitle}
+                                                                             placeHolder={placeHolderForMaghalat}
+                                                                             footerInfo={footerInfo}
+                                                                             maghale={maghale}
+                                                                             fullInfo={paginatedMaghalat}
+                                                                             itemsCount4Paginate={Object.keys(maghale).length}
+                                                                             pageSize={pageSize}
+                                                                             currentPage={currentPage}
+                                                                             onPageChange={this.handlePageChange}
+
+                        />}/>
+                        <Route path={"/blog/maghale"} component={() => <Maghale menuList={menuList}
+                                                                                footerInfo={footerInfo}
+                                                                                maghale={maghale}/>}/>
+
+                        <Route path={"/dashboard"} component={() => <PanelNavbar
 
                         />}/>
 

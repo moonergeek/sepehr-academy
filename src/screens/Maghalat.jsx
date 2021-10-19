@@ -12,8 +12,6 @@ const Maghalat = (props) => {
 
     return (
         <div>
-
-
             <Header menuList={props.menuList}/>
             <Title Title={"مقالات"}/>
             <Sort placeHolder={props.placeHolder}/>
