@@ -2,18 +2,18 @@ import React from 'react';
 import "./panelNavbar.css"
 import background from "../../../assets/img/panel-background.png"
 import userImage from "../../../assets/img/img4.png"
-import dashboard_icon from "../../../assets/img/dashboard.png"
-import edu_icon from "../../../assets/img/panel-edu.png"
-import home_icon from "../../../assets/img/panel-home.png"
-import comment_icon from "../../../assets/img/panel-comment.png"
-import edit_icon from "../../../assets/img/editing.png"
 import logOut from "../../../assets/img/logout(2).png"
-import shopping_cart from "../../../assets/img/panel-shopping-cart.png"
-import wallet from "../../../assets/img/panel-wallet.png"
-import categories from "../../../assets/img/panel-categories.png"
-import free_course from "../../../assets/img/panel-online-education.png"
-import offer from "../../../assets/img/panel-percentage.png"
+import BookmarkTwoToneIcon from '@mui/icons-material/BookmarkTwoTone';
+import LocalLibraryTwoToneIcon from '@mui/icons-material/LocalLibraryTwoTone';
+import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
+import LocalOfferTwoToneIcon from '@mui/icons-material/LocalOfferTwoTone';
+import CategoryTwoToneIcon from '@mui/icons-material/CategoryTwoTone';
+import EvStationTwoToneIcon from '@mui/icons-material/EvStationTwoTone';
+import ModeCommentTwoToneIcon from '@mui/icons-material/ModeCommentTwoTone';
+import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
+import AnalyticsTwoToneIcon from '@mui/icons-material/AnalyticsTwoTone';
 import {BootstrapTooltip } from "../../tooltip/bootstrapTooltip"
+import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 
 
 
@@ -21,8 +21,8 @@ import {BootstrapTooltip } from "../../tooltip/bootstrapTooltip"
 const PanelNavbar = (props) => {
     return (
         <>
-            <div className={"container-fluid"}>
-                <div className={"navbar-panel-width mt-3"}>
+
+                <div className={"navbar-panel-width "}>
                     <div className="card">
                         <img src={background} className="card-img-top panel-background" alt="..."/>
 
@@ -43,50 +43,49 @@ const PanelNavbar = (props) => {
                         <div className="card-body panel-navbar-body">
                             <ul className="list-group list-group-flush">
                                 <li className="list-group-item panel-list-item">
-                                    <img src={dashboard_icon} className={"panel-navList-icons"}/>
+                                    <AnalyticsTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     داشبرد
                                 </li>
                                 <li className="list-group-item panel-list-item">
-                                    <img src={shopping_cart} className={"panel-navList-icons"}/>
+                                    <ShoppingCartTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     سبد خرید
                                 </li>
                                 <li className="list-group-item panel-list-item">
-                                    <img src={edu_icon} className={"panel-navList-icons"}/>
+                                    <BookmarkTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     دوره های خریداری شده
                                 </li>
                                 <li className="list-group-item panel-list-item">
-                                    <img src={edit_icon} className={"panel-navList-icons"}/>
+                                    <EditTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     ویرایش پروفایل
                                 </li>
                                 <li className="list-group-item panel-list-item">
-                                    <img src={wallet} className={"panel-navList-icons"}/>
+                                    <EvStationTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     شارژ کردن کیف پول
                                 </li>
                                 <li className="list-group-item panel-list-item">
-                                    <img src={categories} className={"panel-navList-icons"}/>
+                                    <CategoryTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     دسته بندی دوره ها
                                 </li>
                                 <li className="list-group-item panel-list-item">
-                                    <img src={free_course} className={"panel-navList-icons"}/>
+                                    <LocalLibraryTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     دوره های رایگان
                                 </li>
                                 <li className="list-group-item panel-list-item">
-                                    <img src={offer} className={"panel-navList-icons"}/>
+                                    <LocalOfferTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     تخفیفات روزانه
                                 </li>
                                 <li className="list-group-item panel-list-item">
-                                    <img src={comment_icon} className={"panel-navList-icons"}/>
+                                    <ModeCommentTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     ثبت نظرات
                                 </li>
                                 <li className="list-group-item panel-list-item">
-                                    <img src={home_icon} className={"panel-navList-icons"}/>
+                                    <HomeTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     بازگشت به خانه
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
         </>
     );
 };

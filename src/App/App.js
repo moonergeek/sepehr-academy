@@ -31,6 +31,7 @@ import NotFound from "../screens/NotFound/NotFound";
 import Maghalat from "../screens/blog/Maghalat";
 import PanelNavbar from "../components/panel-admin/panelNavbar/panelNavbar";
 import Maghale from "../screens/blog/maghale";
+import PanelAdmin from "../screens/panel-Admin/panelAdmin";
 
 
 class App extends Component {
@@ -1185,7 +1186,7 @@ class App extends Component {
                                                                                 footerInfo={footerInfo}
                                                                                 maghale={maghale}/>}/>
 
-                        <Route path={"/dashboard"} component={() => <PanelNavbar
+                        <Route path={"/dashboard"} component={() => <PanelAdmin
 
                         />}/>
 
