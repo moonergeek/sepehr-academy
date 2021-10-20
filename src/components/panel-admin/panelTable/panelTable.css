@@ -9,9 +9,13 @@
     color: #323e73;
     opacity: 80%;
     font-size: 14px;
+    padding: 13px !important;
 }
 .panel-th-items{
    color: #2eb5dd;
+    font-size: 14px;
+    padding-top: 13px !important;
+    padding-right: 13px !important;
 }
 .green-hover{
     border-top: 1px solid #eeeeee;

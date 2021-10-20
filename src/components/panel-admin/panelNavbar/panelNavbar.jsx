@@ -22,7 +22,7 @@ const PanelNavbar = (props) => {
     return (
         <>
 
-                <div className={"navbar-panel-width "}>
+                <div className={"navbar-panel-width position-fixed"}>
                     <div className="card">
                         <img src={background} className="card-img-top panel-background" alt="..."/>
 

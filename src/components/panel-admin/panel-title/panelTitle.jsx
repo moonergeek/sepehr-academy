@@ -1,12 +1,12 @@
 import React from 'react';
 import "./panelTitle.css"
 
-const PanelTitle = () => {
+const PanelTitle = (props) => {
     return (
         <>
               <span className="panel-title">
-                                گزارش دوره ها در حال خرید
-                            </span>
+                  {props.title}
+              </span>
         </>
     );
 };

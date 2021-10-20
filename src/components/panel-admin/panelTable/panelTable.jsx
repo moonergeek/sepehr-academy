@@ -105,6 +105,38 @@ const PanelTable = () => {
                         <PanelDeleteIcon/>
                     </td>
                 </tr>
+                <tr className={"green-hover"}>
+                    <th scope="row" className={"panel-th-items"}>6</th>
+                    <td className={"panel-td-items"}>4554-01</td>
+                    <td className={"panel-td-items"}>
+                        <img className={"table-course-img"} src={course1} alt=""/>
+                        آموزش جامع زبان پایتون ...</td>
+                    <td className={"panel-td-items"}> حسامی</td>
+                    <td className={"panel-td-items"}> 1400/01/20</td>
+                    <td className={"panel-td-items"}>
+                        <span className="badge bg-success">خرید موفق</span>
+                    </td>
+                    <td className={"panel-td-items"}>1,390,000 تومان</td>
+                    <td className={"panel-td-items"}>
+                        <PanelDeleteIcon/>
+                    </td>
+                </tr>
+                <tr className={"green-hover"}>
+                    <th scope="row" className={"panel-th-items"}>7</th>
+                    <td className={"panel-td-items"}>4554-02</td>
+                    <td className={"panel-td-items"}>
+                        <img className={"table-course-img"} src={course2} alt=""/>
+                        شیءگرایی در زبان جاوا ...</td>
+                    <td className={"panel-td-items"}>حسامی</td>
+                    <td className={"panel-td-items"}>1400/02/23</td>
+                    <td className={"panel-td-items"}>
+                        <span className="badge bg-primary">پرداخت</span>
+                    </td>
+                    <td className={"panel-td-items"}>1,390,000 تومان</td>
+                    <td className={"panel-td-items"}>
+                        <PanelDeleteIcon/>
+                    </td>
+                </tr>
                 </tbody>
             </table>
 
