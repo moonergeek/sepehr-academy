@@ -1,6 +1,6 @@
 import React from 'react';
 import "./panelNavbar.css"
-import background from "../../../assets/img/panel-background.png"
+import background from "../../../assets/img/background.png"
 import userImage from "../../../assets/img/img4.png"
 import logOut from "../../../assets/img/logout(2).png"
 import BookmarkTwoToneIcon from '@mui/icons-material/BookmarkTwoTone';
@@ -24,7 +24,7 @@ const PanelNavbar = (props) => {
 
                 <div className={"navbar-panel-width position-fixed"}>
                     <div className="card">
-                        <img src={background} className="card-img-top panel-background" alt="..."/>
+                        <img height={135} src={background} className="card-img-top panel-background" alt="..."/>
 
                         <section className={"top-data"}>
                             <div className={"d-flex justify-content-center"}>
