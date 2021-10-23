@@ -2,6 +2,7 @@ import React from 'react';
 import "./teachersBanner.css"
 import why from "../../assets/img/why.png"
 import "./miniSlider"
+import SlideShowTeachers from "../slideShow-teachers/slideshowTeachers";
 
 const TeachersBanner = (props) => {
     return (
@@ -14,20 +15,23 @@ const TeachersBanner = (props) => {
                                 <div className="col-sm-7">
                                     <p className="teacher-title"> {props.teachersTitle}</p>
                                     <div className="row">
-                                        <div className="mini col-sm-12">
-                                            <div id="miniSlideshow">
-
-                                                <div id="miniGallery">
-                                                    {Object.keys(props.teachersInfo).map(item => <div key={item}
-                                                                                                      className="miniItems">
-                                                        <img src={props.teachersInfo[item].imgAddress} alt="img"/>
-                                                        <p className="mini-text">{props.teachersInfo[item].lastName} </p>
-                                                    </div>)}
-                                                </div>
-                                                <div id="miniRight"/>
-                                                <div id="miniLeft"/>
-                                            </div>
+                                        <div className={"col-sm-10 mt-4"}>
+                                            <SlideShowTeachers/>
                                         </div>
+                                        {/*<div className="mini col-sm-12">*/}
+                                        {/*    <div id="miniSlideshow">*/}
+
+                                        {/*        <div id="miniGallery">*/}
+                                        {/*            {Object.keys(props.teachersInfo).map(item => <div key={item}*/}
+                                        {/*                                                              className="miniItems">*/}
+                                        {/*                <img src={props.teachersInfo[item].imgAddress} alt="img"/>*/}
+                                        {/*                <p className="mini-text">{props.teachersInfo[item].lastName} </p>*/}
+                                        {/*            </div>)}*/}
+                                        {/*        </div>*/}
+                                        {/*        <div id="miniRight"/>*/}
+                                        {/*        <div id="miniLeft"/>*/}
+                                        {/*    </div>*/}
+                                        {/*</div>*/}
                                     </div>
                                 </div>
                                 <div className="col-sm-5">

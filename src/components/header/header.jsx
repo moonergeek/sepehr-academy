@@ -65,6 +65,9 @@ class Header extends Component {
                                                                     <li><Link className="dropdown-item headerDrop-item" to={"/register"} >ثبت
                                                                         نام</Link></li>
                                                                 </div>
+                                                                <div className={"d-flex justify-content-center"}>
+                                                                    <li><Link className="dropdown-item headerDrop-item" to={"/dashboard"} >پروفایل</Link></li>
+                                                                </div>
                                                             </ul>
                                                         </div>
                                                     </div>

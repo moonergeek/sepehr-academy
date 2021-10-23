@@ -7,6 +7,7 @@ import "../../components/panel-admin/panel-title/panelTitle.css"
 import PanelChart1 from "../../components/panel-admin/panel-charts/panelChart1";
 import PanelChart2 from "../../components/panel-admin/panel-charts/panelChart2";
 import PanelChart3 from "../../components/panel-admin/panel-charts/panelChart3";
+import SlideShowTeachers from "../../components/slideShow-teachers/slideshowTeachers";
 
 
 const PanelAdmin = () => {
