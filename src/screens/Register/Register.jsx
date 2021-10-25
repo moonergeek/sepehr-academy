@@ -1,10 +1,10 @@
 import React from "react";
-import BtnContainer from "./BtnContainer/BtnContainer";
-import RegisterImg from "./RegisterImg/RegisterImg";
-import RegisterTitle from "./RegisterTitle/RegisterTitle";
-import RegisterForm from "./RegisterForm/RegisterForm";
+import BtnContainer from "../../components/Register/BtnContainer/BtnContainer";
+import RegisterImg from "../../components/Register/RegisterImg/RegisterImg";
+import RegisterTitle from "../../components/Register/RegisterTitle/RegisterTitle";
+import RegisterForm from "../../components/Register/RegisterForm/RegisterForm";
 
-import "./Register.css";
+import "../../components/Register/Register.css";
 
 const Register = () => {
   return (

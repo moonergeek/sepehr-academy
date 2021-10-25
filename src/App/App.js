@@ -1,6 +1,6 @@
 import './App.css';
 import React, {Component} from 'react';
-import HomePage from "../screens/homePage";
+import HomePage from "../screens/homePage/homePage";
 import image1 from "../assets/img/02.jpg"
 import image2 from "../assets/img/09.jpg"
 import image3 from "../assets/img/06.jpg"
@@ -22,13 +22,16 @@ import {Route, Switch, Redirect} from "react-router-dom";
 import FQA from "../screens/fQA/fQA";
 import About from "../screens/about/About";
 import Teachers from "../screens/teachers/Teachers";
-import DarkhasteMoshavere from "../screens/darkhasteMoshavere";
+import DarkhasteMoshavere from "../screens/moshavere/darkhasteMoshavere";
 import Login from "../screens/Login/Login";
 import Register from "../screens/Register/Register";
 import ForgetPass from "../screens/forgetPass/forgetPass";
 import Course from "../screens/Course/Course";
 import NotFound from "../screens/NotFound/NotFound";
-import Maghalat from "../screens/Maghalat";
+import Maghalat from "../screens/blog/Maghalat";
+import PanelNavbar from "../components/panel-admin/panelNavbar/panelNavbar";
+import Maghale from "../screens/blog/maghale";
+import PanelAdmin from "../screens/panel-Admin/panelAdmin";
 
 
 class App extends Component {
@@ -1168,15 +1171,22 @@ class App extends Component {
                         <Route path={"/not-found"} component={() => <NotFound/>}/>
 
                         <Route path="/blog" exact component={() => <Maghalat menuList={menuList}
-                                                                                 maghalatTitle={maghalatTitle}
-                                                                                 placeHolder={placeHolderForMaghalat}
-                                                                                 footerInfo={footerInfo}
-                                                                                 maghale={maghale}
-                                                                                 fullInfo={paginatedMaghalat}
-                                                                                 itemsCount4Paginate={Object.keys(maghale).length}
-                                                                                 pageSize={pageSize}
-                                                                                 currentPage={currentPage}
-                                                                                 onPageChange={this.handlePageChange}
+                                                                             maghalatTitle={maghalatTitle}
+                                                                             placeHolder={placeHolderForMaghalat}
+                                                                             footerInfo={footerInfo}
+                                                                             maghale={maghale}
+                                                                             fullInfo={paginatedMaghalat}
+                                                                             itemsCount4Paginate={Object.keys(maghale).length}
+                                                                             pageSize={pageSize}
+                                                                             currentPage={currentPage}
+                                                                             onPageChange={this.handlePageChange}
+
+                        />}/>
+                        <Route path={"/blog/maghale"} component={() => <Maghale menuList={menuList}
+                                                                                footerInfo={footerInfo}
+                                                                                maghale={maghale}/>}/>
+
+                        <Route path={"/dashboard"} component={() => <PanelAdmin
 
                         />}/>
 
