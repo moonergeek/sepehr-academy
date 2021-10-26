@@ -49,7 +49,7 @@ const validate = (values) => {
   }
 
   if (!values.nationalId) {
-    errors.nationalId = "نیشن را وارد کنید";
+    errors.nationalId = "آیدی خود را وارد کنید";
   }
 
   return errors;
@@ -160,7 +160,7 @@ const RegisterForm = () => {
         <input
           type="text"
           className="form-control"
-          placeholder="نیشن آیدی"
+          placeholder="آیدی"
           id="nationalId"
           name="nationalId"
           onChange={formik.handleChange}
