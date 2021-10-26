@@ -1,26 +1,38 @@
 import React from "react";
 import { useFormik } from "formik";
 import LoginButton from "../LoginButton/LoginButton";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import http from "../../../Core/Interceptor";
+import { getItem, setItem, removeItem } from "../../../Core/Storage";
 
 const initialValues = {
-  name: "",
-  pass: "",
+  email: "",
+  password: "",
 };
 
-const onSubmit = (values) => {
-  console.log(values);
+const onSubmit = async (values) => {
+  try {
+    const result = await http.post(
+      `https://academy-tabestan.herokuapp.com/api/auth/login`,
+      values
+    );
+
+    setItem("token", result.data.result.jwtToken);
+    alert("خوش اومدی");
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const validate = (values) => {
   let errors = {};
 
-  if (!values.name) {
-    errors.name = "نام کاربری خود را وارد کنید";
+  if (!values.email) {
+    errors.email = "ایمیل خود را وارد کنید";
   }
 
-  if (!values.pass) {
-    errors.pass = "رمز عبور خود را وارد کنید";
+  if (!values.password) {
+    errors.password = "رمز عبور خود را وارد کنید";
   }
 
   return errors;
@@ -36,19 +48,19 @@ const LoginForm = () => {
     <form onSubmit={formik.handleSubmit} className="mt-4">
       <div className="mb-3">
         <input
-          type="text"
+          type="email"
           className="form-control"
-          placeholder="نام کاربری"
-          id="name"
-          name="name"
+          placeholder="ایمیل"
+          id="email"
+          name="email"
           onChange={formik.handleChange}
-          value={formik.values.name}
+          value={formik.values.email}
           onBlur={formik.handleBlur}
           autoComplete="off"
         />
         <div className="mt-1 text-danger">
-          {formik.touched.name && formik.errors.name ? (
-            <div>{formik.errors.name}</div>
+          {formik.touched.email && formik.errors.email ? (
+            <div>{formik.errors.email}</div>
           ) : null}
         </div>
       </div>
@@ -58,15 +70,15 @@ const LoginForm = () => {
           type="password"
           className="form-control"
           placeholder="رمز عبور"
-          id="pass"
-          name="pass"
+          id="password"
+          name="password"
           onChange={formik.handleChange}
-          value={formik.values.pass}
+          value={formik.values.password}
           onBlur={formik.handleBlur}
         />
         <div className="text-danger mt-1">
-          {formik.touched.pass && formik.errors.pass ? (
-            <div>{formik.errors.pass}</div>
+          {formik.touched.password && formik.errors.password ? (
+            <div>{formik.errors.password}</div>
           ) : null}
         </div>
       </div>
