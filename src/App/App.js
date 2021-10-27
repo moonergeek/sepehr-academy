@@ -29,7 +29,6 @@ import ForgetPass from "../screens/forgetPass/forgetPass";
 import Course from "../screens/Course/Course";
 import NotFound from "../screens/NotFound/NotFound";
 import Maghalat from "../screens/blog/Maghalat";
-import PanelNavbar from "../components/panel-admin/panelNavbar/panelNavbar";
 import Maghale from "../screens/blog/maghale";
 import PanelAdmin from "../screens/panel-Admin/panelAdmin";
 import Axios from "axios";
@@ -1075,19 +1074,34 @@ const App = () => {
 
     //backend-api
 
-    const [courseData, setCourseData] = useState([]);
+    // main url of backend
+    const MainUrl = process.env.REACT_APP_PUBLIC_PATH;
 
-    const getAllUsers = async () => {
-        let result = await Axios.get('https://academy-visual.herokuapp.com/api/course')
+    const [courseData, setCourseData] = useState([]);
+    const [favCourseData, setFavCourseData] = useState([]);
+    const [blogData, setBlogData] = useState([]);
+
+    const getAllCourses = async () => {
+        let result = await Axios.get(`${MainUrl}api/course`)
         setCourseData(result.data.result)
     }
+    const getFavCourses = async () => {
+        let result = await Axios.get(`${MainUrl}api/course/list?pagenumber=1&pagesize=4`)
+        setFavCourseData(result.data.result.courses);
+    }
+    const getAllBlogData = async () => {
+        let result = await Axios.get(`${MainUrl}api/news`)
+        setBlogData(result.data.result)
+    }
     useEffect(() => {
-        getAllUsers()
+        getAllCourses();
+        getFavCourses();
+        getAllBlogData();
     },[])
 
 
     const paginatedCourses = paginate(courseData, currentPage, pageSize);
-    const paginatedMaghalat = paginate(maghale, currentPage, pageSize);
+    const paginatedMaghalat = paginate(blogData, currentPage, pageSize);
 
     return (
         <>
@@ -1102,17 +1116,17 @@ const App = () => {
                                                                      courseInfo={courseData}
                                                                      blogTitle={blogTitle}
                                                                      blogBtnTitle={blogBtnTitle}
-                                                                     blogInfo={blogInfo}
+                                                                     blogInfo={blogData}
                                                                      teachersInfo={teachersInfo}
                                                                      teachersTitle={teachersTitle}
-                                                                     favCoursesInfo={courseData}
+                                                                     favCoursesInfo={favCourseData}
                                                                      favCoursesTitle={favCoursesTitle}
                                                                      footerInfo={footerInfo}
                     />}/>
                     <Route path="/courses" component={() => <CoursesPage menuList={menuList}
                                                                          placeHolder={placeHolder}
                                                                          fullCourseInfo={paginatedCourses}
-                                                                         itemsCount4Paginate={Object.keys(fullCoursesInfo).length}
+                                                                         itemsCount4Paginate={Object.keys(courseData).length}
                                                                          pageSize={pageSize}
                                                                          currentPage={currentPage}
                                                                          onPageChange={handlePageChange}
@@ -1161,7 +1175,7 @@ const App = () => {
                                                                          footerInfo={footerInfo}
                                                                          maghale={maghale}
                                                                          fullInfo={paginatedMaghalat}
-                                                                         itemsCount4Paginate={Object.keys(maghale).length}
+                                                                         itemsCount4Paginate={blogData.length}
                                                                          pageSize={pageSize}
                                                                          currentPage={currentPage}
                                                                          onPageChange={handlePageChange}
