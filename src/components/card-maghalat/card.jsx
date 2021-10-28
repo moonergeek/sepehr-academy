@@ -20,14 +20,14 @@ const Card = (props) => {
                                                                      className="col-sm-12 col-md-6 col-lg-4">
                         <Link to={"/blog/maghale/" + props.fullInfo[blogObj].id} className={"Link"}>
                             <div className="card mb-5">
-                                <img src={props.fullInfo[blogObj].image} className="card-img-top"
+                                <img src={props.fullInfo[blogObj].imgAddress} className="card-img-top"
                                      alt="..."/>
                                 <div className="card-body">
-                                    <p className="document-number">{" مقاله شماره " + (props.fullInfo.findIndex(x => x._id === props.fullInfo[blogObj]._id) + 1)}</p>
+                                    <p className="document-number">{props.fullInfo[blogObj].docNumber}</p>
                                     <h5 className="doc-title">{props.fullInfo[blogObj].title} </h5>
                                     <p className="card-text">
                                         <div className="mt-2">
-                                            <p className="document-details">{props.fullInfo[blogObj].text}
+                                            <p className="document-details">{props.fullInfo[blogObj].docDetails}
                                             </p>
                                             <div className="row">
                                                 <BlogLine/>

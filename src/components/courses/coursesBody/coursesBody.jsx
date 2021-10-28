@@ -12,17 +12,17 @@ const CoursesBody = (props) => {
                 <div className="row">
                     {Object.keys(props.courseInfo).map(item => <div key={item} className="col-sm-12 col-md-6 col-lg-3">
                         <div className="card mb-5">
-                            <img src={props.courseInfo[item].image} className="card-img-top" alt="..."/>
+                            <img src={props.courseInfo[item].imgAddress} className="card-img-top" alt="..."/>
                             <div className="card-body">
                                 <Link className={"decoration-none"} to={"/course"}>
-                                <h5 className="card-title">{props.courseInfo[item].courseName} </h5>
+                                <h5 className="card-title">{props.courseInfo[item].title} </h5>
                                 </Link>
                                 <p className="card-text">
                                     <div className="mt-2">
                                         <img className="card-user-image col-8" src={userIcon}
                                              alt=""/>
                                         <span
-                                            className="course-teacher col-sm-4 me-1 ">{props.courseInfo[item].description}</span>
+                                            className="course-teacher col-sm-4 me-1 ">{props.courseInfo[item].teacher}</span>
                                         <div className="row">
                                             <div className="col-sm-12">
                                                 <img src={lineImage} className="card-line"
@@ -35,12 +35,12 @@ const CoursesBody = (props) => {
                                                     <img src={stopWatch} className="card-stopwatch"
                                                          alt=""/>
                                                     <span
-                                                        className="card-time me-1">{"7:28:00"}</span>
+                                                        className="card-time me-1">{props.courseInfo[item].time}</span>
                                                 </div>
                                                 <div className="col-sm-12 col-md-6">
                                                     <div className="d-flex justify-content-end">
                                                         <span
-                                                            className="card-price"> {"500،000 تومان"}</span>
+                                                            className="card-price"> {props.courseInfo[item].price}</span>
                                                     </div>
                                                 </div>
                                             </div>

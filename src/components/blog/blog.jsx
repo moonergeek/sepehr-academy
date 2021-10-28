@@ -1,6 +1,7 @@
 import React from 'react';
 import "./blog.css"
 import CourseHeader from "../courses/courseHeader/courseHeader";
+import blogBanner from "../../assets/img/006.jpg"
 import ReadBtn from "../common/readBtn/readBtn";
 import Comment from "../common/comment/comment";
 import Like from "../common/like/like";
@@ -20,13 +21,13 @@ const Blog = (props) => {
                         <div className="row">
                             {Object.keys(props.blogInfo).map(blogObj => <div key={blogObj} className="col-sm-12 col-md-6 col-lg-4">
                                 <div className="card mb-5">
-                                    <img src={props.blogInfo[blogObj].image} className="card-img-top" alt="..."/>
+                                    <img src={props.blogInfo[blogObj].imgAddress} className="card-img-top" alt="..."/>
                                     <div className="card-body">
-                                        <p className="document-number">{" مقاله شماره " + (props.blogInfo.findIndex(x => x._id === props.blogInfo[blogObj]._id) + 1)}</p>
+                                        <p className="document-number">{props.blogInfo[blogObj].docNumber}</p>
                                         <h5 className="doc-title">{props.blogInfo[blogObj].title} </h5>
                                         <p className="card-text">
                                             <div className="mt-2">
-                                                <p className="document-details">{props.blogInfo[blogObj].text}
+                                                <p className="document-details">{props.blogInfo[blogObj].docDetails}
                                                 </p>
                                                 <div className="row">
                                                     <BlogLine/>
