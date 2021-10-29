@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 // import { Formik , Form , Field , ErrorMessage } from "formik";
 
 import RegisterButton from "../RegisterButton/RegisterButton";
-import http from "../../../Core/Interceptor";
+import http from "../../../core/Interceptor";
 // import * Yup from 'yup'
 const initialValues = {
   fullName: "",
