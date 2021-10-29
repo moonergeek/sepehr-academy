@@ -5,6 +5,8 @@
 
 .register-container {
   background: url("../../assets/img/background.png") repeat-x 30%;
+  box-shadow: 0 3px 10px #e1f7ed !important;
+
 }
 
 .login-form .form-control {
