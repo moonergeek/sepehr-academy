@@ -42,6 +42,9 @@ body {
   .accordion-item{
     font-size: 14px;
   }
+  .display-sm-none{
+    display: none;
+  }
 }
 
 @media screen and (max-width: 600px) {

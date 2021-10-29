@@ -7,8 +7,6 @@ import CoursesBody from "../../components/courses/coursesBody/coursesBody";
 import Pagination from "../../components/common/pagination/pagination";
 import Footer from "../../components/footer/footer";
 import Title from "../../components/moshavere-req/Title/Title";
-import Course from "../Course/Course";
-import {Route} from "react-router-dom";
 
 const CoursesPage = (props) => {
     return (

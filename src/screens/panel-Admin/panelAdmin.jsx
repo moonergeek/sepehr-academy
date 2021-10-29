@@ -7,18 +7,22 @@ import "../../components/panel-admin/panel-title/panelTitle.css"
 import PanelChart1 from "../../components/panel-admin/panel-charts/panelChart1";
 import PanelChart2 from "../../components/panel-admin/panel-charts/panelChart2";
 import PanelChart3 from "../../components/panel-admin/panel-charts/panelChart3";
-import SlideShowTeachers from "../../components/slideShow-teachers/slideshowTeachers";
+import EditPanelUser from "../../components/panel-admin/edit-panel-user/editPanelUser";
+import Header from "../../components/header/header";
 
 
 const PanelAdmin = () => {
     return (
         <>
             <div className={"container-fluid"}>
+                <div className={"display-sm-on"}>
+
+                </div>
                 <div className={"row"}>
-                    <div className={"col-3  mt-3"}>
+                    <div className={"col-lg-3 display-sm-none  mt-3"}>
                             <PanelNavbar/>
                     </div>
-                    <div className={"col-8 pt-3 me-2"}>
+                    <div className={"col-lg-8 col-12 pt-3 me-2"}>
                         <div className={"row"}>
                             <PanelTitle title={" گزارش دوره های در حال خرید"}/>
                             <div className={"d-flex floating-btn-mr justify-content-end"}>
@@ -38,6 +42,7 @@ const PanelAdmin = () => {
                                 <PanelChart3/>
                             </div>
                         </div>
+                        <EditPanelUser/>
                     </div>
                 </div>
             </div>

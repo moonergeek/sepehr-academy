@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import RegisterButton from "../RegisterButton/RegisterButton";
-import http from "../../../Core/Interceptor";
+import http from "../../../core/Interceptor";
 
 const initialValues = {
   fullName: "",

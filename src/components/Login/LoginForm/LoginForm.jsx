@@ -2,8 +2,8 @@ import React from "react";
 import { useFormik } from "formik";
 import LoginButton from "../LoginButton/LoginButton";
 import { Link } from "react-router-dom";
-import http from "../../../Core/Interceptor";
-import { getItem, setItem, removeItem } from "../../../Core/Storage";
+import http from "../../../core/Interceptor";
+import { getItem, setItem, removeItem } from "../../../core/Storage";
 
 const initialValues = {
   email: "",
