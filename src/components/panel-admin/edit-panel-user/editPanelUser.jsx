@@ -10,7 +10,7 @@ const EditPanelUser = () => {
         <>
             <div className={"white-background"}>
                 <div className={"container"}>
-                    <div className={"row mb-5 mt-4"}><PanelTitle title={" ویرایش اطلاعات شخصی کاربر"}/></div>
+                    <div className={"row mb-5 mt-3"}><PanelTitle title={" ویرایش اطلاعات شخصی کاربر"}/></div>
                     <div className="row mb-4 pt-4">
                         <div className="col">
                             <Input placeHolder={" تغییر نام کامل"}/>
@@ -49,7 +49,7 @@ const EditPanelUser = () => {
 
 
                     </div>
-                    <div className={"row mt-5"}>
+                    <div className={"row mt-3 mb-3"}>
                         <button className={" btn-green btn"}>ثبت</button>
                         <button className={" btn-blue btn me-2 mb-3"}> ریست</button>
                     </div>

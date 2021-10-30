@@ -43,3 +43,8 @@
 .navbar-panel-width{
     width: 245px;
 }
+.link-link{
+    text-decoration: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}

@@ -5,6 +5,7 @@ import NotificationsNoneTwoToneIcon from "@mui/icons-material/NotificationsNoneT
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import HomeTwoToneIcon from "@mui/icons-material/HomeTwoTone";
 import { makeStyles } from '@mui/styles';
+import {Link} from "react-router-dom";
 
 const PanelFloatBtn = () => {
     const useStyles = makeStyles({
@@ -28,12 +29,16 @@ const PanelFloatBtn = () => {
                 <Fab size="small" className={classes.violet} aria-label="edit">
                     <NotificationsNoneTwoToneIcon/>
                 </Fab>
-                <Fab size="small" className={classes.yellow} aria-label="edit">
-                    <EditTwoToneIcon/>
-                </Fab>
-                <Fab size="small" className={classes.green} aria-label="edit">
-                    <HomeTwoToneIcon  />
-                </Fab>
+                <Link to={"/dashboard/edit"}>
+                    <Fab size="small" className={classes.yellow} aria-label="edit">
+                        <EditTwoToneIcon/>
+                    </Fab>
+                </Link>
+                <Link to={"/"}>
+                    <Fab size="small" className={classes.green} aria-label="edit">
+                        <HomeTwoToneIcon  />
+                    </Fab>
+                </Link>
             </Box>
         </>
     );
