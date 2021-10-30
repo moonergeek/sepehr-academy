@@ -24,7 +24,6 @@
     font-size: 14px;
     transition: 0.2s;
 }
-
 .panel-list-item:hover {
     background-color: #F3FCF8;
     transition: 0.2s;
@@ -47,4 +46,8 @@
     text-decoration: none !important;
     border: none !important;
     box-shadow: none !important;
+    color: #815AC0;
+}
+.link-link:hover{
+    color: #198643;
 }

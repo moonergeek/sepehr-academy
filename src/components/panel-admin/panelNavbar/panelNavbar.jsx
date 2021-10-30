@@ -41,52 +41,68 @@ const PanelNavbar = (props) => {
 
                     <div className="card-body panel-navbar-body">
                         <ul className="list-group list-group-flush">
-                            <Link className={"link-link"} to={"/dashboard/panel"}>
-                                <li className="list-group-item panel-list-item">
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"} to={"/dashboard/panel"}>
                                     <AnalyticsTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     داشبرد
-                                </li>
-                            </Link>
+                                </Link>
+                            </li>
+
                             <li className="list-group-item panel-list-item">
-                                <ShoppingCartTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                سبد خرید
+                                <Link className={"link-link"}>
+                                    <ShoppingCartTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    سبد خرید
+                                </Link>
                             </li>
                             <li className="list-group-item panel-list-item">
-                                <BookmarkTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                دوره های خریداری شده
+                                <Link className={"link-link"}>
+                                    <BookmarkTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    دوره های خریداری شده
+                                </Link>
                             </li>
-                            <Link className={"link-link"} to={"/dashboard/edit"}>
-                                <li className="list-group-item panel-list-item">
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"} to={"/dashboard/edit"}>
                                     <EditTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     ویرایش پروفایل
-                                </li>
-                            </Link>
-                            <li className="list-group-item panel-list-item">
-                                <EvStationTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                شارژ کردن کیف پول
+                                </Link>
                             </li>
                             <li className="list-group-item panel-list-item">
-                                <CategoryTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                دسته بندی دوره ها
+                                <Link className={"link-link"}>
+                                    <EvStationTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    شارژ کردن کیف پول
+                                </Link>
                             </li>
                             <li className="list-group-item panel-list-item">
-                                <LocalLibraryTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                دوره های رایگان
+                                <Link className={"link-link"}>
+                                    <CategoryTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    دسته بندی دوره ها
+                                </Link>
                             </li>
                             <li className="list-group-item panel-list-item">
-                                <LocalOfferTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                تخفیفات روزانه
+                                <Link className={"link-link"}>
+                                    <LocalLibraryTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    دوره های رایگان
+                                </Link>
                             </li>
                             <li className="list-group-item panel-list-item">
-                                <ModeCommentTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                ثبت نظرات
+                                <Link className={"link-link"}>
+                                    <LocalOfferTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    تخفیفات روزانه
+                                </Link>
                             </li>
-                            <Link className={"link-link"} to={"/"}>
-                                <li className="list-group-item panel-list-item">
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"}>
+                                    <ModeCommentTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    ثبت نظرات
+                                </Link>
+                            </li>
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"} to={"/"}>
                                     <HomeTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     بازگشت به خانه
-                                </li>
-                            </Link>
+                                </Link>
+
+                            </li>
                         </ul>
                     </div>
                 </div>

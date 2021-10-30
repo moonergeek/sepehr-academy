@@ -12,18 +12,18 @@ const EditPanelUser = () => {
                 <div className={"container"}>
                     <div className={"row mb-5 mt-3"}><PanelTitle title={" ویرایش اطلاعات شخصی کاربر"}/></div>
                     <div className="row mb-4 pt-4">
-                        <div className="col">
+                        <div className="col pt-2">
                             <Input placeHolder={" تغییر نام کامل"}/>
                         </div>
-                        <div className="col">
+                        <div className="col pt-2">
                             <Input placeHolder={" تغییر نام کاربری"}/>
                         </div>
                     </div>
                     <div className="row mb-3">
-                        <div className="col">
+                        <div className="col pt-2">
                             <Input placeHolder={" تغییر رمز عبور "}/>
                         </div>
-                        <div className="col">
+                        <div className="col pt-2">
                             <Input placeHolder={" تکرار رمز جدید "}/>
                         </div>
                     </div>
@@ -49,7 +49,7 @@ const EditPanelUser = () => {
 
 
                     </div>
-                    <div className={"row mt-3 mb-3"}>
+                    <div className={"row mt-3 mb-3 me-2"}>
                         <button className={" btn-green btn"}>ثبت</button>
                         <button className={" btn-blue btn me-2 mb-3"}> ریست</button>
                     </div>
