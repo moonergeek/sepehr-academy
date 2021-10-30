@@ -1,8 +1,10 @@
 import React from "react";
 import { useFormik } from "formik";
+// import { Formik , Form , Field , ErrorMessage } from "formik";
+
 import RegisterButton from "../RegisterButton/RegisterButton";
 import http from "../../../core/Interceptor";
-
+// import * Yup from 'yup'
 const initialValues = {
   fullName: "",
   password: "",
@@ -49,7 +51,7 @@ const validate = (values) => {
   }
 
   if (!values.nationalId) {
-    errors.nationalId = "آیدی خود را وارد کنید";
+    errors.nationalId = "کد ملی خود را وارد کنید";
   }
 
   return errors;
