@@ -8,16 +8,8 @@ const SearchBoxForCourses = (props) => {
 
     const [searchData, setSearchData] = useState([]);
 
-    // const getBlog = () => {
-    //     axios.get('https://academy-visual.herokuapp.com/api/news')
-    //         .then((response) => {
-    //             console.log(response.data.result);
-    //             const myBlog = response.data.result;
-    //             setSearchData(myBlog);
-    //         });
-    // }
 
-    const getBlog = () => {
+    const getCourses = () => {
         axios.get('https://academy-visual.herokuapp.com/api/course')
             .then((response) => {
                 console.log(response.data.result);
@@ -26,7 +18,7 @@ const SearchBoxForCourses = (props) => {
             });
     }
 
-    useEffect(() => getBlog(), []);
+    useEffect(() => getCourses(), []);
 
 
     const [filteredData, setFilteredData] = useState([]);
