@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import "./serachbox.css"
+import "./searchBoxForCourses.css";
 import axios from "axios";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 
-const SearchBox = (props) => {
+const SearchBoxForCourses = (props) => {
 
     const [searchData, setSearchData] = useState([]);
 
@@ -87,4 +87,4 @@ const SearchBox = (props) => {
     );
 };
 
-export default SearchBox;
+export default SearchBoxForCourses;
