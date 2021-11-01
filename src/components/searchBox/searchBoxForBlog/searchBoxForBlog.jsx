@@ -69,7 +69,7 @@ const SearchBoxForBlog = (props) => {
                 <div className="dataResult">
                     {filteredData.slice(0, 5).map((value, key) => {
                         return (
-                            <a className="dataItem" href={""} target="_blank">
+                            <a className="dataItem" href={"/blog/maghale/" + value._id} target="_blank">
                                 <p>{value.title} </p>
                             </a>
                         );
