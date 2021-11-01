@@ -32,7 +32,7 @@ const Card = (props) => {
                                             <div className="row">
                                                 <BlogLine/>
                                             </div>
-                                            <div className="card-end">A
+                                            <div className="card-end">
                                                 <div className="row">
                                                     <ReadBtn/>
                                                     <div className="col-sm-12 col-md-6">
