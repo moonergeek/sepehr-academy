@@ -17,16 +17,22 @@ const SearchBox = (props) => {
     //         });
     // }
 
-    const getBlog = () => {
+    const getBlogAndCourses = () => {
         axios.get('https://academy-visual.herokuapp.com/api/course')
             .then((response) => {
-                console.log(response.data.result);
+
                 const myBlog = response.data.result;
-                setSearchData(myBlog);
+                axios.get('https://academy-visual.herokuapp.com/api/course')
+                    .then((response) => {
+                        const myCourses = response.data.result;
+                        const all = [...myBlog, ...myCourses];
+                        console.log(all);
+                        setSearchData(all);
+                    })
             });
     }
 
-    useEffect(() => getBlog(), []);
+    useEffect(() => getBlogAndCourses(), []);
 
 
     const [filteredData, setFilteredData] = useState([]);
@@ -34,9 +40,12 @@ const SearchBox = (props) => {
 
     const handleFilter = (event) => {
         const searchWord = event.target.value;
+
+
         setWordEntered(searchWord);
         const newFilter = searchData.filter((value) => {
-            return value.courseName.toLowerCase().includes(searchWord.toLowerCase());
+            return value.courseName.toLowerCase().includes(searchWord.toLowerCase())
+
         });
 
         if (searchWord === "") {

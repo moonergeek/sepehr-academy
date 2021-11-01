@@ -44,6 +44,12 @@ const SearchBoxForCourses = (props) => {
     };
 
 
+
+
+
+
+
+
     return (
 
         <div className="search  me-2">
@@ -68,7 +74,7 @@ const SearchBoxForCourses = (props) => {
                 <div className="dataResult">
                     {filteredData.slice(0, 15).map((value, key) => {
                         return (
-                            <a className="dataItem" href={value.link} target="_blank">
+                            <a className="dataItem" href={""} target="_blank">
                                 <p>{value.courseName} </p>
                             </a>
                         );
