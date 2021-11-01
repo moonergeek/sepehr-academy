@@ -8,31 +8,17 @@ const SearchBox = (props) => {
 
     const [searchData, setSearchData] = useState([]);
 
-    // const getBlog = () => {
-    //     axios.get('https://academy-visual.herokuapp.com/api/news')
-    //         .then((response) => {
-    //             console.log(response.data.result);
-    //             const myBlog = response.data.result;
-    //             setSearchData(myBlog);
-    //         });
-    // }
 
-    const getBlogAndCourses = () => {
+    const getCourses = () => {
         axios.get('https://academy-visual.herokuapp.com/api/course')
             .then((response) => {
-
-                const myBlog = response.data.result;
-                axios.get('https://academy-visual.herokuapp.com/api/course')
-                    .then((response) => {
-                        const myCourses = response.data.result;
-                        const all = [...myBlog, ...myCourses];
-                        console.log(all);
-                        setSearchData(all);
-                    })
+                console.log(response.data.result);
+                const myCourses = response.data.result;
+                setSearchData(myCourses);
             });
     }
 
-    useEffect(() => getBlogAndCourses(), []);
+    useEffect(() => getCourses(), []);
 
 
     const [filteredData, setFilteredData] = useState([]);
@@ -85,7 +71,7 @@ const SearchBox = (props) => {
                 <div className="dataResult">
                     {filteredData.slice(0, 15).map((value, key) => {
                         return (
-                            <a className="dataItem" href={value.link} target="_blank">
+                            <a className="dataItem" href={"/blog/maghale/" + value._id} target="_blank">
                                 <p>{value.courseName} </p>
                             </a>
                         );

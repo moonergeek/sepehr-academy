@@ -13,8 +13,8 @@ const SearchBoxForCourses = (props) => {
         axios.get('https://academy-visual.herokuapp.com/api/course')
             .then((response) => {
                 console.log(response.data.result);
-                const myBlog = response.data.result;
-                setSearchData(myBlog);
+                const myCourses = response.data.result;
+                setSearchData(myCourses);
             });
     }
 
