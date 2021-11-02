@@ -47,3 +47,7 @@ margin-bottom: 300px;
     height: 100%;
     margin: 100px auto;
 }
+.load{
+    position: relative;
+    right: 50%;
+}

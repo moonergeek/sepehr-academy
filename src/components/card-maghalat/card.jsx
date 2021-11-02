@@ -6,18 +6,28 @@ import Comment from "../common/comment/comment";
 import Like from "../common/like/like";
 import {Link, Route, Router, Switch} from "react-router-dom";
 import axios from "axios";
+import {Spinner} from "react-bootstrap";
 
 const Card = (props) => {
 
-    const [getData , setData] = useState([]);
+    const [getData, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const getBlog = async () => {
+        try {
+            await axios.get('https://academy-visual.herokuapp.com/api/news')
+                .then((response) => {
 
-    const getBlog = () => {
-        axios.get('https://academy-visual.herokuapp.com/api/news')
-            .then((response) => {
+                    const myBlog = response.data.result;
+                    setData(myBlog);
 
-                const myBlog = response.data.result;
-                setData(myBlog);
-            });
+                });
+            setLoading(true);
+
+        }
+        catch (e){
+            console.log(e);
+        }
+
     }
     useEffect(() => getBlog(), []);
 
@@ -25,12 +35,12 @@ const Card = (props) => {
     return (
 
         <>
-
-            <div className="course-body mt-4 container">
+            {loading ?             <div className="course-body mt-4 container">
                 <div className="row">
 
                     {getData.map(value => <div key={value}
-                                                                     className="col-sm-12 col-md-6 col-lg-4">
+                                               className="col-sm-12 col-md-6 col-lg-4">
+
                         <Link to={"/blog/maghale/" + value._id} className={"Link"}>
                             <div className="card mb-5">
                                 <img src={value.image} className="card-img-top"
@@ -64,7 +74,8 @@ const Card = (props) => {
                     </div>)}
 
                 </div>
-            </div>
+            </div> :     <Spinner animation="border" variant="success" className={"load"}/>}
+
 
         </>
     )

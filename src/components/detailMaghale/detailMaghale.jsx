@@ -3,25 +3,35 @@ import "./detailMaghale.css"
 
 import {Route, Switch, BrowserRouter as Router} from "react-router-dom";
 import axios from "axios";
+import {Spinner} from "react-bootstrap";
 
 const DetailMaghale = (props) => {
 
     const [getData , setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const getBlog = async () => {
+        try {
+            await axios.get('https://academy-visual.herokuapp.com/api/news')
+                .then((response) => {
 
-    const getBlog = () => {
-        axios.get('https://academy-visual.herokuapp.com/api/news')
-            .then((response) => {
+                    const myBlog = response.data.result;
+                    setData(myBlog);
 
-                const myBlog = response.data.result;
-                setData(myBlog);
-            });
+                });
+            setLoading(true);
+
+        }
+        catch (e){
+            console.log(e);
+        }
+
     }
     useEffect(() => getBlog(), []);
 
 
     return (
         <>
-            <Router>
+            {loading ?             <Router>
                 <Switch>
 
                     {getData.map(value =>
@@ -45,7 +55,8 @@ const DetailMaghale = (props) => {
 
 
                 </Switch>
-            </Router>
+            </Router> :   <Spinner animation="border" variant="success" className={"load"}/>}
+
 
         </>
 
