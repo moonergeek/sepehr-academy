@@ -1,7 +1,11 @@
 
+<<<<<<< HEAD
 .searchInputs {
 
     display: flex;
+=======
+.form-control {
+>>>>>>> main
     border: none;
     background: #FFFFFF;
     color: #198643 !important;
@@ -10,6 +14,7 @@
     border-radius: 5px;
 }
 
+<<<<<<< HEAD
 .search input {
     border: none;
     background: #FFFFFF;
@@ -70,4 +75,24 @@ a:hover {
 
 #clearBtn {
     cursor: pointer;
+=======
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form-control::placeholder {
+    color: #198643;
+    padding-right: 8px;
+    font-size: 15px;
+    opacity: 80%;
+}
+
+.search-icon {
+    width: 19px;
+}
+
+.button-search {
+    margin-right: -63px;
+>>>>>>> main
 }

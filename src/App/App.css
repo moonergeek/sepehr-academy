@@ -31,6 +31,7 @@ body {
   .nav-link-footer{
     text-align: right;
   }
+<<<<<<< HEAD
   .namad-footer{
     width: 55px !important;
     margin-bottom: 5px !important;
@@ -42,6 +43,8 @@ body {
   .accordion-item{
     font-size: 14px;
   }
+=======
+>>>>>>> main
 }
 
 @media screen and (max-width: 600px) {
@@ -91,6 +94,7 @@ body {
   .nav-link-footer{
     text-align: right;
   }
+<<<<<<< HEAD
   .dropdown-toggle-split{
     font-size: 12px !important;
     margin-top: 3px !important;
@@ -110,4 +114,6 @@ body {
   .nav-item{
     font-size: 15px !important;
   }
+=======
+>>>>>>> main
 }

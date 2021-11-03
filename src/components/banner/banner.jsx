@@ -1,6 +1,10 @@
 import React from 'react';
 import "./banner.css"
+<<<<<<< HEAD
 import services from "../../assets/img/banner-services.svg"
+=======
+import services from "../../assets/img/Group 3.svg"
+>>>>>>> main
 import manImage from "../../assets/img/part_1.svg"
 import SearchBox from "../searchBox/serachbox";
 

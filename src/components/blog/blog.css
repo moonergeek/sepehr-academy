@@ -14,7 +14,11 @@
     color: #23A455;
 }
 
+<<<<<<< HEAD
 /*card-maghalat title hover*/
+=======
+/*card title hover*/
+>>>>>>> main
 
 .doc-title::before {
     content: '';
