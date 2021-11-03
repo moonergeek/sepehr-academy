@@ -1,10 +1,6 @@
 import './App.css';
 import React, {Component} from 'react';
-<<<<<<< HEAD
 import HomePage from "../screens/homePage/homePage";
-=======
-import HomePage from "../screens/homePage";
->>>>>>> main
 import image1 from "../assets/img/02.jpg"
 import image2 from "../assets/img/09.jpg"
 import image3 from "../assets/img/06.jpg"
@@ -20,7 +16,6 @@ import blogBanner6 from "../assets/img/008.jpg"
 import teacherImg1 from "../assets/img/test_1.png"
 import teacherImg2 from "../assets/img/test_2.png"
 import footerLine from "../assets/img/Path 1.svg";
-<<<<<<< HEAD
 import CoursesPage from "../screens/coursesPage/coursesPage";
 import {paginate} from "../utils/paginate";
 import {Route, Switch, Redirect} from "react-router-dom";
@@ -36,13 +31,10 @@ import NotFound from "../screens/NotFound/NotFound";
 import Maghalat from "../screens/blog/Maghalat";
 import PanelNavbar from "../components/panel-admin/panelNavbar/panelNavbar";
 import Maghale from "../screens/blog/maghale";
-=======
->>>>>>> main
 
 
 class App extends Component {
     state = {
-<<<<<<< HEAD
         menuList: [
             {
                 menuItem: "خانه",
@@ -73,9 +65,6 @@ class App extends Component {
                 routeAddress: "/about",
             },
         ],
-=======
-        menuList: ["خانه", "دوره ها", "معرفی مدرسین", "بلاگ", "پرسش و پاسخ", "درخواست مشاوره", "درباره ما",],
->>>>>>> main
 
         placeHolder: " جستجو دوره های مختلف ...",
         bannerTitle: "آموزش برنامه نویسی ، خودآموزی ، ورود به بازارکار ",
@@ -143,7 +132,6 @@ class App extends Component {
         },
         coursesTitle: "اخرین دوره های مجموعه",
         coursesBtnTitle: "مشاهده همه دوره ها",
-<<<<<<< HEAD
         fullCoursesInfo: [
             {
                 id: 1,
@@ -370,8 +358,6 @@ class App extends Component {
                 price: " 400،000 تومان",
             },
         ],
-=======
->>>>>>> main
 
         blogInfo: {
             bl1: {
@@ -486,7 +472,6 @@ class App extends Component {
             },
         },
 
-<<<<<<< HEAD
         footerInfo: {
             item1: {
                 title: "دسترسی",
@@ -1080,31 +1065,6 @@ class App extends Component {
     }
     handlePageChange = page => {
         this.setState({currentPage: page})
-=======
-        footerInfo:{
-            item1:{
-                title:"دسترسی",
-                lineImage:footerLine,
-                it1:" دوره ها",
-                it2:"معرفی مدرسین",
-                it3:"بلاگ",
-            },
-            item2:{
-                title:"متداول",
-                lineImage:footerLine,
-                it1:" پرسش و پاسخ ",
-                it2:"درخواست مشاوره",
-                it3:"ورود",
-            },
-            item3:{
-                title:"ارتباط با ما",
-                lineImage:footerLine,
-                it1:"تماس با ما",
-                it2:" درباره ما",
-                it3:"رزومه",
-            },
-        },
->>>>>>> main
     }
 
 
@@ -1125,7 +1085,6 @@ class App extends Component {
             favCoursesInfo,
             favCoursesTitle,
             footerInfo,
-<<<<<<< HEAD
             fullCoursesInfo,
             pageSize,
             currentPage,
@@ -1233,27 +1192,6 @@ class App extends Component {
                     </Switch>
                 </main>
 
-=======
-        } = this.state;
-        return (
-            <>
-                <HomePage menuList={menuList}
-                          placeholder={placeHolder}
-                          bannerTitle={bannerTitle}
-                          bannerDetail={bannerDetail}
-                          coursesTitle={coursesTitle}
-                          coursesBtnTitle={coursesBtnTitle}
-                          courseInfo={coursesInfo}
-                          blogTitle={blogTitle}
-                          blogBtnTitle={blogBtnTitle}
-                          blogInfo={blogInfo}
-                          teachersInfo={teachersInfo}
-                          teachersTitle={teachersTitle}
-                          favCoursesInfo={favCoursesInfo}
-                          favCoursesTitle={favCoursesTitle}
-                          footerInfo={footerInfo}
-                />
->>>>>>> main
             </>
         );
     }

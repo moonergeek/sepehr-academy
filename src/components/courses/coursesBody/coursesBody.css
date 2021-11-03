@@ -1,4 +1,3 @@
-
 .card-title {
     color: #323E73;
     font-size: 15px;
@@ -9,11 +8,8 @@
     color: #23A455;
 }
 
-<<<<<<< HEAD
+
 /*card-maghalat title hover*/
-=======
-/*card title hover*/
->>>>>>> main
 
 .card-title::before {
     content: '';
@@ -34,7 +30,6 @@
     }
 }
 
-
 .card {
     border: none;
     box-shadow: 2px 3px 8px #E1F7ED;
@@ -44,7 +39,6 @@
 .card-user-image {
     width: 16px;
     cursor: pointer;
-
 }
 
 .course-teacher {
@@ -77,14 +71,11 @@
 }
 
 .card-price {
-
     color: #23A455;
     font-size: 14px;
     cursor: pointer;
-<<<<<<< HEAD
 }
-.decoration-none{
+
+.decoration-none {
     text-decoration: none;
-=======
->>>>>>> main
 }
