@@ -10,6 +10,7 @@ import {MDBBtn} from 'mdb-react-ui-kit';
 export default function Field() {
     return (
         <>
+            <div className={"controller"}>
             <div className={"fields container mt-4"}>
                 <MDBInputGroup className='mb-3'>
 
@@ -36,7 +37,8 @@ export default function Field() {
                 <MDBInputGroup className='mb-3'>
                     <MDBInputGroupElement textarea type='text' placeholder="پیام شما"/>
                 </MDBInputGroup>
-                <MDBBtn color='success' className={"Btn"}>ارسال</MDBBtn>
+                <MDBBtn color='success' className={"Btn container"}>ارسال</MDBBtn>
+            </div>
             </div>
         </>
     );
