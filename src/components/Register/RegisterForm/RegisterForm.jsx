@@ -1,10 +1,8 @@
 import React from "react";
 import { useFormik } from "formik";
-// import { Formik , Form , Field , ErrorMessage } from "formik";
-
 import RegisterButton from "../RegisterButton/RegisterButton";
-import http from "../../../core/Interceptor";
-// import * Yup from 'yup'
+import http from "../../../core/services/interceptor/interceptor";
+
 const initialValues = {
   fullName: "",
   password: "",
@@ -162,7 +160,7 @@ const RegisterForm = () => {
         <input
           type="text"
           className="form-control"
-          placeholder="آیدی"
+          placeholder="کد ملی"
           id="nationalId"
           name="nationalId"
           onChange={formik.handleChange}

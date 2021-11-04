@@ -31,6 +31,7 @@ import NotFound from "../screens/NotFound/NotFound";
 import Maghalat from "../screens/blog/Maghalat";
 import Maghale from "../screens/blog/maghale";
 import PanelAdmin from "../screens/panel-Admin/panelAdmin";
+import Cart from '../screens/cart/Cart'
 import Axios from "axios";
 
 
@@ -1186,6 +1187,10 @@ const App = () => {
                                                                             maghale={maghale}/>}/>
 
                     <Route path={"/dashboard"} component={() => <PanelAdmin
+
+                    />}/>
+
+                    <Route path={"/cart"} component={() => <Cart
 
                     />}/>
 
