@@ -12,3 +12,11 @@ mb-3{
     position: relative;
     top: 20px;
 }
+.controller{
+    border: 1px solid #E1F7ED;
+    width: 500px;
+    /*height: 400px;*/
+    margin: 30px auto;
+    box-shadow: 0 3px 10px #E1F7ED;
+    border-radius: 10px;
+}

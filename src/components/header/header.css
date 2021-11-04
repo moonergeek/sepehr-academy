@@ -10,7 +10,7 @@
 }
 
 .active {
-    color: #198643 !important ;
+    color: #198643 !important;
 }
 
 .nav-link {
@@ -48,55 +48,63 @@
     opacity: 80%;
     box-shadow: none;
 }
-.shopping-icon{
+
+.shopping-icon {
     background-image: url("../../assets/img/Ellipse 1.svg");
     width: 50px;
     height: 45px;
     display: inline-block;
     padding-top: 15px;
 }
-.circle{
+
+.circle {
     color: #198643;
     opacity: 78%;
 }
-.shopping-card-icon{
-    color: #E1F7ED;
 
+.shopping-card-icon {
+    color: #E1F7ED;
 }
-.user-icon{
+
+.user-icon {
     position: relative;
     color: #E1F7ED;
     right: -2px;
 }
-.margin{
+
+.margin {
     margin-left: -15px;
 }
-.shopping-badge{
+
+.shopping-badge {
     position: relative;
     right: 1px;
     top: 1px;
 }
-.inline-block{
+
+.inline-block {
     display: inline-block;
     position: relative;
     right: -20px;
 }
-.inline-block-2{
+
+.inline-block-2 {
     display: inline-block;
     position: relative;
     right: -34px;
 }
-.headerDrop-menu{
+
+.headerDrop-menu {
     background: #FBFEFD!important;
 }
-.headerDrop-item{
+
+.headerDrop-item {
     font-size: 13px;
     color: #323e73;
 }
-.headerDrop-item:hover{
+
+.headerDrop-item:hover {
     background: none;
     color: #198643;
     border-bottom: 1px solid #eee;
 }
-
-

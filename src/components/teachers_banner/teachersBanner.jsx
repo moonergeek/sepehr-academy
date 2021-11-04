@@ -37,7 +37,6 @@ const TeachersBanner = (props) => {
                         </div>
                     </div>
                 </div>
-
             </section>
         </>
     );
