@@ -9,18 +9,24 @@ const Cart = () => {
     { num: 1, pic: Repic, name: "دوره آموزش ریکت جامع", price: 2000 },
     { num: 2, pic: Angu, name: "دوره آموزش انگولار", price: 3500 },
     { num: 3, pic: Vue, name: "دوره آموزش ویو جی اس", price: 4000 },
+    { num: 4, pic: Angu, name: "دوره آموزش گیت", price: 3200 },
+    { num: 5, pic: Vue, name: "دوره آموزش نود", price: 1000 },
   ]);
 
   const removeHandler = (item) => {
     const courses = state.filter((t) => t.num !== item.num);
     setState(courses);
   };
+
+  if(!state || !state.length) {
+    return <div style={{marginTop: 200, fontSize: 60}} className="text-center cart">سبد خرید خالی است!</div>
+  }
   return (
     <>
       <div className="container">
         <div className="row">
           <div className="col mt-4">
-            <table className="table table-bordered">
+            <table className="cart table table-bordered">
               <thead>
                 <tr>
                   <th>شماره</th>
