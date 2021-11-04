@@ -1142,6 +1142,7 @@ const App = () => {
                                                                          currentPage={currentPage}
                                                                          onPageChange={handlePageChange}
                                                                          footerInfo={footerInfo}
+                                                                         loading={loadingCourseData}
 
                     />}/>
                     <Route path={"/questions"} component={() => <FQA

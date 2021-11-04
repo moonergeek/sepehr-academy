@@ -9,8 +9,13 @@ import Footer from "../../components/footer/footer";
 import Title from "../../components/moshavere-req/Title/Title";
 import Course from "../Course/Course";
 import {Route} from "react-router-dom";
+import {Spinner} from "react-bootstrap";
+
 
 const CoursesPage = (props) => {
+
+    const loading = props.loading;
+
     return (
         <>
             <Header menuList={props.menuList}/>
@@ -27,7 +32,9 @@ const CoursesPage = (props) => {
                         </div>
                     </div>
                 </div>
-                <CoursesBody courseInfo={props.fullCourseInfo}/>
+                {loading ? <div>
+                    <CoursesBody courseInfo={props.fullCourseInfo}/>
+                </div> : <Spinner animation="border" variant="success" className={"load"}/>}
 
                 <div className="d-flex justify-content-center">
                     <form className="d-flex mb-2">
