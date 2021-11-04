@@ -1177,6 +1177,7 @@ const App = () => {
                     <Route path={"/course"} component={() => <Course
                         menuList={menuList}
                         footerInfo={footerInfo}
+                        loading={loadingCourseData}
                     />}/>
                     <Route path={"/not-found"} component={() => <NotFound/>}/>
 
