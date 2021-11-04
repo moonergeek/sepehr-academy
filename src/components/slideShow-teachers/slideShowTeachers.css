@@ -1,0 +1,13 @@
+.slider-item{
+    height: 112px;
+}
+.teachers-name{
+    position: relative;
+    top: 90px;
+    left: -25px;
+     color: #323e73;
+    opacity: 80%;
+}
+.margin{
+    margin-right: 15px;
+}

@@ -1,5 +1,5 @@
 import './App.css';
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import HomePage from "../screens/homePage/homePage";
 import image1 from "../assets/img/02.jpg"
 import image2 from "../assets/img/09.jpg"
@@ -29,427 +29,430 @@ import ForgetPass from "../screens/forgetPass/forgetPass";
 import Course from "../screens/Course/Course";
 import NotFound from "../screens/NotFound/NotFound";
 import Maghalat from "../screens/blog/Maghalat";
-import PanelNavbar from "../components/panel-admin/panelNavbar/panelNavbar";
 import Maghale from "../screens/blog/maghale";
+import PanelAdmin from "../screens/panel-Admin/panelAdmin";
+import Axios from "axios";
 
 
-class App extends Component {
-    state = {
-        menuList: [
-            {
-                menuItem: "خانه",
-                routeAddress: "/",
-            },
-            {
-                menuItem: "دوره ها",
-                routeAddress: "/courses",
-            },
-            {
-                menuItem: "معرفی مدرسین",
-                routeAddress: "/teachers",
-            },
-            {
-                menuItem: "بلاگ",
-                routeAddress: "/blog",
-            },
-            {
-                menuItem: "سوالات متداول",
-                routeAddress: "/questions",
-            },
-            {
-                menuItem: "درخواست مشاوره",
-                routeAddress: "/request",
-            },
-            {
-                menuItem: "درباره ما",
-                routeAddress: "/about",
-            },
-        ],
+const App = () => {
+    const [menuList, setMenuList] = useState([
+        {
+            menuItem: "خانه",
+            routeAddress: "/",
+        },
+        {
+            menuItem: "دوره ها",
+            routeAddress: "/courses",
+        },
+        {
+            menuItem: "معرفی مدرسین",
+            routeAddress: "/teachers",
+        },
+        {
+            menuItem: "بلاگ",
+            routeAddress: "/blog",
+        },
+        {
+            menuItem: "سوالات متداول",
+            routeAddress: "/questions",
+        },
+        {
+            menuItem: "درخواست مشاوره",
+            routeAddress: "/request",
+        },
+        {
+            menuItem: "درباره ما",
+            routeAddress: "/about",
+        },
+    ],);
 
-        placeHolder: " جستجو دوره های مختلف ...",
-        bannerTitle: "آموزش برنامه نویسی ، خودآموزی ، ورود به بازارکار ",
-        bannerDetail: "حرفه ایی شدن رو از امروز شروع کن ",
+    const [placeHolder, setPlaceHolder] = useState(" جستجو دوره های مختلف ...");
 
-        coursesInfo: {
+    const [bannerTitle, setBannerTitle] = useState("آموزش برنامه نویسی ، خودآموزی ، ورود به بازارکار ");
+    const [bannerDetail, setBannerDetail] = useState("حرفه ایی شدن رو از امروز شروع کن ");
+    const [coursesInfo, setCoursesInfo] = useState({
+        obj1: {
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            imgAddress: image1,
+            teacher: "حسامی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        obj2: {
+            imgAddress: image4,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "حسامی",
+            time: "5:27:00",
+            price: " 400،000 تومان",
+        },
+        obj3: {
+            imgAddress: image2,
+            title: "آموزش جامع پلتفرم Node js",
+            teacher: "رستمی",
+            time: "4:29:00",
+            price: " 450،000 تومان",
+        },
+        obj4: {
+            imgAddress: image3,
+            title: "آموزش جامع فریمورک انگولار",
+            teacher: "جعفری",
+            time: "9:22:00",
+            price: " 300،000 تومان",
+        },
+        obj5: {
+            imgAddress: image4,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رضایی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        obj6: {
+            imgAddress: image3,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "حسامی",
+            time: "7:32:00",
+            price: " 200،000 تومان",
+        },
+        obj7: {
+            imgAddress: image5,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رضایی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        obj8: {
+            imgAddress: image6,
+            title: "آموزش جامع زبان جاوا از صفر تا صد",
+            teacher: "رستمی",
+            time: "6:28:00",
+            price: " 250،000 تومان",
+        },
+
+
+    },);
+
+    const [coursesTitle, setCoursesTitle] = useState("اخرین دوره های مجموعه");
+    const [coursesBtnTitle, setCoursesBtnTitle] = useState("مشاهده همه دوره ها");
+    const [fullCoursesInfo, setFullCoursesInfo] = useState([
+        {
+            id: 1,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            imgAddress: image1,
+            teacher: "حسامی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        {
+            id: 2,
+            imgAddress: image4,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "حسامی",
+            time: "5:27:00",
+            price: " 400،000 تومان",
+        },
+        {
+            id: 3,
+            imgAddress: image2,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رستمی",
+            time: "4:29:00",
+            price: " 450،000 تومان",
+        },
+        {
+            id: 4,
+            imgAddress: image3,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "جعفری",
+            time: "9:22:00",
+            price: " 300،000 تومان",
+        },
+        {
+            id: 5,
+            imgAddress: image4,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رضایی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        {
+            id: 6,
+            imgAddress: image3,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "حسامی",
+            time: "7:32:00",
+            price: " 200،000 تومان",
+        },
+        {
+            id: 7,
+            imgAddress: image5,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رضایی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        {
+            id: 8,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            imgAddress: image1,
+            teacher: "حسامی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        {
+            id: 9,
+            imgAddress: image4,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "حسامی",
+            time: "5:27:00",
+            price: " 400،000 تومان",
+        },
+        {
+            id: 10,
+            imgAddress: image2,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رستمی",
+            time: "4:29:00",
+            price: " 450،000 تومان",
+        },
+        {
+            id: 11,
+            imgAddress: image3,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "جعفری",
+            time: "9:22:00",
+            price: " 300،000 تومان",
+        },
+        {
+            id: 12,
+            imgAddress: image4,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رضایی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        {
+            id: 13,
+            imgAddress: image3,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "حسامی",
+            time: "7:32:00",
+            price: " 200،000 تومان",
+        },
+        {
+            id: 14,
+            imgAddress: image5,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رضایی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        {
+            id: 15,
+            imgAddress: image6,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رستمی",
+            time: "6:28:00",
+            price: " 250،000 تومان",
+        },
+        {
+            id: 16,
+            imgAddress: image2,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رستمی",
+            time: "4:29:00",
+            price: " 450،000 تومان",
+        },
+        {
+            id: 17,
+            imgAddress: image3,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "جعفری",
+            time: "9:22:00",
+            price: " 300،000 تومان",
+        },
+        {
+            id: 18,
+            imgAddress: image4,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رضایی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        {
+            id: 19,
+            imgAddress: image3,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "حسامی",
+            time: "7:32:00",
+            price: " 200،000 تومان",
+        },
+        {
+            id: 20,
+            imgAddress: image6,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رستمی",
+            time: "6:28:00",
+            price: " 250،000 تومان",
+        },
+        {
+            id: 21,
+            imgAddress: image4,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "حسامی",
+            time: "5:27:00",
+            price: " 400،000 تومان",
+        },
+        {
+            id: 22,
+            imgAddress: image2,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رستمی",
+            time: "4:29:00",
+            price: " 450،000 تومان",
+        },
+        {
+            id: 23,
+            imgAddress: image3,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "جعفری",
+            time: "9:22:00",
+            price: " 300،000 تومان",
+        },
+        {
+            id: 24,
+            imgAddress: image4,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رضایی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        {
+            id: 25,
+            imgAddress: image3,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "حسامی",
+            time: "7:32:00",
+            price: " 200،000 تومان",
+        },
+        {
+            id: 26,
+            imgAddress: image5,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رضایی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        {
+            id: 27,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            imgAddress: image1,
+            teacher: "حسامی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        {
+            id: 28,
+            imgAddress: image4,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "حسامی",
+            time: "5:27:00",
+            price: " 400،000 تومان",
+        },
+    ]);
+
+
+    const [blogInfo, setBlogInfo] = useState({
+        bl1: {
+            docNumber: "مقاله شماره 17",
+            title: "میشه یه شبه برنامه نویس شد؟ ",
+            imgAddress: blogBanner1,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+        },
+        bl2: {
+            docNumber: "مقاله شماره 18",
+            title: " نگاهی به نمونه کارهای شما ",
+            imgAddress: blogBanner2,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+        },
+        bl3: {
+            docNumber: "مقاله شماره 19",
+            title: "خودآموزی ، ورود به بازارکار ",
+            imgAddress: blogBanner3,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+        },
+        bl4: {
+            docNumber: "مقاله شماره 20",
+            title: " نگاهی به نمونه کارهای شما ",
+            imgAddress: blogBanner4,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+        },
+        bl5: {
+            docNumber: "مقاله شماره 21",
+            title: "میشه یه شبه برنامه نویس شد؟ ",
+            imgAddress: blogBanner5,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+        },
+        bl6: {
+            docNumber: "مقاله شماره 22",
+            title: "حرفه ایی شدن رو از امروز شروع کن ",
+            imgAddress: blogBanner6,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+        },
+    });
+
+
+    const [blogTitle, setBlogTitle] = useState("اخرین مقالات سایت");
+    const [blogBtnTitle, setBlogBtnTitle] = useState("مشاهده همه مقالات");
+    const [teachersInfo, setTeachersInfo] = useState({
+        th1: {
+            imgAddress: teacherImg1,
+            lastName: "حسامی",
+        },
+        th2: {
+            imgAddress: teacherImg2,
+            lastName: "جعفری",
+        },
+        th3: {
+            imgAddress: teacherImg1,
+            lastName: "رستمی",
+        },
+        th4: {
+            imgAddress: teacherImg2,
+            lastName: "حسامی"
+        },
+        th5: {
+            imgAddress: teacherImg1,
+            lastName: "رضایی",
+        },
+        th6: {
+            imgAddress: teacherImg2,
+            lastName: "جعفری",
+        },
+    });
+
+    const [teachersTitle, setTeachersTitle] = useState("مدرسین نمونه مجموعه آموزشی ما");
+    const [favCoursesTitle, setFavCoursesTitle] = useState("دوره های محبوب سایت");
+    const [favCoursesInfo, setFavCoursesInfo] = useState({
             obj1: {
+                imgAddress: image3,
                 title: "آموزش جامع زبان پایتون از صفر تا صد",
-                imgAddress: image1,
-                teacher: "حسامی",
-                time: "7:28:00",
-                price: " 500،000 تومان",
+                teacher: "جعفری",
+                time: "9:22:00",
+                price: " 300،000 تومان",
             },
             obj2: {
-                imgAddress: image4,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "حسامی",
-                time: "5:27:00",
-                price: " 400،000 تومان",
-            },
-            obj3: {
-                imgAddress: image2,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رستمی",
-                time: "4:29:00",
-                price: " 450،000 تومان",
-            },
-            obj4: {
-                imgAddress: image3,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "جعفری",
-                time: "9:22:00",
-                price: " 300،000 تومان",
-            },
-            obj5: {
-                imgAddress: image4,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رضایی",
-                time: "7:28:00",
-                price: " 500،000 تومان",
-            },
-            obj6: {
-                imgAddress: image3,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "حسامی",
-                time: "7:32:00",
-                price: " 200،000 تومان",
-            },
-            obj7: {
-                imgAddress: image5,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رضایی",
-                time: "7:28:00",
-                price: " 500،000 تومان",
-            },
-            obj8: {
-                imgAddress: image6,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رستمی",
-                time: "6:28:00",
-                price: " 250،000 تومان",
-            },
-
-
-        },
-        coursesTitle: "اخرین دوره های مجموعه",
-        coursesBtnTitle: "مشاهده همه دوره ها",
-        fullCoursesInfo: [
-            {
-                id: 1,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                imgAddress: image1,
-                teacher: "حسامی",
-                time: "7:28:00",
-                price: " 500،000 تومان",
-            },
-            {
-                id: 2,
-                imgAddress: image4,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "حسامی",
-                time: "5:27:00",
-                price: " 400،000 تومان",
-            },
-            {
-                id: 3,
-                imgAddress: image2,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رستمی",
-                time: "4:29:00",
-                price: " 450،000 تومان",
-            },
-            {
-                id: 4,
-                imgAddress: image3,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "جعفری",
-                time: "9:22:00",
-                price: " 300،000 تومان",
-            },
-            {
-                id: 5,
-                imgAddress: image4,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رضایی",
-                time: "7:28:00",
-                price: " 500،000 تومان",
-            },
-            {
-                id: 6,
-                imgAddress: image3,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "حسامی",
-                time: "7:32:00",
-                price: " 200،000 تومان",
-            },
-            {
-                id: 7,
-                imgAddress: image5,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رضایی",
-                time: "7:28:00",
-                price: " 500،000 تومان",
-            },
-            {
-                id: 8,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                imgAddress: image1,
-                teacher: "حسامی",
-                time: "7:28:00",
-                price: " 500،000 تومان",
-            },
-            {
-                id: 9,
-                imgAddress: image4,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "حسامی",
-                time: "5:27:00",
-                price: " 400،000 تومان",
-            },
-            {
-                id: 10,
-                imgAddress: image2,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رستمی",
-                time: "4:29:00",
-                price: " 450،000 تومان",
-            },
-            {
-                id: 11,
-                imgAddress: image3,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "جعفری",
-                time: "9:22:00",
-                price: " 300،000 تومان",
-            },
-            {
-                id: 12,
-                imgAddress: image4,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رضایی",
-                time: "7:28:00",
-                price: " 500،000 تومان",
-            },
-            {
-                id: 13,
-                imgAddress: image3,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "حسامی",
-                time: "7:32:00",
-                price: " 200،000 تومان",
-            },
-            {
-                id: 14,
-                imgAddress: image5,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رضایی",
-                time: "7:28:00",
-                price: " 500،000 تومان",
-            },
-            {
-                id: 15,
-                imgAddress: image6,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رستمی",
-                time: "6:28:00",
-                price: " 250،000 تومان",
-            },
-            {
-                id: 16,
-                imgAddress: image2,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رستمی",
-                time: "4:29:00",
-                price: " 450،000 تومان",
-            },
-            {
-                id: 17,
-                imgAddress: image3,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "جعفری",
-                time: "9:22:00",
-                price: " 300،000 تومان",
-            },
-            {
-                id: 18,
-                imgAddress: image4,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رضایی",
-                time: "7:28:00",
-                price: " 500،000 تومان",
-            },
-            {
-                id: 19,
-                imgAddress: image3,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "حسامی",
-                time: "7:32:00",
-                price: " 200،000 تومان",
-            },
-            {
-                id: 20,
-                imgAddress: image6,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رستمی",
-                time: "6:28:00",
-                price: " 250،000 تومان",
-            },
-            {
-                id: 21,
-                imgAddress: image4,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "حسامی",
-                time: "5:27:00",
-                price: " 400،000 تومان",
-            },
-            {
-                id: 22,
-                imgAddress: image2,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رستمی",
-                time: "4:29:00",
-                price: " 450،000 تومان",
-            },
-            {
-                id: 23,
-                imgAddress: image3,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "جعفری",
-                time: "9:22:00",
-                price: " 300،000 تومان",
-            },
-            {
-                id: 24,
-                imgAddress: image4,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رضایی",
-                time: "7:28:00",
-                price: " 500،000 تومان",
-            },
-            {
-                id: 25,
-                imgAddress: image3,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "حسامی",
-                time: "7:32:00",
-                price: " 200،000 تومان",
-            },
-            {
-                id: 26,
-                imgAddress: image5,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "رضایی",
-                time: "7:28:00",
-                price: " 500،000 تومان",
-            },
-            {
-                id: 27,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                imgAddress: image1,
-                teacher: "حسامی",
-                time: "7:28:00",
-                price: " 500،000 تومان",
-            },
-            {
-                id: 28,
-                imgAddress: image4,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "حسامی",
-                time: "5:27:00",
-                price: " 400،000 تومان",
-            },
-        ],
-
-        blogInfo: {
-            bl1: {
-                docNumber: "مقاله شماره 17",
-                title: "میشه یه شبه برنامه نویس شد؟ ",
-                imgAddress: blogBanner1,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-            },
-            bl2: {
-                docNumber: "مقاله شماره 18",
-                title: " نگاهی به نمونه کارهای شما ",
-                imgAddress: blogBanner2,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-            },
-            bl3: {
-                docNumber: "مقاله شماره 19",
-                title: "خودآموزی ، ورود به بازارکار ",
-                imgAddress: blogBanner3,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-            },
-            bl4: {
-                docNumber: "مقاله شماره 20",
-                title: " نگاهی به نمونه کارهای شما ",
-                imgAddress: blogBanner4,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-            },
-            bl5: {
-                docNumber: "مقاله شماره 21",
-                title: "میشه یه شبه برنامه نویس شد؟ ",
-                imgAddress: blogBanner5,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-            },
-            bl6: {
-                docNumber: "مقاله شماره 22",
-                title: "حرفه ایی شدن رو از امروز شروع کن ",
-                imgAddress: blogBanner6,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-            },
-        },
-        blogTitle: "اخرین مقالات سایت",
-        blogBtnTitle: "مشاهده همه مقالات",
-
-        teachersInfo: {
-            th1: {
-                imgAddress: teacherImg1,
-                lastName: "حسامی",
-            },
-            th2: {
-                imgAddress: teacherImg2,
-                lastName: "جعفری",
-            },
-            th3: {
-                imgAddress: teacherImg1,
-                lastName: "رستمی",
-            },
-            th4: {
-                imgAddress: teacherImg2,
-                lastName: "حسامی"
-            },
-            th5: {
-                imgAddress: teacherImg1,
-                lastName: "رضایی",
-            },
-            th6: {
-                imgAddress: teacherImg2,
-                lastName: "جعفری",
-            },
-        },
-        teachersTitle: "مدرسین نمونه مجموعه آموزشی ما",
-
-        favCoursesTitle: "دوره های محبوب سایت",
-        favCoursesInfo: {
-            obj1: {
-                imgAddress: image3,
-                title: "آموزش جامع زبان پایتون از صفر تا صد",
-                teacher: "جعفری",
-                time: "9:22:00",
-                price: " 300،000 تومان",
-            },
-            obj2: {
                 imgAddress: image6,
                 title: "آموزش جامع زبان پایتون از صفر تا صد",
                 teacher: "رستمی",
@@ -471,730 +474,738 @@ class App extends Component {
                 price: " 500،000 تومان",
             },
         },
+    );
 
-        footerInfo: {
-            item1: {
-                title: "دسترسی",
-                lineImage: footerLine,
-                it1: " دوره ها",
-                it2: "معرفی مدرسین",
-                it3: "بلاگ",
-            },
-            item2: {
-                title: "متداول",
-                lineImage: footerLine,
-                it1: " پرسش و پاسخ ",
-                it2: "درخواست مشاوره",
-                it3: "ورود",
-            },
-            item3: {
-                title: "ارتباط با ما",
-                lineImage: footerLine,
-                it1: "تماس با ما",
-                it2: " درباره ما",
-                it3: "رزومه",
-            },
+    const [footerInfo, setFooterInfo] = useState({
+        item1: {
+            title: "دسترسی",
+            lineImage: footerLine,
+            it1: " دوره ها",
+            it2: "معرفی مدرسین",
+            it3: "بلاگ",
+        },
+        item2: {
+            title: "متداول",
+            lineImage: footerLine,
+            it1: " پرسش و پاسخ ",
+            it2: "درخواست مشاوره",
+            it3: "ورود",
+        },
+        item3: {
+            title: "ارتباط با ما",
+            lineImage: footerLine,
+            it1: "تماس با ما",
+            it2: " درباره ما",
+            it3: "رزومه",
+        },
+    });
+
+    const [pageSize, setPageSize] = useState(4);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    //accordion data
+    const [accFullList, setAccFullList] = useState([
+        {
+            id: "heading1",
+            div_id: "collapse1",
+            accTitle: " چطور میتونم در سایت ثبت نام کنم؟",
+            accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
+                "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
+                "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
+                "                            همین راحتی"
+        },
+        {
+            id: "heading2",
+            div_id: "collapse2",
+            accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
+            accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
+                "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
+                "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
+        },
+        {
+            id: "heading3",
+            div_id: "collapse3",
+            accTitle: "  چطور میتونم حسابم رو ویرایش کنم؟",
+            accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
+                "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
+                "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
+        },
+        {
+            id: "heading4",
+            div_id: "collapse4",
+            accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
+            accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
+                "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
+                "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
         },
 
-        pageSize: 12,
-        currentPage: 1,
+        {
+            id: "heading5",
+            div_id: "collapse5",
+            accTitle: " چطور میتونم در سایت ثبت نام کنم؟",
+            accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
+                "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
+                "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
+                "                            همین راحتی"
+        },
+        {
+            id: "heading6",
+            div_id: "collapse6",
+            accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
+            accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
+                "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
+                "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
+        },
+        {
+            id: "heading7",
+            div_id: "collapse7",
+            accTitle: " داده ساختار یافته FAQ چیست؟",
+            accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
+                "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
+                "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
+                "                            همین راحتی"
+        },
+        {
+            id: "heading8",
+            div_id: "collapse8",
+            accTitle: "  چرا باید از FAQ rich snippet استفاده کنیم؟",
+            accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
+                "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
+                "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
+        },
+        {
+            id: "heading9",
+            div_id: "collapse9",
+            accTitle: "   نمایش پرسش و پاسخ در نتایج گوگل چگونه است؟",
+            accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
+                "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
+                "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
+        },
+        {
+            id: "heading10",
+            div_id: "collapse10",
+            accTitle: "  صفحات دارای خطا",
+            accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
+                "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
+                "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
+        },
+        {
+            id: "heading11",
+            div_id: "collapse11",
+            accTitle: "بررسی خطاهای سوالات متداول در گوگل سرچ کنسول",
+            accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
+                "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
+                "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
+                "                            همین راحتی"
+        },
+        {
+            id: "heading12",
+            div_id: "collapse12",
+            accTitle: "  پرسش و پاسخ با افزونه یوست",
+            accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
+                "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
+                "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
+        },
+        {
+            id: "heading13",
+            div_id: "collapse13",
+            accTitle: "  آیا نبود درایو نوری دیسک خوان یک ضعف است؟",
+            accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
+                "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
+                "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
+        },
+        {
+            id: "heading14",
+            div_id: "collapse14",
+            accTitle: " قدرت سخت افزاری سرفیس در چه حد است؟",
+            accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
+                "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
+                "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
+        },
+
+        {
+            id: "heading15",
+            div_id: "collapse15",
+            accTitle: " برتری های سرفیس نسبت به لپ‌تاپ چیست؟ ",
+            accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
+                "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
+                "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
+                "                            همین راحتی"
+        },
 
 
-        //accordion data
-        accFullList: [
-            {
-                id: "heading1",
-                div_id: "collapse1",
-                accTitle: " چطور میتونم در سایت ثبت نام کنم؟",
-                accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
-                    "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
-                    "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
-                    "                            همین راحتی"
-            },
-            {
-                id: "heading2",
-                div_id: "collapse2",
-                accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
-                accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
-                    "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
-                    "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
-            },
-            {
-                id: "heading3",
-                div_id: "collapse3",
-                accTitle: "  چطور میتونم حسابم رو ویرایش کنم؟",
-                accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
-                    "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
-                    "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
-            },
-            {
-                id: "heading4",
-                div_id: "collapse4",
-                accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
-                accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
-                    "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
-                    "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
-            },
+    ]);
 
-            {
-                id: "heading5",
-                div_id: "collapse5",
-                accTitle: " چطور میتونم در سایت ثبت نام کنم؟",
-                accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
-                    "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
-                    "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
-                    "                            همین راحتی"
-            },
-            {
-                id: "heading6",
-                div_id: "collapse6",
-                accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
-                accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
-                    "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
-                    "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
-            },
-            {
-                id: "heading7",
-                div_id: "collapse7",
-                accTitle: " داده ساختار یافته FAQ چیست؟",
-                accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
-                    "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
-                    "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
-                    "                            همین راحتی"
-            },
-            {
-                id: "heading8",
-                div_id: "collapse8",
-                accTitle: "  چرا باید از FAQ rich snippet استفاده کنیم؟",
-                accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
-                    "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
-                    "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
-            },
-            {
-                id: "heading9",
-                div_id: "collapse9",
-                accTitle: "   نمایش پرسش و پاسخ در نتایج گوگل چگونه است؟",
-                accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
-                    "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
-                    "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
-            },
-            {
-                id: "heading10",
-                div_id: "collapse10",
-                accTitle: "  صفحات دارای خطا",
-                accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
-                    "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
-                    "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
-            },
-            {
-                id: "heading11",
-                div_id: "collapse11",
-                accTitle: "بررسی خطاهای سوالات متداول در گوگل سرچ کنسول",
-                accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
-                    "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
-                    "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
-                    "                            همین راحتی"
-            },
-            {
-                id: "heading12",
-                div_id: "collapse12",
-                accTitle: "  پرسش و پاسخ با افزونه یوست",
-                accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
-                    "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
-                    "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
-            },
-            {
-                id: "heading13",
-                div_id: "collapse13",
-                accTitle: "  آیا نبود درایو نوری دیسک خوان یک ضعف است؟",
-                accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
-                    "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
-                    "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
-            },
-            {
-                id: "heading14",
-                div_id: "collapse14",
-                accTitle: " قدرت سخت افزاری سرفیس در چه حد است؟",
-                accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
-                    "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
-                    "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
-            },
+    const [accProfileList, setAccProfileList] = useState([
+        {
+            id: "heading1",
+            div_id: "collapse1",
+            accTitle: " چطور میتونم در سایت ثبت نام کنم؟",
+            accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
+                "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
+                "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
+                "                            همین راحتی"
+        },
+        {
+            id: "heading2",
+            div_id: "collapse2",
+            accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
+            accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
+                "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
+                "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
+        },
+        {
+            id: "heading3",
+            div_id: "collapse3",
+            accTitle: "  چطور میتونم حسابم رو ویرایش کنم؟",
+            accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
+                "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
+                "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
+        },
+        {
+            id: "heading4",
+            div_id: "collapse4",
+            accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
+            accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
+                "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
+                "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
+        },
 
-            {
-                id: "heading15",
-                div_id: "collapse15",
-                accTitle: " برتری های سرفیس نسبت به لپ‌تاپ چیست؟ ",
-                accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
-                    "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
-                    "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
-                    "                            همین راحتی"
-            },
+        {
+            id: "heading5",
+            div_id: "collapse5",
+            accTitle: " چطور میتونم در سایت ثبت نام کنم؟",
+            accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
+                "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
+                "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
+                "                            همین راحتی"
+        },
+        {
+            id: "heading6",
+            div_id: "collapse6",
+            accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
+            accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
+                "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
+                "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
+        },
 
+    ]);
 
-        ],
-        accProfileList: [
-            {
-                id: "heading1",
-                div_id: "collapse1",
-                accTitle: " چطور میتونم در سایت ثبت نام کنم؟",
-                accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
-                    "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
-                    "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
-                    "                            همین راحتی"
-            },
-            {
-                id: "heading2",
-                div_id: "collapse2",
-                accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
-                accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
-                    "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
-                    "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
-            },
-            {
-                id: "heading3",
-                div_id: "collapse3",
-                accTitle: "  چطور میتونم حسابم رو ویرایش کنم؟",
-                accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
-                    "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
-                    "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
-            },
-            {
-                id: "heading4",
-                div_id: "collapse4",
-                accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
-                accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
-                    "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
-                    "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
-            },
+    const [accCoursesList, setAccCoursesList] = useState([
+        {
+            id: "heading7",
+            div_id: "collapse7",
+            accTitle: " داده ساختار یافته FAQ چیست؟",
+            accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
+                "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
+                "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
+                "                            همین راحتی"
+        },
+        {
+            id: "heading8",
+            div_id: "collapse8",
+            accTitle: "  چرا باید از FAQ rich snippet استفاده کنیم؟",
+            accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
+                "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
+                "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
+        },
+        {
+            id: "heading9",
+            div_id: "collapse9",
+            accTitle: "   نمایش پرسش و پاسخ در نتایج گوگل چگونه است؟",
+            accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
+                "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
+                "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
+        },
+        {
+            id: "heading10",
+            div_id: "collapse10",
+            accTitle: "  صفحات دارای خطا",
+            accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
+                "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
+                "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
+        },
+    ]);
 
-            {
-                id: "heading5",
-                div_id: "collapse5",
-                accTitle: " چطور میتونم در سایت ثبت نام کنم؟",
-                accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
-                    "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
-                    "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
-                    "                            همین راحتی"
-            },
-            {
-                id: "heading6",
-                div_id: "collapse6",
-                accTitle: "  چطور میتونم از دورهای آموزشی استفاده کنم ؟",
-                accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
-                    "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
-                    "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
-            },
+    const [accConfigList, setAccConfigList] = useState([
+        {
+            id: "heading11",
+            div_id: "collapse11",
+            accTitle: "بررسی خطاهای سوالات متداول در گوگل سرچ کنسول",
+            accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
+                "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
+                "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
+                "                            همین راحتی"
+        },
+        {
+            id: "heading12",
+            div_id: "collapse12",
+            accTitle: "  پرسش و پاسخ با افزونه یوست",
+            accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
+                "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
+                "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
+        },
+        {
+            id: "heading13",
+            div_id: "collapse13",
+            accTitle: "  آیا نبود درایو نوری دیسک خوان یک ضعف است؟",
+            accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
+                "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
+                "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
+        },
+        {
+            id: "heading14",
+            div_id: "collapse14",
+            accTitle: " قدرت سخت افزاری سرفیس در چه حد است؟",
+            accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
+                "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
+                "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
+        },
 
-        ],
-        accCoursesList: [
-            {
-                id: "heading7",
-                div_id: "collapse7",
-                accTitle: " داده ساختار یافته FAQ چیست؟",
-                accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
-                    "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
-                    "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
-                    "                            همین راحتی"
-            },
-            {
-                id: "heading8",
-                div_id: "collapse8",
-                accTitle: "  چرا باید از FAQ rich snippet استفاده کنیم؟",
-                accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
-                    "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
-                    "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
-            },
-            {
-                id: "heading9",
-                div_id: "collapse9",
-                accTitle: "   نمایش پرسش و پاسخ در نتایج گوگل چگونه است؟",
-                accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
-                    "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
-                    "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
-            },
-            {
-                id: "heading10",
-                div_id: "collapse10",
-                accTitle: "  صفحات دارای خطا",
-                accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
-                    "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
-                    "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
-            },
-        ],
-        accConfigList: [
-            {
-                id: "heading11",
-                div_id: "collapse11",
-                accTitle: "بررسی خطاهای سوالات متداول در گوگل سرچ کنسول",
-                accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
-                    "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
-                    "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
-                    "                            همین راحتی"
-            },
-            {
-                id: "heading12",
-                div_id: "collapse12",
-                accTitle: "  پرسش و پاسخ با افزونه یوست",
-                accBody: " برای استفاده از دوره های آموزشی ما وارد صفحه ی جزییات هر دوره میشوید و دوره را به سبد خرید\n" +
-                    "                            خود اضافه میکنید . بعد از ورود به صفحه ی خرید و پرداخت هزینه دور ها برای شما در پنل کاربری\n" +
-                    "                            شما فعال میشود و میتوانید به راحتی آموزش ها را دانلود و استفاده نمایید"
-            },
-            {
-                id: "heading13",
-                div_id: "collapse13",
-                accTitle: "  آیا نبود درایو نوری دیسک خوان یک ضعف است؟",
-                accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
-                    "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
-                    "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
-            },
-            {
-                id: "heading14",
-                div_id: "collapse14",
-                accTitle: " قدرت سخت افزاری سرفیس در چه حد است؟",
-                accBody: "برای ویرایش حساب کاربری خود کافیه وارد پنل کاربری خود شوید و میتوانید از قسمت ویرایش حساب\n" +
-                    "                            کاربری اطلاعات کاربری خود را ویرایش کنید و نکته ی مهم اینه که حتما اطلاعات خود را به صورت\n" +
-                    "                            درست درج کنید که در پشتیبانی دوره ها دچار مشکل نشوید"
-            },
+        {
+            id: "heading15",
+            div_id: "collapse15",
+            accTitle: " برتری های سرفیس نسبت به لپ‌تاپ چیست؟ ",
+            accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
+                "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
+                "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
+                "                            همین راحتی"
+        },
 
-            {
-                id: "heading15",
-                div_id: "collapse15",
-                accTitle: " برتری های سرفیس نسبت به لپ‌تاپ چیست؟ ",
-                accBody: "برای ثبت نام در سایت کافیه در قسمت منو سایت روی منوی کاربری کلیک کنید و ثبت نام رو انتخاب\n" +
-                    "                            کنید . بعد در این صفحه اطلاعات لارم رو پر میکنید و روی ثبت نام کلیک میکنید . بعد از ثبت نام\n" +
-                    "                            برای تایید حساب کافیه به ایمیل خود مراجعه کنید و روی لینک ارسال شده به شما کلیک کنید . به\n" +
-                    "                            همین راحتی"
-            },
+    ]);
 
-        ],
+    //blog
+    const [maghale, setMaghale] = useState([
+        {
+            id: 1,
+            docNumber: "مقاله شماره 1",
+            title: "میشه یه شبه برنامه نویس شد؟ ",
+            imgAddress: blogBanner1,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "برنامه نویس شدن آن هم یک شبه، حرفی ساده لوحانه است که متاسفانه تعدادی از افراد به علاقمندان یادگیری برنامه نویسی حرفی شبیه این موضوع را میزنند.\n" +
+                "\n" +
+                "در این راکت‌کست توضیح میدهم که برنامه نویس شدن راه و رسم خود را دارد و نمیتواند در یک شب، یا یک هفته یا یک ماه تبدیل به یک برنامه نویس کار کشته شد. باید زمان لازم برای تبدیل شدن به یک برنامه نویس طی شود تا شما بتوانید خود را برنامه نویس خطاب کنید.",
 
-        //blog
+        },
+        {
+            id: 2,
+            docNumber: "مقاله شماره 2",
+            title: " نگاهی به نمونه کارهای شما ",
+            imgAddress: blogBanner2,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "برای این‌که بتوانید رتبه صفحات وب‌تان را در گوگل بالا ببرید، چاره‌ای ندارید جز این که محتوای باکیفیت تولید کنید و بعد به کمک سئو آن را به دست مخاطبش برسانید. شاید فکر کنید تمام قضیه با کمک یک آژانس دیجیتال مارکتینگ یا یک کارشناس سئو حل می‌شود.\n" +
+                "\n" +
+                "اشتباه نکنید.\n" +
+                "\n" +
+                "کمک گرفتن از متخصصان حوزه دیجیتال مارکتینگ ضروری است، اما چطور می‌خواهید بهترین گزینه را انتخاب کنید؟ حتماً می‌دانید که سایت شما جای آزمون و خطا نیست. پس چاره چیست؟\n" +
+                "\n" +
+                "اگر می‌خواهید شرکت یا شخصی را برای سئو سایت‌تان انتخاب کنید، باید پیش از هر چیز نمونه کارهای سئو سایت آن شرکت یا شخص را بررسی کنید.\n" +
+                "یک مثل قدیمی هست که می‌گوید: کار نیکو کردن از پر کردن است.\n" +
+                "\n" +
+                "پونه مدیا در کنار شماست تا صفحات وب‌تان را به صدر نتایج برتر گوگل برسانید. آن‌چه ما را از دیگران متمایز می‌کند، سابقه و پایداری‌مان در این حوزه است. همکاری با مطرح‌ترین برندهای ایرانی و به ثمر رساندن بیش از 200 پروژه سئو موفق گواه صحت ادعای ماست.",
 
-        maghale: [
-            {
-                id: 1,
-                docNumber: "مقاله شماره 1",
-                title: "میشه یه شبه برنامه نویس شد؟ ",
-                imgAddress: blogBanner1,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "برنامه نویس شدن آن هم یک شبه، حرفی ساده لوحانه است که متاسفانه تعدادی از افراد به علاقمندان یادگیری برنامه نویسی حرفی شبیه این موضوع را میزنند.\n" +
-                    "\n" +
-                    "در این راکت‌کست توضیح میدهم که برنامه نویس شدن راه و رسم خود را دارد و نمیتواند در یک شب، یا یک هفته یا یک ماه تبدیل به یک برنامه نویس کار کشته شد. باید زمان لازم برای تبدیل شدن به یک برنامه نویس طی شود تا شما بتوانید خود را برنامه نویس خطاب کنید.",
+        },
+        {
+            id: 3,
+            docNumber: "مقاله شماره 3",
+            title: "خودآموزی ، ورود به بازارکار ",
+            imgAddress: blogBanner3,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "در حال حاضر، با گسترش علوم و تخصصی شدن مشاغل شرایط ورود به بازار کار نیز دستخوش تغییراتی شده است. یکی از راه‌های ورود به بازار کار، یادگیری مهارتهای شغلی ضروری می‌باشد. در این مقاله راجع به این مهارت‌ها صحبت خواهیم کرد.\n" +
+                "\n" +
+                "اگر دنبال کار می‌گردید و هنوز وارد بازار کار نشده‌اید، احتمالاً استرس و نگرانی زیادی دارید که بدون تجربه و سابقه‌ی کاری هیچ جا به شما کار نمی‌دهند. تمام این احساسات درست هستند. اما باور کنید یا نه در دنیای شغلی جدید چیزی فراتر از سابقه و تجربه برای مدیران و کارفرمایان اهمیت دارد. امروزه برای آن‌که بتوانید جایگاه محکمی در فضای کسب و کار برای خودتان دست و پا کنید، نیاز به کسب یک سری از مهارتهای شغلی ضروری دارید.",
 
-            },
-            {
-                id: 2,
-                docNumber: "مقاله شماره 2",
-                title: " نگاهی به نمونه کارهای شما ",
-                imgAddress: blogBanner2,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "برای این‌که بتوانید رتبه صفحات وب‌تان را در گوگل بالا ببرید، چاره‌ای ندارید جز این که محتوای باکیفیت تولید کنید و بعد به کمک سئو آن را به دست مخاطبش برسانید. شاید فکر کنید تمام قضیه با کمک یک آژانس دیجیتال مارکتینگ یا یک کارشناس سئو حل می‌شود.\n" +
-                    "\n" +
-                    "اشتباه نکنید.\n" +
-                    "\n" +
-                    "کمک گرفتن از متخصصان حوزه دیجیتال مارکتینگ ضروری است، اما چطور می‌خواهید بهترین گزینه را انتخاب کنید؟ حتماً می‌دانید که سایت شما جای آزمون و خطا نیست. پس چاره چیست؟\n" +
-                    "\n" +
-                    "اگر می‌خواهید شرکت یا شخصی را برای سئو سایت‌تان انتخاب کنید، باید پیش از هر چیز نمونه کارهای سئو سایت آن شرکت یا شخص را بررسی کنید.\n" +
-                    "یک مثل قدیمی هست که می‌گوید: کار نیکو کردن از پر کردن است.\n" +
-                    "\n" +
-                    "پونه مدیا در کنار شماست تا صفحات وب‌تان را به صدر نتایج برتر گوگل برسانید. آن‌چه ما را از دیگران متمایز می‌کند، سابقه و پایداری‌مان در این حوزه است. همکاری با مطرح‌ترین برندهای ایرانی و به ثمر رساندن بیش از 200 پروژه سئو موفق گواه صحت ادعای ماست.",
-
-            },
-            {
-                id: 3,
-                docNumber: "مقاله شماره 3",
-                title: "خودآموزی ، ورود به بازارکار ",
-                imgAddress: blogBanner3,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "در حال حاضر، با گسترش علوم و تخصصی شدن مشاغل شرایط ورود به بازار کار نیز دستخوش تغییراتی شده است. یکی از راه‌های ورود به بازار کار، یادگیری مهارتهای شغلی ضروری می‌باشد. در این مقاله راجع به این مهارت‌ها صحبت خواهیم کرد.\n" +
-                    "\n" +
-                    "اگر دنبال کار می‌گردید و هنوز وارد بازار کار نشده‌اید، احتمالاً استرس و نگرانی زیادی دارید که بدون تجربه و سابقه‌ی کاری هیچ جا به شما کار نمی‌دهند. تمام این احساسات درست هستند. اما باور کنید یا نه در دنیای شغلی جدید چیزی فراتر از سابقه و تجربه برای مدیران و کارفرمایان اهمیت دارد. امروزه برای آن‌که بتوانید جایگاه محکمی در فضای کسب و کار برای خودتان دست و پا کنید، نیاز به کسب یک سری از مهارتهای شغلی ضروری دارید.",
-
-            },
-            {
-                id: 4,
-                docNumber: "مقاله شماره 4",
-                title: " نگاهی به نمونه کارهای شما ",
-                imgAddress: blogBanner4,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "برای این‌که بتوانید رتبه صفحات وب‌تان را در گوگل بالا ببرید، چاره‌ای ندارید جز این که محتوای باکیفیت تولید کنید و بعد به کمک سئو آن را به دست مخاطبش برسانید. شاید فکر کنید تمام قضیه با کمک یک آژانس دیجیتال مارکتینگ یا یک کارشناس سئو حل می‌شود.\n" +
-                    "\n" +
-                    "اشتباه نکنید.\n" +
-                    "\n" +
-                    "کمک گرفتن از متخصصان حوزه دیجیتال مارکتینگ ضروری است، اما چطور می‌خواهید بهترین گزینه را انتخاب کنید؟ حتماً می‌دانید که سایت شما جای آزمون و خطا نیست. پس چاره چیست؟\n" +
-                    "\n" +
-                    "اگر می‌خواهید شرکت یا شخصی را برای سئو سایت‌تان انتخاب کنید، باید پیش از هر چیز نمونه کارهای سئو سایت آن شرکت یا شخص را بررسی کنید.\n" +
-                    "یک مثل قدیمی هست که می‌گوید: کار نیکو کردن از پر کردن است.\n" +
-                    "\n" +
-                    "پونه مدیا در کنار شماست تا صفحات وب‌تان را به صدر نتایج برتر گوگل برسانید. آن‌چه ما را از دیگران متمایز می‌کند، سابقه و پایداری‌مان در این حوزه است. همکاری با مطرح‌ترین برندهای ایرانی و به ثمر رساندن بیش از 200 پروژه سئو موفق گواه صحت ادعای ماست.",
+        },
+        {
+            id: 4,
+            docNumber: "مقاله شماره 4",
+            title: " نگاهی به نمونه کارهای شما ",
+            imgAddress: blogBanner4,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "برای این‌که بتوانید رتبه صفحات وب‌تان را در گوگل بالا ببرید، چاره‌ای ندارید جز این که محتوای باکیفیت تولید کنید و بعد به کمک سئو آن را به دست مخاطبش برسانید. شاید فکر کنید تمام قضیه با کمک یک آژانس دیجیتال مارکتینگ یا یک کارشناس سئو حل می‌شود.\n" +
+                "\n" +
+                "اشتباه نکنید.\n" +
+                "\n" +
+                "کمک گرفتن از متخصصان حوزه دیجیتال مارکتینگ ضروری است، اما چطور می‌خواهید بهترین گزینه را انتخاب کنید؟ حتماً می‌دانید که سایت شما جای آزمون و خطا نیست. پس چاره چیست؟\n" +
+                "\n" +
+                "اگر می‌خواهید شرکت یا شخصی را برای سئو سایت‌تان انتخاب کنید، باید پیش از هر چیز نمونه کارهای سئو سایت آن شرکت یا شخص را بررسی کنید.\n" +
+                "یک مثل قدیمی هست که می‌گوید: کار نیکو کردن از پر کردن است.\n" +
+                "\n" +
+                "پونه مدیا در کنار شماست تا صفحات وب‌تان را به صدر نتایج برتر گوگل برسانید. آن‌چه ما را از دیگران متمایز می‌کند، سابقه و پایداری‌مان در این حوزه است. همکاری با مطرح‌ترین برندهای ایرانی و به ثمر رساندن بیش از 200 پروژه سئو موفق گواه صحت ادعای ماست.",
 
 
-            },
-            {
-                id: 5,
-                docNumber: "مقاله شماره 5",
-                title: "میشه یه شبه برنامه نویس شد؟ ",
-                imgAddress: blogBanner5,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "برنامه نویس شدن آن هم یک شبه، حرفی ساده لوحانه است که متاسفانه تعدادی از افراد به علاقمندان یادگیری برنامه نویسی حرفی شبیه این موضوع را میزنند.\n" +
-                    "\n" +
-                    "در این راکت‌کست توضیح میدهم که برنامه نویس شدن راه و رسم خود را دارد و نمیتواند در یک شب، یا یک هفته یا یک ماه تبدیل به یک برنامه نویس کار کشته شد. باید زمان لازم برای تبدیل شدن به یک برنامه نویس طی شود تا شما بتوانید خود را برنامه نویس خطاب کنید.",
+        },
+        {
+            id: 5,
+            docNumber: "مقاله شماره 5",
+            title: "میشه یه شبه برنامه نویس شد؟ ",
+            imgAddress: blogBanner5,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "برنامه نویس شدن آن هم یک شبه، حرفی ساده لوحانه است که متاسفانه تعدادی از افراد به علاقمندان یادگیری برنامه نویسی حرفی شبیه این موضوع را میزنند.\n" +
+                "\n" +
+                "در این راکت‌کست توضیح میدهم که برنامه نویس شدن راه و رسم خود را دارد و نمیتواند در یک شب، یا یک هفته یا یک ماه تبدیل به یک برنامه نویس کار کشته شد. باید زمان لازم برای تبدیل شدن به یک برنامه نویس طی شود تا شما بتوانید خود را برنامه نویس خطاب کنید.",
 
 
-            },
-            {
-                id: 6,
-                docNumber: "مقاله شماره 6",
-                title: "حرفه ایی شدن رو از امروز شروع کن ",
-                imgAddress: blogBanner6,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "در زندگی پرمشغله‌ی امروز، تلاش برای رسیدن به رویای‌مان کار دشواری است. با وجود شغل تمام‌وقت و داشتن فرزند، این کار حتی غیرممکن به نظر می‌رسد. پس شما چه می‌کنید و چگونه زندگی‌تان را پیش می‌برید؟ اگر هر روز به طور هدفمند زمانی را به پیشرفت و بهسازی اختصاص ندهید، بی‌شک زمان زیادی را در این زندگی پرهیایو از دست خواهید داد. پیش از اینکه به خود بیایید، پیر و پژمرده، مبهوتِ این خواهید بود که عمرتان چقدر سریع گذشت! برای این که این بلا سرتان نیاید، شما هم ۸ کاری که افراد موفق قبل از ۸ صبح انجام می‌دهند، را انجام دهید.",
+        },
+        {
+            id: 6,
+            docNumber: "مقاله شماره 6",
+            title: "حرفه ایی شدن رو از امروز شروع کن ",
+            imgAddress: blogBanner6,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "در زندگی پرمشغله‌ی امروز، تلاش برای رسیدن به رویای‌مان کار دشواری است. با وجود شغل تمام‌وقت و داشتن فرزند، این کار حتی غیرممکن به نظر می‌رسد. پس شما چه می‌کنید و چگونه زندگی‌تان را پیش می‌برید؟ اگر هر روز به طور هدفمند زمانی را به پیشرفت و بهسازی اختصاص ندهید، بی‌شک زمان زیادی را در این زندگی پرهیایو از دست خواهید داد. پیش از اینکه به خود بیایید، پیر و پژمرده، مبهوتِ این خواهید بود که عمرتان چقدر سریع گذشت! برای این که این بلا سرتان نیاید، شما هم ۸ کاری که افراد موفق قبل از ۸ صبح انجام می‌دهند، را انجام دهید.",
 
-            },
-            {
-                id: 7,
-                docNumber: "مقاله شماره 7",
-                title: "میشه یه شبه برنامه نویس شد؟ ",
-                imgAddress: blogBanner1,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "برنامه نویس شدن آن هم یک شبه، حرفی ساده لوحانه است که متاسفانه تعدادی از افراد به علاقمندان یادگیری برنامه نویسی حرفی شبیه این موضوع را میزنند.\n" +
-                    "\n" +
-                    "در این راکت‌کست توضیح میدهم که برنامه نویس شدن راه و رسم خود را دارد و نمیتواند در یک شب، یا یک هفته یا یک ماه تبدیل به یک برنامه نویس کار کشته شد. باید زمان لازم برای تبدیل شدن به یک برنامه نویس طی شود تا شما بتوانید خود را برنامه نویس خطاب کنید.",
-
-
-            },
-            {
-                id: 8,
-                docNumber: "مقاله شماره 8",
-                title: " نگاهی به نمونه کارهای شما ",
-                imgAddress: blogBanner2,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "برای این‌که بتوانید رتبه صفحات وب‌تان را در گوگل بالا ببرید، چاره‌ای ندارید جز این که محتوای باکیفیت تولید کنید و بعد به کمک سئو آن را به دست مخاطبش برسانید. شاید فکر کنید تمام قضیه با کمک یک آژانس دیجیتال مارکتینگ یا یک کارشناس سئو حل می‌شود.\n" +
-                    "\n" +
-                    "اشتباه نکنید.\n" +
-                    "\n" +
-                    "کمک گرفتن از متخصصان حوزه دیجیتال مارکتینگ ضروری است، اما چطور می‌خواهید بهترین گزینه را انتخاب کنید؟ حتماً می‌دانید که سایت شما جای آزمون و خطا نیست. پس چاره چیست؟\n" +
-                    "\n" +
-                    "اگر می‌خواهید شرکت یا شخصی را برای سئو سایت‌تان انتخاب کنید، باید پیش از هر چیز نمونه کارهای سئو سایت آن شرکت یا شخص را بررسی کنید.\n" +
-                    "یک مثل قدیمی هست که می‌گوید: کار نیکو کردن از پر کردن است.\n" +
-                    "\n" +
-                    "پونه مدیا در کنار شماست تا صفحات وب‌تان را به صدر نتایج برتر گوگل برسانید. آن‌چه ما را از دیگران متمایز می‌کند، سابقه و پایداری‌مان در این حوزه است. همکاری با مطرح‌ترین برندهای ایرانی و به ثمر رساندن بیش از 200 پروژه سئو موفق گواه صحت ادعای ماست.",
+        },
+        {
+            id: 7,
+            docNumber: "مقاله شماره 7",
+            title: "میشه یه شبه برنامه نویس شد؟ ",
+            imgAddress: blogBanner1,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "برنامه نویس شدن آن هم یک شبه، حرفی ساده لوحانه است که متاسفانه تعدادی از افراد به علاقمندان یادگیری برنامه نویسی حرفی شبیه این موضوع را میزنند.\n" +
+                "\n" +
+                "در این راکت‌کست توضیح میدهم که برنامه نویس شدن راه و رسم خود را دارد و نمیتواند در یک شب، یا یک هفته یا یک ماه تبدیل به یک برنامه نویس کار کشته شد. باید زمان لازم برای تبدیل شدن به یک برنامه نویس طی شود تا شما بتوانید خود را برنامه نویس خطاب کنید.",
 
 
-            },
-            {
-                id: 9,
-                docNumber: "مقاله شماره 9",
-                title: "خودآموزی ، ورود به بازارکار ",
-                imgAddress: blogBanner3,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "در حال حاضر، با گسترش علوم و تخصصی شدن مشاغل شرایط ورود به بازار کار نیز دستخوش تغییراتی شده است. یکی از راه‌های ورود به بازار کار، یادگیری مهارتهای شغلی ضروری می‌باشد. در این مقاله راجع به این مهارت‌ها صحبت خواهیم کرد.\n" +
-                    "\n" +
-                    "اگر دنبال کار می‌گردید و هنوز وارد بازار کار نشده‌اید، احتمالاً استرس و نگرانی زیادی دارید که بدون تجربه و سابقه‌ی کاری هیچ جا به شما کار نمی‌دهند. تمام این احساسات درست هستند. اما باور کنید یا نه در دنیای شغلی جدید چیزی فراتر از سابقه و تجربه برای مدیران و کارفرمایان اهمیت دارد. امروزه برای آن‌که بتوانید جایگاه محکمی در فضای کسب و کار برای خودتان دست و پا کنید، نیاز به کسب یک سری از مهارتهای شغلی ضروری دارید.",
+        },
+        {
+            id: 8,
+            docNumber: "مقاله شماره 8",
+            title: " نگاهی به نمونه کارهای شما ",
+            imgAddress: blogBanner2,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "برای این‌که بتوانید رتبه صفحات وب‌تان را در گوگل بالا ببرید، چاره‌ای ندارید جز این که محتوای باکیفیت تولید کنید و بعد به کمک سئو آن را به دست مخاطبش برسانید. شاید فکر کنید تمام قضیه با کمک یک آژانس دیجیتال مارکتینگ یا یک کارشناس سئو حل می‌شود.\n" +
+                "\n" +
+                "اشتباه نکنید.\n" +
+                "\n" +
+                "کمک گرفتن از متخصصان حوزه دیجیتال مارکتینگ ضروری است، اما چطور می‌خواهید بهترین گزینه را انتخاب کنید؟ حتماً می‌دانید که سایت شما جای آزمون و خطا نیست. پس چاره چیست؟\n" +
+                "\n" +
+                "اگر می‌خواهید شرکت یا شخصی را برای سئو سایت‌تان انتخاب کنید، باید پیش از هر چیز نمونه کارهای سئو سایت آن شرکت یا شخص را بررسی کنید.\n" +
+                "یک مثل قدیمی هست که می‌گوید: کار نیکو کردن از پر کردن است.\n" +
+                "\n" +
+                "پونه مدیا در کنار شماست تا صفحات وب‌تان را به صدر نتایج برتر گوگل برسانید. آن‌چه ما را از دیگران متمایز می‌کند، سابقه و پایداری‌مان در این حوزه است. همکاری با مطرح‌ترین برندهای ایرانی و به ثمر رساندن بیش از 200 پروژه سئو موفق گواه صحت ادعای ماست.",
 
 
-            },
-            {
-                id: 10,
-                docNumber: "مقاله شماره 10",
-                title: " نگاهی به نمونه کارهای شما ",
-                imgAddress: blogBanner4,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "برای این‌که بتوانید رتبه صفحات وب‌تان را در گوگل بالا ببرید، چاره‌ای ندارید جز این که محتوای باکیفیت تولید کنید و بعد به کمک سئو آن را به دست مخاطبش برسانید. شاید فکر کنید تمام قضیه با کمک یک آژانس دیجیتال مارکتینگ یا یک کارشناس سئو حل می‌شود.\n" +
-                    "\n" +
-                    "اشتباه نکنید.\n" +
-                    "\n" +
-                    "کمک گرفتن از متخصصان حوزه دیجیتال مارکتینگ ضروری است، اما چطور می‌خواهید بهترین گزینه را انتخاب کنید؟ حتماً می‌دانید که سایت شما جای آزمون و خطا نیست. پس چاره چیست؟\n" +
-                    "\n" +
-                    "اگر می‌خواهید شرکت یا شخصی را برای سئو سایت‌تان انتخاب کنید، باید پیش از هر چیز نمونه کارهای سئو سایت آن شرکت یا شخص را بررسی کنید.\n" +
-                    "یک مثل قدیمی هست که می‌گوید: کار نیکو کردن از پر کردن است.\n" +
-                    "\n" +
-                    "پونه مدیا در کنار شماست تا صفحات وب‌تان را به صدر نتایج برتر گوگل برسانید. آن‌چه ما را از دیگران متمایز می‌کند، سابقه و پایداری‌مان در این حوزه است. همکاری با مطرح‌ترین برندهای ایرانی و به ثمر رساندن بیش از 200 پروژه سئو موفق گواه صحت ادعای ماست.",
+        },
+        {
+            id: 9,
+            docNumber: "مقاله شماره 9",
+            title: "خودآموزی ، ورود به بازارکار ",
+            imgAddress: blogBanner3,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "در حال حاضر، با گسترش علوم و تخصصی شدن مشاغل شرایط ورود به بازار کار نیز دستخوش تغییراتی شده است. یکی از راه‌های ورود به بازار کار، یادگیری مهارتهای شغلی ضروری می‌باشد. در این مقاله راجع به این مهارت‌ها صحبت خواهیم کرد.\n" +
+                "\n" +
+                "اگر دنبال کار می‌گردید و هنوز وارد بازار کار نشده‌اید، احتمالاً استرس و نگرانی زیادی دارید که بدون تجربه و سابقه‌ی کاری هیچ جا به شما کار نمی‌دهند. تمام این احساسات درست هستند. اما باور کنید یا نه در دنیای شغلی جدید چیزی فراتر از سابقه و تجربه برای مدیران و کارفرمایان اهمیت دارد. امروزه برای آن‌که بتوانید جایگاه محکمی در فضای کسب و کار برای خودتان دست و پا کنید، نیاز به کسب یک سری از مهارتهای شغلی ضروری دارید.",
 
 
-            },
-            {
-                id: 11,
-                docNumber: "مقاله شماره 11",
-                title: "میشه یه شبه برنامه نویس شد؟ ",
-                imgAddress: blogBanner5,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "برنامه نویس شدن آن هم یک شبه، حرفی ساده لوحانه است که متاسفانه تعدادی از افراد به علاقمندان یادگیری برنامه نویسی حرفی شبیه این موضوع را میزنند.\n" +
-                    "\n" +
-                    "در این راکت‌کست توضیح میدهم که برنامه نویس شدن راه و رسم خود را دارد و نمیتواند در یک شب، یا یک هفته یا یک ماه تبدیل به یک برنامه نویس کار کشته شد. باید زمان لازم برای تبدیل شدن به یک برنامه نویس طی شود تا شما بتوانید خود را برنامه نویس خطاب کنید.",
+        },
+        {
+            id: 10,
+            docNumber: "مقاله شماره 10",
+            title: " نگاهی به نمونه کارهای شما ",
+            imgAddress: blogBanner4,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "برای این‌که بتوانید رتبه صفحات وب‌تان را در گوگل بالا ببرید، چاره‌ای ندارید جز این که محتوای باکیفیت تولید کنید و بعد به کمک سئو آن را به دست مخاطبش برسانید. شاید فکر کنید تمام قضیه با کمک یک آژانس دیجیتال مارکتینگ یا یک کارشناس سئو حل می‌شود.\n" +
+                "\n" +
+                "اشتباه نکنید.\n" +
+                "\n" +
+                "کمک گرفتن از متخصصان حوزه دیجیتال مارکتینگ ضروری است، اما چطور می‌خواهید بهترین گزینه را انتخاب کنید؟ حتماً می‌دانید که سایت شما جای آزمون و خطا نیست. پس چاره چیست؟\n" +
+                "\n" +
+                "اگر می‌خواهید شرکت یا شخصی را برای سئو سایت‌تان انتخاب کنید، باید پیش از هر چیز نمونه کارهای سئو سایت آن شرکت یا شخص را بررسی کنید.\n" +
+                "یک مثل قدیمی هست که می‌گوید: کار نیکو کردن از پر کردن است.\n" +
+                "\n" +
+                "پونه مدیا در کنار شماست تا صفحات وب‌تان را به صدر نتایج برتر گوگل برسانید. آن‌چه ما را از دیگران متمایز می‌کند، سابقه و پایداری‌مان در این حوزه است. همکاری با مطرح‌ترین برندهای ایرانی و به ثمر رساندن بیش از 200 پروژه سئو موفق گواه صحت ادعای ماست.",
 
 
-            },
-            {
-                id: 12,
-                docNumber: "مقاله شماره 12",
-                title: "حرفه ایی شدن رو از امروز شروع کن ",
-                imgAddress: blogBanner6,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "در زندگی پرمشغله‌ی امروز، تلاش برای رسیدن به رویای‌مان کار دشواری است. با وجود شغل تمام‌وقت و داشتن فرزند، این کار حتی غیرممکن به نظر می‌رسد. پس شما چه می‌کنید و چگونه زندگی‌تان را پیش می‌برید؟ اگر هر روز به طور هدفمند زمانی را به پیشرفت و بهسازی اختصاص ندهید، بی‌شک زمان زیادی را در این زندگی پرهیایو از دست خواهید داد. پیش از اینکه به خود بیایید، پیر و پژمرده، مبهوتِ این خواهید بود که عمرتان چقدر سریع گذشت! برای این که این بلا سرتان نیاید، شما هم ۸ کاری که افراد موفق قبل از ۸ صبح انجام می‌دهند، را انجام دهید.",
+        },
+        {
+            id: 11,
+            docNumber: "مقاله شماره 11",
+            title: "میشه یه شبه برنامه نویس شد؟ ",
+            imgAddress: blogBanner5,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "برنامه نویس شدن آن هم یک شبه، حرفی ساده لوحانه است که متاسفانه تعدادی از افراد به علاقمندان یادگیری برنامه نویسی حرفی شبیه این موضوع را میزنند.\n" +
+                "\n" +
+                "در این راکت‌کست توضیح میدهم که برنامه نویس شدن راه و رسم خود را دارد و نمیتواند در یک شب، یا یک هفته یا یک ماه تبدیل به یک برنامه نویس کار کشته شد. باید زمان لازم برای تبدیل شدن به یک برنامه نویس طی شود تا شما بتوانید خود را برنامه نویس خطاب کنید.",
 
 
-            },
-            {
-                id: 13,
-                docNumber: "مقاله شماره 13",
-                title: "میشه یه شبه برنامه نویس شد؟ ",
-                imgAddress: blogBanner1,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "برنامه نویس شدن آن هم یک شبه، حرفی ساده لوحانه است که متاسفانه تعدادی از افراد به علاقمندان یادگیری برنامه نویسی حرفی شبیه این موضوع را میزنند.\n" +
-                    "\n" +
-                    "در این راکت‌کست توضیح میدهم که برنامه نویس شدن راه و رسم خود را دارد و نمیتواند در یک شب، یا یک هفته یا یک ماه تبدیل به یک برنامه نویس کار کشته شد. باید زمان لازم برای تبدیل شدن به یک برنامه نویس طی شود تا شما بتوانید خود را برنامه نویس خطاب کنید.",
+        },
+        {
+            id: 12,
+            docNumber: "مقاله شماره 12",
+            title: "حرفه ایی شدن رو از امروز شروع کن ",
+            imgAddress: blogBanner6,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "در زندگی پرمشغله‌ی امروز، تلاش برای رسیدن به رویای‌مان کار دشواری است. با وجود شغل تمام‌وقت و داشتن فرزند، این کار حتی غیرممکن به نظر می‌رسد. پس شما چه می‌کنید و چگونه زندگی‌تان را پیش می‌برید؟ اگر هر روز به طور هدفمند زمانی را به پیشرفت و بهسازی اختصاص ندهید، بی‌شک زمان زیادی را در این زندگی پرهیایو از دست خواهید داد. پیش از اینکه به خود بیایید، پیر و پژمرده، مبهوتِ این خواهید بود که عمرتان چقدر سریع گذشت! برای این که این بلا سرتان نیاید، شما هم ۸ کاری که افراد موفق قبل از ۸ صبح انجام می‌دهند، را انجام دهید.",
 
 
-            },
-            {
-                id: 14,
-                docNumber: "مقاله شماره 14",
-                title: " نگاهی به نمونه کارهای شما ",
-                imgAddress: blogBanner2,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "برای این‌که بتوانید رتبه صفحات وب‌تان را در گوگل بالا ببرید، چاره‌ای ندارید جز این که محتوای باکیفیت تولید کنید و بعد به کمک سئو آن را به دست مخاطبش برسانید. شاید فکر کنید تمام قضیه با کمک یک آژانس دیجیتال مارکتینگ یا یک کارشناس سئو حل می‌شود.\n" +
-                    "\n" +
-                    "اشتباه نکنید.\n" +
-                    "\n" +
-                    "کمک گرفتن از متخصصان حوزه دیجیتال مارکتینگ ضروری است، اما چطور می‌خواهید بهترین گزینه را انتخاب کنید؟ حتماً می‌دانید که سایت شما جای آزمون و خطا نیست. پس چاره چیست؟\n" +
-                    "\n" +
-                    "اگر می‌خواهید شرکت یا شخصی را برای سئو سایت‌تان انتخاب کنید، باید پیش از هر چیز نمونه کارهای سئو سایت آن شرکت یا شخص را بررسی کنید.\n" +
-                    "یک مثل قدیمی هست که می‌گوید: کار نیکو کردن از پر کردن است.\n" +
-                    "\n" +
-                    "پونه مدیا در کنار شماست تا صفحات وب‌تان را به صدر نتایج برتر گوگل برسانید. آن‌چه ما را از دیگران متمایز می‌کند، سابقه و پایداری‌مان در این حوزه است. همکاری با مطرح‌ترین برندهای ایرانی و به ثمر رساندن بیش از 200 پروژه سئو موفق گواه صحت ادعای ماست.",
+        },
+        {
+            id: 13,
+            docNumber: "مقاله شماره 13",
+            title: "میشه یه شبه برنامه نویس شد؟ ",
+            imgAddress: blogBanner1,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "برنامه نویس شدن آن هم یک شبه، حرفی ساده لوحانه است که متاسفانه تعدادی از افراد به علاقمندان یادگیری برنامه نویسی حرفی شبیه این موضوع را میزنند.\n" +
+                "\n" +
+                "در این راکت‌کست توضیح میدهم که برنامه نویس شدن راه و رسم خود را دارد و نمیتواند در یک شب، یا یک هفته یا یک ماه تبدیل به یک برنامه نویس کار کشته شد. باید زمان لازم برای تبدیل شدن به یک برنامه نویس طی شود تا شما بتوانید خود را برنامه نویس خطاب کنید.",
 
 
-            },
-            {
-                id: 15,
-                docNumber: "مقاله شماره 15",
-                title: "خودآموزی ، ورود به بازارکار ",
-                imgAddress: blogBanner3,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "در حال حاضر، با گسترش علوم و تخصصی شدن مشاغل شرایط ورود به بازار کار نیز دستخوش تغییراتی شده است. یکی از راه‌های ورود به بازار کار، یادگیری مهارتهای شغلی ضروری می‌باشد. در این مقاله راجع به این مهارت‌ها صحبت خواهیم کرد.\n" +
-                    "\n" +
-                    "اگر دنبال کار می‌گردید و هنوز وارد بازار کار نشده‌اید، احتمالاً استرس و نگرانی زیادی دارید که بدون تجربه و سابقه‌ی کاری هیچ جا به شما کار نمی‌دهند. تمام این احساسات درست هستند. اما باور کنید یا نه در دنیای شغلی جدید چیزی فراتر از سابقه و تجربه برای مدیران و کارفرمایان اهمیت دارد. امروزه برای آن‌که بتوانید جایگاه محکمی در فضای کسب و کار برای خودتان دست و پا کنید، نیاز به کسب یک سری از مهارتهای شغلی ضروری دارید.",
+        },
+        {
+            id: 14,
+            docNumber: "مقاله شماره 14",
+            title: " نگاهی به نمونه کارهای شما ",
+            imgAddress: blogBanner2,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "برای این‌که بتوانید رتبه صفحات وب‌تان را در گوگل بالا ببرید، چاره‌ای ندارید جز این که محتوای باکیفیت تولید کنید و بعد به کمک سئو آن را به دست مخاطبش برسانید. شاید فکر کنید تمام قضیه با کمک یک آژانس دیجیتال مارکتینگ یا یک کارشناس سئو حل می‌شود.\n" +
+                "\n" +
+                "اشتباه نکنید.\n" +
+                "\n" +
+                "کمک گرفتن از متخصصان حوزه دیجیتال مارکتینگ ضروری است، اما چطور می‌خواهید بهترین گزینه را انتخاب کنید؟ حتماً می‌دانید که سایت شما جای آزمون و خطا نیست. پس چاره چیست؟\n" +
+                "\n" +
+                "اگر می‌خواهید شرکت یا شخصی را برای سئو سایت‌تان انتخاب کنید، باید پیش از هر چیز نمونه کارهای سئو سایت آن شرکت یا شخص را بررسی کنید.\n" +
+                "یک مثل قدیمی هست که می‌گوید: کار نیکو کردن از پر کردن است.\n" +
+                "\n" +
+                "پونه مدیا در کنار شماست تا صفحات وب‌تان را به صدر نتایج برتر گوگل برسانید. آن‌چه ما را از دیگران متمایز می‌کند، سابقه و پایداری‌مان در این حوزه است. همکاری با مطرح‌ترین برندهای ایرانی و به ثمر رساندن بیش از 200 پروژه سئو موفق گواه صحت ادعای ماست.",
 
 
-            },
-            {
-                id: 16,
-                docNumber: "مقاله شماره 16",
-                title: " نگاهی به نمونه کارهای شما ",
-                imgAddress: blogBanner4,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "برای این‌که بتوانید رتبه صفحات وب‌تان را در گوگل بالا ببرید، چاره‌ای ندارید جز این که محتوای باکیفیت تولید کنید و بعد به کمک سئو آن را به دست مخاطبش برسانید. شاید فکر کنید تمام قضیه با کمک یک آژانس دیجیتال مارکتینگ یا یک کارشناس سئو حل می‌شود.\n" +
-                    "\n" +
-                    "اشتباه نکنید.\n" +
-                    "\n" +
-                    "کمک گرفتن از متخصصان حوزه دیجیتال مارکتینگ ضروری است، اما چطور می‌خواهید بهترین گزینه را انتخاب کنید؟ حتماً می‌دانید که سایت شما جای آزمون و خطا نیست. پس چاره چیست؟\n" +
-                    "\n" +
-                    "اگر می‌خواهید شرکت یا شخصی را برای سئو سایت‌تان انتخاب کنید، باید پیش از هر چیز نمونه کارهای سئو سایت آن شرکت یا شخص را بررسی کنید.\n" +
-                    "یک مثل قدیمی هست که می‌گوید: کار نیکو کردن از پر کردن است.\n" +
-                    "\n" +
-                    "پونه مدیا در کنار شماست تا صفحات وب‌تان را به صدر نتایج برتر گوگل برسانید. آن‌چه ما را از دیگران متمایز می‌کند، سابقه و پایداری‌مان در این حوزه است. همکاری با مطرح‌ترین برندهای ایرانی و به ثمر رساندن بیش از 200 پروژه سئو موفق گواه صحت ادعای ماست.",
+        },
+        {
+            id: 15,
+            docNumber: "مقاله شماره 15",
+            title: "خودآموزی ، ورود به بازارکار ",
+            imgAddress: blogBanner3,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "در حال حاضر، با گسترش علوم و تخصصی شدن مشاغل شرایط ورود به بازار کار نیز دستخوش تغییراتی شده است. یکی از راه‌های ورود به بازار کار، یادگیری مهارتهای شغلی ضروری می‌باشد. در این مقاله راجع به این مهارت‌ها صحبت خواهیم کرد.\n" +
+                "\n" +
+                "اگر دنبال کار می‌گردید و هنوز وارد بازار کار نشده‌اید، احتمالاً استرس و نگرانی زیادی دارید که بدون تجربه و سابقه‌ی کاری هیچ جا به شما کار نمی‌دهند. تمام این احساسات درست هستند. اما باور کنید یا نه در دنیای شغلی جدید چیزی فراتر از سابقه و تجربه برای مدیران و کارفرمایان اهمیت دارد. امروزه برای آن‌که بتوانید جایگاه محکمی در فضای کسب و کار برای خودتان دست و پا کنید، نیاز به کسب یک سری از مهارتهای شغلی ضروری دارید.",
 
 
-            },
-            {
-                id: 17,
-                docNumber: "مقاله شماره 17",
-                title: "میشه یه شبه برنامه نویس شد؟ ",
-                imgAddress: blogBanner5,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "برنامه نویس شدن آن هم یک شبه، حرفی ساده لوحانه است که متاسفانه تعدادی از افراد به علاقمندان یادگیری برنامه نویسی حرفی شبیه این موضوع را میزنند.\n" +
-                    "\n" +
-                    "در این راکت‌کست توضیح میدهم که برنامه نویس شدن راه و رسم خود را دارد و نمیتواند در یک شب، یا یک هفته یا یک ماه تبدیل به یک برنامه نویس کار کشته شد. باید زمان لازم برای تبدیل شدن به یک برنامه نویس طی شود تا شما بتوانید خود را برنامه نویس خطاب کنید.",
+        },
+        {
+            id: 16,
+            docNumber: "مقاله شماره 16",
+            title: " نگاهی به نمونه کارهای شما ",
+            imgAddress: blogBanner4,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "برای این‌که بتوانید رتبه صفحات وب‌تان را در گوگل بالا ببرید، چاره‌ای ندارید جز این که محتوای باکیفیت تولید کنید و بعد به کمک سئو آن را به دست مخاطبش برسانید. شاید فکر کنید تمام قضیه با کمک یک آژانس دیجیتال مارکتینگ یا یک کارشناس سئو حل می‌شود.\n" +
+                "\n" +
+                "اشتباه نکنید.\n" +
+                "\n" +
+                "کمک گرفتن از متخصصان حوزه دیجیتال مارکتینگ ضروری است، اما چطور می‌خواهید بهترین گزینه را انتخاب کنید؟ حتماً می‌دانید که سایت شما جای آزمون و خطا نیست. پس چاره چیست؟\n" +
+                "\n" +
+                "اگر می‌خواهید شرکت یا شخصی را برای سئو سایت‌تان انتخاب کنید، باید پیش از هر چیز نمونه کارهای سئو سایت آن شرکت یا شخص را بررسی کنید.\n" +
+                "یک مثل قدیمی هست که می‌گوید: کار نیکو کردن از پر کردن است.\n" +
+                "\n" +
+                "پونه مدیا در کنار شماست تا صفحات وب‌تان را به صدر نتایج برتر گوگل برسانید. آن‌چه ما را از دیگران متمایز می‌کند، سابقه و پایداری‌مان در این حوزه است. همکاری با مطرح‌ترین برندهای ایرانی و به ثمر رساندن بیش از 200 پروژه سئو موفق گواه صحت ادعای ماست.",
 
 
-            },
-            {
-                id: 18,
-                docNumber: "مقاله شماره 18",
-                title: "حرفه ایی شدن رو از امروز شروع کن ",
-                imgAddress: blogBanner6,
-                docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
-                    "                                                    اگر به صورت فریلنسری\n" +
-                    "                                                    هم کار می‌کنید مشتری",
-                desc: "در زندگی پرمشغله‌ی امروز، تلاش برای رسیدن به رویای‌مان کار دشواری است. با وجود شغل تمام‌وقت و داشتن فرزند، این کار حتی غیرممکن به نظر می‌رسد. پس شما چه می‌کنید و چگونه زندگی‌تان را پیش می‌برید؟ اگر هر روز به طور هدفمند زمانی را به پیشرفت و بهسازی اختصاص ندهید، بی‌شک زمان زیادی را در این زندگی پرهیایو از دست خواهید داد. پیش از اینکه به خود بیایید، پیر و پژمرده، مبهوتِ این خواهید بود که عمرتان چقدر سریع گذشت! برای این که این بلا سرتان نیاید، شما هم ۸ کاری که افراد موفق قبل از ۸ صبح انجام می‌دهند، را انجام دهید.",
+        },
+        {
+            id: 17,
+            docNumber: "مقاله شماره 17",
+            title: "میشه یه شبه برنامه نویس شد؟ ",
+            imgAddress: blogBanner5,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "برنامه نویس شدن آن هم یک شبه، حرفی ساده لوحانه است که متاسفانه تعدادی از افراد به علاقمندان یادگیری برنامه نویسی حرفی شبیه این موضوع را میزنند.\n" +
+                "\n" +
+                "در این راکت‌کست توضیح میدهم که برنامه نویس شدن راه و رسم خود را دارد و نمیتواند در یک شب، یا یک هفته یا یک ماه تبدیل به یک برنامه نویس کار کشته شد. باید زمان لازم برای تبدیل شدن به یک برنامه نویس طی شود تا شما بتوانید خود را برنامه نویس خطاب کنید.",
 
 
-            },
+        },
+        {
+            id: 18,
+            docNumber: "مقاله شماره 18",
+            title: "حرفه ایی شدن رو از امروز شروع کن ",
+            imgAddress: blogBanner6,
+            docDetails: "هنگام درخواست کار، شرکت‌ها نگاهی به نمونه کارهای شما دارند. حتی\n" +
+                "                                                    اگر به صورت فریلنسری\n" +
+                "                                                    هم کار می‌کنید مشتری",
+            desc: "در زندگی پرمشغله‌ی امروز، تلاش برای رسیدن به رویای‌مان کار دشواری است. با وجود شغل تمام‌وقت و داشتن فرزند، این کار حتی غیرممکن به نظر می‌رسد. پس شما چه می‌کنید و چگونه زندگی‌تان را پیش می‌برید؟ اگر هر روز به طور هدفمند زمانی را به پیشرفت و بهسازی اختصاص ندهید، بی‌شک زمان زیادی را در این زندگی پرهیایو از دست خواهید داد. پیش از اینکه به خود بیایید، پیر و پژمرده، مبهوتِ این خواهید بود که عمرتان چقدر سریع گذشت! برای این که این بلا سرتان نیاید، شما هم ۸ کاری که افراد موفق قبل از ۸ صبح انجام می‌دهند، را انجام دهید.",
 
-        ],
 
-        maghalatTitle: "مقالات",
-        placeHolderForMaghalat: "جستجو مقاله های مختلف ...",
+        },
+
+    ]);
+
+    const [maghalatTitle, setMaghalatTitle] = useState("مقالات");
+    const [placeHolderForMaghalat, setPlaceHolderForMaghalat] = useState("جستجو مقاله های مختلف ...");
 
 
-    }
-    handlePageChange = page => {
-        this.setState({currentPage: page})
+    const handlePageChange = page => {
+        setCurrentPage(page);
     }
 
 
-    render() {
-        const {
-            menuList,
-            placeHolder,
-            bannerDetail,
-            bannerTitle,
-            coursesTitle,
-            coursesBtnTitle,
-            coursesInfo,
-            blogTitle,
-            blogBtnTitle,
-            blogInfo,
-            teachersInfo,
-            teachersTitle,
-            favCoursesInfo,
-            favCoursesTitle,
-            footerInfo,
-            fullCoursesInfo,
-            pageSize,
-            currentPage,
-            headerRoutingAddress,
-            accFullList,
-            accCoursesList,
-            accProfileList,
-            accConfigList,
-            maghale,
-            maghalatTitle,
-            placeHolderForMaghalat,
-        } = this.state;
+    //backend-api
 
-        const paginatedCourses = paginate(fullCoursesInfo, currentPage, pageSize);
-        const paginatedMaghalat = paginate(maghale, currentPage, pageSize);
+    // main url of backend
+    const MainUrl = process.env.REACT_APP_PUBLIC_PATH;
 
-        return (
-            <>
-                <main className="routing">
-                    <Switch>
-                        <Route path="/" exact component={() => <HomePage menuList={menuList}
-                                                                         headerRouting={headerRoutingAddress}
-                                                                         placeholder={placeHolder}
-                                                                         bannerTitle={bannerTitle}
-                                                                         bannerDetail={bannerDetail}
-                                                                         coursesTitle={coursesTitle}
-                                                                         coursesBtnTitle={coursesBtnTitle}
-                                                                         courseInfo={coursesInfo}
-                                                                         blogTitle={blogTitle}
-                                                                         blogBtnTitle={blogBtnTitle}
-                                                                         blogInfo={blogInfo}
-                                                                         teachersInfo={teachersInfo}
-                                                                         teachersTitle={teachersTitle}
-                                                                         favCoursesInfo={favCoursesInfo}
-                                                                         favCoursesTitle={favCoursesTitle}
+    const [courseData, setCourseData] = useState([]);
+    const [loadingCourseData, setLoadingCourseData] = useState(false);
+    const [favCourseData, setFavCourseData] = useState([]);
+    const [loadingFavCourseData, setLoadingFavCourseData] = useState(false);
+    const [blogData, setBlogData] = useState([]);
+    const [loadingBlogData, setLoadingBlogData] = useState(false);
+
+    const getAllCourses = async () => {
+        let result = await Axios.get(`${MainUrl}api/course`)
+            .then((result) => {
+                const situation = result.data.result;
+                setCourseData(situation);
+            });
+
+        setLoadingCourseData(true);
+
+    }
+    const getFavCourses = async () => {
+        let result = await Axios.get(`${MainUrl}api/course/list?pagenumber=1&pagesize=4`)
+        setFavCourseData(result.data.result.courses);
+    }
+    const getAllBlogData = async () => {
+        let result = await Axios.get(`${MainUrl}api/news`)
+        setBlogData(result.data.result)
+
+    }
+    useEffect(() => {
+        getAllCourses();
+        getFavCourses();
+        getAllBlogData();
+    },[])
+
+
+    const paginatedCourses = paginate(courseData, currentPage, pageSize);
+    const paginatedMaghalat = paginate(blogData, currentPage, pageSize);
+
+    return (
+        <>
+            <main className="routing">
+                <Switch>
+                    <Route path="/" exact component={() => <HomePage menuList={menuList}
+                                                                     placeholder={placeHolder}
+                                                                     bannerTitle={bannerTitle}
+                                                                     bannerDetail={bannerDetail}
+                                                                     coursesTitle={coursesTitle}
+                                                                     coursesBtnTitle={coursesBtnTitle}
+                                                                     courseInfo={courseData}
+                                                                     loading={loadingCourseData}
+                                                                     blogTitle={blogTitle}
+                                                                     blogBtnTitle={blogBtnTitle}
+                                                                     blogInfo={blogData}
+                                                                     teachersInfo={teachersInfo}
+                                                                     teachersTitle={teachersTitle}
+                                                                     favCoursesInfo={favCourseData}
+                                                                     favCoursesTitle={favCoursesTitle}
+                                                                     footerInfo={footerInfo}
+                    />}/>
+                    <Route path="/courses" component={() => <CoursesPage menuList={menuList}
+                                                                         placeHolder={placeHolder}
+                                                                         fullCourseInfo={paginatedCourses}
+                                                                         itemsCount4Paginate={Object.keys(courseData).length}
+                                                                         pageSize={pageSize}
+                                                                         currentPage={currentPage}
+                                                                         onPageChange={handlePageChange}
                                                                          footerInfo={footerInfo}
-                        />}/>
-                        <Route path="/courses" component={() => <CoursesPage menuList={menuList}
-                                                                             headerRouting={headerRoutingAddress}
-                                                                             placeHolder={placeHolder}
-                                                                             fullCourseInfo={paginatedCourses}
-                                                                             itemsCount4Paginate={Object.keys(fullCoursesInfo).length}
-                                                                             pageSize={pageSize}
-                                                                             currentPage={currentPage}
-                                                                             onPageChange={this.handlePageChange}
-                                                                             footerInfo={footerInfo}
 
-                        />}/>
-                        <Route path={"/questions"} component={() => <FQA
-                            menuList={menuList}
-                            accFullList={accFullList}
-                            accCoursesList={accCoursesList}
-                            accProfileList={accProfileList}
-                            accConfigList={accConfigList}
-                            footerInfo={footerInfo}
-                        />}/>
-                        <Route path={"/about"} component={() => <About
-                            menuList={menuList}
-                            footerInfo={footerInfo}
-                        />}/>
+                    />}/>
+                    <Route path={"/questions"} component={() => <FQA
+                        menuList={menuList}
+                        accFullList={accFullList}
+                        accCoursesList={accCoursesList}
+                        accProfileList={accProfileList}
+                        accConfigList={accConfigList}
+                        footerInfo={footerInfo}
+                    />}/>
+                    <Route path={"/about"} component={() => <About
+                        menuList={menuList}
+                        footerInfo={footerInfo}
+                    />}/>
 
-                        <Route path={"/teachers"} component={() => <Teachers
-                            placeHolder={placeHolder}
-                            menuList={menuList}
-                            footerInfo={footerInfo}
-                            itemsCount4Paginate={Object.keys(fullCoursesInfo).length}
-                            pageSize={pageSize}
-                            currentPage={currentPage}
-                            onPageChange={this.handlePageChange}
-                        />}/>
-                        <Route path={"/request"} component={() => <DarkhasteMoshavere
-                            menuList={menuList}
-                            footerInfo={footerInfo}
-                        />}/>
+                    <Route path={"/teachers"} component={() => <Teachers
+                        placeHolder={placeHolder}
+                        menuList={menuList}
+                        footerInfo={footerInfo}
+                        itemsCount4Paginate={Object.keys(fullCoursesInfo).length}
+                        pageSize={pageSize}
+                        currentPage={currentPage}
+                        onPageChange={handlePageChange}
+                    />}/>
+                    <Route path={"/request"} component={() => <DarkhasteMoshavere
+                        menuList={menuList}
+                        footerInfo={footerInfo}
+                    />}/>
 
-                        <Route path={"/login"} component={() => <Login/>}/>
-                        <Route path={"/register"} component={() => <Register/>}/>
-                        <Route path={"/forgetPassword"} component={() => <ForgetPass/>}/>
-                        <Route path={"/course"} component={() => <Course
-                            menuList={menuList}
-                            footerInfo={footerInfo}
-                        />}/>
-                        <Route path={"/not-found"} component={() => <NotFound/>}/>
+                    <Route path={"/login"} component={() => <Login/>}/>
+                    <Route path={"/register"} component={() => <Register/>}/>
+                    <Route path={"/forgetPassword"} component={() => <ForgetPass/>}/>
+                    <Route path={"/course"} component={() => <Course
+                        menuList={menuList}
+                        footerInfo={footerInfo}
+                    />}/>
+                    <Route path={"/not-found"} component={() => <NotFound/>}/>
 
-                        <Route path="/blog" exact component={() => <Maghalat menuList={menuList}
-                                                                             maghalatTitle={maghalatTitle}
-                                                                             placeHolder={placeHolderForMaghalat}
-                                                                             footerInfo={footerInfo}
-                                                                             maghale={maghale}
-                                                                             fullInfo={paginatedMaghalat}
-                                                                             itemsCount4Paginate={Object.keys(maghale).length}
-                                                                             pageSize={pageSize}
-                                                                             currentPage={currentPage}
-                                                                             onPageChange={this.handlePageChange}
+                    <Route path="/blog" exact component={() => <Maghalat menuList={menuList}
+                                                                         maghalatTitle={maghalatTitle}
+                                                                         placeHolder={placeHolderForMaghalat}
+                                                                         footerInfo={footerInfo}
+                                                                         maghale={maghale}
+                                                                         fullInfo={paginatedMaghalat}
+                                                                         itemsCount4Paginate={blogData.length}
+                                                                         pageSize={pageSize}
+                                                                         currentPage={currentPage}
+                                                                         onPageChange={handlePageChange}
 
-                        />}/>
-                        <Route path={"/blog/maghale"} component={() => <Maghale menuList={menuList}
-                                                                                footerInfo={footerInfo}
-                                                                                maghale={maghale}/>}/>
+                    />}/>
+                    <Route path={"/blog/maghale"} component={() => <Maghale menuList={menuList}
+                                                                            footerInfo={footerInfo}
+                                                                            maghale={maghale}/>}/>
 
-                        <Route path={"/dashboard"} component={() => <PanelNavbar
+                    <Route path={"/dashboard"} component={() => <PanelAdmin
 
-                        />}/>
+                    />}/>
 
-                    </Switch>
-                </main>
+                </Switch>
+            </main>
 
-            </>
-        );
-    }
+        </>
+    );
+
 }
 
 export default App;
