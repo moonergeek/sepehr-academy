@@ -10,7 +10,6 @@ const Cart = () => {
     { num: 2, pic: Angu, name: "دوره آموزش انگولار", price: 3500 },
     { num: 3, pic: Vue, name: "دوره آموزش ویو جی اس", price: 4000 },
     { num: 4, pic: Angu, name: "دوره آموزش گیت", price: 3200 },
-    { num: 5, pic: Vue, name: "دوره آموزش نود", price: 1000 },
   ]);
 
   const removeHandler = (item) => {
@@ -18,8 +17,15 @@ const Cart = () => {
     setState(courses);
   };
 
-  if(!state || !state.length) {
-    return <div style={{marginTop: 200, fontSize: 60}} className="text-center cart">سبد خرید خالی است!</div>
+  if (!state || !state.length) {
+    return (
+      <div
+        style={{ marginTop: 200, fontSize: 60 }}
+        className="text-center cart"
+      >
+        سبد خرید خالی است!
+      </div>
+    );
   }
   return (
     <>

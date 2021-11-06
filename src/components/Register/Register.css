@@ -51,6 +51,10 @@
   background: #82d8b9 !important;
 }
 
+.register-btn:hover {
+  background: #40d8b9 !important;
+}
+
 @media only screen and (max-width: 1200px) {
   .register-container {
     background: url("../../assets/img/background.png") repeat-x;
