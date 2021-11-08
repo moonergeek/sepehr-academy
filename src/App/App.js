@@ -1082,12 +1082,12 @@ const App = () => {
     const [blogData, setBlogData] = useState([]);
 
     const getAllCourses = async () => {
-        let result = await Axios.get(`${MainUrl}api/course`)
+        let result = await Axios.get(`${MainUrl}api/term/getall`)
         setCourseData(result.data.result)
     }
     const getFavCourses = async () => {
-        let result = await Axios.get(`${MainUrl}api/course/list?pagenumber=1&pagesize=4`)
-        setFavCourseData(result.data.result.courses);
+        let result = await Axios.get(`${MainUrl}api/term/list?pagenumber=1&pagesize=4`)
+        setFavCourseData(result.data.result.terms);
     }
     const getAllBlogData = async () => {
         let result = await Axios.get(`${MainUrl}api/news`)
@@ -1122,6 +1122,7 @@ const App = () => {
                                                                      favCoursesInfo={favCourseData}
                                                                      favCoursesTitle={favCoursesTitle}
                                                                      footerInfo={footerInfo}
+                                                                     testapi={courseData}
                     />}/>
                     <Route path="/courses" component={() => <CoursesPage menuList={menuList}
                                                                          placeHolder={placeHolder}
