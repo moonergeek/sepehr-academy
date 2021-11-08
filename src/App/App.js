@@ -500,7 +500,7 @@ const App = () => {
         },
     });
 
-    const [pageSize, setPageSize] = useState(4);
+    const [pageSize, setPageSize] = useState(12);
     const [currentPage, setCurrentPage] = useState(1);
 
     //accordion data
@@ -1080,28 +1080,40 @@ const App = () => {
     const [courseData, setCourseData] = useState([]);
     const [favCourseData, setFavCourseData] = useState([]);
     const [blogData, setBlogData] = useState([]);
+    const [allCoursesData, setAllCoursesData] = useState([]);
+    // const [teachersData, setTeachersData] = useState([]);
 
-    const getAllCourses = async () => {
-        let result = await Axios.get(`${MainUrl}api/term/getall`)
-        setCourseData(result.data.result)
+    const getHomePageCourses = async () => {
+        let result = await Axios.get(`${MainUrl}api/term/list?pagenumber=1&pagesize=8`)
+        setCourseData(result.data.result.terms)
     }
     const getFavCourses = async () => {
         let result = await Axios.get(`${MainUrl}api/term/list?pagenumber=1&pagesize=4`)
         setFavCourseData(result.data.result.terms);
     }
     const getAllBlogData = async () => {
-        let result = await Axios.get(`${MainUrl}api/news`)
-        setBlogData(result.data.result)
+        let result = await Axios.get(`${MainUrl}api/news/list?pagenumber=1&pagesize=6`)
+        setBlogData(result.data.result.newsList)
     }
+    const getAllCourses = async () => {
+        let result = await Axios.get(`${MainUrl}api/term/getall`)
+        setAllCoursesData(result.data.result)
+    }
+    // const getAllTeachers = async () => {
+    //     let result = await Axios.get(`${MainUrl}api/employee/getallteachers`)
+    //     setTeachersData(result.data)
+    // }
     useEffect(() => {
-        getAllCourses();
+        getHomePageCourses();
         getFavCourses();
         getAllBlogData();
+        getAllCourses();
+        // getAllTeachers();
     },[])
 
 
-    const paginatedCourses = paginate(courseData, currentPage, pageSize);
-    const paginatedMaghalat = paginate(blogData, currentPage, pageSize);
+    const paginatedCourses = paginate(allCoursesData, currentPage, pageSize);
+    const paginatedMaghalat = paginate(blogData, currentPage, 6);
 
     return (
         <>
@@ -1127,7 +1139,7 @@ const App = () => {
                     <Route path="/courses" component={() => <CoursesPage menuList={menuList}
                                                                          placeHolder={placeHolder}
                                                                          fullCourseInfo={paginatedCourses}
-                                                                         itemsCount4Paginate={Object.keys(courseData).length}
+                                                                         itemsCount4Paginate={Object.keys(allCoursesData).length}
                                                                          pageSize={pageSize}
                                                                          currentPage={currentPage}
                                                                          onPageChange={handlePageChange}

@@ -35,7 +35,7 @@ const CoursesBody = (props) => {
                                                     <img src={stopWatch} className="card-stopwatch"
                                                          alt=""/>
                                                     <span
-                                                        className="card-time me-1">{item[1].startDate}</span>
+                                                        className="card-time me-1">{"7:28:00"}</span>
                                                 </div>
                                                 <div className="col-sm-12 col-md-6">
                                                     <div className="d-flex justify-content-end">
