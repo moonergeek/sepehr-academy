@@ -7,6 +7,7 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import 'react-slideshow-image/dist/styles.css'
 import App from "./App/App";
 import {BrowserRouter} from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 
 
 ReactDOM.render(
