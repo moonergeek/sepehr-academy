@@ -3,12 +3,20 @@ import BtnContainer from "../../components/Register/BtnContainer/BtnContainer";
 import RegisterImg from "../../components/Register/RegisterImg/RegisterImg";
 import RegisterTitle from "../../components/Register/RegisterTitle/RegisterTitle";
 import RegisterForm from "../../components/Register/RegisterForm/RegisterForm";
+<<<<<<< HEAD
+=======
+
+>>>>>>> sina
 import "../../components/Register/Register.css";
 
 const Register = () => {
   return (
     <div className="container register-container">
+<<<<<<< HEAD
       <div className="mt-4 row p-4">
+=======
+      <div className="mt-5 row p-4">
+>>>>>>> sina
         <div className="mt-3 col-lg-12 col-xl-7 order-xl-last d-flex justify-content-center">
           <RegisterImg />
         </div>

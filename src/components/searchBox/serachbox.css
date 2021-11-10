@@ -1,3 +1,6 @@
+.searchInputs {
+    display: flex;
+}
 
 .Search-box {
     border: none;
@@ -8,6 +11,42 @@
     border-radius: 5px;
 }
 
+<<<<<<< HEAD
+.search input {
+    border: none;
+    background: #FFFFFF;
+    color: #198643 !important;
+    width: 400px;
+    box-shadow: 0 3px 10px #E1F7ED;
+    border-radius: 5px;
+}
+
+.searchIcon {
+    height: 30px;
+    width: 50px;
+    background-color: white;
+    display: grid;
+    place-items: center;
+}
+
+input:focus {
+    outline: none;
+}
+
+.searchIcon svg {
+    font-size: 25px;
+    color: #198643 !important;
+}
+
+.dataResult {
+    margin-top: 5px;
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
+    overflow-y: auto;
+=======
 .Search-box:focus {
     border-color: #28a745;
     box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
@@ -18,12 +57,33 @@
     padding-right: 8px;
     font-size: 15px;
     opacity: 80%;
+>>>>>>> dc43e27e837d798af68fdc04a2c2045ec7756012
 }
 
-.search-icon {
-    width: 19px;
+.dataResult::-webkit-scrollbar {
+    display: none;
 }
 
-.button-search {
-    margin-right: -63px;
+.dataResult .dataItem {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: #198643 !important;
+}
+
+.dataItem p {
+    margin-left: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: lightgrey;
+}
+
+#clearBtn {
+    cursor: pointer;
 }

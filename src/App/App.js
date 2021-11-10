@@ -61,6 +61,67 @@ const App = () => {
 
     const [bannerTitle, setBannerTitle] = useState("آموزش برنامه نویسی ، خودآموزی ، ورود به بازارکار ");
     const [bannerDetail, setBannerDetail] = useState("حرفه ایی شدن رو از امروز شروع کن ");
+    const [coursesInfo, setCoursesInfo] = useState({
+        obj1: {
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            imgAddress: image1,
+            teacher: "حسامی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        obj2: {
+            imgAddress: image4,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "حسامی",
+            time: "5:27:00",
+            price: " 400،000 تومان",
+        },
+        obj3: {
+            imgAddress: image2,
+            title: "آموزش جامع پلتفرم Node js",
+            teacher: "رستمی",
+            time: "4:29:00",
+            price: " 450،000 تومان",
+        },
+        obj4: {
+            imgAddress: image3,
+            title: "آموزش جامع فریمورک انگولار",
+            teacher: "جعفری",
+            time: "9:22:00",
+            price: " 300،000 تومان",
+        },
+        obj5: {
+            imgAddress: image4,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رضایی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        obj6: {
+            imgAddress: image3,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "حسامی",
+            time: "7:32:00",
+            price: " 200،000 تومان",
+        },
+        obj7: {
+            imgAddress: image5,
+            title: "آموزش جامع زبان پایتون از صفر تا صد",
+            teacher: "رضایی",
+            time: "7:28:00",
+            price: " 500،000 تومان",
+        },
+        obj8: {
+            imgAddress: image6,
+            title: "آموزش جامع زبان جاوا از صفر تا صد",
+            teacher: "رستمی",
+            time: "6:28:00",
+            price: " 250،000 تومان",
+        },
+
+    },);
+
+    },
 
     const [coursesTitle, setCoursesTitle] = useState("اخرین دوره های مجموعه");
     const [coursesBtnTitle, setCoursesBtnTitle] = useState("مشاهده همه دوره ها");
@@ -540,6 +601,7 @@ const App = () => {
                     <Route path={"/course"} component={() => <Course
                         menuList={menuList}
                         footerInfo={footerInfo}
+                        loading={loadingCourseData}
                     />}/>
                     <Route path={"/not-found"} component={() => <NotFound/>}/>
 
@@ -553,6 +615,7 @@ const App = () => {
                                                                          pageSize={pageSize}
                                                                          currentPage={currentPage}
                                                                          onPageChange={handlePageChange}
+                                                                         loading={loadingBlogData}
 
                     />}/>
                     <Route path={"/blog/maghale"} component={() => <Maghale menuList={menuList}
@@ -572,7 +635,5 @@ const App = () => {
 
         </>
     );
-
-}
 
 export default App;
