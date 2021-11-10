@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import LoginButton from "../LoginButton/LoginButton";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import LoginUser from "../../../Core/services/api/Login.api";
+import LoginUser from "../../../core/services/api/Login.api";
 
 const initialValues = {
   email: "",

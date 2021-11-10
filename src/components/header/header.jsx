@@ -6,7 +6,7 @@ import { AiFillSmile } from "react-icons/ai";
 import {NavLink, Link} from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import {BootstrapTooltip } from "../tooltip/bootstrapTooltip"
-import {getItem} from "../../Core/services/storage/storage";
+import {getItem} from "../../core/services/storage/storage";
 
 class Header extends Component {
 

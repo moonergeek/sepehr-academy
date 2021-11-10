@@ -7,7 +7,7 @@ import "../../components/Course/Course.css";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import { Link } from "react-router-dom";
-import {getItem} from "../../Core/services/storage/storage";
+import { getItem } from "../../core/services/storage/storage";
 
 const Course = (props) => {
   return (

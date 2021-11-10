@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import RegisterButton from "../RegisterButton/RegisterButton";
 import { ToastContainer } from "react-toastify";
-import RegisterUser from "../../../Core/services/api/Register.api";
+import RegisterUser from "../../../core/services/api/Register.api";
 
 const initialValues = {
   fullName: "",
@@ -25,7 +25,6 @@ const onSubmit = async (values) => {
 
   const user = await RegisterUser(userRegister);
   console.log(user);
-
 };
 
 const validate = (values) => {
