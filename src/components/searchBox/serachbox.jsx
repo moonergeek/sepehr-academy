@@ -1,13 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import "./serachbox.css"
-<<<<<<< HEAD
 import axios from "axios";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import {Link} from "react-router-dom";
-=======
-import Input from "./input";
->>>>>>> dc43e27e837d798af68fdc04a2c2045ec7756012
 
 const SearchBox = (props) => {
 
@@ -75,7 +71,6 @@ const SearchBox = (props) => {
 
 
     return (
-<<<<<<< HEAD
 
         <div className="search  me-2">
             {/*{console.log(searchData)}*/}
@@ -122,14 +117,6 @@ const SearchBox = (props) => {
                 </div>
             ) : <></>}
         </div>
-=======
-        <>
-            <Input placeHolder={props.placeHolder}/>
-            <button className="btn button-search" type="submit">
-                <img className="search-icon" src={search} alt="search"/>
-            </button>
-        </>
->>>>>>> dc43e27e837d798af68fdc04a2c2045ec7756012
     );
 };
 
