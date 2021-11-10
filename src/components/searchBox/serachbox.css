@@ -2,15 +2,16 @@
     display: flex;
 }
 
-.form-control {
+.Search-box {
     border: none;
     background: #FFFFFF;
     color: #198643 !important;
-    width: 400px;
+    width: 360px;
     box-shadow: 0 3px 10px #E1F7ED;
     border-radius: 5px;
 }
 
+<<<<<<< HEAD
 .search input {
     border: none;
     background: #FFFFFF;
@@ -45,6 +46,18 @@ input:focus {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     overflow: hidden;
     overflow-y: auto;
+=======
+.Search-box:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.Search-box::placeholder {
+    color: #198643;
+    padding-right: 8px;
+    font-size: 15px;
+    opacity: 80%;
+>>>>>>> dc43e27e837d798af68fdc04a2c2045ec7756012
 }
 
 .dataResult::-webkit-scrollbar {

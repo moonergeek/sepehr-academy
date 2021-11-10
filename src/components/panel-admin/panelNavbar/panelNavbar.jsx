@@ -12,80 +12,101 @@ import EvStationTwoToneIcon from '@mui/icons-material/EvStationTwoTone';
 import ModeCommentTwoToneIcon from '@mui/icons-material/ModeCommentTwoTone';
 import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
 import AnalyticsTwoToneIcon from '@mui/icons-material/AnalyticsTwoTone';
-import {BootstrapTooltip } from "../../tooltip/bootstrapTooltip"
+import {BootstrapTooltip} from "../../tooltip/bootstrapTooltip"
 import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
-
-
+import {Link} from "react-router-dom";
 
 
 const PanelNavbar = (props) => {
     return (
         <>
 
-                <div className={"navbar-panel-width position-fixed"}>
-                    <div className="card">
-                        <img height={135} src={background} className="card-img-top panel-background" alt="..."/>
+            <div className={"navbar-panel-width position-fixed"}>
+                <div className="card">
+                    <img height={135} src={background} className="card-img-top panel-background" alt="..."/>
 
-                        <section className={"top-data"}>
-                            <div className={"d-flex justify-content-center"}>
-                                <img src={userImage} className={"panel-user-image"}/>
-                            </div>
-                            <BootstrapTooltip placeMent={"left"} title="خروج">
-                                <img src={logOut} className={"logOut-img"}/>
-                            </BootstrapTooltip>
-                            <div className={"d-flex justify-content-center"}>
+                    <section className={"top-data"}>
+                        <div className={"d-flex justify-content-center"}>
+                            <img src={userImage} className={"panel-user-image"}/>
+                        </div>
+                        <BootstrapTooltip placeMent={"left"} title="خروج">
+                            <img src={logOut} className={"logOut-img"}/>
+                        </BootstrapTooltip>
+                        <div className={"d-flex justify-content-center"}>
                             <span className={"panel-user-name"}>
                                 مسعود حسامی
                             </span>
-                            </div>
-                        </section>
+                        </div>
+                    </section>
 
-                        <div className="card-body panel-navbar-body">
-                            <ul className="list-group list-group-flush">
-                                <li className="list-group-item panel-list-item">
+                    <div className="card-body panel-navbar-body">
+                        <ul className="list-group list-group-flush">
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"} to={"/dashboard/panel"}>
                                     <AnalyticsTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     داشبرد
-                                </li>
-                                <li className="list-group-item panel-list-item">
+                                </Link>
+                            </li>
+
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"}>
                                     <ShoppingCartTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     سبد خرید
-                                </li>
-                                <li className="list-group-item panel-list-item">
+                                </Link>
+                            </li>
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"}>
                                     <BookmarkTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     دوره های خریداری شده
-                                </li>
-                                <li className="list-group-item panel-list-item">
+                                </Link>
+                            </li>
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"} to={"/dashboard/edit"}>
                                     <EditTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     ویرایش پروفایل
-                                </li>
-                                <li className="list-group-item panel-list-item">
+                                </Link>
+                            </li>
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"}>
                                     <EvStationTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     شارژ کردن کیف پول
-                                </li>
-                                <li className="list-group-item panel-list-item">
+                                </Link>
+                            </li>
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"}>
                                     <CategoryTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     دسته بندی دوره ها
-                                </li>
-                                <li className="list-group-item panel-list-item">
+                                </Link>
+                            </li>
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"}>
                                     <LocalLibraryTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     دوره های رایگان
-                                </li>
-                                <li className="list-group-item panel-list-item">
+                                </Link>
+                            </li>
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"}>
                                     <LocalOfferTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     تخفیفات روزانه
-                                </li>
-                                <li className="list-group-item panel-list-item">
+                                </Link>
+                            </li>
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"}>
                                     <ModeCommentTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     ثبت نظرات
-                                </li>
-                                <li className="list-group-item panel-list-item">
+                                </Link>
+                            </li>
+                            <li className="list-group-item panel-list-item">
+                                <Link className={"link-link"} to={"/"}>
                                     <HomeTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     بازگشت به خانه
-                                </li>
-                            </ul>
-                        </div>
+                                </Link>
+
+                            </li>
+                        </ul>
                     </div>
                 </div>
+            </div>
         </>
     );
 };

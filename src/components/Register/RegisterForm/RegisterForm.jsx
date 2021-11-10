@@ -1,8 +1,8 @@
 import React from "react";
 import { useFormik } from "formik";
 import RegisterButton from "../RegisterButton/RegisterButton";
-import RegisterUser from "../../../core/services/API/Register.api";
 import { ToastContainer } from "react-toastify";
+import RegisterUser from "../../../Core/services/api/Register.api";
 
 const initialValues = {
   fullName: "",

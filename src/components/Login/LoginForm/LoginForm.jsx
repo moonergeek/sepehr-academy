@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import LoginButton from "../LoginButton/LoginButton";
 import { Link } from "react-router-dom";
-import LoginUser from "../../../core/services/API/Login.api";
 import { ToastContainer } from "react-toastify";
+import LoginUser from "../../../Core/services/api/Login.api";
 
 const initialValues = {
   email: "",

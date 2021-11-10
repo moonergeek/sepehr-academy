@@ -13,6 +13,11 @@ body {
 
 
 /*responsive*/
+@media only screen and (min-width: 992px) {
+  .display-sm-header{
+    display: none;
+  }
+}
 
 @media screen and (max-width: 992px) {
   .banner-text {
@@ -41,6 +46,11 @@ body {
   }
   .accordion-item{
     font-size: 14px;
+  }
+}
+@media only screen and (max-width: 990px) {
+  .display-sm-navbar{
+    display: none;
   }
 }
 
