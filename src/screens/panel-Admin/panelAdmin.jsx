@@ -1,12 +1,10 @@
 import React from 'react';
 import PanelNavbar from "../../components/panel-admin/panelNavbar/panelNavbar";
-import PanelTable from "../../components/panel-admin/panelTable/panelTable";
-import PanelFloatBtn from "../../components/panel-admin/panel-float-btn/panelFloatBtn";
-import PanelTitle from "../../components/panel-admin/panel-title/panelTitle";
 import "../../components/panel-admin/panel-title/panelTitle.css"
-import PanelChart1 from "../../components/panel-admin/panel-charts/panelChart1";
-import PanelChart2 from "../../components/panel-admin/panel-charts/panelChart2";
-import PanelChart3 from "../../components/panel-admin/panel-charts/panelChart3";
+import EditPanelUser from "../../components/panel-admin/edit-panel-user/editPanelUser";
+import PanelHeadNav from "../../components/panel-admin/panel-head-nav/panelHeadNav";
+import {Redirect, Route, Switch} from "react-router-dom";
+import PanelHomePage from "../../components/panel-admin/panel-homePage/panelHomePage";
 
 
 const PanelAdmin = () => {
@@ -14,29 +12,22 @@ const PanelAdmin = () => {
         <>
             <div className={"container-fluid"}>
                 <div className={"row"}>
-                    <div className={"col-3  mt-3"}>
+                    <div className={"col-lg-3 display-sm-navbar mt-3"}>
                             <PanelNavbar/>
                     </div>
-                    <div className={"col-8 pt-3 me-2"}>
+                    <div className={"col-lg-8 col-md-12 pt-3 me-2"}>
                         <div className={"row"}>
-                            <PanelTitle title={" گزارش دوره های در حال خرید"}/>
-                            <div className={"d-flex floating-btn-mr justify-content-end"}>
-                                <PanelFloatBtn/>
+                            <div className={"display-sm-header mb-4"}>
+                                <PanelHeadNav/>
                             </div>
                         </div>
-                        <PanelTable/>
-                        <div className={"row mb-4 mt-4"}><PanelTitle title={"آمار خرید های شما از سایت"}/></div>
-                        <div className={"row mb-4"}>
-                            <div className={"col-4"}>
-                                <PanelChart1/>
-                            </div>
-                            <div className={"col-4"}>
-                                <PanelChart2/>
-                            </div>
-                            <div className={"col-4"}>
-                                <PanelChart3/>
-                            </div>
-                        </div>
+                        {/*<div className={"container-md"}>*/}
+                        <Switch>
+                            <Route path={"/dashboard/panel"} component={() => <PanelHomePage/>}/>
+                            <Route path={"/dashboard/edit"} component={() => <EditPanelUser/>}/>
+                            <Redirect from={"/dashboard"} to={"/dashboard/panel"}/>
+                        </Switch>
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>
