@@ -10,6 +10,7 @@ import Title from "../../components/moshavere-req/Title/Title";
 import Course from "../Course/Course";
 import {Route} from "react-router-dom";
 import {Spinner} from "react-bootstrap";
+import SearchBoxForCourses from "../../components/searchBox/searchBoxForCourses/searchBoxForCourses";
 
 
 const CoursesPage = (props) => {
@@ -25,7 +26,7 @@ const CoursesPage = (props) => {
                 <div className={"back-div"}>
                     <div className={"row"}>
                         <form className="d-flex pe-4 py-3 col-md-8 col-lg-9 col-sm-7 col-7">
-                            <SearchBox placeHolder={props.placeHolder}/>
+                            <SearchBoxForCourses placeHolder={props.placeHolder}/>
                         </form>
                         <div className={"col-lg-3 col-md-4 col-sm-5 col-5 pe-2"}>
                             <DropDownBtn/>

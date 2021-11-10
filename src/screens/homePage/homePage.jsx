@@ -8,6 +8,8 @@ import TeachersBanner from "../../components/teachers_banner/teachersBanner";
 import FavCourses from "../../components/courses/favCourses/favCourses";
 import Footer from "../../components/footer/footer";
 import {Spinner} from "react-bootstrap";
+import Loading from "../../components/common/loading/loading";
+
 
 const HomePage = (props) => {
     const loading = props.loading;
@@ -36,7 +38,7 @@ const HomePage = (props) => {
                             coursesBtnTitle={props.coursesBtnTitle}
                 />
                 <Footer footerInfo={props.footerInfo}/>
-            </div>  :  <Spinner animation="border" variant="success" className={"load"}/> }
+            </div>  :  <Loading /> }
 
 
         </>

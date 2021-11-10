@@ -3,20 +3,20 @@ import "./searchBoxForBlog.css"
 import axios from "axios";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
+import {Link} from "react-router-dom";
 
 const SearchBoxForBlog = (props) => {
 
     const [searchData, setSearchData] = useState([]);
 
     const getBlog = () => {
-        axios.get('https://academy-visual.herokuapp.com/api/news')
+        axios.get('https://academy-reaction.herokuapp.com/api/news')
             .then((response) => {
                 console.log(response.data.result);
                 const myBlog = response.data.result;
                 setSearchData(myBlog);
             });
     }
-
 
 
     useEffect(() => getBlog(), []);
@@ -69,9 +69,11 @@ const SearchBoxForBlog = (props) => {
                 <div className="dataResult">
                     {filteredData.slice(0, 5).map((value, key) => {
                         return (
-                            <a className="dataItem" href={"/blog/maghale/" + value._id} target="_blank">
-                                <p>{value.title} </p>
-                            </a>
+                            <Link to={"/blog/maghale/" + value._id}>
+                                <a className="dataItem"  target="_blank">
+                                    <p>{value.title} </p>
+                                </a>
+                            </Link>
                         );
                     })}
                 </div>

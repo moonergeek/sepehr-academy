@@ -3,25 +3,38 @@ import "./serachbox.css"
 import axios from "axios";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
+import {Link} from "react-router-dom";
 
 const SearchBox = (props) => {
 
     const [searchData, setSearchData] = useState([]);
-
+    const [searchBlog,setSearchBlog] = useState([]);
 
     const getCourses = () => {
-        axios.get('https://academy-visual.herokuapp.com/api/course')
+        axios.get('https://academy-reaction.herokuapp.com/api/course')
             .then((response) => {
-                console.log(response.data.result);
+                // console.log(response.data.result);
                 const myCourses = response.data.result;
                 setSearchData(myCourses);
             });
     }
+    const getBlog = () => {
+        axios.get('https://academy-reaction.herokuapp.com/api/news')
+            .then((res) => {
+                const myBlog = res.data.result;
+                setSearchBlog(myBlog);
+            });
+
+    }
+
 
     useEffect(() => getCourses(), []);
+    useEffect(() => getBlog(), []);
 
 
-    const [filteredData, setFilteredData] = useState([]);
+    const [filteredDataForBlog, setFilteredDataForBlog] = useState([]);
+    const [filteredDataForCourses, setFilteredDataForCourses] = useState([]);
+
     const [wordEntered, setWordEntered] = useState("");
 
     const handleFilter = (event) => {
@@ -29,20 +42,30 @@ const SearchBox = (props) => {
 
 
         setWordEntered(searchWord);
-        const newFilter = searchData.filter((value) => {
+        const Filter1 = searchData.filter((value) => {
             return value.courseName.toLowerCase().includes(searchWord.toLowerCase())
 
         });
 
+        const filter2 = searchBlog.filter((value) => {
+            return value.title.toLowerCase().includes(searchWord.toLowerCase())
+        });
+
+        // const newFilter = [...Filter1,...filter2];
+
         if (searchWord === "") {
-            setFilteredData([]);
+            setFilteredDataForBlog([]);
+            setFilteredDataForCourses([]);
+
         } else {
-            setFilteredData(newFilter);
+            setFilteredDataForBlog(filter2);
+            setFilteredDataForCourses(Filter1);
         }
     };
 
     const clearInput = () => {
-        setFilteredData([]);
+        setFilteredDataForBlog([]);
+        setFilteredDataForCourses([]);
         setWordEntered("");
     };
 
@@ -60,24 +83,39 @@ const SearchBox = (props) => {
                     onChange={handleFilter}
                 />
                 <div className="searchIcon ">
-                    {filteredData.length === 0 ? (
+                    {filteredDataForBlog.length === 0 && filteredDataForCourses.length === 0 ? (
                         <SearchIcon/>
                     ) : (
                         <CloseIcon id="clearBtn" onClick={clearInput}/>
                     )}
                 </div>
             </div>
-            {filteredData.length != 0 && (
+            {filteredDataForBlog.length != 0 || filteredDataForCourses.length != 0 ? (
                 <div className="dataResult">
-                    {filteredData.slice(0, 15).map((value, key) => {
+                    {filteredDataForBlog.slice(0, 5).map((value, key) => {
                         return (
-                            <a className="dataItem" href={"/blog/maghale/" + value._id} target="_blank">
-                                <p>{value.courseName} </p>
+                            <>
+                                <Link to={"/blog/maghale/" + value._id}>
+                            <a className="dataItem"  target="_blank">
+                                <p>{value.title} </p>
                             </a>
+                                </Link>
+
+                                {filteredDataForCourses.map((value, ) => {
+                                    return(
+                                        <Link to={"/course"}>
+                                        <a  className="dataItem" target="_blank">
+                                            <p>{value.courseName}</p>
+                                        </a>
+                                        </Link>
+                                    )
+                                })}
+
+                            </>
                         );
                     })}
                 </div>
-            )}
+            ) : <></>}
         </div>
     );
 };

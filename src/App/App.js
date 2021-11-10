@@ -1100,7 +1100,11 @@ const App = () => {
     }
     const getAllBlogData = async () => {
         let result = await Axios.get(`${MainUrl}api/news`)
-        setBlogData(result.data.result)
+            .then((result) => {
+                const myBlog = result.data.result;
+                setBlogData(myBlog);
+            });
+        setLoadingBlogData(true);
 
     }
     useEffect(() => {
@@ -1192,6 +1196,7 @@ const App = () => {
                                                                          pageSize={pageSize}
                                                                          currentPage={currentPage}
                                                                          onPageChange={handlePageChange}
+                                                                         loading={loadingBlogData}
 
                     />}/>
                     <Route path={"/blog/maghale"} component={() => <Maghale menuList={menuList}

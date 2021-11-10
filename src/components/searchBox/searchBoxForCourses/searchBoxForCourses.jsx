@@ -3,6 +3,7 @@ import "./searchBoxForCourses.css";
 import axios from "axios";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
+import {Link} from "react-router-dom";
 
 const SearchBoxForCourses = (props) => {
 
@@ -74,9 +75,11 @@ const SearchBoxForCourses = (props) => {
                 <div className="dataResult">
                     {filteredData.slice(0, 15).map((value, key) => {
                         return (
-                            <a className="dataItem" href={""} target="_blank">
+                            <Link to={"/course"}>
+                            <a className="dataItem"  target="_blank">
                                 <p>{value.courseName} </p>
                             </a>
+                            </Link>
                         );
                     })}
                 </div>

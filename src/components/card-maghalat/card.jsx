@@ -7,6 +7,7 @@ import Like from "../common/like/like";
 import {Link, Route, Router, Switch} from "react-router-dom";
 import axios from "axios";
 import {Spinner} from "react-bootstrap";
+import Loading from "../common/loading/loading";
 
 const Card = (props) => {
 
@@ -35,7 +36,7 @@ const Card = (props) => {
     return (
 
         <>
-            {loading ?             <div className="course-body mt-4 container">
+                      <div className="course-body mt-4 container">
                 <div className="row">
 
                     {getData.map(value => <div key={value}
@@ -74,7 +75,7 @@ const Card = (props) => {
                     </div>)}
 
                 </div>
-            </div> :     <Spinner animation="border" variant="success" className={"load"}/>}
+            </div>
 
 
         </>
