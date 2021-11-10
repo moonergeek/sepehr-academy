@@ -129,8 +129,9 @@ const App = () => {
             price: " 250،000 تومان",
         },
 
-
     },);
+
+    },
 
     const [coursesTitle, setCoursesTitle] = useState("اخرین دوره های مجموعه");
     const [coursesBtnTitle, setCoursesBtnTitle] = useState("مشاهده همه دوره ها");
@@ -1167,6 +1168,7 @@ const App = () => {
                     <Route path={"/course"} component={() => <Course
                         menuList={menuList}
                         footerInfo={footerInfo}
+                        loading={loadingCourseData}
                     />}/>
                     <Route path={"/not-found"} component={() => <NotFound/>}/>
 
@@ -1180,6 +1182,7 @@ const App = () => {
                                                                          pageSize={pageSize}
                                                                          currentPage={currentPage}
                                                                          onPageChange={handlePageChange}
+                                                                         loading={loadingBlogData}
 
                     />}/>
                     <Route path={"/blog/maghale"} component={() => <Maghale menuList={menuList}
@@ -1199,7 +1202,5 @@ const App = () => {
 
         </>
     );
-
-}
 
 export default App;
