@@ -30,6 +30,10 @@
   width: 100%;
 }
 
+.sign-btn:hover {
+  background-color: #21ce70 !important;
+}
+
 .ask-questions {
   background-color: #e1f7ed;
   color: #323e73;
@@ -40,12 +44,13 @@
 .question-link {
   color: #61ce70;
   padding: 0 3px 0 3px;
+  cursor: pointer;
 }
 
 .share {
   margin-right: 8px;
   padding: 10px 0;
-  box-shadow: 0 3px 10px #E1F7ED;
+  box-shadow: 0 3px 10px #e1f7ed;
   color: #323e73;
 }
 
@@ -74,6 +79,10 @@
   color: #7a81a1;
   font-size: 15px;
 }
-.light-green-shadow{
-  box-shadow: 0 3px 10px #E1F7ED;
+.light-green-shadow {
+  box-shadow: 0 3px 10px #e1f7ed;
+}
+
+.img-padding {
+  padding: 40px 100px;
 }

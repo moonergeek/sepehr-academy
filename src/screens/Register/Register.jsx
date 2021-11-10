@@ -3,7 +3,6 @@ import BtnContainer from "../../components/Register/BtnContainer/BtnContainer";
 import RegisterImg from "../../components/Register/RegisterImg/RegisterImg";
 import RegisterTitle from "../../components/Register/RegisterTitle/RegisterTitle";
 import RegisterForm from "../../components/Register/RegisterForm/RegisterForm";
-
 import "../../components/Register/Register.css";
 
 const Register = () => {

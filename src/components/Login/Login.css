@@ -5,6 +5,7 @@
 
 .login-container {
   background: url("../../assets/img/background.png") repeat-x 30%;
+  box-shadow: 0 3px 10px #e1f7ed !important;
 }
 
 .login-form .form-control {
@@ -41,12 +42,16 @@
 .forget-pass {
   text-decoration: none;
 }
-.forget-pass:hover{
+.forget-pass:hover {
   color: #323e73 !important;
 }
 
 .login-btn {
   background: #82d8b9 !important;
+}
+
+.login-btn:hover {
+  background: #40d8b9 !important;
 }
 
 .login-image {
@@ -56,7 +61,6 @@
   position: relative;
   bottom: 15px;
 }
-
 
 @media only screen and (max-width: 1200px) {
   .login-container {
@@ -74,4 +78,21 @@
     position: relative;
     top: -50px;
   }
+}
+
+.check-pass {
+  margin-right: 10px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.tx-color {
+  color: #198643 !important;
+  cursor: pointer;
+}
+
+.tx-color:hover {
+  color: #323e73 !important;
 }
