@@ -31,7 +31,8 @@ const Cart = () => {
     <>
       <div className="container">
         <div className="row">
-          <div className="col mt-4">
+          <div className="col">
+            <h5 className="m-4 marg text-color">{`${state.length} آیتم در سبد خرید وجود دارد`}</h5>
             <table className="cart table table-bordered">
               <thead>
                 <tr>
