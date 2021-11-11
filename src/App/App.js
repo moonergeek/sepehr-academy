@@ -21,60 +21,18 @@ import Maghale from "../screens/blog/maghale";
 import PanelAdmin from "../screens/panel-Admin/panelAdmin";
 import Axios from "axios";
 import Cart from "../screens/cart/Cart";
+import {menuItems} from "../core/services/jsonFiles/menuItems.json"
+import {searchPlaceHolderJson,bannerTitleJson,bannerDetailJson ,courseTitleJson, coursesBtnTitleJson,blogTitleJson,blogBtnTitleJson} from "../core/services/jsonFiles/bannerItems.json"
 
 const App = () => {
-  const [menuList, setMenuList] = useState([
-    {
-      menuItem: "خانه",
-      routeAddress: "/",
-    },
-    {
-      menuItem: "دوره ها",
-      routeAddress: "/courses",
-    },
-    {
-      menuItem: "معرفی مدرسین",
-      routeAddress: "/teachers",
-    },
-    {
-      menuItem: "بلاگ",
-      routeAddress: "/blog",
-    },
-    {
-      menuItem: "سوالات متداول",
-      routeAddress: "/questions",
-    },
-    {
-      menuItem: "درخواست مشاوره",
-      routeAddress: "/request",
-    },
-    {
-      menuItem: "درباره ما",
-      routeAddress: "/about",
-    },
-  ]);
-  console.log(setMenuList);
-
-  const [placeHolder, setPlaceHolder] = useState(" جستجو دوره های مختلف ...");
-
-  const [bannerTitle, setBannerTitle] = useState(
-    "آموزش برنامه نویسی ، خودآموزی ، ورود به بازارکار "
-  );
-  const [bannerDetail, setBannerDetail] = useState(
-    "حرفه ایی شدن رو از امروز شروع کن "
-  );
-
-  const [coursesTitle, setCoursesTitle] = useState("اخرین دوره های مجموعه");
-  const [coursesBtnTitle, setCoursesBtnTitle] = useState("مشاهده همه دوره ها");
-
-  console.log(setPlaceHolder);
-  console.log(setBannerTitle);
-  console.log(setBannerDetail);
-  console.log(setCoursesTitle);
-  console.log(setCoursesBtnTitle);
-
-  const [blogTitle, setBlogTitle] = useState("اخرین مقالات سایت");
-  const [blogBtnTitle, setBlogBtnTitle] = useState("مشاهده همه مقالات");
+  const [menuList] = useState(menuItems);
+  const [placeHolder] = useState(searchPlaceHolderJson);
+  const [bannerTitle] = useState(bannerTitleJson);
+  const [bannerDetail] = useState(bannerDetailJson);
+  const [coursesTitle] = useState(courseTitleJson);
+  const [coursesBtnTitle] = useState(coursesBtnTitleJson);
+  const [blogTitle] = useState(blogTitleJson);
+  const [blogBtnTitle] = useState(blogBtnTitleJson);
   const [teachersInfo, setTeachersInfo] = useState({
     th1: {
       imgAddress: teacherImg1,
@@ -134,8 +92,6 @@ const App = () => {
   const [pageSize, setPageSize] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
 
-  console.log(setBlogTitle);
-  console.log(setBlogBtnTitle);
   console.log(setTeachersInfo);
   console.log(setTeachersTitle);
   console.log(setFavCoursesTitle);

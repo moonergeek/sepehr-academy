@@ -31,7 +31,7 @@ const DetailMaghale = (props) => {
 
     return (
         <>
-            {loading ?             <Router>
+                        <Router>
                 <Switch>
 
                     {getData.map(value =>
@@ -52,10 +52,8 @@ const DetailMaghale = (props) => {
 
 
                     )}
-
-
                 </Switch>
-            </Router> :   <Spinner animation="border" variant="success" className={"load"}/>}
+            </Router>
 
 
         </>
