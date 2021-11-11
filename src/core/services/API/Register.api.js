@@ -14,10 +14,6 @@ const RegisterUser = async (userRegister) => {
 
     toast.success("ثبت نام شما با موفقیت انجام شد");
 
-    setTimeout(() => {
-      <Redirect to="/login" />;
-    }, 3000);
-
     return result.data.result;
   } catch (error) {
     console.log(error.response.data.message[0].message);

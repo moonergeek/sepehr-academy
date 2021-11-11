@@ -18,14 +18,9 @@ const LoginUser = async (userLogin) => {
 
     toast.success("شما با موفقیت وارد شدید");
 
-    setTimeout(() => {
-      <Redirect to="/" />;
-    }, 3000);
-
     return result.data.result;
   } catch (error) {
-    console.log(error.response.data.message[0].message);
-    toast.error(error.response.data.message[0].message);
+    toast.error(error.response.data.message.message[0].message);
   }
 };
 
