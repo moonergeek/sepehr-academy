@@ -16,8 +16,7 @@ const onSubmit = async (values) => {
     password: values.password,
   };
 
-  const logg = await LoginUser(userLogin);
-  console.log(logg);
+  await LoginUser(userLogin);
 };
 
 const validate = (values) => {
@@ -42,7 +41,7 @@ const LoginForm = () => {
   });
   return (
     <>
-      <ToastContainer position="top-center" />
+      <ToastContainer position="top-center" limit={1}/>
       <form onSubmit={formik.handleSubmit} className="mt-4">
         <div className="mb-3">
           <input

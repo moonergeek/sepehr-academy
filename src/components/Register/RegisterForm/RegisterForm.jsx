@@ -22,9 +22,7 @@ const onSubmit = async (values) => {
     birthDate: values.birthDate,
     nationalId: values.nationalId,
   };
-
-  const user = await RegisterUser(userRegister);
-  console.log(user);
+  await RegisterUser(userRegister);
 };
 
 const validate = (values) => {

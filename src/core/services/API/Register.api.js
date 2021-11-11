@@ -1,6 +1,7 @@
 import http from "../interceptor/interceptor";
 import { setItem } from "../storage/storage";
 import { toast } from "react-toastify";
+import { Redirect } from "react-router-dom";
 
 const MainUrl = process.env.REACT_APP_PUBLIC_PATH;
 
@@ -13,9 +14,14 @@ const RegisterUser = async (userRegister) => {
 
     toast.success("ثبت نام شما با موفقیت انجام شد");
 
+    setTimeout(() => {
+      <Redirect to="/login" />;
+    }, 3000);
+
     return result.data.result;
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error.response.data.message[0].message);
+    toast.error(error.response.data.message[0].message);
   }
 };
 
