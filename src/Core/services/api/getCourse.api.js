@@ -9,5 +9,4 @@ const GetCourse = async () => {
         return {};
     }
 };
-// porsidan soal [... other props] ??
 export default GetCourse;

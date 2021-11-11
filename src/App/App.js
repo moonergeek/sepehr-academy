@@ -496,7 +496,6 @@ const App = () => {
                                                                      favCoursesInfo={favCourseData}
                                                                      favCoursesTitle={favCoursesTitle}
                                                                      footerInfo={footerInfo}
-                                                                     testapi={courseData}
                     />}/>
                     <Route path="/courses" component={() => <CoursesPage menuList={menuList}
                                                                          placeHolder={placeHolder}
@@ -506,7 +505,6 @@ const App = () => {
                                                                          currentPage={currentPage}
                                                                          onPageChange={handlePageChange}
                                                                          footerInfo={footerInfo}
-
                     />}/>
                     <Route path={"/questions"} component={() => <FQA
                         menuList={menuList}
