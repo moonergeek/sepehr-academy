@@ -1,4 +1,4 @@
-import React, {Component, useState} from "react";
+import React, {Component, useEffect, useState} from "react";
 import "./card.css"
 import BlogLine from "../common/blogLine/blogLine";
 import ReadBtn from "../common/readBtn/readBtn";

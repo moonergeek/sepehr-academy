@@ -1,0 +1,29 @@
+{
+  "teachersInfoJson": {
+    "th1": {
+      "imgAddress": "../../assets/img/test_1.png",
+      "lastName": "حسامی"
+    },
+    "th2": {
+      "imgAddress": "../../assets/img/test_2.png",
+      "lastName": "جعفری"
+    },
+    "th3": {
+      "imgAddress": "../../assets/img/test_2.png",
+      "lastName": "رستمی"
+    },
+    "th4": {
+      "imgAddress": "../../assets/img/test_2.png",
+      "lastName": "حسامی"
+    },
+    "th5": {
+      "imgAddress": "../../assets/img/test_2.png",
+      "lastName": "رضایی"
+    },
+    "th6": {
+      "imgAddress": "../../assets/img/test_2.png",
+      "lastName": "جعفری"
+    }
+  },
+  "teachersTitleJson" : "مدرسین نمونه مجموعه آموزشی ما"
+}
