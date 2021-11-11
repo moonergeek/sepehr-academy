@@ -46,8 +46,8 @@ const CommentForm = () => {
 
   return (
     <>
-      <h4 className="text-color d-flex justify-content-center">بخش نظرات</h4>
-      <form onSubmit={formik.handleSubmit} className="mt-4 d-flex flex-column align-items-center">
+      <h4 className="text-color">بخش نظرات</h4>
+      <form onSubmit={formik.handleSubmit} className="mt-4">
         <div className="mb-4">
           <input
             type="text"
