@@ -1,61 +1,69 @@
 import React from "react";
 import { useFormik } from "formik";
 import RegisterButton from "../RegisterButton/RegisterButton";
+import { useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import RegisterUser from "../../../core/services/api/Register.api";
 
-const initialValues = {
-  fullName: "",
-  password: "",
-  email: "",
-  phoneNumber: "",
-  birthDate: "",
-  nationalId: "",
-};
-
-const onSubmit = async (values) => {
-  const userRegister = {
-    fullName: values.fullName,
-    password: values.password,
-    email: values.email,
-    phoneNumber: values.phoneNumber,
-    birthDate: values.birthDate,
-    nationalId: values.nationalId,
-  };
-  await RegisterUser(userRegister);
-};
-
-const validate = (values) => {
-  let errors = {};
-
-  if (!values.fullName) {
-    errors.fullName = "نام کاربری خود را وارد کنید";
-  }
-
-  if (!values.password) {
-    errors.password = "رمز عبور خود را وارد کنید";
-  }
-
-  if (!values.email) {
-    errors.email = "ایمیل خود را وارد کنید";
-  }
-
-  if (!values.phoneNumber) {
-    errors.phoneNumber = "شماره تماس خود را وارد کنید";
-  }
-
-  if (!values.birthDate) {
-    errors.birthDate = "تاریخ تولد خود را وارد کنید";
-  }
-
-  if (!values.nationalId) {
-    errors.nationalId = "کد ملی خود را وارد کنید";
-  }
-
-  return errors;
-};
-
 const RegisterForm = () => {
+  const initialValues = {
+    fullName: "",
+    password: "",
+    email: "",
+    phoneNumber: "",
+    birthDate: "",
+    nationalId: "",
+  };
+
+  const history = useHistory();
+
+  const onSubmit = async (values) => {
+    const userRegister = {
+      fullName: values.fullName,
+      password: values.password,
+      email: values.email,
+      phoneNumber: values.phoneNumber,
+      birthDate: values.birthDate,
+      nationalId: values.nationalId,
+    };
+    const result = await RegisterUser(userRegister);
+    setTimeout(() => {
+      {
+        result && history.push("/login");
+      }
+    }, 3000);
+  };
+
+  const validate = (values) => {
+    let errors = {};
+
+    if (!values.fullName) {
+      errors.fullName = "نام کاربری خود را وارد کنید";
+    }
+
+    if (!values.password) {
+      errors.password = "رمز عبور خود را وارد کنید";
+    }
+
+    if (!values.email) {
+      errors.email = "ایمیل خود را وارد کنید";
+    }
+
+    if (!values.phoneNumber) {
+      errors.phoneNumber = "شماره تماس خود را وارد کنید";
+    }
+
+    if (!values.birthDate) {
+      errors.birthDate = "تاریخ تولد خود را وارد کنید";
+    }
+
+    if (!values.nationalId) {
+      errors.nationalId = "کد ملی خود را وارد کنید";
+    }
+
+    return errors;
+  };
+
   const formik = useFormik({
     initialValues,
     onSubmit,
