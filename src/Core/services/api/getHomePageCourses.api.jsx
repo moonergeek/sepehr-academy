@@ -1,23 +1,16 @@
 import Axios from "axios";
-import {useEffect, useState} from "react";
 const MainUrl = process.env.REACT_APP_PUBLIC_PATH;
 
-export const GetAllCoursesData = () => {
-    const [courseData, setCourseData] = useState([]);
-     const getHomePageCourses = async () => {
-        let result = await Axios.get(`${MainUrl}api/term/list?pagenumber=1&pagesize=8`)
-        setCourseData(result.data.result.terms)
-    }
-    useEffect(() => {
-        getHomePageCourses();
-    },[])
+export const GetAllCoursesData = async() => {
 
-    return (
-        <>
-            {courseData}
-        </>
-    );
+    try {
+        const result = await Axios.get(`${MainUrl}api/term/list?pagenumber=1&pagesize=8`)
+        return result.data.result.terms;
+    } catch {
+        return {};
+    }
 };
+// porsidan soal [... other props] ??
 
 export default GetAllCoursesData;
 
