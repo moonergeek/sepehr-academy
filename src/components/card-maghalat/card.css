@@ -30,6 +30,11 @@
     background-color: white;
 }
 
-.Link{
+.Link {
     text-decoration: none;
+}
+
+.load {
+    position: relative;
+    right: 50%;
 }

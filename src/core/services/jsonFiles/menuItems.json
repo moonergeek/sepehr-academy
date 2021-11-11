@@ -1,0 +1,32 @@
+{
+  "menuItems": [
+    {
+      "menuItem": "خانه",
+      "routeAddress": "/"
+    },
+    {
+      "menuItem": "دوره ها",
+      "routeAddress": "/courses"
+    },
+    {
+      "menuItem": "معرفی مدرسین",
+      "routeAddress": "/teachers"
+    },
+    {
+      "menuItem": "بلاگ",
+      "routeAddress": "/blog"
+    },
+    {
+      "menuItem": "سوالات متداول",
+      "routeAddress": "/questions"
+    },
+    {
+      "menuItem": "درخواست مشاوره",
+      "routeAddress": "/request"
+    },
+    {
+      "menuItem": "درباره ما",
+      "routeAddress": "/about"
+    }
+  ]
+}

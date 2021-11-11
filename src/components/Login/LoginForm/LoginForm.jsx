@@ -1,40 +1,46 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import LoginButton from "../LoginButton/LoginButton";
-import { Link } from "react-router-dom";
-import LoginUser from "../../../core/services/API/Login.api";
+import { Link, useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-
-const initialValues = {
-  email: "",
-  password: "",
-};
-
-const onSubmit = async (values) => {
-  const userLogin = {
-    email: values.email,
-    password: values.password,
-  };
-
-  const logg = await LoginUser(userLogin);
-  console.log(logg);
-};
-
-const validate = (values) => {
-  let errors = {};
-
-  if (!values.email) {
-    errors.email = "ایمیل خود را وارد کنید";
-  }
-
-  if (!values.password) {
-    errors.password = "رمز عبور خود را وارد کنید";
-  }
-
-  return errors;
-};
+import LoginUser from "../../../core/services/api/Login.api";
 
 const LoginForm = () => {
+  const initialValues = {
+    email: "",
+    password: "",
+  };
+
+  const history = useHistory();
+
+  const onSubmit = async (values) => {
+    const userLogin = {
+      email: values.email,
+      password: values.password,
+    };
+
+    const result = await LoginUser(userLogin);
+    setTimeout(() => {
+      {
+        result && history.push("/");
+      }
+    }, 3000);
+  };
+
+  const validate = (values) => {
+    let errors = {};
+
+    if (!values.email) {
+      errors.email = "ایمیل خود را وارد کنید";
+    }
+
+    if (!values.password) {
+      errors.password = "رمز عبور خود را وارد کنید";
+    }
+
+    return errors;
+  };
+
   const formik = useFormik({
     initialValues,
     onSubmit,
@@ -42,7 +48,7 @@ const LoginForm = () => {
   });
   return (
     <>
-      <ToastContainer position="top-center" />
+      <ToastContainer position="top-center" limit={1} />
       <form onSubmit={formik.handleSubmit} className="mt-4">
         <div className="mb-3">
           <input

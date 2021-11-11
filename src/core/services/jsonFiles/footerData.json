@@ -1,0 +1,25 @@
+{
+  "footerInfoJson" : [
+    {
+      "title": "دسترسی",
+      "lineImage": "https://res.cloudinary.com/df9w7u89a/image/upload/v1636662451/nnieybsymefcssdjijnz.svg",
+      "it1": " دوره ها",
+      "it2": "معرفی مدرسین",
+      "it3": "بلاگ"
+    },
+    {
+      "title": "متداول",
+      "lineImage": "https://res.cloudinary.com/df9w7u89a/image/upload/v1636662451/nnieybsymefcssdjijnz.svg",
+      "it1": " پرسش و پاسخ ",
+      "it2": "درخواست مشاوره",
+      "it3": "ورود"
+    },
+    {
+      "title": "ارتباط با ما",
+      "lineImage": "https://res.cloudinary.com/df9w7u89a/image/upload/v1636662451/nnieybsymefcssdjijnz.svg",
+      "it1": "تماس با ما",
+      "it2": " درباره ما",
+      "it3": "رزومه"
+    }
+  ]
+}

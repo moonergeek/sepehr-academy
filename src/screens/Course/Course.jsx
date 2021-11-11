@@ -6,8 +6,8 @@ import Comments from "../../components/Comments/Comments";
 import "../../components/Course/Course.css";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
-import { getItem } from "../../core/services/storage/storage";
 import { Link } from "react-router-dom";
+import { getItem } from "../../core/services/storage/storage";
 
 const Course = (props) => {
   return (

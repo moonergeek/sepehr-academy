@@ -6,11 +6,13 @@ import ReadBtn from "../common/readBtn/readBtn";
 import Comment from "../common/comment/comment";
 import Like from "../common/like/like";
 import BlogLine from "../common/blogLine/blogLine";
+import {Link} from "react-router-dom";
 
 
 const Blog = (props) => {
     return (
         <>
+
             <section className="documents">
                 <div className="container">
                     <div className="document-header course-header">
@@ -20,6 +22,7 @@ const Blog = (props) => {
                     <div className="document-body mt-4">
                         <div className="row">
                             {Object.keys(props.blogInfo).map(blogObj => <div key={blogObj} className="col-sm-12 col-md-6 col-lg-4">
+                                <Link to={"/blog/maghale/" + props.blogInfo[blogObj]._id} className={"Link"}>
                                 <div className="card mb-5">
                                     <img src={props.blogInfo[blogObj].image} className="card-img-top" alt="..."/>
                                     <div className="card-body">
@@ -47,12 +50,14 @@ const Blog = (props) => {
                                         </p>
                                     </div>
                                 </div>
+                                </Link>
                             </div>)}
                         </div>
                     </div>
                 </div>
 
             </section>
+
         </>
     );
 };
