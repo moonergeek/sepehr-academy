@@ -15,7 +15,6 @@ import SearchBoxForCourses from "../../components/searchBox/searchBoxForCourses/
 
 const CoursesPage = (props) => {
 
-    const loading = props.loading;
 
     return (
         <>
@@ -33,9 +32,9 @@ const CoursesPage = (props) => {
                         </div>
                     </div>
                 </div>
-                {loading ? <div>
+                 <div>
                     <CoursesBody courseInfo={props.fullCourseInfo}/>
-                </div> : <Spinner animation="border" variant="success" className={"load"}/>}
+                </div>
 
                 <div className="d-flex justify-content-center">
                     <form className="d-flex mb-2">

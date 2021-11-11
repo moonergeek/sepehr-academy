@@ -1,35 +1,55 @@
 import React from "react";
 import { useFormik } from "formik";
 import RegisterButton from "../RegisterButton/RegisterButton";
+import { ToastContainer } from "react-toastify";
+import RegisterUser from "../../../Core/services/api/Register.api";
 
 const initialValues = {
-  name: "",
-  pass: "",
+  fullName: "",
+  password: "",
   email: "",
-  pass2: "",
+  phoneNumber: "",
+  birthDate: "",
+  nationalId: "",
 };
 
-const onSubmit = (values) => {
-  console.log(values);
+const onSubmit = async (values) => {
+  const userRegister = {
+    fullName: values.fullName,
+    password: values.password,
+    email: values.email,
+    phoneNumber: values.phoneNumber,
+    birthDate: values.birthDate,
+    nationalId: values.nationalId,
+  };
+  await RegisterUser(userRegister);
 };
 
 const validate = (values) => {
   let errors = {};
 
-  if (!values.name) {
-    errors.name = "نام کاربری خود را وارد کنید";
+  if (!values.fullName) {
+    errors.fullName = "نام کاربری خود را وارد کنید";
   }
 
-  if (!values.pass) {
-    errors.pass = "رمز عبور خود را وارد کنید";
+  if (!values.password) {
+    errors.password = "رمز عبور خود را وارد کنید";
   }
 
   if (!values.email) {
     errors.email = "ایمیل خود را وارد کنید";
   }
 
-  if (!values.pass2) {
-    errors.pass2 = "رمز عبور خود را تکرار کنید";
+  if (!values.phoneNumber) {
+    errors.phoneNumber = "شماره تماس خود را وارد کنید";
+  }
+
+  if (!values.birthDate) {
+    errors.birthDate = "تاریخ تولد خود را وارد کنید";
+  }
+
+  if (!values.nationalId) {
+    errors.nationalId = "کد ملی خود را وارد کنید";
   }
 
   return errors;
@@ -43,85 +63,124 @@ const RegisterForm = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} className="mt-4">
-      <div className="mb-3">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="نام کاربری"
-          id="name"
-          name="name"
-          onChange={formik.handleChange}
-          value={formik.values.name}
-          onBlur={formik.handleBlur}
-          autoComplete="off"
-        />
-        <div className="text-danger mt-1">
-          {formik.touched.name && formik.errors.name ? (
-            <div>{formik.errors.name}</div>
-          ) : null}
+    <>
+      <ToastContainer position="top-center" />
+      <form onSubmit={formik.handleSubmit} className="mt-4">
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="نام کاربری"
+            id="fullName"
+            name="fullName"
+            onChange={formik.handleChange}
+            value={formik.values.fullName}
+            onBlur={formik.handleBlur}
+            autoComplete="off"
+          />
+          <div className="text-danger mt-1">
+            {formik.touched.fullName && formik.errors.fullName ? (
+              <div>{formik.errors.fullName}</div>
+            ) : null}
+          </div>
         </div>
-      </div>
 
-      <div className="mb-3">
-        <input
-          type="email"
-          className="form-control"
-          placeholder="ایمیل"
-          id="email"
-          name="email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-          onBlur={formik.handleBlur}
-          autoComplete="off"
-        />
-        <div className="text-danger mt-1">
-          {formik.touched.email && formik.errors.email ? (
-            <div>{formik.errors.email}</div>
-          ) : null}
+        <div className="mb-3">
+          <input
+            type="email"
+            className="form-control"
+            placeholder="ایمیل"
+            id="email"
+            name="email"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+            onBlur={formik.handleBlur}
+            autoComplete="off"
+          />
+          <div className="text-danger mt-1">
+            {formik.touched.email && formik.errors.email ? (
+              <div>{formik.errors.email}</div>
+            ) : null}
+          </div>
         </div>
-      </div>
 
-      <div className="mb-3">
-        <input
-          type="password"
-          className="form-control"
-          placeholder="رمز عبور"
-          id="pass"
-          name="pass"
-          onChange={formik.handleChange}
-          value={formik.values.pass}
-          onBlur={formik.handleBlur}
-        />
-        <div className="text-danger mt-1">
-          {formik.touched.pass && formik.errors.pass ? (
-            <div>{formik.errors.pass}</div>
-          ) : null}
+        <div className="mb-3">
+          <input
+            type="password"
+            className="form-control"
+            placeholder="رمز عبور"
+            id="password"
+            name="password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            onBlur={formik.handleBlur}
+          />
+          <div className="text-danger mt-1">
+            {formik.touched.password && formik.errors.password ? (
+              <div>{formik.errors.password}</div>
+            ) : null}
+          </div>
         </div>
-      </div>
 
-      <div className="mb-3">
-        <input
-          type="password"
-          className="form-control"
-          placeholder="تکرار رمز عبور"
-          id="pass2"
-          name="pass2"
-          onChange={formik.handleChange}
-          value={formik.values.pass2}
-          onBlur={formik.handleBlur}
-        />
-        <div className="text-danger mt-1">
-          {formik.touched.pass2 && formik.errors.pass2 ? (
-            <div>{formik.errors.pass2}</div>
-          ) : null}
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="شماره تماس"
+            id="phoneNumber"
+            name="phoneNumber"
+            onChange={formik.handleChange}
+            value={formik.values.phoneNumber}
+            onBlur={formik.handleBlur}
+          />
+          <div className="text-danger mt-1">
+            {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+              <div>{formik.errors.phoneNumber}</div>
+            ) : null}
+          </div>
         </div>
-      </div>
 
-      <div className="d-flex justify-content-center">
-        <RegisterButton />
-      </div>
-    </form>
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="تاریخ تولد"
+            id="birthDate"
+            name="birthDate"
+            onChange={formik.handleChange}
+            value={formik.values.birthDate}
+            onBlur={formik.handleBlur}
+          />
+          <div className="text-danger mt-1">
+            {formik.touched.birthDate && formik.errors.birthDate ? (
+              <div>{formik.errors.birthDate}</div>
+            ) : null}
+          </div>
+        </div>
+
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="کد ملی"
+            id="nationalId"
+            name="nationalId"
+            onChange={formik.handleChange}
+            value={formik.values.nationalId}
+            onBlur={formik.handleBlur}
+          />
+          <div className="text-danger mt-1">
+            {formik.touched.nationalId && formik.errors.nationalId ? (
+              <div>{formik.errors.nationalId}</div>
+            ) : null}
+          </div>
+        </div>
+
+        <div className="d-flex justify-content-center">
+          <RegisterButton />
+        </div>
+      </form>
+    </>
   );
 };
 

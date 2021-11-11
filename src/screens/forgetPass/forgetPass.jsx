@@ -35,7 +35,7 @@ const ForgetPass = () => {
                     <div className={"forget-background my-4 pt-3"}>
                         <div className={"row"}>
                             <div className={"d-flex justify-content-center"}>
-                                <img className={"forget-pic mt-5"} src={picture}/>
+                                <img className={"forget-pic mt-5"} src={picture} alt={"image"}/>
                             </div>
                             <div className={"d-flex justify-content-center"}>
                             <form onSubmit={formik.handleSubmit} className="mt-5">

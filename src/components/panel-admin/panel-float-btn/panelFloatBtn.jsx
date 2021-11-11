@@ -4,9 +4,8 @@ import Fab from "@mui/material/Fab";
 import NotificationsNoneTwoToneIcon from "@mui/icons-material/NotificationsNoneTwoTone";
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import HomeTwoToneIcon from "@mui/icons-material/HomeTwoTone";
-
+import { makeStyles } from '@mui/styles';
 import {Link} from "react-router-dom";
-import {makeStyles} from "@mui/material";
 
 const PanelFloatBtn = () => {
     const useStyles = makeStyles({

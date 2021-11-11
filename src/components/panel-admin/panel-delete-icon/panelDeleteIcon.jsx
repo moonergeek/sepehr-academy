@@ -1,6 +1,6 @@
 import React from 'react';
-import delete_icon from "../../../assets/img/cancel.png";
-import {BootstrapTooltip } from "../../tooltip/bootstrapTooltip";
+import delete_icon from "../../../assets/img/cancel.png"
+import {BootstrapTooltip } from "../../tooltip/bootstrapTooltip"
 
 const PanelDeleteIcon = () => {
     return (

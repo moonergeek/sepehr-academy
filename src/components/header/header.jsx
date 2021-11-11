@@ -2,10 +2,13 @@ import React, {Component} from 'react';
 import logoGreen from "../../assets/img/logo green.png";
 import "./header.css"
 import {BsThreeDots, FaCircle, FaUserPlus, MdShoppingCart,} from "react-icons/all";
+import { AiFillSmile } from "react-icons/ai";
 import {NavLink, Link} from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import {BootstrapTooltip } from "../tooltip/bootstrapTooltip"
 
+
+import {getItem} from "../../Core/services/storage/storage";
 
 class Header extends Component {
 
@@ -40,12 +43,27 @@ class Header extends Component {
                                                     <div className={"inline-block"}>
                                                         <Badge className={"shopping-badge"} badgeContent={4}
                                                                color="secondary">
+                                                            <Link to="/cart">
                                                             <MdShoppingCart fontSize={24}
                                                                             className={"shopping-card-icon"}/>
+                                                            </Link>
                                                         </Badge>
                                                     </div>
                                                 </BootstrapTooltip>
-                                                <FaCircle className={"circle"} fontSize={42}/>
+                                                {getItem("token") ? <><FaCircle className={"circle"} fontSize={42}/>
+                                                <BootstrapTooltip placeMent={"left"} title="داشبرد">
+                                                    <div className={"inline-block-2"}>
+                                                        <div className="dropdown">
+                                                            <Link to="/dashboard"><AiFillSmile fontSize={24}
+                                                                        className={"user-icon dropdown-toggle marg"}
+                                                                        id="dropdownMenuButton1"
+                                                                        aria-expanded="false"
+                                                            /></Link>
+
+
+                                                        </div>
+                                                    </div>
+                                                </BootstrapTooltip></> : <><FaCircle className={"circle"} fontSize={42}/>
                                                 <BootstrapTooltip placeMent={"left"} title="ثبت نام">
                                                     <div className={"inline-block-2"}>
                                                         <div className="dropdown">
@@ -65,10 +83,13 @@ class Header extends Component {
                                                                     <li><Link className="dropdown-item headerDrop-item" to={"/register"} >ثبت
                                                                         نام</Link></li>
                                                                 </div>
+                                                                <div className={"d-flex justify-content-center"}>
+                                                                    <li><Link className="dropdown-item headerDrop-item" to={"/dashboard"} >پروفایل</Link></li>
+                                                                </div>
                                                             </ul>
                                                         </div>
                                                     </div>
-                                                </BootstrapTooltip>
+                                                </BootstrapTooltip></>}
                                             </Link>
                                         </form>
 

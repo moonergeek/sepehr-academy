@@ -5,53 +5,29 @@ import ReadBtn from "../common/readBtn/readBtn";
 import Comment from "../common/comment/comment";
 import Like from "../common/like/like";
 import {Link, Route, Router, Switch} from "react-router-dom";
-import axios from "axios";
-import {Spinner} from "react-bootstrap";
-import Loading from "../common/loading/loading";
 
 const Card = (props) => {
-
-    const [getData, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const getBlog = async () => {
-        try {
-            await axios.get('https://academy-visual.herokuapp.com/api/news')
-                .then((response) => {
-
-                    const myBlog = response.data.result;
-                    setData(myBlog);
-
-                });
-            setLoading(true);
-
-        }
-        catch (e){
-            console.log(e);
-        }
-
-    }
-    useEffect(() => getBlog(), []);
 
 
     return (
 
         <>
-                      <div className="course-body mt-4 container">
+
+            <div className="course-body mt-4 container">
                 <div className="row">
 
-                    {getData.map(value => <div key={value}
-                                               className="col-sm-12 col-md-6 col-lg-4">
-
-                        <Link to={"/blog/maghale/" + value._id} className={"Link"}>
+                    {Object.keys(props.fullInfo).map(blogObj => <div key={blogObj}
+                                                                     className="col-sm-12 col-md-6 col-lg-4">
+                        <Link to={"/blog/maghale/" + props.fullInfo[blogObj].id} className={"Link"}>
                             <div className="card mb-5">
-                                <img src={value.image} className="card-img-top"
+                                <img src={props.fullInfo[blogObj].image} className="card-img-top"
                                      alt="..."/>
                                 <div className="card-body">
-                                    <p className="document-number">{value.category}</p>
-                                    <h5 className="doc-title">{value.title} </h5>
+                                    <p className="document-number">{" مقاله شماره " + (props.fullInfo.findIndex(x => x._id === props.fullInfo[blogObj]._id) + 1)}</p>
+                                    <h5 className="doc-title">{props.fullInfo[blogObj].title} </h5>
                                     <p className="card-text">
                                         <div className="mt-2">
-                                            <p className="document-details">{value.text}
+                                            <p className="document-details">{props.fullInfo[blogObj].text}
                                             </p>
                                             <div className="row">
                                                 <BlogLine/>
@@ -76,7 +52,6 @@ const Card = (props) => {
 
                 </div>
             </div>
-
 
         </>
     )

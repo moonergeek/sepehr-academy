@@ -1,79 +1,89 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .price {
-  margin-right: 5px;
-  color: #323e73;
+    margin-right: 5px;
+    color: #323e73;
 }
 
 .price-number {
-  color: #23a455;
+    color: #23a455;
 }
 
 .title {
-  margin-right: 8px;
-  color: #7a81a1;
+    margin-right: 8px;
+    color: #7a81a1;
 }
 
 .des {
-  color: #323e73;
+    color: #323e73;
 }
 
 .duration {
-  color: #2eb5dd !important;
+    color: #2eb5dd !important;
 }
 
 .sign-btn {
-  background-color: #61ce70 !important;
-  width: 100%;
+    background-color: #61ce70 !important;
+    width: 100%;
+}
+
+.sign-btn:hover {
+    background-color: #21ce70 !important;
 }
 
 .ask-questions {
-  background-color: #e1f7ed;
-  color: #323e73;
-  width: 100%;
-  font-size: 15px;
+    background-color: #e1f7ed;
+    color: #323e73;
+    width: 100%;
+    font-size: 15px;
 }
 
 .question-link {
-  color: #61ce70;
-  padding: 0 3px 0 3px;
+    color: #61ce70;
+    padding: 0 3px 0 3px;
+    cursor: pointer;
 }
 
 .share {
-  margin-right: 8px;
-  padding: 10px 0;
-  box-shadow: 0 3px 10px #E1F7ED;
-  color: #323e73;
+    margin-right: 8px;
+    padding: 10px 0;
+    box-shadow: 0 3px 10px #e1f7ed;
+    color: #323e73;
 }
 
 .share-icon {
-  margin-left: 20px;
-  padding: 4px;
-  border-radius: 50%;
-  cursor: pointer;
+    margin-left: 20px;
+    padding: 4px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .course-img {
-  width: 96%;
-  height: 96%;
+    width: 96%;
+    height: 96%;
 }
 
 .info {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 
 .info-title {
-  color: #323e73;
-  font-size: 18px;
+    color: #323e73;
+    font-size: 18px;
 }
 
 .info-des {
-  color: #7a81a1;
-  font-size: 15px;
+    color: #7a81a1;
+    font-size: 15px;
 }
-.light-green-shadow{
-  box-shadow: 0 3px 10px #E1F7ED;
+
+.light-green-shadow {
+    box-shadow: 0 3px 10px #e1f7ed;
+}
+
+.img-padding {
+    padding: 40px 100px;
 }

@@ -1,26 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import LoginButton from "../LoginButton/LoginButton";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import LoginUser from "../../../Core/services/api/Login.api";
 
 const initialValues = {
-  name: "",
-  pass: "",
+  email: "",
+  password: "",
 };
 
-const onSubmit = (values) => {
-  console.log(values);
+const onSubmit = async (values) => {
+  const userLogin = {
+    email: values.email,
+    password: values.password,
+  };
+
+  await LoginUser(userLogin);
 };
 
 const validate = (values) => {
   let errors = {};
 
-  if (!values.name) {
-    errors.name = "نام کاربری خود را وارد کنید";
+  if (!values.email) {
+    errors.email = "ایمیل خود را وارد کنید";
   }
 
-  if (!values.pass) {
-    errors.pass = "رمز عبور خود را وارد کنید";
+  if (!values.password) {
+    errors.password = "رمز عبور خود را وارد کنید";
   }
 
   return errors;
@@ -33,54 +40,58 @@ const LoginForm = () => {
     validate,
   });
   return (
-    <form onSubmit={formik.handleSubmit} className="mt-4">
-      <div className="mb-3">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="نام کاربری"
-          id="name"
-          name="name"
-          onChange={formik.handleChange}
-          value={formik.values.name}
-          onBlur={formik.handleBlur}
-          autoComplete="off"
-        />
-        <div className="mt-1 text-danger">
-          {formik.touched.name && formik.errors.name ? (
-            <div>{formik.errors.name}</div>
-          ) : null}
+    <>
+      <ToastContainer position="top-center" limit={1}/>
+      <form onSubmit={formik.handleSubmit} className="mt-4">
+        <div className="mb-3">
+          <input
+            type="email"
+            className="form-control"
+            placeholder="ایمیل"
+            id="email"
+            name="email"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+            onBlur={formik.handleBlur}
+            autoComplete="off"
+          />
+          <div className="mt-1 text-danger">
+            {formik.touched.email && formik.errors.email ? (
+              <div>{formik.errors.email}</div>
+            ) : null}
+          </div>
         </div>
-      </div>
 
-      <div className="mb-3">
-        <input
-          type="password"
-          className="form-control"
-          placeholder="رمز عبور"
-          id="pass"
-          name="pass"
-          onChange={formik.handleChange}
-          value={formik.values.pass}
-          onBlur={formik.handleBlur}
-        />
-        <div className="text-danger mt-1">
-          {formik.touched.pass && formik.errors.pass ? (
-            <div>{formik.errors.pass}</div>
-          ) : null}
+        <div className="mb-3">
+          <input
+            type="password"
+            className="form-control"
+            placeholder="رمز عبور"
+            id="password"
+            name="password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            onBlur={formik.handleBlur}
+          />
+
+          <div className="text-danger mt-1">
+            {formik.touched.password && formik.errors.password ? (
+              <div>{formik.errors.password}</div>
+            ) : null}
+          </div>
         </div>
-      </div>
-      <div className="mb-3 d-flex justify-content-end">
-        <div className="form-text">
-          <Link className="forget-pass text-success" to={"/forgetPassword"}>
-            رمز عبور خود را فراموش کردم
-          </Link>
+        <div className="mb-3 d-flex justify-content-end">
+          <div className="form-text">
+            <Link className="forget-pass text-success" to={"/forgetPassword"}>
+              رمز عبور خود را فراموش کردم
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className="d-flex justify-content-center">
-        <LoginButton />
-      </div>
-    </form>
+        <div className="d-flex justify-content-center">
+          <LoginButton />
+        </div>
+      </form>
+    </>
   );
 };
 

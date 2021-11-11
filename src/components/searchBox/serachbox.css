@@ -2,11 +2,11 @@
     display: flex;
 }
 
-.form-control {
+.Search-box {
     border: none;
     background: #FFFFFF;
     color: #198643 !important;
-    width: 400px;
+    width: 360px;
     box-shadow: 0 3px 10px #E1F7ED;
     border-radius: 5px;
 }
@@ -65,10 +65,6 @@ input:focus {
 
 a {
     text-decoration: none;
-}
-
-a:hover {
-    background-color: lightgrey;
 }
 
 #clearBtn {
