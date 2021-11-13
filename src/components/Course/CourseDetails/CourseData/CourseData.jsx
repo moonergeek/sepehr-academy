@@ -5,18 +5,19 @@ import icon3 from "../../../../assets/img/courseIcon3.svg";
 import icon4 from "../../../../assets/img/courseIcon4.svg";
 import icon5 from "../../../../assets/img/courseIcon5.svg";
 
-const CourseData = () => {
+const CourseData = (props) => {
+    // console.log(props.courseData.terms[0].cost)
   return (
     <>
       <div className="price mb-3">
-        قیمت این دوره : <span className="price-number">500000 تومان</span>
+        قیمت این دوره : <span className="price-number">4000 تومان  </span>
       </div>
       <div className="teacher">
         <span className="icon">
           <img src={icon1} alt="teacher" />
         </span>
         <span className="title">مدرس دوره : </span>
-        <span className="des"> حسامی</span>
+        <span className="des"> {props.courseData.description}</span>
       </div>
 
       <div className="time mt-3">

@@ -62,8 +62,7 @@
 }
 
 .course-img {
-    width: 96%;
-    height: 96%;
+    width: 65%;
 }
 
 .info {
@@ -86,4 +85,8 @@
 
 .img-padding {
     padding: 40px 100px;
+}
+.order-first {
+    background: #FBFEFD;
+    margin-bottom: 30px;
 }

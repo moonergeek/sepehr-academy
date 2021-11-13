@@ -198,7 +198,7 @@ const AuthUser = () => {
                     <Route path={"/register"} component={() => <Register/>}/>
                     <Route path={"/forgetPassword"} component={() => <ForgetPass/>}/>
                     <Route
-                        path={"/course"}
+                        path={"/course/:id"}
                         component={() => (
                             <Course
                                 menuList={menuList}
