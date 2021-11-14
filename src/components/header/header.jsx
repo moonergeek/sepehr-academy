@@ -1,17 +1,11 @@
 import React, { Component } from "react";
 import logoGreen from "../../assets/img/logo green.png";
-import modalSign from "../../assets/img/modalSign.svg";
-import "./header.css";
-import {
-  BsThreeDots,
-  FaCircle,
-  FaUserPlus,
-  MdShoppingCart,
-} from "react-icons/all";
-import { AiFillSmile } from "react-icons/ai";
-import { NavLink, Link } from "react-router-dom";
-import Badge from "@mui/material/Badge";
-import { BootstrapTooltip } from "../tooltip/bootstrapTooltip";
+import "./header.css"
+import {BsThreeDots, FaCircle, FaUserPlus, MdShoppingCart,} from "react-icons/all";
+import userImage from "../../assets/img/img4.png";
+import {NavLink, Link} from "react-router-dom";
+import Badge from '@mui/material/Badge';
+import {BootstrapTooltip} from "../tooltip/bootstrapTooltip"
 
 import { getItem } from "../../core/services/storage/storage";
 
@@ -123,57 +117,69 @@ class Header extends Component {
                                         </Link>
                                       </li>
                                     </div>
-                                    <div
-                                      className={
-                                        "d-flex justify-content-center"
-                                      }
-                                    >
-                                      <li>
-                                        <Link
-                                          className="dropdown-item headerDrop-item"
-                                          to={"/register"}
-                                        >
-                                          ثبت نام
-                                        </Link>
-                                      </li>
-                                    </div>
-                                    <div
-                                      className={
-                                        "d-flex justify-content-center"
-                                      }
-                                    >
-                                      <li>
-                                        <Link
-                                          className="dropdown-item headerDrop-item"
-                                          to={"/dashboard"}
-                                          data-bs-toggle="modal"
-                                          data-bs-target="#exampleModal"
-                                        >
-                                          پروفایل
-                                        </Link>
-                                      </li>
-                                    </div>
-                                  </ul>
-                                  <div
-                                    class="modal fade"
-                                    id="exampleModal"
-                                    tabindex="-1"
-                                    aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true"
-                                  >
-                                    <div class="modal-dialog modal-dialog-centered">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <button
-                                            type="button"
-                                            class="btn-close"
-                                            data-bs-dismiss="modal"
-                                            aria-label="Close"
-                                          ></button>
-                                        </div>
-                                        <h5 class="modal-body d-flex justify-content-center text-color">
-                                          شما هنوز وارد سایت ما نشدید
-                                        </h5>
+                                    <div className="d-flex justify-content-start ">
+                                        <form className="d-flex header-icons">
+                                            <Link className="nav-link ">
+                                                <FaCircle className={"circle margin"} fontSize={42}/>
+                                                <BootstrapTooltip placeMent={"right"} title="سبد خرید">
+                                                    <div className={"inline-block"}>
+                                                        <Badge className={"shopping-badge"} badgeContent={4}
+                                                               color="secondary">
+                                                            <Link to="/cart">
+                                                                <MdShoppingCart fontSize={24}
+                                                                                className={"shopping-card-icon"}/>
+                                                            </Link>
+                                                        </Badge>
+                                                    </div>
+                                                </BootstrapTooltip>
+                                                {getItem("token") ? <><FaCircle className={"circle opacity-none"}
+                                                                                fontSize={42}/>
+                                                    <BootstrapTooltip placeMent={"left"} title="داشبرد">
+                                                        <div className={"inline-block-2"}>
+                                                            <div className="dropdown">
+                                                                <Link to="/dashboard">
+                                                                    <div className={"border-violet"}>
+                                                                        <img src={userImage} width={50}
+                                                                             className={"user-icon dropdown-toggle image-user-class"}
+                                                                             id="dropdownMenuButton1"
+                                                                             aria-expanded="false"
+                                                                             alt={"user-image"}/>
+                                                                    </div>
+                                                                </Link>
+                                                            </div>
+                                                        </div>
+                                                    </BootstrapTooltip></> : <><FaCircle className={"circle"}
+                                                                                         fontSize={42}/>
+                                                    <BootstrapTooltip placeMent={"left"} title="ثبت نام">
+                                                        <div className={"inline-block-2"}>
+                                                            <div className="dropdown">
+                                                                <FaUserPlus fontSize={24}
+                                                                            className={"user-icon dropdown-toggle"}
+                                                                            id="dropdownMenuButton1"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-expanded="false"
+                                                                />
+                                                                <ul className="dropdown-menu headerDrop-menu"
+                                                                    aria-labelledby="dropdownMenuButton1">
+                                                                    <div className={"d-flex justify-content-center"}>
+                                                                        <li>
+                                                                            <Link
+                                                                                className="dropdown-item headerDrop-item "
+                                                                                to={"/login"}>ورود</Link>
+                                                                        </li>
+                                                                    </div>
+                                                                    <div className={"d-flex justify-content-center"}>
+                                                                        <li><Link
+                                                                            className="dropdown-item headerDrop-item"
+                                                                            to={"/register"}>ثبت
+                                                                            نام</Link></li>
+                                                                    </div>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </BootstrapTooltip></>}
+                                            </Link>
+                                        </form>
 
                                         <img
                                           className="img-padding"

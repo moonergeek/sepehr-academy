@@ -198,7 +198,7 @@ const AuthUser = () => {
                     <Route path={"/register"} component={() => <Register/>}/>
                     <Route path={"/forgetPassword"} component={() => <ForgetPass/>}/>
                     <Route
-                        path={"/course"}
+                        path={"/course/:id"}
                         component={() => (
                             <Course
                                 menuList={menuList}
@@ -229,7 +229,7 @@ const AuthUser = () => {
                         )}
                     />
                     <Route
-                        path={"/blog/maghale"}
+                        path={"/blog/maghale/:id"}
                         component={() => (
                             <Maghale
                                 menuList={menuList}

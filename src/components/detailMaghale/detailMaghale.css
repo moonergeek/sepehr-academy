@@ -40,9 +40,9 @@
 
 .main {
     box-shadow: 0 3px 10px #E1F7ED;
-    width: 500px;
+    width: 40%;
     height: 100%;
-    margin: 100px auto;
+    margin: 30px auto;
 }
 
 .load {
