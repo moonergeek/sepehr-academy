@@ -30,15 +30,15 @@ const Course = (props) => {
                   برای نوشتن نظر باید در سایت عضو باشید
                 </h5>
 
-                <div className="d-flex">
-                  <Link to="/login">
-                    <button type="button" class="btn btn-primary">
-                      صفحه ورود
+                <div className="d-flex flex-column align-items-center">
+                  <Link to="/register">
+                    <button type="button" className="btn btn-danger marg mt-1">
+                      صفحه ثبت نام
                     </button>
                   </Link>
-                  <Link to="/register">
-                    <button type="button" class="btn btn-danger marg">
-                      صفحه ثبت نام
+                  <Link to="/login">
+                    <button type="button" className="btn btn-primary mt-1">
+                      صفحه ورود
                     </button>
                   </Link>
                 </div>
