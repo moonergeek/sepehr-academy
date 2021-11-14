@@ -3,9 +3,13 @@ import { useFormik } from "formik";
 import LoginButton from "../LoginButton/LoginButton";
 import { Link, useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+<<<<<<< HEAD
 import eyeImg from "../../../assets/img/eyeicon.png";
 import "../Login.css";
 import LoginUser from "../../../core/services/api/Login.api";
+=======
+import LoginUser from "../../../core/services/API/Login.api";
+>>>>>>> sina
 
 const LoginForm = () => {
   const initialValues = {
@@ -73,9 +77,15 @@ const LoginForm = () => {
           </div>
         </div>
 
+<<<<<<< HEAD
         <div className="mb-3 pass-form">
           <input
             type={passwordShown ? "password" : "text"}
+=======
+        <div className="mb-3">
+          <input
+            type="password"
+>>>>>>> sina
             className="form-control"
             placeholder="رمز عبور"
             id="password"
@@ -85,6 +95,7 @@ const LoginForm = () => {
             onBlur={formik.handleBlur}
           />
 
+<<<<<<< HEAD
           <div
             className="pass-eye"
             onClick={() => {
@@ -94,6 +105,8 @@ const LoginForm = () => {
             <img src={eyeImg} />
           </div>
 
+=======
+>>>>>>> sina
           <div className="text-danger mt-1">
             {formik.touched.password && formik.errors.password ? (
               <div>{formik.errors.password}</div>

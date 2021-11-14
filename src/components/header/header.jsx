@@ -2,7 +2,11 @@ import React, {Component} from 'react';
 import logoGreen from "../../assets/img/logo green.png";
 import "./header.css"
 import {BsThreeDots, FaCircle, FaUserPlus, MdShoppingCart,} from "react-icons/all";
+<<<<<<< HEAD
 import userImage from "../../assets/img/img4.png";
+=======
+import { AiFillSmile } from "react-icons/ai";
+>>>>>>> sina
 import {NavLink, Link} from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import {BootstrapTooltip} from "../tooltip/bootstrapTooltip"
@@ -44,12 +48,18 @@ class Header extends Component {
                                                         <Badge className={"shopping-badge"} badgeContent={4}
                                                                color="secondary">
                                                             <Link to="/cart">
+<<<<<<< HEAD
                                                                 <MdShoppingCart fontSize={24}
                                                                                 className={"shopping-card-icon"}/>
+=======
+                                                            <MdShoppingCart fontSize={24}
+                                                                            className={"shopping-card-icon"}/>
+>>>>>>> sina
                                                             </Link>
                                                         </Badge>
                                                     </div>
                                                 </BootstrapTooltip>
+<<<<<<< HEAD
                                                 {getItem("token") ? <><FaCircle className={"circle opacity-none"}
                                                                                 fontSize={42}/>
                                                     <BootstrapTooltip placeMent={"left"} title="داشبرد">
@@ -96,6 +106,48 @@ class Header extends Component {
                                                             </div>
                                                         </div>
                                                     </BootstrapTooltip></>}
+=======
+                                                {getItem("token") ? <><FaCircle className={"circle"} fontSize={42}/>
+                                                <BootstrapTooltip placeMent={"left"} title="داشبرد">
+                                                    <div className={"inline-block-2"}>
+                                                        <div className="dropdown">
+                                                            <Link to="/dashboard"><AiFillSmile fontSize={24}
+                                                                        className={"user-icon dropdown-toggle marg"}
+                                                                        id="dropdownMenuButton1"
+                                                                        aria-expanded="false"
+                                                            /></Link>
+
+
+                                                        </div>
+                                                    </div>
+                                                </BootstrapTooltip></> : <><FaCircle className={"circle"} fontSize={42}/>
+                                                <BootstrapTooltip placeMent={"left"} title="ثبت نام">
+                                                    <div className={"inline-block-2"}>
+                                                        <div className="dropdown">
+                                                            <FaUserPlus fontSize={24}
+                                                                        className={"user-icon dropdown-toggle"}
+                                                                        id="dropdownMenuButton1"
+                                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                            />
+                                                            <ul className="dropdown-menu headerDrop-menu"
+                                                                aria-labelledby="dropdownMenuButton1">
+                                                                <div className={"d-flex justify-content-center"}>
+                                                                    <li>
+                                                                        <Link className="dropdown-item headerDrop-item " to={"/login"} >ورود</Link>
+                                                                    </li>
+                                                                </div>
+                                                                <div className={"d-flex justify-content-center"}>
+                                                                    <li><Link className="dropdown-item headerDrop-item" to={"/register"} >ثبت
+                                                                        نام</Link></li>
+                                                                </div>
+                                                                <div className={"d-flex justify-content-center"}>
+                                                                    <li><Link className="dropdown-item headerDrop-item" to={"/dashboard"} >پروفایل</Link></li>
+                                                                </div>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </BootstrapTooltip></>}
+>>>>>>> sina
                                             </Link>
                                         </form>
 

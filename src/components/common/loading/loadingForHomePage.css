@@ -1,0 +1,15 @@
+/*.load2{*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    right: 50%;*/
+/*}*/
+
+
+.sweet-loading {
+position: absolute;
+    top: 50%;
+    right:50%;
+    border-color: #198643;
+    height: 20vh;
+    color:#198643;
+}

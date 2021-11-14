@@ -3,9 +3,13 @@ import { useFormik } from "formik";
 import RegisterButton from "../RegisterButton/RegisterButton";
 import { useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+<<<<<<< HEAD
 import eyeImg from "../../../assets/img/eyeicon.png";
 import "../Register.css";
 import RegisterUser from "../../../core/services/api/Register.api";
+=======
+import RegisterUser from "../../../core/services/API/Register.api";
+>>>>>>> sina
 
 const RegisterForm = () => {
   const initialValues = {
@@ -114,6 +118,7 @@ const RegisterForm = () => {
               <div>{formik.errors.email}</div>
             ) : null}
           </div>
+<<<<<<< HEAD
         </div>
 
         <div className="mb-3 pass-form">
@@ -137,6 +142,23 @@ const RegisterForm = () => {
             <img src={eyeImg} />
           </div>
 
+          <div className="text-danger mt-1">
+            {formik.touched.password && formik.errors.password ? (
+              <div>{formik.errors.password}</div>
+=======
+        </div>
+
+        <div className="mb-3">
+          <input
+            type="password"
+            className="form-control"
+            placeholder="رمز عبور"
+            id="password"
+            name="password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            onBlur={formik.handleBlur}
+          />
           <div className="text-danger mt-1">
             {formik.touched.password && formik.errors.password ? (
               <div>{formik.errors.password}</div>
@@ -176,6 +198,57 @@ const RegisterForm = () => {
           <div className="text-danger mt-1">
             {formik.touched.birthDate && formik.errors.birthDate ? (
               <div>{formik.errors.birthDate}</div>
+>>>>>>> sina
+            ) : null}
+          </div>
+        </div>
+
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+<<<<<<< HEAD
+            placeholder="شماره تماس"
+            id="phoneNumber"
+            name="phoneNumber"
+            onChange={formik.handleChange}
+            value={formik.values.phoneNumber}
+            onBlur={formik.handleBlur}
+          />
+          <div className="text-danger mt-1">
+            {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+              <div>{formik.errors.phoneNumber}</div>
+=======
+            placeholder="کد ملی"
+            id="nationalId"
+            name="nationalId"
+            onChange={formik.handleChange}
+            value={formik.values.nationalId}
+            onBlur={formik.handleBlur}
+          />
+          <div className="text-danger mt-1">
+            {formik.touched.nationalId && formik.errors.nationalId ? (
+              <div>{formik.errors.nationalId}</div>
+>>>>>>> sina
+            ) : null}
+          </div>
+        </div>
+
+<<<<<<< HEAD
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="تاریخ تولد"
+            id="birthDate"
+            name="birthDate"
+            onChange={formik.handleChange}
+            value={formik.values.birthDate}
+            onBlur={formik.handleBlur}
+          />
+          <div className="text-danger mt-1">
+            {formik.touched.birthDate && formik.errors.birthDate ? (
+              <div>{formik.errors.birthDate}</div>
             ) : null}
           </div>
         </div>
@@ -198,6 +271,8 @@ const RegisterForm = () => {
           </div>
         </div>
 
+=======
+>>>>>>> sina
         <div className="d-flex justify-content-center">
           <RegisterButton />
         </div>

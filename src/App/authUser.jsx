@@ -70,6 +70,13 @@ const AuthUser = () => {
         setCurrentPage(page);
     };
 
+    //loading
+    const [loadingForBlog , setLoadingForBlog] = useState(false);
+    const [loadingForCourses , setLoadingForCourses] = useState(false);
+    const [loadingFor6Blog , setLoadingFor6Blog] = useState(false);
+    const [loadingForFavCourses , setLoadingForFavCourses] = useState(false);
+    const [loadingForHomePageCourses , setLoadingForHomePageCourses] = useState(false);
+
 
     //backend-api
     const [courseData, setCourseData] = useState([]);
@@ -81,23 +88,32 @@ const AuthUser = () => {
     const getHomePageCourses = async () => {
         const result = await GetCoursesData();
         setCourseData(result);
+        setLoadingForHomePageCourses(true);
     };
     const getFavCourses = async () => {
         const result = await GetFavCoursesData();
         setFavCourseData(result);
+        setLoadingForFavCourses(true);
     };
     const get6BlogData = async () => {
         const result = await GetAll6BlogData();
         setBlogData(result);
+        setLoadingFor6Blog(true);
     };
 
     const getAllCourses = async () => {
         const result = await GetAllCoursesData();
         setAllCoursesData(result);
+        setLoadingForCourses(true);
     };
     const getAllBlogs = async () => {
         const result = await GetAllBlogsData();
         setAllBlogData(result);
+        setLoadingForBlog(true);
+
+
+
+
     };
     useEffect(() => {
         getHomePageCourses();
@@ -135,6 +151,9 @@ const AuthUser = () => {
                                 favCoursesTitle={favCoursesTitle}
                                 footerInfo={footerInfo}
                                 testapi={courseData}
+                                loading={loadingForHomePageCourses}
+
+
                             />
                         )}
                     />
@@ -150,6 +169,7 @@ const AuthUser = () => {
                                 currentPage={currentPage}
                                 onPageChange={handlePageChange}
                                 footerInfo={footerInfo}
+                                loading={loadingForCourses}
                             />
                         )}
                     />
@@ -224,7 +244,8 @@ const AuthUser = () => {
                                 pageSize={pageSize}
                                 currentPage={currentPage}
                                 onPageChange={handlePageChange}
-                                loading={null}
+                                loading ={loadingForBlog}
+
                             />
                         )}
                     />

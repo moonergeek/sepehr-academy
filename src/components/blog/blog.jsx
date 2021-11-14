@@ -41,7 +41,7 @@ const Blog = (props) => {
                                                         <div className="col-sm-12 col-md-6">
                                                             <div className="d-flex justify-content-end">
                                                                 <Comment/>
-                                                                <Like/>
+                                                                <Like />
                                                             </div>
                                                         </div>
                                                     </div>
