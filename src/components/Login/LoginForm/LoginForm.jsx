@@ -3,9 +3,9 @@ import { useFormik } from "formik";
 import LoginButton from "../LoginButton/LoginButton";
 import { Link, useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import LoginUser from "../../../core/services/API/Login.api";
 import eyeImg from "../../../assets/img/eyeicon.png";
 import "../Login.css";
+import LoginUser from "../../../core/services/api/Login.api";
 
 const LoginForm = () => {
   const initialValues = {
