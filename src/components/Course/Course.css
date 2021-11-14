@@ -62,12 +62,7 @@
 }
 
 .course-img {
-<<<<<<< HEAD
     width: 65%;
-=======
-    width: 96%;
-    height: 96%;
->>>>>>> sina
 }
 
 .info {
@@ -86,7 +81,7 @@
 
 .light-green-shadow {
     box-shadow: 0 3px 10px #e1f7ed;
-<<<<<<< HEAD
+
 }
 
 .img-padding {
@@ -95,10 +90,6 @@
 .order-first {
     background: #FBFEFD;
     margin-bottom: 30px;
-=======
+
 }
 
-.img-padding {
-    padding: 40px 100px;
->>>>>>> sina
-}
