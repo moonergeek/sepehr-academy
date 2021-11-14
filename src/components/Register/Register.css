@@ -4,13 +4,10 @@
 }
 
 .register-container {
-<<<<<<< HEAD
+
   background: url("../../assets/img/background.png") repeat-x 30%;
   box-shadow: 0 3px 10px #e1f7ed !important;
-=======
-    background: url("../../assets/img/background.png") repeat-x 30%;
-    box-shadow: 0 3px 10px #e1f7ed !important;
->>>>>>> sina
+
 }
 
 .login-form .form-control {
@@ -56,7 +53,7 @@
 }
 
 .register-btn:hover {
-<<<<<<< HEAD
+
   background: #40d8b9 !important;
 }
 
@@ -80,20 +77,7 @@
     width: 400px;
     height: 300px;
   }
-=======
-    background: #40d8b9 !important;
-}
 
-@media only screen and (max-width: 1200px) {
-    .register-container {
-        background: url("../../assets/img/background.png") repeat-x;
-    }
-    .register-img {
-        margin-left: 90px;
-        width: 400px;
-        height: 300px;
-    }
->>>>>>> sina
 }
 
 @media only screen and (max-width: 500px) {
