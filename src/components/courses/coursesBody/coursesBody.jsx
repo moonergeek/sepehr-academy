@@ -10,19 +10,19 @@ const CoursesBody = (props) => {
         <>
             <div className="course-body mt-4">
                 <div className="row">
-                    {Object.keys(props.courseInfo).map(item => <div key={item} className="col-sm-12 col-md-6 col-lg-3">
+                    {Object.entries(props.courseInfo).map(item => <div key={item} className="col-sm-12 col-md-6 col-lg-3">
                         <div className="card mb-5">
-                            <img src={props.courseInfo[item].image} className="card-img-top" alt="..."/>
+                            <img src={item[1].course.image} className="card-img-top" alt="..."/>
                             <div className="card-body">
-                                <Link className={"decoration-none"} to={"/course"}>
-                                    <h5 className="card-title">{props.courseInfo[item].courseName} </h5>
+                                <Link className={"decoration-none"} to={`/course/${item[1].course._id}`}>
+                                    <h5 className="card-title"> {item[1].course.courseName} </h5>
                                 </Link>
                                 <p className="card-text">
                                     <div className="mt-2">
                                         <img className="card-user-image col-8" src={userIcon}
                                              alt=""/>
                                         <span
-                                            className="course-teacher col-sm-4 me-1 ">{props.courseInfo[item].description}</span>
+                                            className="course-teacher col-sm-4 me-1 ">{item[1].teacher.fullName}</span>
                                         <div className="row">
                                             <div className="col-sm-12">
                                                 <img src={lineImage} className="card-line"
@@ -40,7 +40,7 @@ const CoursesBody = (props) => {
                                                 <div className="col-sm-12 col-md-6">
                                                     <div className="d-flex justify-content-end">
                                                         <span
-                                                            className="card-price"> {"500،000 تومان"}</span>
+                                                            className="card-price"> {`${item[1].cost} تومان`}</span>
                                                     </div>
                                                 </div>
                                             </div>

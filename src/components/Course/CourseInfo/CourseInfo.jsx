@@ -1,10 +1,10 @@
 import React from "react";
 
-const CourseInfo = () => {
+const CourseInfo = (props) => {
   return (
     <>
       <div className="info">
-        <h5 className="mt-4 info-title">آموزش جامع پایتون از صفر تا صد</h5>
+        <h5 className="mt-4 info-title">{props.courseData.courseName}</h5>
         <p className="mt-2 info-des">
           این پایتون چیه که انقدر سر زبون ها افتاده و هرجا بری صحبتش هست؟زبان
           برنامه نویسی پایتون زبانی با یادگیری آسان تلقی میشود و به همین دلیل

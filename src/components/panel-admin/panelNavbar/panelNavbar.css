@@ -24,22 +24,31 @@
     font-size: 14px;
     transition: 0.2s;
 }
-
 .panel-list-item:hover {
     background-color: #F3FCF8;
     transition: 0.2s;
     color: #198643;
-
 }
 
 .panel-navbar-body {
     padding: 0;
     margin: 8px;
 }
-.panel-navList-icons{
+
+.panel-navList-icons {
     width: 17px;
     margin-left: 8px;
 }
-.navbar-panel-width{
+
+.navbar-panel-width {
     width: 245px;
+}
+.link-link{
+    text-decoration: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #815AC0;
+}
+.link-link:hover{
+    color: #198643;
 }

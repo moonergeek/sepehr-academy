@@ -15,7 +15,7 @@ const Teacher = ({ teacherInfo }) => {
             <div className="card-body d-flex flex-column align-items-center">
               <h5 className="card-title fw-bold">{teacher.title}</h5>
               <p className="card-text teacher-des">{teacher.des}</p>
-              <a href="#" className="btn btn-success">
+              <a href="https://www.google.com/" className="btn btn-success">
                 مشاهده دوره ها
               </a>
             </div>
