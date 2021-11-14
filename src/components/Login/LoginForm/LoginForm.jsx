@@ -3,7 +3,9 @@ import { useFormik } from "formik";
 import LoginButton from "../LoginButton/LoginButton";
 import { Link, useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import LoginUser from "../../../core/services/api/Login.api";
+import LoginUser from "../../../core/services/API/Login.api";
+import eyeImg from "../../../assets/img/eyeicon.png";
+import "../Login.css";
 
 const LoginForm = () => {
   const initialValues = {
@@ -46,6 +48,8 @@ const LoginForm = () => {
     onSubmit,
     validate,
   });
+
+  const [passwordShown, setPasswordShown] = useState(true);
   return (
     <>
       <ToastContainer position="top-center" limit={1} />
@@ -69,9 +73,9 @@ const LoginForm = () => {
           </div>
         </div>
 
-        <div className="mb-3">
+        <div className="mb-3 pass-form">
           <input
-            type="password"
+            type={passwordShown ? "password" : "text"}
             className="form-control"
             placeholder="رمز عبور"
             id="password"
@@ -80,6 +84,15 @@ const LoginForm = () => {
             value={formik.values.password}
             onBlur={formik.handleBlur}
           />
+
+          <div
+            className="pass-eye"
+            onClick={() => {
+              setPasswordShown(!passwordShown);
+            }}
+          >
+            <img src={eyeImg} />
+          </div>
 
           <div className="text-danger mt-1">
             {formik.touched.password && formik.errors.password ? (

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import RegisterButton from "../RegisterButton/RegisterButton";
 import { useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import RegisterUser from "../../../core/services/api/Register.api";
+import RegisterUser from "../../../core/services/API/Register.api";
+import eyeImg from "../../../assets/img/eyeicon.png";
+import "../Register.css";
 
 const RegisterForm = () => {
   const initialValues = {
@@ -70,6 +72,8 @@ const RegisterForm = () => {
     validate,
   });
 
+  const [passwordShown, setPasswordShown] = useState(true);
+
   return (
     <>
       <ToastContainer position="top-center" />
@@ -112,9 +116,9 @@ const RegisterForm = () => {
           </div>
         </div>
 
-        <div className="mb-3">
+        <div className="mb-3 pass-form">
           <input
-            type="password"
+            type={passwordShown ? "password" : "text"}
             className="form-control"
             placeholder="رمز عبور"
             id="password"
@@ -123,6 +127,16 @@ const RegisterForm = () => {
             value={formik.values.password}
             onBlur={formik.handleBlur}
           />
+
+          <div
+            className="pass-eye"
+            onClick={() => {
+              setPasswordShown(!passwordShown);
+            }}
+          >
+            <img src={eyeImg} />
+          </div>
+
           <div className="text-danger mt-1">
             {formik.touched.password && formik.errors.password ? (
               <div>{formik.errors.password}</div>
