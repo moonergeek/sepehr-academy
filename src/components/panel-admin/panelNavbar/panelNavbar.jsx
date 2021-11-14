@@ -15,18 +15,11 @@ import AnalyticsTwoToneIcon from "@mui/icons-material/AnalyticsTwoTone";
 import { BootstrapTooltip } from "../../tooltip/bootstrapTooltip";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
+
 
 const PanelNavbar = (props) => {
   
-=======
-import { clearStorage } from "../../../core/services/storage/storage";
-import { useHistory } from "react-router-dom";
-import { toast } from "react-toastify";
 
-const PanelNavbar = (props) => {
-  const history = useHistory();
->>>>>>> sina
   return (
     <>
       <div className={"navbar-panel-width position-fixed"}>
@@ -37,7 +30,7 @@ const PanelNavbar = (props) => {
             className="card-img-top panel-background"
             alt="..."
           />
-<<<<<<< HEAD
+
 
           <section className={"top-data"}>
             <div className={"d-flex justify-content-center"}>
@@ -52,26 +45,7 @@ const PanelNavbar = (props) => {
               <img src={logOut} className={"logOut-img"} />
             </BootstrapTooltip>
 
-=======
 
-          <section className={"top-data"}>
-            <div className={"d-flex justify-content-center"}>
-              <img src={userImage} className={"panel-user-image"} />
-            </div>
-            <BootstrapTooltip
-              onClick={() => {
-                setTimeout(() => {
-                  clearStorage();
-                  toast.success("خروج با موفقیت انجام شد")
-                  history.push("/");
-                }, 2000);
-              }}
-              placeMent={"left"}
-              title="خروج"
-            >
-              <img src={logOut} className={"logOut-img"} />
-            </BootstrapTooltip>
->>>>>>> sina
             <div className={"d-flex justify-content-center"}>
               <span className={"panel-user-name"}>مسعود حسامی</span>
             </div>
