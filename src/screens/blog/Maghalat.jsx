@@ -5,7 +5,7 @@ import Card from "../../components/card-maghalat/card";
 import Footer from "../../components/footer/footer";
 import Pagination from "../../components/common/pagination/pagination"
 import Title from "../../components/moshavere-req/Title/Title";
-
+import Loading from "../../components/common/loading";
 
 const Maghalat = (props) => {
 

@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 
 import eyeImg from "../../../assets/img/eyeicon.png";
 import "../Login.css";
-import LoginUser from "../../../core/services/api/Login.api";
+import LoginUser from "../../../core/services/API/Login.api";
 
 
 const LoginForm = () => {

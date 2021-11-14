@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 
 import eyeImg from "../../../assets/img/eyeicon.png";
 import "../Register.css";
-import RegisterUser from "../../../core/services/api/Register.api";
+import RegisterUser from "../../../core/services/API/Register.api";
 
 
 const RegisterForm = () => {

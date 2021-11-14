@@ -8,7 +8,7 @@ import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import { Link , useParams } from "react-router-dom";
 import { getItem } from "../../core/services/storage/storage";
-import GetCourseById from "../../core/services/api/getCourseById.api";
+import GetCourseById from "../../core/services/API/getCourseById.api";
 
 const Course = (props) => {
     const { id } = useParams();
