@@ -5,7 +5,8 @@ import Card from "../../components/card-maghalat/card";
 import Footer from "../../components/footer/footer";
 import Pagination from "../../components/common/pagination/pagination"
 import Title from "../../components/moshavere-req/Title/Title";
-import Loading from "../../components/common/loading";
+import Loading from "../../components/common/loading/loading";
+
 
 const Maghalat = (props) => {
 
@@ -26,7 +27,7 @@ const Maghalat = (props) => {
                             />
                         </form>
                     </div>
-                </> : <Loading/>}
+                </> : <Loading />}
                 <Footer footerInfo={props.footerInfo}/>
             </div>
 
