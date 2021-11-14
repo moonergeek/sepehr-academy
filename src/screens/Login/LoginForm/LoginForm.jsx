@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import LoginButton from "../LoginButton/LoginButton";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const initialValues = {
   name: "",
@@ -32,6 +32,7 @@ const LoginForm = () => {
     onSubmit,
     validate,
   });
+
   return (
     <form onSubmit={formik.handleSubmit} className="mt-4">
       <div className="mb-3">
@@ -53,9 +54,9 @@ const LoginForm = () => {
         </div>
       </div>
 
-      <div className="mb-3">
+      <div className="mb-3 pass-form">
         <input
-          type="password"
+          type={passwordShown ? "password" : "text"}
           className="form-control"
           placeholder="رمز عبور"
           id="pass"
@@ -64,6 +65,16 @@ const LoginForm = () => {
           value={formik.values.pass}
           onBlur={formik.handleBlur}
         />
+
+        <div
+          className="pass-eye"
+          onClick={() => {
+            setPasswordShown(!passwordShown);
+          }}
+        >
+          <img src={eyeImg} />
+        </div>
+
         <div className="text-danger mt-1">
           {formik.touched.pass && formik.errors.pass ? (
             <div>{formik.errors.pass}</div>

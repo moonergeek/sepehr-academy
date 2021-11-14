@@ -4,6 +4,8 @@ import RegisterButton from "../RegisterButton/RegisterButton";
 import { useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import RegisterUser from "../../../core/services/API/Register.api";
+import eyeImg from "../../../assets/img/eyeicon.png";
+import "../Register.css";
 
 const RegisterForm = () => {
   const initialValues = {
@@ -114,7 +116,7 @@ const RegisterForm = () => {
           </div>
         </div>
 
-        <div className="mb-3">
+        <div className="mb-3 pass-form">
           <input
             type={passwordShown ? "password" : "text"}
             className="form-control"
@@ -126,32 +128,20 @@ const RegisterForm = () => {
             onBlur={formik.handleBlur}
           />
 
+          <div
+            className="pass-eye"
+            onClick={() => {
+              setPasswordShown(!passwordShown);
+            }}
+          >
+            <img src={eyeImg} />
+          </div>
+
           <div className="text-danger mt-1">
             {formik.touched.password && formik.errors.password ? (
               <div>{formik.errors.password}</div>
             ) : null}
           </div>
-        </div>
-
-        <div
-          style={{ marginRight: "20px" }}
-          className="mb-3 form-check d-flex flex-start"
-        >
-          <input
-            onClick={() => {
-              setPasswordShown(!passwordShown);
-            }}
-            type="checkbox"
-            className="form-check-input"
-            id="miss"
-          />
-          <label
-            style={{ marginRight: "30px" }}
-            className="form-check-label"
-            for="miss"
-          >
-            نمایش رمز عبور
-          </label>
         </div>
 
         <div className="mb-3">
