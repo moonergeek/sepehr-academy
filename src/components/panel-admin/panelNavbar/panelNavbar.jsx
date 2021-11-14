@@ -15,12 +15,9 @@ import AnalyticsTwoToneIcon from "@mui/icons-material/AnalyticsTwoTone";
 import { BootstrapTooltip } from "../../tooltip/bootstrapTooltip";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import { Link } from "react-router-dom";
-import { clearStorage } from "../../../core/services/storage/storage";
-import { useHistory } from "react-router-dom";
-import { toast } from "react-toastify";
 
 const PanelNavbar = (props) => {
-  const history = useHistory();
+  
   return (
     <>
       <div className={"navbar-panel-width position-fixed"}>
@@ -37,18 +34,14 @@ const PanelNavbar = (props) => {
               <img src={userImage} className={"panel-user-image"} />
             </div>
             <BootstrapTooltip
-              onClick={() => {
-                setTimeout(() => {
-                  clearStorage();
-                  toast.success("خروج با موفقیت انجام شد")
-                  history.push("/");
-                }, 2000);
-              }}
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
               placeMent={"left"}
               title="خروج"
             >
               <img src={logOut} className={"logOut-img"} />
             </BootstrapTooltip>
+
             <div className={"d-flex justify-content-center"}>
               <span className={"panel-user-name"}>مسعود حسامی</span>
             </div>

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import RegisterButton from "../RegisterButton/RegisterButton";
 import { useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import RegisterUser from "../../../core/services/api/Register.api";
+import RegisterUser from "../../../core/services/API/Register.api";
 
 const RegisterForm = () => {
   const initialValues = {
@@ -70,6 +70,8 @@ const RegisterForm = () => {
     validate,
   });
 
+  const [passwordShown, setPasswordShown] = useState(true);
+
   return (
     <>
       <ToastContainer position="top-center" />
@@ -114,7 +116,7 @@ const RegisterForm = () => {
 
         <div className="mb-3">
           <input
-            type="password"
+            type={passwordShown ? "password" : "text"}
             className="form-control"
             placeholder="رمز عبور"
             id="password"
@@ -123,11 +125,33 @@ const RegisterForm = () => {
             value={formik.values.password}
             onBlur={formik.handleBlur}
           />
+
           <div className="text-danger mt-1">
             {formik.touched.password && formik.errors.password ? (
               <div>{formik.errors.password}</div>
             ) : null}
           </div>
+        </div>
+
+        <div
+          style={{ marginRight: "20px" }}
+          className="mb-3 form-check d-flex flex-start"
+        >
+          <input
+            onClick={() => {
+              setPasswordShown(!passwordShown);
+            }}
+            type="checkbox"
+            className="form-check-input"
+            id="miss"
+          />
+          <label
+            style={{ marginRight: "30px" }}
+            className="form-check-label"
+            for="miss"
+          >
+            نمایش رمز عبور
+          </label>
         </div>
 
         <div className="mb-3">
