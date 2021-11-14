@@ -14,11 +14,9 @@ const CoursesBody = (props) => {
                         <div className="card mb-5">
                             <img src={item[1].course.image} className="card-img-top" alt="..."/>
                             <div className="card-body">
-<<<<<<< HEAD
+
                                 <Link className={"decoration-none"} to={`/course/${item[1].course._id}`}>
-=======
-                                <Link className={"decoration-none"} to={"/course"}>
->>>>>>> sina
+
                                     <h5 className="card-title"> {item[1].course.courseName} </h5>
                                 </Link>
                                 <p className="card-text">
