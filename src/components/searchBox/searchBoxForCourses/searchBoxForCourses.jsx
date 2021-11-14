@@ -72,16 +72,22 @@ const SearchBoxForCourses = (props) => {
                 </div>
             </div>
             {filteredData.length != 0 && (
-                <div className="dataResult">
+                <div className={"controllerForCourses"}>
+                <div className="dataResultForCourses">
                     {filteredData.slice(0, 15).map((value, key) => {
+
                         return (
+                            <div className={"holderForCourses"}>
                             <Link to={"/course"}>
-                            <a className="dataItem"  target="_blank">
+                                <img className={"itemsImgForCourses"} src={value.image} alt={""}/>
+                            <a className="dataItemForCourses"  target="_blank">
                                 <p>{value.courseName} </p>
                             </a>
                             </Link>
+                            </div>
                         );
                     })}
+                </div>
                 </div>
             )}
         </div>
