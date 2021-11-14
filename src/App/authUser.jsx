@@ -229,7 +229,7 @@ const AuthUser = () => {
                         )}
                     />
                     <Route
-                        path={"/blog/maghale"}
+                        path={"/blog/maghale/:id"}
                         component={() => (
                             <Maghale
                                 menuList={menuList}
