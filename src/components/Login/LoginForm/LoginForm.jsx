@@ -28,7 +28,7 @@ const LoginForm = () => {
       {
         result && history.push("/");
       }
-    }, 3000);
+    }, 2500);
   };
 
   const validate = (values) => {
@@ -54,7 +54,7 @@ const LoginForm = () => {
   const [passwordShown, setPasswordShown] = useState(true);
   return (
     <>
-      <ToastContainer position="top-center" limit={1} />
+      <ToastContainer position="top-center" limit={1} autoClose={2500} rtl={true}/>
       <form onSubmit={formik.handleSubmit} className="mt-4">
         <div className="mb-3">
           <input
@@ -87,6 +87,7 @@ const LoginForm = () => {
             onChange={formik.handleChange}
             value={formik.values.password}
             onBlur={formik.handleBlur}
+            autoComplete="off"
           />
 
 

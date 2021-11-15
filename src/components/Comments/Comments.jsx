@@ -21,7 +21,9 @@ const Comments = () => {
         {getItem("token") ? (
           <CommentForm initialValues={initialValues} />
         ) : (
-          <CommentPerm />
+          <div className="d-flex justify-content-center">
+            <CommentPerm />
+          </div>
         )}
         <CommentShow initialValues={initialValues} />
       </div>

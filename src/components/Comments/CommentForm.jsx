@@ -42,7 +42,7 @@ const CommentForm = ({ initialValues }) => {
 
   return (
     <>
-      <ToastContainer position="top-center" limit={1} />
+      <ToastContainer position="top-center" limit={1} autoClose={2000} rtl={true}/>
       <form onSubmit={formik.handleSubmit} className="mt-4">
         <div className="mb-4">
           <input

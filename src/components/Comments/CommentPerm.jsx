@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const CommentPerm = () => {
   return (
-    <div className="d-flex flex-column justify-content-center">
+    <div className="d-flex flex-column align-items-center">
       <h5 className="mt-3 text-color">
         برای نوشتن نظر باید در سایت ما عضو باشید
       </h5>
