@@ -10,6 +10,7 @@ import { Link, useParams } from "react-router-dom";
 import { getItem } from "../../core/services/storage/storage";
 import GetCourseById from "../../core/services/API/getCourseById.api";
 import Loading from "../../components/common/loading/loadingForHomePage";
+import CommentPerm from "./../../components/Comments/CommentPerm";
 
 const Course = (props) => {
   const { id } = useParams();
@@ -36,32 +37,8 @@ const Course = (props) => {
               <div className="col-lg-8 order-first order-lg-last d-flex flex-column align-items-center">
                 <CourseImg courseData={courseByIdData} />
                 <CourseInfo courseData={courseByIdData} />
-                {getItem("token") ? (
-                  <Comments />
-                ) : (
-                  <>
-                    <h6 className="mt-3 text-color">
-                      برای نوشتن نظر باید در سایت ما عضو باشید
-                    </h6>
 
-                    <div className="d-flex">
-                      <Link to="/register">
-                        <button type="button" className="btn panel-no mt-1">
-                          صفحه ثبت نام
-                        </button>
-                      </Link>
-                      <Link to="/login">
-                        <button
-                          style={{ marginRight: "5px" }}
-                          type="button"
-                          className="btn sign-btn mt-1"
-                        >
-                          صفحه ورود
-                        </button>
-                      </Link>
-                    </div>
-                  </>
-                )}
+                <Comments />
               </div>
             </div>
           </div>

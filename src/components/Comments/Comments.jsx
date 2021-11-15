@@ -1,7 +1,9 @@
 import React from "react";
 import CommentForm from "./CommentForm";
 import CommentShow from "./CommentShow";
+import CommentPerm from "./CommentPerm";
 import { useParams } from "react-router-dom";
+import { getItem } from "../../core/services/storage/storage";
 
 const Comments = () => {
   const params = useParams().id;
@@ -15,7 +17,12 @@ const Comments = () => {
   return (
     <div className="container mt-3">
       <div className="row">
-        <CommentForm initialValues={initialValues} />
+        <h4 className="text-color fw-bold">بخش نظرات</h4>
+        {getItem("token") ? (
+          <CommentForm initialValues={initialValues} />
+        ) : (
+          <CommentPerm />
+        )}
         <CommentShow initialValues={initialValues} />
       </div>
     </div>

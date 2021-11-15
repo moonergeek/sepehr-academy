@@ -43,12 +43,11 @@ const CommentForm = ({ initialValues }) => {
   return (
     <>
       <ToastContainer position="top-center" limit={1} />
-      <h4 className="text-color fw-bold">بخش نظرات</h4>
       <form onSubmit={formik.handleSubmit} className="mt-4">
         <div className="mb-4">
           <input
             type="text"
-            className="form-control border"
+            className="form-control border text-color"
             placeholder="نام کاربری"
             id="username"
             name="username"
