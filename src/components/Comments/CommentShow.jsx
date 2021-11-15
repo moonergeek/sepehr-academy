@@ -1,40 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import cm from "../../assets/img/cm.png";
+import axios from "axios";
 
-const CommentShow = (values) => {
-  useEffect(() => {}, [values]);
+const CommentShow = () => {
+  const params = useParams().id;
+  const [state, setState] = useState([]);
+  const GetAllComments = async () => {
+    const result = await axios.get(
+      "https://academy-reaction.herokuapp.com/api/comment/"
+    );
 
-  console.log(values.initialValues.postId);
+    setState(result.data.filter((cam) => cam.postId === params));
+  };
+  useEffect(() => {
+    GetAllComments();
+  }, [state]);
+
   return (
     <>
-      <div className="container mt-5 d-flex">
-        <div>
-          <img width="40%" className="responsive-img" src={cm} />
+      {state.map((comm) => (
+        <div className="container mt-5 d-flex">
+          <div>
+            <img width="40%" className="responsive-img" src={cm} />
+          </div>
+          <div style={{ marginRight: "-75px", marginTop: "4px" }}>
+            <h5 className="fw-bold text-color">{comm.username}</h5>
+            <p>{comm.comment}</p>
+          </div>
         </div>
-        <div style={{ marginRight: "-75px", marginTop: "4px" }}>
-          <h5 className="fw-bold text-color">ماهان</h5>
-          <p>دوره بسیار عالی ای بود.ممنون از شما</p>
-        </div>
-      </div>
-
-      <div className="container mt-5 d-flex">
-        <div>
-          <img width="40%" className="responsive-img" src={cm} />
-        </div>
-        <div style={{ marginRight: "-75px", marginTop: "4px" }}>
-          <h5 className="fw-bold text-color">مسعود</h5>
-          <p>دوره بسیار عالی ای بود.ممنون از شما</p>
-        </div>
-      </div>
-      <div className="container mt-5 d-flex">
-        <div>
-          <img width="40%" className="responsive-img" src={cm} />
-        </div>
-        <div style={{ marginRight: "-75px", marginTop: "4px" }}>
-          <h5 className="fw-bold text-color">سینا</h5>
-          <p>دوره بسیار عالی ای بود.ممنون از شما</p>
-        </div>
-      </div>
+      ))}
     </>
   );
 };
