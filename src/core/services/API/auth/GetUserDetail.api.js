@@ -10,6 +10,7 @@ const GetUserDetails = async () => {
     const decoded = jwt_decode(token);
 
     const result = await http.get(`${MainUrl}api/student/${decoded._id}`);
+    return result.data;
     console.log(result.data)
   }
 };
