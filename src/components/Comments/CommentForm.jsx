@@ -1,6 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
-import SendComment from "../../core/services/API/SendComment.api.js";
+import SendComment from "../../core/services/API/comment/SendComment.api.js";
 import { ToastContainer } from "react-toastify";
 
 const CommentForm = ({ initialValues }) => {

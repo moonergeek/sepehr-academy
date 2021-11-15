@@ -7,7 +7,7 @@ import "../../components/Course/Course.css";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import {useParams} from "react-router-dom";
-import GetCourseById from "../../core/services/API/getCourseById.api";
+import GetCourseById from "../../core/services/API/course/getCourseById.api";
 import Loading from "../../components/common/loading/loadingForHomePage";
 
 

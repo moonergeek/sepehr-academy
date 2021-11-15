@@ -35,11 +35,11 @@ import {
     accProfileListJson
 } from "../core/services/jsonFiles/accordionData.json";
 import {footerInfoJson} from "../core/services/jsonFiles/footerData.json";
-import {GetCoursesData} from "../core/services/API/getHomePageCourses.api";
-import {GetFavCoursesData} from "../core/services/API/getFavCourses.api";
-import {GetAll6BlogData} from "../core/services/API/get6BlogData.api";
-import {GetAllCoursesData} from "../core/services/API/getAllCourses.api";
-import {GetAllBlogsData} from "../core/services/API/getAllBlogs.api";
+import {GetCoursesData} from "../core/services/API/course/getHomePageCourses.api";
+import {GetFavCoursesData} from "../core/services/API/course/getFavCourses.api";
+import {GetAll6BlogData} from "../core/services/API/blog/get6BlogData.api";
+import {GetAllCoursesData} from "../core/services/API/course/getAllCourses.api";
+import {GetAllBlogsData} from "../core/services/API/blog/getAllBlogs.api";
 import {paginate} from "../utils/paginate";
 
 const AuthUser = () => {
