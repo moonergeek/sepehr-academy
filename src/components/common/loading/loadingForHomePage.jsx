@@ -11,7 +11,7 @@ function Loading() {
     let [color, setColor] = useState("#198643");
 
     return (
-        <div className="sweet-loading">
+        <div className="sweet-loading2">
 
 
             <FadeLoader  color={color}/>

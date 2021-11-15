@@ -19,6 +19,7 @@ const CoursesPage = (props) => {
 
     return (
         <>
+            {console.log(props.fullCourseInfo)}
             <Header menuList={props.menuList}/>
             <Title Title={"دوره ها"}/>
 
