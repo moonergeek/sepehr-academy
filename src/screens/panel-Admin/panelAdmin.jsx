@@ -7,6 +7,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import PanelHomePage from "../../components/panel-admin/panel-homePage/panelHomePage";
 import { clearStorage } from "../../core/services/storage/storage";
 import { useHistory } from "react-router-dom";
+import "./panelAdmin.css";
 
 const PanelAdmin = () => {
   const history = useHistory();
@@ -36,14 +37,14 @@ const PanelAdmin = () => {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-danger"
+                className="btn panel-no"
                 data-bs-dismiss="modal"
               >
                 خیر
               </button>
               <button
                 type="button"
-                className="btn btn-primary"
+                className="btn panel-out"
                 data-bs-dismiss="modal"
                 onClick={() => {
                   clearStorage();
