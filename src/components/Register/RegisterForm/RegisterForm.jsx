@@ -8,7 +8,6 @@ import eyeImg from "../../../assets/img/eyeicon.png";
 import "../Register.css";
 import RegisterUser from "../../../core/services/API/Register.api";
 
-
 const RegisterForm = () => {
   const initialValues = {
     fullName: "",
@@ -78,7 +77,12 @@ const RegisterForm = () => {
 
   return (
     <>
-      <ToastContainer position="top-center" />
+      <ToastContainer
+        position="top-center"
+        limit={1}
+        autoClose={3000}
+        rtl={true}
+      />
       <form onSubmit={formik.handleSubmit} className="mt-4">
         <div className="mb-3">
           <input
@@ -116,7 +120,6 @@ const RegisterForm = () => {
               <div>{formik.errors.email}</div>
             ) : null}
           </div>
-
         </div>
 
         <div className="mb-3 pass-form">
@@ -129,6 +132,7 @@ const RegisterForm = () => {
             onChange={formik.handleChange}
             value={formik.values.password}
             onBlur={formik.handleBlur}
+            autoComplete="off"
           />
 
           <div
@@ -143,7 +147,6 @@ const RegisterForm = () => {
           <div className="text-danger mt-1">
             {formik.touched.password && formik.errors.password ? (
               <div>{formik.errors.password}</div>
-
             ) : null}
           </div>
         </div>
@@ -152,22 +155,20 @@ const RegisterForm = () => {
           <input
             type="text"
             className="form-control"
-
             placeholder="شماره تماس"
             id="phoneNumber"
             name="phoneNumber"
             onChange={formik.handleChange}
             value={formik.values.phoneNumber}
             onBlur={formik.handleBlur}
+            autoComplete="off"
           />
           <div className="text-danger mt-1">
             {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
               <div>{formik.errors.phoneNumber}</div>
-
             ) : null}
           </div>
         </div>
-
 
         <div className="mb-3">
           <input
@@ -179,6 +180,7 @@ const RegisterForm = () => {
             onChange={formik.handleChange}
             value={formik.values.birthDate}
             onBlur={formik.handleBlur}
+            autoComplete="off"
           />
           <div className="text-danger mt-1">
             {formik.touched.birthDate && formik.errors.birthDate ? (
@@ -197,6 +199,7 @@ const RegisterForm = () => {
             onChange={formik.handleChange}
             value={formik.values.nationalId}
             onBlur={formik.handleBlur}
+            autoComplete="off"
           />
           <div className="text-danger mt-1">
             {formik.touched.nationalId && formik.errors.nationalId ? (
@@ -204,7 +207,6 @@ const RegisterForm = () => {
             ) : null}
           </div>
         </div>
-
 
         <div className="d-flex justify-content-center">
           <RegisterButton />
