@@ -43,6 +43,7 @@ const SearchBox = (props) => {
 
         setWordEntered(searchWord);
         const Filter1 = searchData.filter((value) => {
+
             return value.courseName.toLowerCase().includes(searchWord.toLowerCase())
 
         });
@@ -70,6 +71,11 @@ const SearchBox = (props) => {
     };
 
 
+    // const handleEmpty = ()
+
+
+
+
     return (
 
         <div className="searchForHomePage  me-2">
@@ -90,8 +96,6 @@ const SearchBox = (props) => {
                     )}
                 </div>
             </div>
-
-            {/*{filteredDataForBlog.length == 0 || filteredDataForCourses.length == 0 }*/}
 
 
             {filteredDataForBlog.length != 0 || filteredDataForCourses.length != 0 ? (
@@ -120,7 +124,7 @@ const SearchBox = (props) => {
                                             <>
                                                 <p className={"titleHeader"}>دوره</p>
                                                 <div className={"holder"}>
-                                                    <Link to={"/course"}>
+                                                    <Link to={"/course/" + value._id}>
                                                         <img className={"itemsImg"} src={value.image} alt={""}/>
                                                         <a className="dataItem" target="_blank">
                                                             <p>{value.courseName}</p>

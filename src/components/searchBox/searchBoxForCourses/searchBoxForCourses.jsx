@@ -11,7 +11,7 @@ const SearchBoxForCourses = (props) => {
 
 
     const getCourses = () => {
-        axios.get('https://academy-visual.herokuapp.com/api/course')
+        axios.get('https://academy-reaction.herokuapp.com/api/course')
             .then((response) => {
                 console.log(response.data.result);
                 const myCourses = response.data.result;
@@ -78,7 +78,7 @@ const SearchBoxForCourses = (props) => {
 
                         return (
                             <div className={"holderForCourses"}>
-                            <Link to={"/course"}>
+                            <Link to={"/course/" + value._id}>
                                 <img className={"itemsImgForCourses"} src={value.image} alt={""}/>
                             <a className="dataItemForCourses"  target="_blank">
                                 <p>{value.courseName} </p>
