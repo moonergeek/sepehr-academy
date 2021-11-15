@@ -1,19 +1,9 @@
 import React from "react";
 import { useFormik } from "formik";
-import { useParams } from "react-router-dom";
 import SendComment from "../../core/services/API/SendComment.api.js";
 import { ToastContainer } from "react-toastify";
 
-const CommentForm = () => {
-  const params = useParams().id;
-
-  const initialValues = {
-    postId: params,
-    email: "",
-    username: "",
-    comment: "",
-  };
-
+const CommentForm = ({ initialValues }) => {
   const validate = (values) => {
     let errors = {};
 
@@ -53,7 +43,7 @@ const CommentForm = () => {
   return (
     <>
       <ToastContainer position="top-center" limit={1} />
-      <h4 className="text-color">بخش نظرات</h4>
+      <h4 className="text-color fw-bold">بخش نظرات</h4>
       <form onSubmit={formik.handleSubmit} className="mt-4">
         <div className="mb-4">
           <input

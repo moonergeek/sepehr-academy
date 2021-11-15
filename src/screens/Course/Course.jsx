@@ -40,9 +40,9 @@ const Course = (props) => {
                   <Comments />
                 ) : (
                   <>
-                    <h5 className="mt-3 text-color">
+                    <h6 className="mt-3 text-color">
                       برای نوشتن نظر باید در سایت ما عضو باشید
-                    </h5>
+                    </h6>
 
                     <div className="d-flex">
                       <Link to="/register">
