@@ -1,43 +1,49 @@
 import React from "react";
 import { useFormik } from "formik";
-import { Link } from "react-router-dom";
-import LoginButton from "../Login/LoginButton/LoginButton";
-
-const initialValues = {
-  email: "",
-  username: "",
-  comment: "",
-};
-
-const onSubmit = (values) => {
-  const userComment = {
-    email: values.email,
-    username: values.username,
-    comment: values.comment,
-  };
-
-  console.log(userComment);
-};
-
-const validate = (values) => {
-  let errors = {};
-
-  if (!values.email) {
-    errors.email = "ایمیل خود را وارد کنید";
-  }
-
-  if (!values.username) {
-    errors.username = "نام کاربری خود را وارد کنید";
-  }
-
-  if (!values.comment) {
-    errors.comment = "نظر خود را وارد کنید";
-  }
-
-  return errors;
-};
+import { useParams } from "react-router-dom";
+import SendComment from "../../core/services/API/SendComment.api.js";
+import { ToastContainer } from "react-toastify";
 
 const CommentForm = () => {
+  const params = useParams().id;
+
+  const initialValues = {
+    postId: params,
+    email: "",
+    username: "",
+    comment: "",
+  };
+
+  const validate = (values) => {
+    let errors = {};
+
+    if (!values.email) {
+      errors.email = "ایمیل خود را وارد کنید";
+    }
+
+    if (!values.username) {
+      errors.username = "نام کاربری خود را وارد کنید";
+    }
+
+    if (!values.comment) {
+      errors.comment = "نظر خود را وارد کنید";
+    }
+
+    return errors;
+  };
+
+  const onSubmit = async (values) => {
+    const userComment = {
+      postId: values.postId,
+      email: values.email,
+      username: values.username,
+      comment: values.comment,
+    };
+
+    const result = await SendComment(userComment);
+    console.log(result);
+  };
+
   const formik = useFormik({
     initialValues,
     onSubmit,
@@ -46,6 +52,7 @@ const CommentForm = () => {
 
   return (
     <>
+      <ToastContainer position="top-center" limit={1} />
       <h4 className="text-color">بخش نظرات</h4>
       <form onSubmit={formik.handleSubmit} className="mt-4">
         <div className="mb-4">
@@ -106,7 +113,7 @@ const CommentForm = () => {
           </div>
         </div>
         <div className="d-flex">
-          <button className="btn btn-success">ثبت نظر</button>
+          <button className="btn panel-out">ثبت نظر</button>
         </div>
       </form>
     </>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import CourseInfo from "../../components/Course/CourseInfo/CourseInfo";
 import CourseImg from "../../components/Course/CourseImg/CourseImg";
 import CourseDetails from "../../components/Course/CourseDetails/CourseDetails";
@@ -6,64 +6,70 @@ import Comments from "../../components/Comments/Comments";
 import "../../components/Course/Course.css";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
-import { Link , useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getItem } from "../../core/services/storage/storage";
 import GetCourseById from "../../core/services/API/getCourseById.api";
 import Loading from "../../components/common/loading/loadingForHomePage";
 
-
 const Course = (props) => {
-    const { id } = useParams();
+  const { id } = useParams();
 
-    const [courseByIdData, setCourseByIdData] = useState([]);
-    const getCourseById = async () => {
-        const result = await GetCourseById(id);
-        setCourseByIdData(result);
-    };
-    useEffect(() => {
-        getCourseById();
-    }, []);
+  const [courseByIdData, setCourseByIdData] = useState([]);
+  const getCourseById = async () => {
+    const result = await GetCourseById(id);
+    setCourseByIdData(result);
+  };
+  useEffect(() => {
+    getCourseById();
+  }, []);
   return (
     <>
-        {props.loading ?
+      {props.loading ? (
         <>
-            <Header menuList={props.menuList} />
-            <div className="container">
-                <div className="row mt-5">
-                    <div className="details col-lg-4 order-last order-lg-first col-md-12 col-md-12 light-green-shadow flex-column justify-content-md-center p-4">
-                        <CourseDetails courseData={courseByIdData} />
-                    </div>
+          <Header menuList={props.menuList} />
+          <div className="container">
+            <div className="row mt-5">
+              <div className="details col-lg-4 order-last order-lg-first col-md-12 col-md-12 light-green-shadow flex-column justify-content-md-center p-4">
+                <CourseDetails courseData={courseByIdData} />
+              </div>
 
-                    <div className="col-lg-8 order-first order-lg-last d-flex flex-column align-items-center">
-                        <CourseImg courseData={courseByIdData} />
-                        <CourseInfo courseData={courseByIdData} />
-                        {getItem("token") ? (
-                            <Comments />
-                        ) : (
-                            <>
-                                <h5 className="mt-3 text-color">
-                                    برای نوشتن نظر باید در سایت عضو باشید
-                                </h5>
+              <div className="col-lg-8 order-first order-lg-last d-flex flex-column align-items-center">
+                <CourseImg courseData={courseByIdData} />
+                <CourseInfo courseData={courseByIdData} />
+                {getItem("token") ? (
+                  <Comments />
+                ) : (
+                  <>
+                    <h5 className="mt-3 text-color">
+                      برای نوشتن نظر باید در سایت ما عضو باشید
+                    </h5>
 
-                                <div className="d-flex flex-column align-items-center">
-                                    <Link to="/register">
-                                        <button type="button" className="btn btn-danger marg mt-1">
-                                            صفحه ثبت نام
-                                        </button>
-                                    </Link>
-                                    <Link to="/login">
-                                        <button type="button" className="btn btn-primary mt-1">
-                                            صفحه ورود
-                                        </button>
-                                    </Link>
-                                </div>
-                            </>
-                        )}
+                    <div className="d-flex">
+                      <Link to="/register">
+                        <button type="button" className="btn panel-no mt-1">
+                          صفحه ثبت نام
+                        </button>
+                      </Link>
+                      <Link to="/login">
+                        <button
+                          style={{ marginRight: "5px" }}
+                          type="button"
+                          className="btn sign-btn mt-1"
+                        >
+                          صفحه ورود
+                        </button>
+                      </Link>
                     </div>
-                </div>
+                  </>
+                )}
+              </div>
             </div>
-            <Footer footerInfo={props.footerInfo} /> </>: <Loading/>}
-
+          </div>
+          <Footer footerInfo={props.footerInfo} />{" "}
+        </>
+      ) : (
+        <Loading />
+      )}
     </>
   );
 };
