@@ -71,11 +71,11 @@ const AuthUser = () => {
     };
 
     //loading
-    const [loadingForBlog , setLoadingForBlog] = useState(false);
-    const [loadingForCourses , setLoadingForCourses] = useState(false);
-    const [loadingFor6Blog , setLoadingFor6Blog] = useState(false);
-    const [loadingForFavCourses , setLoadingForFavCourses] = useState(false);
-    const [loadingForHomePageCourses , setLoadingForHomePageCourses] = useState(false);
+    const [loadingForBlog, setLoadingForBlog] = useState(false);
+    const [loadingForCourses, setLoadingForCourses] = useState(false);
+    const [loadingFor6Blog, setLoadingFor6Blog] = useState(false);
+    const [loadingForFavCourses, setLoadingForFavCourses] = useState(false);
+    const [loadingForHomePageCourses, setLoadingForHomePageCourses] = useState(false);
 
 
     //backend-api
@@ -110,8 +110,6 @@ const AuthUser = () => {
         const result = await GetAllBlogsData();
         setAllBlogData(result);
         setLoadingForBlog(true);
-
-
 
 
     };
@@ -223,7 +221,9 @@ const AuthUser = () => {
                             <Course
                                 menuList={menuList}
                                 footerInfo={footerInfo}
-                                loading={null}
+                                fullCourseInfo={paginatedCourses}
+                                loading={loadingForCourses}
+
                             />
                         )}
                     />
@@ -244,7 +244,7 @@ const AuthUser = () => {
                                 pageSize={pageSize}
                                 currentPage={currentPage}
                                 onPageChange={handlePageChange}
-                                loading ={loadingForBlog}
+                                loading={loadingForBlog}
 
                             />
                         )}
@@ -256,6 +256,7 @@ const AuthUser = () => {
                                 menuList={menuList}
                                 footerInfo={footerInfo}
                                 maghale={allBlogData}
+                                loading={loadingForBlog}
                             />
                         )}
                     />
