@@ -7,6 +7,8 @@ import {toast} from "react-toastify";
 import GetCourseById from "../../../../core/services/API/course/getCourseById.api";
 import GetUserDetails from "../../../../core/services/API/auth/GetUserDetail.api";
 import {useParams} from "react-router-dom";
+import GetCountLikeById from "../../../../core/services/API/like/getCountLike";
+import ThumbDownAltTwoToneIcon from '@mui/icons-material/ThumbDownAltTwoTone';
 
 
 const FavComponent = () => {
@@ -25,12 +27,6 @@ const FavComponent = () => {
         console.log(result);
         setUserInfo(result);
     }
-
-    useEffect(() => {
-        getCourseById();
-
-        getUserInfo();
-    }, []);
 
     const likeButton = async () => {
         console.log(userInfo);
@@ -53,17 +49,38 @@ const FavComponent = () => {
         } else {
             toast.error("لطفا به حساب کاربری خود وارد شوید.");
         }
+
     };
+    const [termLikesById, setTermLikesById] = useState([]);
+    const getTermLikesById = async () => {
+        const result = await GetCountLikeById(courseByIdData._id);
+        setTermLikesById(result.result);
+    };
+
+    useEffect(() => {
+        getCourseById();
+        getTermLikesById()
+        getUserInfo();
+    }, []);
+
+    console.log(termLikesById.like)
 
 
     return (
         <>
             <div className="fav-background mt-5 rounded-3 p-3 d-flex justify-content-center">
+                <span className="fav-link">{termLikesById.like}</span>
                 <span className="fav-link">
                     {likeSituation.success ? <FavoriteIcon/> : <FavoriteTwoToneIcon onClick={likeButton}/>}
-
                 </span>
-                اضافه کردن این دوره به علاقه مندی ها
+                |
+                <div className={"dislike"}>
+                    <span className="dislike-count">{termLikesById.dislike}</span>
+                    <span className={"dislike-icon"}>
+                    <ThumbDownAltTwoToneIcon/>
+                </span>
+                </div>
+
             </div>
 
 

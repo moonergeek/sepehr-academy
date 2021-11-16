@@ -2,10 +2,10 @@ import Axios from "axios";
 
 const MainUrl = process.env.REACT_APP_PUBLIC_PATH;
 
-export const PostLikeData = async (obj) => {
+export const PostDisLikeData = async (obj) => {
 
     try {
-        const result = await Axios.post(`${MainUrl}api/term/like`, obj)
+        const result = await Axios.post(`${MainUrl}api/term/dislike`, obj)
         return result.data;
 
     } catch (error) {
@@ -14,6 +14,6 @@ export const PostLikeData = async (obj) => {
     }
 };
 
-export default PostLikeData;
+export default PostDisLikeData;
 
 

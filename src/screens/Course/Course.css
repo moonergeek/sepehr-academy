@@ -103,3 +103,10 @@
     padding: 0 3px 0 3px;
     cursor: pointer;
 }
+.dislike-count{
+    margin: 8px;
+    cursor: pointer;
+}
+.dislike-icon{
+    cursor: pointer;
+}
