@@ -14,7 +14,6 @@ import PostDisLikeData from "../../../../core/services/API/like/postDisLike";
 
 const FavComponent = () => {
     const {id} = useParams();
-
     const [courseByIdData, setCourseByIdData] = useState([]);
     const getCourseById = async () => {
         const result = await GetCourseById(id);
@@ -22,7 +21,6 @@ const FavComponent = () => {
     };
     const [likeSituation, setLikeSituation] = useState(false);
     const [userInfo, setUserInfo] = useState([]);
-    // const [reloadCount , setReloadCount] = useState(false);
 
     const getUserInfo = async () => {
         const result = await GetUserDetails();
@@ -31,7 +29,6 @@ const FavComponent = () => {
     }
 
     const likeButton = async () => {
-        // console.log(userInfo);
         if (userInfo && userInfo.result.role === "student") {
             const termId = courseByIdData._id;
             const userId = userInfo.result._id;
@@ -39,9 +36,7 @@ const FavComponent = () => {
                 termId: termId,
                 userId: userId,
             };
-            // console.log(apiObject);
             const result = await PostLikeData(apiObject);
-            // console.log(result);
             setLikeSituation(true);
             if (!result.success) {
                 toast.error(result.message[0].message);
@@ -51,11 +46,10 @@ const FavComponent = () => {
         } else {
             toast.error("لطفا به حساب کاربری خود وارد شوید.");
         }
-    GetCountLikeById(courseByIdData._id)
+        GetCountLikeById(courseByIdData._id)
     };
 
     const disLikeikeButton = async () => {
-        // console.log(userInfo);
         if (userInfo && userInfo.result.role === "student") {
             const termId = courseByIdData._id;
             const userId = userInfo.result._id;
@@ -63,9 +57,7 @@ const FavComponent = () => {
                 termId: termId,
                 userId: userId,
             };
-            // console.log(apiObject);
             const result = await PostDisLikeData(apiObject);
-            // console.log(result);
             setLikeSituation(false);
             if (!result.success) {
                 toast.error(result.message[0].message);
@@ -84,11 +76,6 @@ const FavComponent = () => {
 
         const result = await GetCountLikeById(courseByIdData._id);
         setTermLikesById(result.result);
-
-        // console.log(result.result.like)
-        // console.log(result.result.dislike)
-        // console.log(termLikesById)
-
     };
 
     useEffect(() => {
@@ -100,18 +87,10 @@ const FavComponent = () => {
     }, []);
 
 
-
-
-
     return (
         <>
 
             <div className="fav-background mt-5 rounded-3 p-3 d-flex justify-content-center">
-
-
-
-
-
 
                 <span className="fav-link">{termLikesById.like}</span>
                 <span className="fav-link">
