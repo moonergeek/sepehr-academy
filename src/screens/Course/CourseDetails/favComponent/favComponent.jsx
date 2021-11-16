@@ -9,6 +9,7 @@ import GetUserDetails from "../../../../core/services/API/auth/GetUserDetail.api
 import {useParams} from "react-router-dom";
 import GetCountLikeById from "../../../../core/services/API/like/getCountLike";
 import ThumbDownAltTwoToneIcon from '@mui/icons-material/ThumbDownAltTwoTone';
+import PostDisLikeData from "../../../../core/services/API/like/postDisLike";
 
 
 const FavComponent = () => {
@@ -51,16 +52,50 @@ const FavComponent = () => {
         }
 
     };
+
+    const disLikeikeButton = async () => {
+        console.log(userInfo);
+        if (userInfo && userInfo.result.role === "student") {
+            const termId = courseByIdData._id;
+            const userId = userInfo.result._id;
+            const apiObject = {
+                termId: termId,
+                userId: userId,
+            };
+            console.log(apiObject);
+            const result = await PostDisLikeData(apiObject);
+            console.log(result);
+            setLikeSituation(result);
+            if (!result.success) {
+                toast.error(result.message[0].message);
+            } else {
+                toast.success(result.message[0].message);
+            }
+        } else {
+            toast.error("لطفا به حساب کاربری خود وارد شوید.");
+        }
+
+    };
+
+
     const [termLikesById, setTermLikesById] = useState([]);
     const getTermLikesById = async () => {
-        const result = await GetCountLikeById(courseByIdData._id);
+        const termId = courseByIdData._id;
+        const userId = userInfo.result._id;
+        const apiObject = {
+            termId: termId,
+            userId: userId,
+            like:true
+        };
+        const result = await GetCountLikeById(courseByIdData._id,apiObject);
         setTermLikesById(result.result);
     };
 
     useEffect(() => {
+        getUserInfo();
         getCourseById();
         getTermLikesById()
-        getUserInfo();
+
     }, []);
 
     console.log(termLikesById.like)
@@ -77,7 +112,7 @@ const FavComponent = () => {
                 <div className={"dislike"}>
                     <span className="dislike-count">{termLikesById.dislike}</span>
                     <span className={"dislike-icon"}>
-                    <ThumbDownAltTwoToneIcon/>
+                    <ThumbDownAltTwoToneIcon onClick={disLikeikeButton}/>
                 </span>
                 </div>
 
