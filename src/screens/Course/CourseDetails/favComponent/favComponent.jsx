@@ -23,6 +23,7 @@ const FavComponent = () => {
     const [likeSituation, setLikeSituation] = useState([]);
     const [userInfo, setUserInfo] = useState([]);
 
+
     const getUserInfo = async () => {
         const result = await GetUserDetails();
         console.log(result);
@@ -80,29 +81,26 @@ const FavComponent = () => {
 
     const [termLikesById, setTermLikesById] = useState([]);
     const getTermLikesById = async () => {
-        const termId = courseByIdData._id;
-        const userId = userInfo.result._id;
-        const apiObject = {
-            termId: termId,
-            userId: userId,
-            like:true
-        };
-        const result = await GetCountLikeById(courseByIdData._id,apiObject);
+
+        const result = await GetCountLikeById(courseByIdData._id);
         setTermLikesById(result.result);
+        console.log(result.result)
     };
 
     useEffect(() => {
         getUserInfo();
         getCourseById();
-        getTermLikesById()
+        getTermLikesById();
 
     }, []);
 
-    console.log(termLikesById.like)
+
+
 
 
     return (
         <>
+
             <div className="fav-background mt-5 rounded-3 p-3 d-flex justify-content-center">
                 <span className="fav-link">{termLikesById.like}</span>
                 <span className="fav-link">
