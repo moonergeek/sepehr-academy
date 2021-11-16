@@ -20,7 +20,7 @@ const FavComponent = () => {
         const result = await GetCourseById(id);
         setCourseByIdData(result);
     };
-    const [likeSituation, setLikeSituation] = useState([]);
+    const [likeSituation, setLikeSituation] = useState(false);
     const [userInfo, setUserInfo] = useState([]);
 
 
@@ -42,7 +42,7 @@ const FavComponent = () => {
             console.log(apiObject);
             const result = await PostLikeData(apiObject);
             console.log(result);
-            setLikeSituation(result);
+            setLikeSituation(true);
             if (!result.success) {
                 toast.error(result.message[0].message);
             } else {
@@ -66,7 +66,7 @@ const FavComponent = () => {
             console.log(apiObject);
             const result = await PostDisLikeData(apiObject);
             console.log(result);
-            setLikeSituation(result);
+            setLikeSituation(false);
             if (!result.success) {
                 toast.error(result.message[0].message);
             } else {
@@ -84,7 +84,8 @@ const FavComponent = () => {
 
         const result = await GetCountLikeById(courseByIdData._id);
         setTermLikesById(result.result);
-        console.log(result.result)
+        console.log(result.result.like)
+        console.log(result.result.dislike)
     };
 
     useEffect(() => {
@@ -104,7 +105,7 @@ const FavComponent = () => {
             <div className="fav-background mt-5 rounded-3 p-3 d-flex justify-content-center">
                 <span className="fav-link">{termLikesById.like}</span>
                 <span className="fav-link">
-                    {likeSituation.success ? <FavoriteIcon/> : <FavoriteTwoToneIcon onClick={likeButton}/>}
+                    {likeSituation ? <FavoriteIcon/> : <FavoriteTwoToneIcon onClick={likeButton}/>}
                 </span>
                 |
                 <div className={"dislike"}>
