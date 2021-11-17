@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import RegisterButton from "../RegisterButton/RegisterButton";
 import { useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import RegisterUser from "../../../core/services/api/Register.api";
+
+import eyeImg from "../../../assets/img/eyeicon.png";
+import "../Register.css";
+import RegisterUser from "../../../core/services/API/auth/Register.api";
 
 const RegisterForm = () => {
   const initialValues = {
@@ -70,9 +73,16 @@ const RegisterForm = () => {
     validate,
   });
 
+  const [passwordShown, setPasswordShown] = useState(true);
+
   return (
     <>
-      <ToastContainer position="top-center" />
+      <ToastContainer
+        position="top-center"
+        limit={1}
+        autoClose={3000}
+        rtl={true}
+      />
       <form onSubmit={formik.handleSubmit} className="mt-4">
         <div className="mb-3">
           <input
@@ -112,9 +122,9 @@ const RegisterForm = () => {
           </div>
         </div>
 
-        <div className="mb-3">
+        <div className="mb-3 pass-form">
           <input
-            type="password"
+            type={passwordShown ? "password" : "text"}
             className="form-control"
             placeholder="رمز عبور"
             id="password"
@@ -122,7 +132,18 @@ const RegisterForm = () => {
             onChange={formik.handleChange}
             value={formik.values.password}
             onBlur={formik.handleBlur}
+            autoComplete="off"
           />
+
+          <div
+            className="pass-eye"
+            onClick={() => {
+              setPasswordShown(!passwordShown);
+            }}
+          >
+            <img src={eyeImg} />
+          </div>
+
           <div className="text-danger mt-1">
             {formik.touched.password && formik.errors.password ? (
               <div>{formik.errors.password}</div>
@@ -140,6 +161,7 @@ const RegisterForm = () => {
             onChange={formik.handleChange}
             value={formik.values.phoneNumber}
             onBlur={formik.handleBlur}
+            autoComplete="off"
           />
           <div className="text-danger mt-1">
             {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
@@ -158,6 +180,7 @@ const RegisterForm = () => {
             onChange={formik.handleChange}
             value={formik.values.birthDate}
             onBlur={formik.handleBlur}
+            autoComplete="off"
           />
           <div className="text-danger mt-1">
             {formik.touched.birthDate && formik.errors.birthDate ? (
@@ -176,6 +199,7 @@ const RegisterForm = () => {
             onChange={formik.handleChange}
             value={formik.values.nationalId}
             onBlur={formik.handleBlur}
+            autoComplete="off"
           />
           <div className="text-danger mt-1">
             {formik.touched.nationalId && formik.errors.nationalId ? (

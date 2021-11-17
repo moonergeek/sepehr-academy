@@ -35,11 +35,11 @@ import {
     accProfileListJson
 } from "../core/services/jsonFiles/accordionData.json";
 import {footerInfoJson} from "../core/services/jsonFiles/footerData.json";
-import {GetCoursesData} from "../core/services/api/getHomePageCourses.api";
-import {GetFavCoursesData} from "../core/services/api/getFavCourses.api";
-import {GetAll6BlogData} from "../core/services/api/get6BlogData.api";
-import {GetAllCoursesData} from "../core/services/api/getAllCourses.api";
-import {GetAllBlogsData} from "../core/services/api/getAllBlogs.api";
+import {GetCoursesData} from "../core/services/API/course/getHomePageCourses.api";
+import {GetFavCoursesData} from "../core/services/API/course/getFavCourses.api";
+import {GetAll6BlogData} from "../core/services/API/blog/get6BlogData.api";
+import {GetAllCoursesData} from "../core/services/API/course/getAllCourses.api";
+import {GetAllBlogsData} from "../core/services/API/blog/getAllBlogs.api";
 import {paginate} from "../utils/paginate";
 
 const AuthUser = () => {
@@ -70,6 +70,13 @@ const AuthUser = () => {
         setCurrentPage(page);
     };
 
+    //loading
+    const [loadingForBlog, setLoadingForBlog] = useState(false);
+    const [loadingForCourses, setLoadingForCourses] = useState(false);
+    const [loadingFor6Blog, setLoadingFor6Blog] = useState(false);
+    const [loadingForFavCourses, setLoadingForFavCourses] = useState(false);
+    const [loadingForHomePageCourses, setLoadingForHomePageCourses] = useState(false);
+
 
     //backend-api
     const [courseData, setCourseData] = useState([]);
@@ -81,23 +88,30 @@ const AuthUser = () => {
     const getHomePageCourses = async () => {
         const result = await GetCoursesData();
         setCourseData(result);
+        setLoadingForHomePageCourses(true);
     };
     const getFavCourses = async () => {
         const result = await GetFavCoursesData();
         setFavCourseData(result);
+        setLoadingForFavCourses(true);
     };
     const get6BlogData = async () => {
         const result = await GetAll6BlogData();
         setBlogData(result);
+        setLoadingFor6Blog(true);
     };
 
     const getAllCourses = async () => {
         const result = await GetAllCoursesData();
         setAllCoursesData(result);
+        setLoadingForCourses(true);
     };
     const getAllBlogs = async () => {
         const result = await GetAllBlogsData();
         setAllBlogData(result);
+        setLoadingForBlog(true);
+
+
     };
     useEffect(() => {
         getHomePageCourses();
@@ -135,6 +149,9 @@ const AuthUser = () => {
                                 favCoursesTitle={favCoursesTitle}
                                 footerInfo={footerInfo}
                                 testapi={courseData}
+                                loading={loadingForHomePageCourses}
+
+
                             />
                         )}
                     />
@@ -150,6 +167,7 @@ const AuthUser = () => {
                                 currentPage={currentPage}
                                 onPageChange={handlePageChange}
                                 footerInfo={footerInfo}
+                                loading={loadingForCourses}
                             />
                         )}
                     />
@@ -203,7 +221,9 @@ const AuthUser = () => {
                             <Course
                                 menuList={menuList}
                                 footerInfo={footerInfo}
-                                loading={null}
+                                fullCourseInfo={paginatedCourses}
+                                loading={loadingForCourses}
+
                             />
                         )}
                     />
@@ -224,7 +244,8 @@ const AuthUser = () => {
                                 pageSize={pageSize}
                                 currentPage={currentPage}
                                 onPageChange={handlePageChange}
-                                loading={null}
+                                loading={loadingForBlog}
+
                             />
                         )}
                     />
@@ -235,6 +256,7 @@ const AuthUser = () => {
                                 menuList={menuList}
                                 footerInfo={footerInfo}
                                 maghale={allBlogData}
+                                loading={loadingForBlog}
                             />
                         )}
                     />

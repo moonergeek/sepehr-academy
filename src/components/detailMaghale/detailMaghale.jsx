@@ -1,6 +1,7 @@
 import React from "react";
 import "./detailMaghale.css"
-import {Route, Switch, BrowserRouter as Router} from "react-router-dom";
+import Loading from "../common/loading/loading";
+
 
 
 const DetailMaghale = (props) => {
@@ -8,7 +9,10 @@ const DetailMaghale = (props) => {
     return (
         <>
             <div className="card mb-3 main">
-                <img src={props.newsById.image} className="card-img-top" alt="..."/>
+                {props.loading ?                 <img src={props.newsById.image} className="card-img-top" alt="..."/> :
+                <Loading />
+                }
+
                 <div className="card-body">
                     <h5 className="card-title">{props.newsById.title}</h5>
                     <p className="card-text">{props.newsById.text} </p>

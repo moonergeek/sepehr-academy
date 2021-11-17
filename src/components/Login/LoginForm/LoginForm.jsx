@@ -3,7 +3,11 @@ import { useFormik } from "formik";
 import LoginButton from "../LoginButton/LoginButton";
 import { Link, useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import LoginUser from "../../../core/services/api/Login.api";
+
+import eyeImg from "../../../assets/img/eyeicon.png";
+import "../Login.css";
+import LoginUser from "../../../core/services/API/auth/Login.api";
+
 
 const LoginForm = () => {
   const initialValues = {
@@ -24,7 +28,7 @@ const LoginForm = () => {
       {
         result && history.push("/");
       }
-    }, 3000);
+    }, 2500);
   };
 
   const validate = (values) => {
@@ -46,9 +50,11 @@ const LoginForm = () => {
     onSubmit,
     validate,
   });
+
+  const [passwordShown, setPasswordShown] = useState(true);
   return (
     <>
-      <ToastContainer position="top-center" limit={1} />
+      <ToastContainer position="top-center" limit={1} autoClose={2500} rtl={true}/>
       <form onSubmit={formik.handleSubmit} className="mt-4">
         <div className="mb-3">
           <input
@@ -69,9 +75,11 @@ const LoginForm = () => {
           </div>
         </div>
 
-        <div className="mb-3">
+
+        <div className="mb-3 pass-form">
           <input
-            type="password"
+            type={passwordShown ? "password" : "text"}
+
             className="form-control"
             placeholder="رمز عبور"
             id="password"
@@ -79,7 +87,19 @@ const LoginForm = () => {
             onChange={formik.handleChange}
             value={formik.values.password}
             onBlur={formik.handleBlur}
+            autoComplete="off"
           />
+
+
+          <div
+            className="pass-eye"
+            onClick={() => {
+              setPasswordShown(!passwordShown);
+            }}
+          >
+            <img src={eyeImg} />
+          </div>
+
 
           <div className="text-danger mt-1">
             {formik.touched.password && formik.errors.password ? (

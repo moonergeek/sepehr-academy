@@ -1,5 +1,7 @@
-.load2{
-    position: absolute;
-    top: 50%;
-    right: 50%;
+.sweet-loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: #198643;
+    height: 20vh;
 }

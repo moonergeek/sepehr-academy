@@ -13,11 +13,13 @@ const Card = (props) => {
 
         <>
 
+
             <div className="course-body mt-4 container">
                 <div className="row">
                     {Object.keys(props.fullInfo).map(blogObj => <div key={blogObj}
                                                                      className="col-sm-12 col-md-6 col-lg-4">
                         <Link to={`/blog/maghale/${props.fullInfo[blogObj]._id}`} className={"Link"}>
+
                             <div className="card mb-5">
                                 <img src={props.fullInfo[blogObj].image} className="card-img-top"
                                      alt="..."/>

@@ -1,54 +1,54 @@
 .panel-user-image {
-    width: 94px;
-    position: absolute;
-    top: 15px;
+  width: 94px;
+  position: absolute;
+  top: 15px;
 }
 
 .logOut-img {
-    width: 20px;
-    position: absolute;
-    top: 12px;
-    left: 15px;
+  width: 20px;
+  position: absolute;
+  top: 12px;
+  left: 15px;
 }
 
 .panel-user-name {
-    color: #815AC0;
-    font-size: 14px;
-    position: absolute;
-    top: 106px;
+  color: #815ac0;
+  font-size: 14px;
+  position: absolute;
+  top: 106px;
 }
 
 .panel-list-item {
-    color: #815AC0;
-    border-bottom: 1px solid #e1f7ed;
-    font-size: 14px;
-    transition: 0.2s;
+  color: #815ac0;
+  border-bottom: 1px solid #e1f7ed;
+  font-size: 14px;
+  transition: 0.2s;
 }
 .panel-list-item:hover {
-    background-color: #F3FCF8;
-    transition: 0.2s;
-    color: #198643;
+  background-color: #f3fcf8;
+  transition: 0.2s;
+  color: #198643;
 }
 
 .panel-navbar-body {
-    padding: 0;
-    margin: 8px;
+  padding: 0;
+  margin: 8px;
 }
 
 .panel-navList-icons {
-    width: 17px;
-    margin-left: 8px;
+  width: 17px;
+  margin-left: 8px;
 }
 
 .navbar-panel-width {
-    width: 245px;
+  width: 245px;
 }
-.link-link{
-    text-decoration: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    color: #815AC0;
+.link-link {
+  text-decoration: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #815ac0;
 }
-.link-link:hover{
-    color: #198643;
+.link-link:hover {
+  color: #198643;
 }

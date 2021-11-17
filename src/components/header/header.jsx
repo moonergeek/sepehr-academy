@@ -44,12 +44,15 @@ class Header extends Component {
                                                         <Badge className={"shopping-badge"} badgeContent={4}
                                                                color="secondary">
                                                             <Link to="/cart">
+
                                                                 <MdShoppingCart fontSize={24}
                                                                                 className={"shopping-card-icon"}/>
+
                                                             </Link>
                                                         </Badge>
                                                     </div>
                                                 </BootstrapTooltip>
+
                                                 {getItem("token") ? <><FaCircle className={"circle opacity-none"}
                                                                                 fontSize={42}/>
                                                     <BootstrapTooltip placeMent={"left"} title="داشبرد">
@@ -96,6 +99,7 @@ class Header extends Component {
                                                             </div>
                                                         </div>
                                                     </BootstrapTooltip></>}
+
                                             </Link>
                                         </form>
 

@@ -11,7 +11,7 @@ const SearchBoxForCourses = (props) => {
 
 
     const getCourses = () => {
-        axios.get('https://academy-visual.herokuapp.com/api/course')
+        axios.get('https://academy-reaction.herokuapp.com/api/course')
             .then((response) => {
                 console.log(response.data.result);
                 const myCourses = response.data.result;
@@ -72,16 +72,22 @@ const SearchBoxForCourses = (props) => {
                 </div>
             </div>
             {filteredData.length != 0 && (
-                <div className="dataResult">
+                <div className={"controllerForCourses"}>
+                <div className="dataResultForCourses">
                     {filteredData.slice(0, 15).map((value, key) => {
+
                         return (
-                            <Link to={"/course"}>
-                            <a className="dataItem"  target="_blank">
+                            <div className={"holderForCourses"}>
+                            <Link to={"/course/" + value._id}>
+                                <img className={"itemsImgForCourses"} src={value.image} alt={""}/>
+                            <a className="dataItemForCourses"  target="_blank">
                                 <p>{value.courseName} </p>
                             </a>
                             </Link>
+                            </div>
                         );
                     })}
+                </div>
                 </div>
             )}
         </div>

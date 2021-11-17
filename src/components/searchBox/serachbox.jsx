@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 const SearchBox = (props) => {
 
     const [searchData, setSearchData] = useState([]);
-    const [searchBlog,setSearchBlog] = useState([]);
+    const [searchBlog, setSearchBlog] = useState([]);
 
     const getCourses = () => {
         axios.get('https://academy-reaction.herokuapp.com/api/course')
@@ -43,6 +43,7 @@ const SearchBox = (props) => {
 
         setWordEntered(searchWord);
         const Filter1 = searchData.filter((value) => {
+
             return value.courseName.toLowerCase().includes(searchWord.toLowerCase())
 
         });
@@ -70,10 +71,15 @@ const SearchBox = (props) => {
     };
 
 
+    // const handleEmpty = ()
+
+
+
+
     return (
 
-        <div className="search  me-2">
-            {/*{console.log(searchData)}*/}
+        <div className="searchForHomePage  me-2">
+
             <div className="searchInputs ">
                 <input
                     className={"inputTag"}
@@ -90,30 +96,49 @@ const SearchBox = (props) => {
                     )}
                 </div>
             </div>
+
+
             {filteredDataForBlog.length != 0 || filteredDataForCourses.length != 0 ? (
-                <div className="dataResult">
-                    {filteredDataForBlog.slice(0, 5).map((value, key) => {
-                        return (
-                            <>
-                                <Link to={"/blog/maghale/" + value._id}>
-                            <a className="dataItem"  target="_blank">
-                                <p>{value.title} </p>
-                            </a>
-                                </Link>
+                <div className={"controllerForHomePage"}>
+                    <div className="dataResult">
 
-                                {filteredDataForCourses.map((value, ) => {
-                                    return(
-                                        <Link to={"/course"}>
-                                        <a  className="dataItem" target="_blank">
-                                            <p>{value.courseName}</p>
-                                        </a>
+                        {filteredDataForBlog.slice(0, 5).map((value, key) => {
+                            return (
+                                <>
+                                    <p className={"titleHeader"}>مقاله</p>
+                                    <div className={"holder"}>
+                                        <Link to={"/blog/maghale/" + value._id}>
+
+                                            <img className={"itemsImg"} src={value.image} alt={""}/>
+
+
+                                            <a className="dataItem" target="_blank">
+                                                <p>{value.title} </p>
+                                            </a>
+
                                         </Link>
-                                    )
-                                })}
+                                    </div>
 
-                            </>
-                        );
-                    })}
+                                    {filteredDataForCourses.map((value,) => {
+                                        return (
+                                            <>
+                                                <p className={"titleHeader"}>دوره</p>
+                                                <div className={"holder"}>
+                                                    <Link to={"/course/" + value._id}>
+                                                        <img className={"itemsImg"} src={value.image} alt={""}/>
+                                                        <a className="dataItem" target="_blank">
+                                                            <p>{value.courseName}</p>
+                                                        </a>
+                                                    </Link>
+                                                </div>
+                                            </>
+                                        )
+                                    })}
+
+                                </>
+                            );
+                        })}
+                    </div>
                 </div>
             ) : <></>}
         </div>

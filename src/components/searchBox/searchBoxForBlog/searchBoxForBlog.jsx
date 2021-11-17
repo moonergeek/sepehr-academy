@@ -66,16 +66,24 @@ const SearchBoxForBlog = (props) => {
                 </div>
             </div>
             {filteredData.length != 0 && (
-                <div className="dataResult">
+                <div className={"controllerForBlog"}>
+                <div className="dataResultForBlog">
                     {filteredData.slice(0, 5).map((value, key) => {
                         return (
+                            <div className={"holderForBlog"}>
                             <Link to={"/blog/maghale/" + value._id}>
-                                <a className="dataItem"  target="_blank">
+                                <img className={"itemsImgForBlog"} src={value.image} alt={""}/>
+                                <a className="dataItemForBlog" target="_blank">
                                     <p>{value.title} </p>
                                 </a>
+
                             </Link>
-                        );
+                    </div>
+
+                        )
+                        ;
                     })}
+                </div>
                 </div>
             )}
         </div>

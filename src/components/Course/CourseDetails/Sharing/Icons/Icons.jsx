@@ -1,19 +1,28 @@
 import React from "react";
-import twitter from "../../../../../assets/img/twitter.svg";
+import linkedin from "../../../../../assets/img/linkedin.png";
 import telegram from "../../../../../assets/img/telegram(1).svg";
 import facebook from "../../../../../assets/img/facebook.svg";
 
 const Icons = () => {
   return (
     <>
-      <span className="share-icon">
-        <img src={twitter} alt="twitter" />
+      <span className="share-icon linkedin">
+        <a target="_blank" href="https://www.linkedin.com/groups/12269992/">
+          <img src={linkedin} alt="linkedin" />
+        </a>
       </span>
       <span className="share-icon">
-        <img src={telegram} alt="telegram" />
+        <a target="_blank" href="https://t.me/Bahr_AC">
+          <img src={telegram} alt="telegram" />
+        </a>
       </span>
       <span className="share-icon">
-        <img src={facebook} alt="facebook" />
+        <a
+          target="_blank"
+          href="https://www.facebook.com/Sepehr-Academy-103826455460536"
+        >
+          <img src={facebook} alt="facebook" />
+        </a>
       </span>
     </>
   );

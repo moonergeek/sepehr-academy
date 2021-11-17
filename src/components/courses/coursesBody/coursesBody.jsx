@@ -14,7 +14,9 @@ const CoursesBody = (props) => {
                         <div className="card mb-5">
                             <img src={item[1].course.image} className="card-img-top" alt="..."/>
                             <div className="card-body">
+
                                 <Link className={"decoration-none"} to={`/course/${item[1].course._id}`}>
+
                                     <h5 className="card-title"> {item[1].course.courseName} </h5>
                                 </Link>
                                 <p className="card-text">

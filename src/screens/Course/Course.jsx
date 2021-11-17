@@ -6,12 +6,14 @@ import Comments from "../../components/Comments/Comments";
 import "../../components/Course/Course.css";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
-import { Link , useParams } from "react-router-dom";
-import { getItem } from "../../core/services/storage/storage";
-import GetCourseById from "../../core/services/api/getCourseById.api";
+import {useParams} from "react-router-dom";
+import GetCourseById from "../../core/services/API/course/getCourseById.api";
+import Loading from "../../components/common/loading/loadingForHomePage";
+
 
 const Course = (props) => {
-    const { id } = useParams();
+
+    const {id} = useParams();
 
     const [courseByIdData, setCourseByIdData] = useState([]);
     const getCourseById = async () => {
@@ -21,46 +23,36 @@ const Course = (props) => {
     useEffect(() => {
         getCourseById();
     }, []);
-  return (
-    <>
-      <Header menuList={props.menuList} />
-      <div className="container">
-        <div className="row mt-5">
-          <div className="details col-lg-4 order-last order-lg-first col-md-12 col-md-12 light-green-shadow flex-column justify-content-md-center p-4">
-            <CourseDetails courseData={courseByIdData} />
-          </div>
+    return (
+        <>
 
-          <div className="col-lg-8 order-first order-lg-last d-flex flex-column align-items-center">
-            <CourseImg courseData={courseByIdData} />
-            <CourseInfo courseData={courseByIdData} />
-            {getItem("token") ? (
-              <Comments />
-            ) : (
-              <>
-                <h5 className="mt-3 text-color">
-                  برای نوشتن نظر باید در سایت عضو باشید
-                </h5>
+            <>
+                <Header menuList={props.menuList}/>
+                <div className="container">
+                    <div className="row mt-5">
+                        <div
+                            className="details col-lg-4 order-last order-lg-first col-md-12 col-md-12 light-green-shadow flex-column justify-content-md-center p-4">
+                            <CourseDetails courseData={courseByIdData}/>
+                        </div>
 
-                <div className="d-flex">
-                  <Link to="/login">
-                    <button type="button" class="btn btn-primary">
-                      صفحه ورود
-                    </button>
-                  </Link>
-                  <Link to="/register">
-                    <button type="button" class="btn btn-danger marg">
-                      صفحه ثبت نام
-                    </button>
-                  </Link>
+                        <div className="col-lg-8 order-first order-lg-last d-flex flex-column align-items-center">
+                            {props.loading ? (<CourseImg courseData={courseByIdData}/>) : (
+                                <Loading/>
+                            )}
+
+
+                            <CourseInfo courseData={courseByIdData}/>
+
+                            <Comments/>
+                        </div>
+                    </div>
                 </div>
-              </>
-            )}
-          </div>
-        </div>
-      </div>
-      <Footer footerInfo={props.footerInfo} />
-    </>
-  );
+                <Footer footerInfo={props.footerInfo}/>{" "}
+            </>
+
+        </>
+    );
+
 };
 
 export default Course;

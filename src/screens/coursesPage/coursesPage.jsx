@@ -11,6 +11,7 @@ import Course from "../Course/Course";
 import {Route} from "react-router-dom";
 import {Spinner} from "react-bootstrap";
 import SearchBoxForCourses from "../../components/searchBox/searchBoxForCourses/searchBoxForCourses";
+import Loading from "../../components/common/loading/loading";
 
 
 const CoursesPage = (props) => {
@@ -18,6 +19,7 @@ const CoursesPage = (props) => {
 
     return (
         <>
+            {console.log(props.fullCourseInfo)}
             <Header menuList={props.menuList}/>
             <Title Title={"دوره ها"}/>
 
@@ -32,19 +34,22 @@ const CoursesPage = (props) => {
                         </div>
                     </div>
                 </div>
-                 <div>
-                    <CoursesBody courseInfo={props.fullCourseInfo}/>
-                </div>
+                {props.loading ? <>
+                    <div>
+                        <CoursesBody courseInfo={props.fullCourseInfo}/>
+                    </div>
 
-                <div className="d-flex justify-content-center">
-                    <form className="d-flex mb-2">
-                        <Pagination itemsCount={props.itemsCount4Paginate}
-                                    pageSize={props.pageSize}
-                                    currentPage={props.currentPage}
-                                    onPageChange={props.onPageChange}
-                        />
-                    </form>
-                </div>
+                    <div className="d-flex justify-content-center">
+                        <form className="d-flex mb-2">
+                            <Pagination itemsCount={props.itemsCount4Paginate}
+                                        pageSize={props.pageSize}
+                                        currentPage={props.currentPage}
+                                        onPageChange={props.onPageChange}
+                            />
+                        </form>
+                    </div>
+                </> : <Loading/>}
+
             </div>
             <Footer footerInfo={props.footerInfo}/>
 
