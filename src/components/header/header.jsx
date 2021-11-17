@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import logoGreen from "../../assets/img/logo green.png";
 import "./header.css"
 import {BsThreeDots, FaCircle, FaUserPlus, MdShoppingCart,} from "react-icons/all";
@@ -9,10 +9,27 @@ import {BootstrapTooltip} from "../tooltip/bootstrapTooltip"
 
 
 import {getItem} from "../../core/services/storage/storage";
+import GetUserDetails from "../../core/services/API/auth/GetUserDetail.api";
 
-class Header extends Component {
+const Header = (props) => {
+    const [userInformation, setUserInformation] = useState([]);
 
-    render() {
+    const getUserInformation = async () => {
+        try {
+            const result = await GetUserDetails();
+            setUserInformation(result.result);
+        } catch (err) {
+            console.log("header api error :" + err)
+        }
+    }
+    useEffect(() => {
+        return () => {
+            getUserInformation()
+        };
+    }, []);
+
+    console.log(userInformation._id)
+
         return (
             <>
                 <div className="container mt-3">
@@ -29,10 +46,10 @@ class Header extends Component {
                                 </button>
                                 <div className="collapse navbar-collapse" id="navbarNav">
                                     <div className="navbar-nav mx-auto mb-2 mb-lg-0">
-                                        {Object.keys(this.props.menuList).map(item => <NavLink
+                                        {Object.keys(props.menuList).map(item => <NavLink
                                             key={item} className={"nav-item nav-link nav-header"}
-                                            to={this.props.menuList[item].routeAddress}>
-                                            {this.props.menuList[item].menuItem}
+                                            to={props.menuList[item].routeAddress}>
+                                            {props.menuList[item].menuItem}
                                         </NavLink>)}
                                     </div>
                                     <div className="d-flex justify-content-start ">
@@ -58,7 +75,7 @@ class Header extends Component {
                                                     <BootstrapTooltip placeMent={"left"} title="داشبرد">
                                                         <div className={"inline-block-2"}>
                                                             <div className="dropdown">
-                                                                <Link to="/dashboard">
+                                                                <Link to={`/dashboard/${userInformation._id}`}>
                                                                     <div className={"border-violet"}>
                                                                         <img src={userImage} width={50}
                                                                              className={"user-icon dropdown-toggle image-user-class"}
@@ -112,6 +129,6 @@ class Header extends Component {
             </>
         );
     }
-}
+
 
 export default Header;

@@ -261,7 +261,7 @@ const AuthUser = () => {
                         )}
                     />
 
-                    <Route path={"/dashboard"} component={() => <PanelAdmin/>}/>
+                    <Route path={"/dashboard/:id"} component={() => <PanelAdmin/>}/>
 
                     <Route path={"/cart"} component={() => <Cart/>}/>
                 </Switch>
