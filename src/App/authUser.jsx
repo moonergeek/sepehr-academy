@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Route, Switch} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 import HomePage from "../screens/homePage/homePage";
 import CoursesPage from "../screens/coursesPage/coursesPage";
 import FQA from "../screens/fQA/fQA";
@@ -264,6 +264,7 @@ const AuthUser = () => {
                     <Route path={"/dashboard/:id"} component={() => <PanelAdmin/>}/>
 
                     <Route path={"/cart"} component={() => <Cart/>}/>
+                    <Redirect  to="/not-found" />
                 </Switch>
             </main>
         </>
