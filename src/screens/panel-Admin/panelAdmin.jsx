@@ -68,19 +68,17 @@ const PanelAdmin = () => {
                                 <PanelHeadNav/>
                             </div>
                         </div>
-                        {/*<div className={"container-md"}>*/}
                         <Switch>
                             <Route
                                 path={"/dashboard/:id/panel"}
                                 component={() => <PanelHomePage/>}
                             />
                             <Route
-                                path={"/dashboard/edit"}
+                                path={"/dashboard/:id/edit"}
                                 component={() => <EditPanelUser/>}
                             />
                             <Redirect from={"/dashboard/:id"} to={"/dashboard/:id/panel"}/>
                         </Switch>
-                        {/*</div>*/}
                     </div>
                 </div>
             </div>
