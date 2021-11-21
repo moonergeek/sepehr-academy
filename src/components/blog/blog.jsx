@@ -22,7 +22,7 @@ const Blog = (props) => {
                     <div className="document-body mt-4">
                         <div className="row">
                             {Object.keys(props.blogInfo).map(blogObj => <div key={blogObj} className="col-sm-12 col-md-6 col-lg-4">
-                                <Link to={"/blog/maghale/" + props.blogInfo[blogObj]._id} className={"Link"}>
+                                <Link to={`/blog/maghale/${props.blogInfo[blogObj]._id}`} className={"Link"}>
                                 <div className="card mb-5">
                                     <img src={props.blogInfo[blogObj].image} className="card-img-top" alt="..."/>
                                     <div className="card-body">

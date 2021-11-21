@@ -3,6 +3,7 @@ import CourseData from "./CourseData/CourseData";
 import SignButton from "./SignButton/SignButton";
 import AskQuestions from "./AskQuestions/AskQuestions";
 import Sharing from "./Sharing/Sharing";
+import Like from "../../../components/common/like/like";
 
 
 const CourseDetails = () => {
@@ -13,7 +14,9 @@ const CourseDetails = () => {
       <AskQuestions />
       <div className="share mt-5 d-flex flex-column align-items-center flex-md-row justify-content-evenly">
         <Sharing />
+
       </div>
+
     </>
   );
 };

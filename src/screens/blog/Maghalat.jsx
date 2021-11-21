@@ -10,7 +10,6 @@ import Loading from "../../components/common/loading/loading";
 
 const Maghalat = (props) => {
 
-
     return (
         <>
             <div>
@@ -28,10 +27,9 @@ const Maghalat = (props) => {
                             />
                         </form>
                     </div>
-                </> : <Loading/>}
+                </> : <Loading />}
                 <Footer footerInfo={props.footerInfo}/>
             </div>
-
 
         </>
     );

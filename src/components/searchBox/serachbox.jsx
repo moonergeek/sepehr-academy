@@ -43,6 +43,7 @@ const SearchBox = (props) => {
 
         setWordEntered(searchWord);
         const Filter1 = searchData.filter((value) => {
+
             return value.courseName.toLowerCase().includes(searchWord.toLowerCase())
 
         });
@@ -70,9 +71,14 @@ const SearchBox = (props) => {
     };
 
 
+    // const handleEmpty = ()
+
+
+
+
     return (
 
-        <div className="search  me-2">
+        <div className="searchForHomePage  me-2">
 
             <div className="searchInputs ">
                 <input
@@ -91,45 +97,48 @@ const SearchBox = (props) => {
                 </div>
             </div>
 
+
             {filteredDataForBlog.length != 0 || filteredDataForCourses.length != 0 ? (
-                <div className="dataResult">
+                <div className={"controllerForHomePage"}>
+                    <div className="dataResult">
 
-                    {filteredDataForBlog.slice(0, 5).map((value, key) => {
-                        return (
-                            <>
-                                <p className={"titleHeader"}>مقاله</p>
-                                <div className={"holder"}>
-                                    <Link to={"/blog/maghale/" + value._id}>
+                        {filteredDataForBlog.slice(0, 5).map((value, key) => {
+                            return (
+                                <>
+                                    <p className={"titleHeader"}>مقاله</p>
+                                    <div className={"holder"}>
+                                        <Link to={"/blog/maghale/" + value._id}>
 
-                                        <img className={"itemsImg"} src={value.image} alt={""}/>
+                                            <img className={"itemsImg"} src={value.image} alt={""}/>
 
 
-                                        <a className="dataItem" target="_blank">
-                                            <p>{value.title} </p>
-                                        </a>
+                                            <a className="dataItem" target="_blank">
+                                                <p>{value.title} </p>
+                                            </a>
 
-                                    </Link>
-                                </div>
+                                        </Link>
+                                    </div>
 
-                                {filteredDataForCourses.map((value,) => {
-                                    return (
-                                        <>
-                                            <p className={"titleHeader"}>دوره</p>
-                                            <div className={"holder"}>
-                                                <Link to={"/course"}>
-                                                    <img className={"itemsImg"} src={value.image} alt={""}/>
-                                                    <a className="dataItem" target="_blank">
-                                                        <p>{value.courseName}</p>
-                                                    </a>
-                                                </Link>
-                                            </div>
-                                        </>
-                                    )
-                                })}
+                                    {filteredDataForCourses.map((value,) => {
+                                        return (
+                                            <>
+                                                <p className={"titleHeader"}>دوره</p>
+                                                <div className={"holder"}>
+                                                    <Link to={"/course/" + value._id}>
+                                                        <img className={"itemsImg"} src={value.image} alt={""}/>
+                                                        <a className="dataItem" target="_blank">
+                                                            <p>{value.courseName}</p>
+                                                        </a>
+                                                    </Link>
+                                                </div>
+                                            </>
+                                        )
+                                    })}
 
-                            </>
-                        );
-                    })}
+                                </>
+                            );
+                        })}
+                    </div>
                 </div>
             ) : <></>}
         </div>

@@ -1,0 +1,15 @@
+.panel-out {
+  background-color: #61ce70 !important;
+}
+
+.panel-out:hover {
+  background-color: #21ce70 !important;
+}
+
+.panel-no {
+    background: #82d8b9 !important;
+}
+
+.panel-no:hover {
+    background: #40d8b9 !important;
+}

@@ -1,5 +1,5 @@
-import http from "../interceptor/interceptor";
-import { setItem } from "../storage/storage";
+import http from "../../interceptor/interceptor";
+import { setItem } from "../../storage/storage";
 import { toast } from "react-toastify";
 import { Redirect } from "react-router-dom";
 

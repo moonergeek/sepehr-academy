@@ -4,30 +4,35 @@ import footerLine from "../../assets/img/Path 1.svg";
 import enamad from "../../assets/img/Group 20.svg"
 import samandehi from "../../assets/img/Group 19.svg"
 import zarrinPal from "../../assets/img/Group 18.svg"
+import {Link} from "react-router-dom";
 
 const FooterMenuHeader = (props) => {
     return (
         <>
-            {Object.keys(props.footerInfo).map(item => <div className="col-md-3 col-6">
+            {Object.entries(props.footerInfo).map(item => <div className="col-md-3 col-6">
                 <div className="title-header">
                     <div className="row">
                         <div className="col-sm-12">
                 <span className="footer-title">
-                    {props.footerInfo[item].title}
+                    {item[1].title}
                 </span>
-
                         </div>
                         <div className="row">
-                            <img className="col-sm-2 line-image-footer" src={props.footerInfo[item].lineImage}
+                            <img className="col-sm-2 line-image-footer" src={item[1].lineImage}
                                  alt=""/>
                         </div>
                     </div>
                 </div>
                 <div className="title-body mt-3">
                     <nav className="nav flex-column">
-                        <a className="nav-link nav-link-footer" aria-current="page" href="#">{props.footerInfo[item].it1}</a>
-                        <a className="nav-link nav-link-footer" href="#"> {props.footerInfo[item].it2} </a>
-                        <a className="nav-link nav-link-footer" href="#">{props.footerInfo[item].it3} </a>
+                        {/*{console.log(item[1].it1)}*/}
+                        <Link to={item[1].it1.routeAddress} className="nav-link nav-link-footer" aria-current="page">
+                            {item[1].it1.title}
+                        </Link>
+                        <Link className="nav-link nav-link-footer"
+                              to={item[1].it2.routeAddress}> {item[1].it2.title} </Link>
+                        <Link className="nav-link nav-link-footer"
+                              to={item[1].it3.routeAddress}>{item[1].it3.title} </Link>
                     </nav>
                 </div>
             </div>)}

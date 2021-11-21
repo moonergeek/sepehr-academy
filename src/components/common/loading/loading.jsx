@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { css } from "@emotion/react";
+import './loading.css';
 import FadeLoader from "react-spinners/FadeLoader";
 
-// Can be a string as well. Need to ensure each key-value pair ends with ;
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: #198643;
-  height: 20vh;
-`;
+
+
 
 function Loading() {
     // let [loading, setLoading] = useState(true);
@@ -18,7 +14,7 @@ function Loading() {
         <div className="sweet-loading">
 
 
-            <FadeLoader color={color}  css={override} size={150} />
+            <FadeLoader color={color}   size={150} />
         </div>
     );
 }

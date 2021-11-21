@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Route, Switch} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 import HomePage from "../screens/homePage/homePage";
 import CoursesPage from "../screens/coursesPage/coursesPage";
 import FQA from "../screens/fQA/fQA";
@@ -35,12 +35,12 @@ import {
     accProfileListJson
 } from "../core/services/jsonFiles/accordionData.json";
 import {footerInfoJson} from "../core/services/jsonFiles/footerData.json";
-import {GetCoursesData} from "../core/services/API/getHomePageCourses.api";
-import {GetFavCoursesData} from "../core/services/API/getFavCourses.api";
-import {GetAll6BlogData} from "../core/services/API/get6BlogData.api";
-import {GetAllCoursesData} from "../core/services/API/getAllCourses.api";
-import {GetAllBlogsData} from "../core/services/API/getAllBlogs.api";
-import {paginate} from "../utils/paginate";
+import {GetCoursesData} from "../core/services/API/course/getHomePageCourses.api";
+import {GetFavCoursesData} from "../core/services/API/course/getFavCourses.api";
+import {GetAll6BlogData} from "../core/services/API/blog/get6BlogData.api";
+import {GetAllCoursesData} from "../core/services/API/course/getAllCourses.api";
+import {GetAllBlogsData} from "../core/services/API/blog/getAllBlogs.api";
+import {paginate} from "../core/utils/paginate";
 
 const AuthUser = () => {
     const [menuList] = useState(menuItems);
@@ -71,11 +71,11 @@ const AuthUser = () => {
     };
 
     //loading
-    const [loadingForBlog , setLoadingForBlog] = useState(false);
-    const [loadingForCourses , setLoadingForCourses] = useState(false);
-    const [loadingFor6Blog , setLoadingFor6Blog] = useState(false);
-    const [loadingForFavCourses , setLoadingForFavCourses] = useState(false);
-    const [loadingForHomePageCourses , setLoadingForHomePageCourses] = useState(false);
+    const [loadingForBlog, setLoadingForBlog] = useState(false);
+    const [loadingForCourses, setLoadingForCourses] = useState(false);
+    const [loadingFor6Blog, setLoadingFor6Blog] = useState(false);
+    const [loadingForFavCourses, setLoadingForFavCourses] = useState(false);
+    const [loadingForHomePageCourses, setLoadingForHomePageCourses] = useState(false);
 
 
     //backend-api
@@ -112,8 +112,6 @@ const AuthUser = () => {
         setLoadingForBlog(true);
 
 
-
-
     };
     useEffect(() => {
         getHomePageCourses();
@@ -122,12 +120,6 @@ const AuthUser = () => {
         getAllCourses();
         getAllBlogs();
     }, []);
-
-    // if (loadingForHomePageCourses && loadingForHomePageData && loadingFor6Blog && loadingForFavCourses){
-    //
-    // }
-
-
     const paginatedCourses = paginate(allCoursesData, currentPage, pageSize);
     const paginatedMaghalat = paginate(allBlogData, currentPage, 6);
 
@@ -139,7 +131,7 @@ const AuthUser = () => {
                     <Route
                         path="/"
                         exact
-                        component={() => (
+                        render={() => (
                             <HomePage
                                 menuList={menuList}
                                 placeholder={placeHolder}
@@ -156,7 +148,6 @@ const AuthUser = () => {
                                 favCoursesInfo={favCourseData}
                                 favCoursesTitle={favCoursesTitle}
                                 footerInfo={footerInfo}
-                                testapi={courseData}
                                 loading={loadingForHomePageCourses}
 
 
@@ -165,7 +156,7 @@ const AuthUser = () => {
                     />
                     <Route
                         path="/courses"
-                        component={() => (
+                        render={() => (
                             <CoursesPage
                                 menuList={menuList}
                                 placeHolder={placeHolder}
@@ -181,7 +172,7 @@ const AuthUser = () => {
                     />
                     <Route
                         path={"/questions"}
-                        component={() => (
+                        render={() => (
                             <FQA
                                 menuList={menuList}
                                 accFullList={accFullList}
@@ -194,14 +185,14 @@ const AuthUser = () => {
                     />
                     <Route
                         path={"/about"}
-                        component={() => (
+                        render={() => (
                             <About menuList={menuList} footerInfo={footerInfo}/>
                         )}
                     />
 
                     <Route
                         path={"/teachers"}
-                        component={() => (
+                        render={() => (
                             <Teachers
                                 placeHolder={placeHolder}
                                 menuList={menuList}
@@ -215,7 +206,7 @@ const AuthUser = () => {
                     />
                     <Route
                         path={"/request"}
-                        component={() => (
+                        render={() => (
                             <DarkhasteMoshavere menuList={menuList} footerInfo={footerInfo}/>
                         )}
                     />
@@ -224,12 +215,14 @@ const AuthUser = () => {
                     <Route path={"/register"} component={() => <Register/>}/>
                     <Route path={"/forgetPassword"} component={() => <ForgetPass/>}/>
                     <Route
-                        path={"/course"}
-                        component={() => (
+                        path={"/course/:id"}
+                        render={() => (
                             <Course
                                 menuList={menuList}
                                 footerInfo={footerInfo}
-                                loading={null}
+                                fullCourseInfo={paginatedCourses}
+                                loading={loadingForCourses}
+
                             />
                         )}
                     />
@@ -238,7 +231,7 @@ const AuthUser = () => {
                     <Route
                         path="/blog"
                         exact
-                        component={() => (
+                        render={() => (
                             <Maghalat
                                 menuList={menuList}
                                 maghalatTitle={maghalatTitle}
@@ -250,25 +243,27 @@ const AuthUser = () => {
                                 pageSize={pageSize}
                                 currentPage={currentPage}
                                 onPageChange={handlePageChange}
-                                loading ={loadingForBlog}
+                                loading={loadingForBlog}
 
                             />
                         )}
                     />
                     <Route
-                        path={"/blog/maghale"}
-                        component={() => (
+                        path={"/blog/maghale/:id"}
+                        render={() => (
                             <Maghale
                                 menuList={menuList}
                                 footerInfo={footerInfo}
                                 maghale={allBlogData}
+                                loading={loadingForBlog}
                             />
                         )}
                     />
 
-                    <Route path={"/dashboard"} component={() => <PanelAdmin/>}/>
+                    <Route path={"/dashboard/:id"} component={() => <PanelAdmin/>}/>
 
                     <Route path={"/cart"} component={() => <Cart/>}/>
+                    <Redirect  to="/not-found" />
                 </Switch>
             </main>
         </>

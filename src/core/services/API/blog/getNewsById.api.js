@@ -1,16 +1,12 @@
 import Axios from "axios";
 const MainUrl = process.env.REACT_APP_PUBLIC_PATH;
 
-export const GetAllCoursesData = async() => {
-
+const GetNewsById = async (id) => {
     try {
-        const result = await Axios.get(`${MainUrl}api/term/getall`)
+        const result = await Axios.get(`${MainUrl}api/news/${id}`)
         return result.data.result;
     } catch {
         return {};
     }
 };
-
-export default GetAllCoursesData;
-
-
+export default GetNewsById;

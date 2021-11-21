@@ -1,15 +1,9 @@
-/*.load2{*/
-/*    position: absolute;*/
-/*    top: 50%;*/
-/*    right: 50%;*/
-/*}*/
 
-
-.sweet-loading {
-position: absolute;
-    top: 50%;
-    right:50%;
+.sweet-loading2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-color: #198643;
-    height: 20vh;
-    color:#198643;
+    margin:20% auto;
+
 }
