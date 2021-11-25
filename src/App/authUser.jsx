@@ -41,6 +41,7 @@ import {GetAll6BlogData} from "../core/services/API/blog/get6BlogData.api";
 import {GetAllCoursesData} from "../core/services/API/course/getAllCourses.api";
 import {GetAllBlogsData} from "../core/services/API/blog/getAllBlogs.api";
 import {paginate} from "../core/utils/paginate";
+import GetUserDetails from "../core/services/API/auth/GetUserDetail.api";
 
 const AuthUser = () => {
     const [menuList] = useState(menuItems);
@@ -113,7 +114,16 @@ const AuthUser = () => {
 
 
     };
+    const [userInfo, setUserInfo] = useState([]);
+
+    const getUserInfo = async () => {
+        const result = await GetUserDetails();
+        // console.log(result);
+        setUserInfo(result);
+        // console.log(result.result.terms)
+    }
     useEffect(() => {
+        getUserInfo();
         getHomePageCourses();
         getFavCourses();
         get6BlogData();
@@ -260,7 +270,7 @@ const AuthUser = () => {
                         )}
                     />
 
-                    <Route path={"/dashboard/:id"} component={() => <PanelAdmin/>}/>
+                    <Route path={"/dashboard/:id"} component={() => <PanelAdmin userInfo={userInfo}/>}/>
 
                     <Route path={"/cart"} component={() => <Cart/>}/>
                     <Redirect  to="/not-found" />

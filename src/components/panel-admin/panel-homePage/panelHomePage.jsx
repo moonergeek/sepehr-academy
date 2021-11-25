@@ -6,7 +6,7 @@ import PanelChart1 from "../panel-charts/panelChart1";
 import PanelChart2 from "../panel-charts/panelChart2";
 import PanelChart3 from "../panel-charts/panelChart3";
 
-const PanelHomePage = () => {
+const PanelHomePage = (props) => {
     return (
         <>
             <div className={"row"}>
@@ -15,7 +15,7 @@ const PanelHomePage = () => {
                     <PanelFloatBtn/>
                 </div>
             </div>
-            <PanelTable/>
+            <PanelTable userInfo={props.userInfo}/>
             <div className={"row mb-4 mt-4"}><PanelTitle title={"آمار خرید های شما از سایت"}/></div>
             <div className={"row mb-4"}>
                 <div className={"col-4"}>

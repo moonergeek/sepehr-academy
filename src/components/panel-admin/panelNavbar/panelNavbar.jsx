@@ -61,7 +61,8 @@ const PanelNavbar = (props) => {
 
 
                         <div className={"d-flex justify-content-center"}>
-                            <span className={"panel-user-name"}>مسعود حسامی</span>
+                            <span className={"panel-user-name"}>{props.userInfo.result.fullName}</span>
+
                         </div>
                     </section>
 

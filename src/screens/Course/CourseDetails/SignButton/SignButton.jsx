@@ -1,11 +1,19 @@
 import React from "react";
+import AddStudentToTerm from "../../../../core/services/API/student/addStudentToTerm";
 
 const SignButton = () => {
-  return (
-    <div className="sign-btn mt-5 btn text-white rounded-3">
-      ثبت نام در این دوره
-    </div>
-  );
+
+    const registerInTerm = async () => {
+        const result = await AddStudentToTerm();
+        console.log("hello");
+    }
+
+
+    return (
+        <div className="sina" onClick={registerInTerm}>
+           گی به دله
+        </div>
+    );
 };
 
 export default SignButton;

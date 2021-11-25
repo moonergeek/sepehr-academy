@@ -9,7 +9,7 @@ import {clearStorage} from "../../core/services/storage/storage";
 import {useHistory} from "react-router-dom";
 import "./panelAdmin.css";
 
-const PanelAdmin = () => {
+const PanelAdmin = (props) => {
     const history = useHistory();
 
     return (
@@ -60,7 +60,7 @@ const PanelAdmin = () => {
             <div className={"container-fluid"}>
                 <div className={"row"}>
                     <div className={"col-lg-3 display-sm-navbar mt-3"}>
-                        <PanelNavbar/>
+                        <PanelNavbar userInfo={props.userInfo}/>
                     </div>
                     <div className={"col-lg-8 col-md-12 pt-3 me-2"}>
                         <div className={"row"}>
@@ -71,11 +71,11 @@ const PanelAdmin = () => {
                         <Switch>
                             <Route
                                 path={"/dashboard/:id/panel"}
-                                component={() => <PanelHomePage/>}
+                                component={() => <PanelHomePage userInfo={props.userInfo}/>}
                             />
                             <Route
                                 path={"/dashboard/:id/edit"}
-                                component={() => <EditPanelUser/>}
+                                component={() => <EditPanelUser userInfo={props.userInfo}/>}
                             />
                             <Redirect from={"/dashboard/:id"} to={"/dashboard/:id/panel"}/>
                         </Switch>

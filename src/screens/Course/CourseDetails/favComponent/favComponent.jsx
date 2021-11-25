@@ -49,7 +49,7 @@ const FavComponent = () => {
         GetCountLikeById(courseByIdData._id)
     };
 
-    const disLikeikeButton = async () => {
+    const disLikeButton = async () => {
         if (userInfo && userInfo.result.role === "student") {
             const termId = courseByIdData._id;
             const userId = userInfo.result._id;
@@ -104,14 +104,14 @@ const FavComponent = () => {
                     <span className="dislike-count">{termLikesById.dislike}</span>
 
                     <span className={"dislike-icon"}>
-                    <ThumbDownAltTwoToneIcon onClick={disLikeikeButton}/>
+                    <ThumbDownAltTwoToneIcon onClick={disLikeButton}/>
 
                 </span>
                 </div>
 
             </div>
 
-            {console.log(getTermLikesById())}
+            {/*{console.log(getTermLikesById())}*/}
         </>
     );
 };
