@@ -7,9 +7,16 @@ import cloud from "../../../assets/img/cloud-computing.png"
 import UpdateStudentInfo from "../../../core/services/API/student/updateStudentInfo";
 import {toast} from "react-toastify";
 import PostImage from "../../../core/services/API/uploadImg/postImage.api";
+import 'react-toastify/dist/ReactToastify.css';
+import {getItem, setItem} from "../../../core/services/storage/storage";
+import UpdateStuInfo from "../../../core/services/API/student/updateStudentInfo";
+
 
 
 const EditPanelUser = (props) => {
+
+
+
 
 
     const [fullNameValue, setFullNameValue] = useState("");
@@ -18,7 +25,7 @@ const EditPanelUser = (props) => {
     const [nationalIdValue, setNationalIdValue] = useState("");
     const [birthDateValue, setBirthDateValue] = useState("");
     const [imageAddress, setImageAddress] = useState("");
-
+    const [image,setImage] = useState("");
     //get default value
     const getFirstValue = () => {
         setBirthDateValue(props.userInfo.result.birthDate);
@@ -26,7 +33,7 @@ const EditPanelUser = (props) => {
         setFullNameValue(props.userInfo.result.fullName);
         setEmailValue(props.userInfo.result.email);
         setPhoneNumValue(props.userInfo.result.phoneNumber);
-
+        setImage(getItem(props.userInfo.result._id + "image"));
     }
 
     useEffect(() => {
@@ -94,7 +101,7 @@ const EditPanelUser = (props) => {
 
 
     const submitChanges = async () => {
-
+        const id = props.userInfo.result._id;
         const newFullName = fullNameValue;
         const newEmail = emailValue;
         const newPhoneNumber = phoneNumValue;
@@ -109,34 +116,31 @@ const EditPanelUser = (props) => {
         };
         try{
             const resultImg = await PostImage();
-            console.log(resultImg.data.result)
-            setImageAddress(resultImg.data.result)
-            console.log(imageAddress)
-            const result = await UpdateStudentInfo(obj);
-            if (!result.success) {
-                toast.error(result.message[0].message);
+            console.log(resultImg.data.result )
+
+            setItem(props.userInfo.result._id + "image",resultImg.data.result);
+
+            console.log(obj);
+            console.log(props.userInfo);
+            const result = await UpdateStuInfo(obj,id);
+            console.log(result.statusText);
+            if (result.statusText === "OK") {
+                toast.error("انجام شد");
+                console.log("ok")
             } else {
-                toast.success(result.message[0].message);
+                toast.success("انجام نشد");
+                console.log("no")
             }
+
+            console.log(result)
         }
         catch (e) {
             console.log(e);
-            console.log("ridi")
+            console.log("wrong")
         }
 
 
     }
-
-
-    // const handleClick = async () => {
-    //     try {
-
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-
-
 
 
 
@@ -182,7 +186,8 @@ const EditPanelUser = (props) => {
                     </div>
 
                     <div className={"row userImage"}>
-                        <div className={"col-sm-3"}><img src={imageAddress} className={"panel-user-upload"}/></div>
+
+                        <div className={"col-sm-3"}><img src={image} className={"panel-user-upload"}/></div>
                         <div className={"col-sm-9"}>
                             <div className="mb-3">
                                 <button className={"btn btn-upload"}>

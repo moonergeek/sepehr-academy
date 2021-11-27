@@ -24,7 +24,10 @@
     opacity: 80%;
 }
 .panel-user-upload{
-    width: 57px;
+    margin-right: 10px;
+    border-radius: 100%;
+    width: 50px;
+    height: 51px;
 }
 .visibility-none{
     opacity: 0;

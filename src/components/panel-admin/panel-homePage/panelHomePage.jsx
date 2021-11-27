@@ -10,7 +10,7 @@ const PanelHomePage = (props) => {
     return (
         <>
             <div className={"row"}>
-                <PanelTitle title={" گزارش دوره های در حال خرید"}/>
+                <PanelTitle title={props.title}/>
                 <div className={"d-flex floating-btn-mr justify-content-end"}>
                     <PanelFloatBtn/>
                 </div>

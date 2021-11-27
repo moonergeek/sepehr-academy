@@ -13,9 +13,10 @@ import GetUserDetails from "../../core/services/API/auth/GetUserDetail.api";
 
 const Header = (props) => {
     const [userInformation, setUserInformation] = useState([]);
-
+    const [image , setImage] = useState("");
     const getUserInformation = async () => {
         try {
+            setImage(getItem(props.userInfo.result._id + "image"));
             const result = await GetUserDetails();
             setUserInformation(result.result);
         } catch (err) {
@@ -75,7 +76,7 @@ const Header = (props) => {
                                                         <div className="dropdown">
                                                             <Link to={`/dashboard/${userInformation._id}`}>
                                                                 <div className={"border-violet"}>
-                                                                    <img src={userImage} width={50}
+                                                                    <img src={image} width={50}
                                                                          className={"user-icon dropdown-toggle image-user-class"}
                                                                          id="dropdownMenuButton1"
                                                                          aria-expanded="false"

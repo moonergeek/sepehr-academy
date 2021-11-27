@@ -1,5 +1,7 @@
 .panel-user-image {
+  border-radius: 100%;
   width: 94px;
+  height: 90px;
   position: absolute;
   top: 15px;
 }

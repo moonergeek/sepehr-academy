@@ -10,9 +10,11 @@ import {useParams} from "react-router-dom";
 import GetCountLikeById from "../../../../core/services/API/like/getCountLike";
 import ThumbDownAltTwoToneIcon from '@mui/icons-material/ThumbDownAltTwoTone';
 import PostDisLikeData from "../../../../core/services/API/like/postDisLike";
+import {setItem} from "../../../../core/services/storage/storage";
 
 
 const FavComponent = () => {
+
     const {id} = useParams();
     const [courseByIdData, setCourseByIdData] = useState([]);
     const getCourseById = async () => {
@@ -36,6 +38,9 @@ const FavComponent = () => {
                 termId: termId,
                 userId: userId,
             };
+
+            setItem(userId + "id" , termId);
+
             const result = await PostLikeData(apiObject);
             setLikeSituation(true);
             if (!result.success) {

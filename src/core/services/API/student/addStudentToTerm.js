@@ -1,18 +1,14 @@
-import jwt_decode from "jwt-decode";
-import http from "../../interceptor/interceptor";
-import { getItem } from "../../storage/storage";
+import axios from "axios";
 
 const MainUrl = process.env.REACT_APP_PUBLIC_PATH;
 
-const AddStudentToTerm = async () => {
-    if (getItem("token")) {
-        const token = getItem("token");
-        const decoded = jwt_decode(token);
+const AddStuToTerm = async (obj , student_id) => {
+    try {
+        return  await axios.post(`${MainUrl}api/term/addStudentToTerm/${student_id}`, obj);
 
-        const result = await http.get(`${MainUrl}api/term/addStudentToTerm/${decoded._id}`);
-        return result.data;
-        console.log(result.data)
+    } catch (error) {
+        console.log(error);
     }
 };
 
-export default AddStudentToTerm;
+export default AddStuToTerm;

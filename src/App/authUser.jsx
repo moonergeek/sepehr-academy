@@ -143,6 +143,7 @@ const AuthUser = () => {
                         exact
                         render={() => (
                             <HomePage
+                                userInfo={userInfo}
                                 menuList={menuList}
                                 placeholder={placeHolder}
                                 bannerTitle={bannerTitle}

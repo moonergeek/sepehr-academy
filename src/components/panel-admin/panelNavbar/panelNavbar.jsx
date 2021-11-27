@@ -16,13 +16,16 @@ import {BootstrapTooltip} from "../../tooltip/bootstrapTooltip";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import {Link} from "react-router-dom";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
+import PostImage from "../../../core/services/API/uploadImg/postImage.api";
+import {getItem} from "../../../core/services/storage/storage";
 
 
 const PanelNavbar = (props) => {
     const [userInformation, setUserInformation] = useState([]);
-
+    const [image, setImage] = useState("");
     const getUserInformation = async () => {
         try {
+            setImage(getItem(props.userInfo.result._id + "image"));
             const result = await GetUserDetails();
             setUserInformation(result.result);
         } catch (err) {
@@ -48,7 +51,7 @@ const PanelNavbar = (props) => {
 
                     <section className={"top-data"}>
                         <div className={"d-flex justify-content-center"}>
-                            <img src={userImage} className={"panel-user-image"}/>
+                            <img src={image} className={"panel-user-image"}/>
                         </div>
                         <BootstrapTooltip
                             data-bs-toggle="modal"
@@ -124,12 +127,12 @@ const PanelNavbar = (props) => {
                                 </Link>
                             </li>
                             <li className="list-group-item panel-list-item">
-                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}`}>
+                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}/liked`}>
                                     <LocalLibraryTwoToneIcon
                                         className={"panel-navList-icons"}
                                         fontSize={"small"}
                                     />
-                                    دوره های رایگان
+                                    دوره های مورد علاقه
                                 </Link>
                             </li>
                             <li className="list-group-item panel-list-item">
