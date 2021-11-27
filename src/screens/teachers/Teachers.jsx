@@ -35,7 +35,7 @@ const Teachers = (props) => {
 
   return (
     <>
-      <Header menuList={props.menuList}/>
+      <Header menuList={props.menuList} userInfo={props.userInfo}/>
       <Title Title={"معرفی مدرسین"}/>
       <div className="container">
         <div className="row mt-4">

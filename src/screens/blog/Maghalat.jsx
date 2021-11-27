@@ -13,7 +13,7 @@ const Maghalat = (props) => {
     return (
         <>
             <div>
-                <Header menuList={props.menuList}/>
+                <Header menuList={props.menuList} userInfo={props.userInfo}/>
                 <Title Title={"مقالات"}/>
                 <Sort placeHolder={props.placeHolder}/>
                 {props.loading ? <>

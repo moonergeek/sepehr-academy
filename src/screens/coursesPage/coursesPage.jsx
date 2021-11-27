@@ -20,7 +20,7 @@ const CoursesPage = (props) => {
     return (
         <>
             {console.log(props.fullCourseInfo)}
-            <Header menuList={props.menuList}/>
+            <Header menuList={props.menuList} userInfo={props.userInfo}/>
             <Title Title={"دوره ها"}/>
 
             <div className={"container pt-1 mt-4"}>

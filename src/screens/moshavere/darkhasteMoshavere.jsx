@@ -7,7 +7,7 @@ import Title from "../../components/moshavere-req/Title/Title";
 function DarkhasteMoshavere(props) {
     return (
         <div>
-            <Header menuList={props.menuList}/>
+            <Header menuList={props.menuList} userInfo={props.userInfo}/>
             <Title Title={"مشاوره"}/>
             <Field/>
             <Footer footerInfo={props.footerInfo}/>

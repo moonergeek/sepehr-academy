@@ -178,6 +178,7 @@ const AuthUser = () => {
                                 onPageChange={handlePageChange}
                                 footerInfo={footerInfo}
                                 loading={loadingForCourses}
+                                userInfo={userInfo}
                             />
                         )}
                     />
@@ -191,13 +192,14 @@ const AuthUser = () => {
                                 accProfileList={accProfileList}
                                 accConfigList={accConfigList}
                                 footerInfo={footerInfo}
+                                userInfo={userInfo}
                             />
                         )}
                     />
                     <Route
                         path={"/about"}
                         render={() => (
-                            <About menuList={menuList} footerInfo={footerInfo}/>
+                            <About menuList={menuList} footerInfo={footerInfo}   userInfo={userInfo}/>
                         )}
                     />
 
@@ -212,13 +214,14 @@ const AuthUser = () => {
                                 pageSize={pageSize}
                                 currentPage={currentPage}
                                 onPageChange={handlePageChange}
+                                userInfo={userInfo}
                             />
                         )}
                     />
                     <Route
                         path={"/request"}
                         render={() => (
-                            <DarkhasteMoshavere menuList={menuList} footerInfo={footerInfo}/>
+                            <DarkhasteMoshavere menuList={menuList} footerInfo={footerInfo}   userInfo={userInfo}/>
                         )}
                     />
 
@@ -233,7 +236,7 @@ const AuthUser = () => {
                                 footerInfo={footerInfo}
                                 fullCourseInfo={paginatedCourses}
                                 loading={loadingForCourses}
-
+                                userInfo={userInfo}
                             />
                         )}
                     />
@@ -255,7 +258,7 @@ const AuthUser = () => {
                                 currentPage={currentPage}
                                 onPageChange={handlePageChange}
                                 loading={loadingForBlog}
-
+                                userInfo={userInfo}
                             />
                         )}
                     />
@@ -267,6 +270,7 @@ const AuthUser = () => {
                                 footerInfo={footerInfo}
                                 maghale={allBlogData}
                                 loading={loadingForBlog}
+                                userInfo={userInfo}
                             />
                         )}
                     />

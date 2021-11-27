@@ -21,7 +21,7 @@ function Maghale(props) {
 
     return (
         <div>
-            <Header menuList={props.menuList}/>
+            <Header menuList={props.menuList} userInfo={props.userInfo}/>
             <DetailMaghale newsById={newsByIdData} maghale={props.maghale} loading={loading}/>
             <Footer footerInfo={props.footerInfo}/>
         </div>
