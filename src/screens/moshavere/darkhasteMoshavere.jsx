@@ -1,15 +1,15 @@
 import React from 'react';
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
-import Field from "../../components/moshavere-req/fields/field";
 import Title from "../../components/moshavere-req/Title/Title";
+import PostStuReqForm from "../../components/moshavere-req/postStuReqForm/postStuReqForm";
 
 function DarkhasteMoshavere(props) {
     return (
         <div>
             <Header menuList={props.menuList}/>
             <Title Title={"مشاوره"}/>
-            <Field/>
+            <PostStuReqForm/>
             <Footer footerInfo={props.footerInfo}/>
         </div>
     );
