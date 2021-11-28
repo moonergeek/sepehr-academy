@@ -5,6 +5,7 @@ import PanelTitle from "../panel-title/panelTitle";
 import PanelFloatBtn from "../panel-float-btn/panelFloatBtn";
 import {getItem} from "../../../core/services/storage/storage";
 import GetTermById from "../../../core/services/API/terms/getTermById";
+import PanelTableForLikedTerms from "../panelTable/panelTableForLikedTerms";
 
 const PanelLikedTerms = (props) => {
 
@@ -39,25 +40,7 @@ const PanelLikedTerms = (props) => {
                 </div>
             </div>
 
-            <table className="table panel-table table-borderless">
-                <thead className={"thead-color"}>
-                <tr className={"tr-color"}>
-                    <th scope="col "><FcNumericalSorting12/></th>
-
-                    <th scope="col ">نام دوره</th>
-                    <th scope="col ">مدرس</th>
-
-                    <th scope="col "> وضعیت</th>
-
-                    <th scope="col "> تنظیمات</th>
-                </tr>
-                </thead>
-                <tbody>
-
-
-
-                </tbody>
-            </table>
+            <PanelTableForLikedTerms userInfo={props.userInfo}/>
 
         </>
     );
