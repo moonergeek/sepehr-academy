@@ -2,25 +2,33 @@ import React, {useEffect, useState} from 'react';
 import "./panelTable.css"
 import {FcNumericalSorting12} from "react-icons/all";
 import PanelDeleteIcon from "../panel-delete-icon/panelDeleteIcon";
-import course1 from "../../../assets/img/02.jpg"
-import course2 from "../../../assets/img/03.jpg"
-import course3 from "../../../assets/img/09.jpg"
-import course4 from "../../../assets/img/01.jpg"
-import course5 from "../../../assets/img/04.jpg"
-import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
 import {getItem} from "../../../core/services/storage/storage";
+import GetTermById from "../../../core/services/API/terms/getTermById";
 
 const PanelTableForLikedTerms = (props) => {
 
     const [likedTerms , setLikedTerms] = useState([]);
-
+    const userId = props.userInfo.result._id;
+    const [term , setTerm] = useState([]);
 
     const getLikedTerms = () => {
-        const result = getItem(props.userInfo.result._id + "id");
-        setLikedTerms(result);
+        setLikedTerms(getItem(userId + "id")) ;
+
     }
+
+    const getTerms = () => {
+        Object.keys(likedTerms).map(termId => {
+
+                setTerm(GetTermById(likedTerms[termId]));
+            console.log(GetTermById(likedTerms[termId]))
+        }
+        )
+    }
+
+
     useEffect(() => {
         getLikedTerms();
+        getTerms();
     } , [])
 
 
@@ -43,22 +51,22 @@ const PanelTableForLikedTerms = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {console.log(props.userInfo)}
-                {Object.keys(likedTerms).map(termObj => <tr key={termObj} className={"green-hover"}>
+
+                {Object.keys(term).map(termObj => <tr key={termObj} className={"green-hover"}>
                     <th scope="row" className={"panel-th-items"}>{termObj}</th>
                     <td className={"panel-td-items"}>4554-01</td>
                     <td className={"panel-td-items"}>
-                        <img className={"table-course-img"} src={likedTerms[termObj].course.image} alt=""/>
-                        {likedTerms[termObj].course.courseName}
+                        <img className={"table-course-img"} src={term[termObj].course.image} alt=""/>
+                        {term[termObj].course.courseName}
                     </td>
-                    <td className={"panel-td-items"}> {likedTerms[termObj].course.description}</td>
+                    <td className={"panel-td-items"}> {term[termObj].course.description}</td>
                     <td className={"panel-td-items"}> 1400/01/20</td>
                     <td className={"panel-td-items"}>
                         <span className="badge bg-success">خرید موفق</span>
                     </td>
-                    <td className={"panel-td-items"}>{likedTerms[termObj].cost + " تومان"} </td>
+                    <td className={"panel-td-items"}>{term[termObj].cost + " تومان"} </td>
                     <td className={"panel-td-items"}>
-                        <PanelDeleteIcon userInfo={props.userInfo} termId={likedTerms[termObj]._id}/>
+                        <PanelDeleteIcon userInfo={props.userInfo} termId={term[termObj]._id}/>
                     </td>
                 </tr>)}
 
