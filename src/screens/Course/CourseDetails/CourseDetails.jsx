@@ -10,7 +10,7 @@ const CourseDetails = () => {
   return (
     <>
       <CourseData />
-      <SignButton />
+      {/*<SignButton />*/}
       <AskQuestions />
       <div className="share mt-5 d-flex flex-column align-items-center flex-md-row justify-content-evenly">
         <Sharing />

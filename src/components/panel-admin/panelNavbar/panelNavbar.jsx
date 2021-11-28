@@ -91,7 +91,7 @@ const PanelNavbar = (props) => {
                                 </Link>
                             </li>
                             <li className="list-group-item panel-list-item">
-                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}`}>
+                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}/bought`}>
                                     <BookmarkTwoToneIcon
                                         className={"panel-navList-icons"}
                                         fontSize={"small"}

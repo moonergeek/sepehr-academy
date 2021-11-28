@@ -10,6 +10,7 @@ import {useHistory} from "react-router-dom";
 import "./panelAdmin.css";
 import GetUserDetails from "../../core/services/API/auth/GetUserDetail.api";
 import PanelLikedTerms from "../../components/panel-admin/panel-likedTerms/panelLikedTerms";
+import PanelBoughtTerms from "../../components/panel-admin/panel-bought-terms/panelBoughtTerms";
 
 const PanelAdmin = (props) => {
     const history = useHistory();
@@ -92,6 +93,13 @@ const PanelAdmin = (props) => {
                                 path={"/dashboard/" + id + "/liked"}
                                 component={() => <PanelLikedTerms userInfo={props.userInfo} title={" گزارش دوره های مورد علاقه"}/>}
                             />
+
+                            <Route
+                                path={"/dashboard/" + id + "/bought"}
+                                component={() => <PanelBoughtTerms userInfo={props.userInfo} title={" گزارش دوره های خریداری شده"}/>}
+                            />
+
+
                             <Redirect from={"/dashboard/:id"} to={"/dashboard/:id/panel"}/>
                         </Switch>
                     </div>

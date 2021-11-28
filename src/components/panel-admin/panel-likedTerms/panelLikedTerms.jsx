@@ -53,24 +53,7 @@ const PanelLikedTerms = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {/*{Object.keys(likedTerm).map(termObj => <tr key={termObj} className={"green-hover"}>*/}
-                {/*    <th scope="row" className={"panel-th-items"}>{termObj}</th>*/}
 
-                {/*    <td className={"panel-td-items"}>*/}
-                {/*        <img className={"table-course-img"} src={likedTerm[termObj].course.image}*/}
-                {/*             alt=""/>*/}
-                {/*        {props.userInfo.result.terms[termObj].course.courseName}*/}
-                {/*    </td>*/}
-                {/*    <td className={"panel-td-items"}> {likedTerm[termObj].course.description}</td>*/}
-                {/*    <td className={"panel-td-items"}> 1400/01/20</td>*/}
-                {/*    <td className={"panel-td-items"}>*/}
-                {/*        <span className="badge bg-success">خرید موفق</span>*/}
-                {/*    </td>*/}
-                {/*    <td className={"panel-td-items"}>{likedTerm[termObj].cost + " تومان"} </td>*/}
-                {/*    <td className={"panel-td-items"}>*/}
-                {/*        <PanelDeleteIcon/>*/}
-                {/*    </td>*/}
-                {/*</tr>)}*/}
 
 
                 </tbody>

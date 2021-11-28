@@ -8,16 +8,26 @@ import course3 from "../../../assets/img/09.jpg"
 import course4 from "../../../assets/img/01.jpg"
 import course5 from "../../../assets/img/04.jpg"
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
+import GetAllTerms from "../../../core/services/API/terms/getAllTerms";
+import PanelAddIcon from "../panel-add-icon/panelAddIcon";
 
-const PanelTable = (props) => {
+const PanelTableForHpmePage = (props) => {
 
-    const update = () => {
-        console.log(props.userInfo.result.terms);
+    const [allTerms , setAllTerms] = useState([]);
+
+
+    const getAllTerms = async () => {
+        const result = await GetAllTerms();
+        setAllTerms(result);
     }
 
     useEffect(() => {
-        update();
-    }, [])
+        getAllTerms();
+    } , [])
+
+
+
+
 
     return (
         <>
@@ -39,21 +49,24 @@ const PanelTable = (props) => {
                 </thead>
                 <tbody>
                 {console.log(props.userInfo)}
-                {Object.keys(props.userInfo.result.terms).map(termObj => <tr key={termObj} className={"green-hover"}>
+                {Object.keys(allTerms).map(termObj => <tr key={termObj} className={"green-hover"}>
                     <th scope="row" className={"panel-th-items"}>{termObj}</th>
                     <td className={"panel-td-items"}>4554-01</td>
                     <td className={"panel-td-items"}>
-                        <img className={"table-course-img"} src={props.userInfo.result.terms[termObj].course.image} alt=""/>
-                        {props.userInfo.result.terms[termObj].course.courseName}
+                        <img className={"table-course-img"} src={allTerms[termObj].course.image} alt=""/>
+                        {allTerms[termObj].course.courseName}
                     </td>
-                    <td className={"panel-td-items"}> {props.userInfo.result.terms[termObj].course.description}</td>
+                    <td className={"panel-td-items"}> {allTerms[termObj].course.description}</td>
                     <td className={"panel-td-items"}> 1400/01/20</td>
+                    {console.log(props.userInfo.result.terms[termObj])}
                     <td className={"panel-td-items"}>
-                        <span className="badge bg-success">خرید موفق</span>
+                        {props.userInfo.result.terms[termObj] ? <span className="badge bg-success"> خریداری شده</span> : <span className="badge bg-primary">در حال خرید</span>}
+
                     </td>
-                    <td className={"panel-td-items"}>{props.userInfo.result.terms[termObj].cost + " تومان"} </td>
+                    <td className={"panel-td-items"}>{allTerms[termObj].cost + " تومان"} </td>
                     <td className={"panel-td-items"}>
-                        <PanelDeleteIcon userInfo={props.userInfo} termId={props.userInfo.result.terms[termObj]._id}/>
+
+                        <PanelAddIcon userInfo={props.userInfo} termId={allTerms[termObj]._id}/>
                     </td>
                 </tr>)}
 
@@ -65,4 +78,4 @@ const PanelTable = (props) => {
     );
 };
 
-export default PanelTable;
+export default PanelTableForHpmePage;

@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 import "./editPanelUser.css"
 import PanelTitle from "../panel-title/panelTitle";
 import userImage from "../../../assets/img/img4.png";
 import cloud from "../../../assets/img/cloud-computing.png"
 import UpdateStudentInfo from "../../../core/services/API/student/updateStudentInfo";
-import {toast} from "react-toastify";
+
 import PostImage from "../../../core/services/API/uploadImg/postImage.api";
 import 'react-toastify/dist/ReactToastify.css';
 import {getItem, setItem} from "../../../core/services/storage/storage";
