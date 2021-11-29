@@ -6,27 +6,45 @@ import PanelFloatBtn from "../panel-float-btn/panelFloatBtn";
 import {getItem} from "../../../core/services/storage/storage";
 import GetTermById from "../../../core/services/API/terms/getTermById";
 import PanelTableForLikedTerms from "../panelTable/panelTableForLikedTerms";
+import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
 
 const PanelLikedTerms = (props) => {
 
     const [likedTerm, setLikedTerm] = useState([]);
     const [term, setTerm] = useState([]);
+    const [userInformation, setUserInformation] = useState([]);
 
+
+    const getUserInformation = async () => {
+        try {
+
+            const result = await GetUserDetails();
+            setUserInformation(result.result);
+            console.log(userInformation.terms);
+
+
+        } catch (err) {
+            console.log("header api error :" + err)
+        }
+    }
 
     const getLikedTerms = () => {
-        const res = getItem(props.userInfo.result._id + "id");
+        const res = getItem(userInformation._id + "id");
         setLikedTerm(res);
 
+    }
+
+    const getTerm = () => {
         const result = GetTermById(likedTerm);
         console.log(result);
         setTerm(result);
-
     }
 
 
     useEffect(() => {
+        getUserInformation();
         getLikedTerms();
-
+        getTerm();
     }, [])
 
 

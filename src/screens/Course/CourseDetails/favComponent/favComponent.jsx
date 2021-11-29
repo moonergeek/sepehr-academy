@@ -38,7 +38,7 @@ const FavComponent = () => {
                 termId: termId,
                 userId: userId,
             };
-
+            console.log(apiObject);
             setItem(userId + "id" , termId);
 
             const result = await PostLikeData(apiObject);
@@ -116,7 +116,7 @@ const FavComponent = () => {
 
             </div>
 
-            {/*{console.log(getTermLikesById())}*/}
+            {console.log(getTermLikesById())}
         </>
     );
 };

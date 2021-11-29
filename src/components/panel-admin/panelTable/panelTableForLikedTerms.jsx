@@ -4,29 +4,48 @@ import {FcNumericalSorting12} from "react-icons/all";
 import PanelDeleteIcon from "../panel-delete-icon/panelDeleteIcon";
 import {getItem} from "../../../core/services/storage/storage";
 import GetTermById from "../../../core/services/API/terms/getTermById";
+import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
+import Loading from "../../common/loading/loadingForHomePage";
 
 const PanelTableForLikedTerms = (props) => {
 
     const [likedTerms , setLikedTerms] = useState([]);
-    const userId = props.userInfo.result._id;
+
     const [term , setTerm] = useState([]);
 
-    const getLikedTerms = () => {
-        setLikedTerms(getItem(userId + "id")) ;
+    const [userInformation, setUserInformation] = useState([]);
+    const [loading, setLoading] = useState(false);
 
+    const getUserInformation = async () => {
+        try {
+
+            const result = await GetUserDetails();
+            setUserInformation(result.result);
+
+
+            setLoading(true);
+        } catch (err) {
+            console.log("header api error :" + err)
+        }
+    }
+
+
+
+    const getLikedTerms = () => {
+       const result = getItem(userInformation._id + "id") ;
+        setLikedTerms(result)
     }
 
     const getTerms = () => {
-        Object.keys(likedTerms).map(termId => {
-
-                setTerm(GetTermById(likedTerms[termId]));
-            console.log(GetTermById(likedTerms[termId]))
-        }
-        )
+     console.log(userInformation._id);
+       console.log(likedTerms);
+       const result = GetTermById(likedTerms);
+       console.log(result);
     }
 
 
     useEffect(() => {
+        getUserInformation();
         getLikedTerms();
         getTerms();
     } , [])
@@ -35,9 +54,7 @@ const PanelTableForLikedTerms = (props) => {
     return (
         <>
 
-
-            {/*<img className={"table-course-img"} src={props.userInfo.result.terms[0].course.image} alt="course1"/>*/}
-            <table className="table panel-table table-borderless">
+            {loading ?             <table className="table panel-table table-borderless">
                 <thead className={"thead-color"}>
                 <tr className={"tr-color"}>
                     <th scope="col "><FcNumericalSorting12/></th>
@@ -72,7 +89,8 @@ const PanelTableForLikedTerms = (props) => {
 
 
                 </tbody>
-            </table>
+            </table> : <Loading />}
+
 
         </>
     );

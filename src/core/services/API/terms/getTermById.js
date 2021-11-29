@@ -5,7 +5,7 @@ const GetTermById = async (id) => {
     try {
         const result = await Axios.get(`${MainUrl}api/term/${id}`)
         console.log(result);
-        return result.data.result;
+        return result.data;
 
     } catch(err) {
         console.log(err);
