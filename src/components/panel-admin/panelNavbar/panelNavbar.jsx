@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./panelNavbar.css";
 import background from "../../../assets/img/background.png";
-import userImage from "../../../assets/img/img4.png";
+import userImage from "../../../assets/img/user.png";
 import logOut from "../../../assets/img/logout(2).png";
 import BookmarkTwoToneIcon from "@mui/icons-material/BookmarkTwoTone";
 import LocalLibraryTwoToneIcon from "@mui/icons-material/LocalLibraryTwoTone";
