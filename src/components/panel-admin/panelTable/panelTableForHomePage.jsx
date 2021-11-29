@@ -1,40 +1,41 @@
 import React, {useEffect, useState} from 'react';
 import "./panelTable.css"
 import {FcNumericalSorting12} from "react-icons/all";
-import PanelDeleteIcon from "../panel-delete-icon/panelDeleteIcon";
-import course1 from "../../../assets/img/02.jpg"
-import course2 from "../../../assets/img/03.jpg"
-import course3 from "../../../assets/img/09.jpg"
-import course4 from "../../../assets/img/01.jpg"
-import course5 from "../../../assets/img/04.jpg"
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
 import GetAllTerms from "../../../core/services/API/terms/getAllTerms";
 import PanelAddIcon from "../panel-add-icon/panelAddIcon";
+import Loading from "../../common/loading/loading";
+
 
 const PanelTableForHpmePage = (props) => {
 
-    const [allTerms , setAllTerms] = useState([]);
+    const [allTerms, setAllTerms] = useState([]);
+    const [loading , setLoading] = useState(false);
+    const [userInformation, setUserInformation] = useState([]);
 
+    const getUserInformation = async () => {
+        try {
 
-    const getAllTerms = async () => {
-        const result = await GetAllTerms();
-        setAllTerms(result);
+            const result = await GetUserDetails();
+            setUserInformation(result.result);
+            const res = await GetAllTerms();
+            setAllTerms(res);
+            setLoading(true);
+        } catch (err) {
+            console.log("header api error :" + err)
+        }
     }
 
+
     useEffect(() => {
-        getAllTerms();
-    } , [])
 
-
-
+        getUserInformation()
+    }, [])
 
 
     return (
         <>
-
-
-            {/*<img className={"table-course-img"} src={props.userInfo.result.terms[0].course.image} alt="course1"/>*/}
-            <table className="table panel-table table-borderless">
+            {loading ?             <table className="table panel-table table-borderless">
                 <thead className={"thead-color"}>
                 <tr className={"tr-color"}>
                     <th scope="col "><FcNumericalSorting12/></th>
@@ -48,7 +49,7 @@ const PanelTableForHpmePage = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {console.log(props.userInfo)}
+
                 {Object.keys(allTerms).map(termObj => <tr key={termObj} className={"green-hover"}>
                     <th scope="row" className={"panel-th-items"}>{termObj}</th>
                     <td className={"panel-td-items"}>4554-01</td>
@@ -58,9 +59,10 @@ const PanelTableForHpmePage = (props) => {
                     </td>
                     <td className={"panel-td-items"}> {allTerms[termObj].course.description}</td>
                     <td className={"panel-td-items"}> 1400/01/20</td>
-                    {console.log(props.userInfo.result.terms[termObj])}
+
                     <td className={"panel-td-items"}>
-                        {props.userInfo.result.terms[termObj] ? <span className="badge bg-success"> خریداری شده</span> : <span className="badge bg-primary">در حال خرید</span>}
+                        {userInformation.terms[termObj] ? <span className="badge bg-success"> خریداری شده</span> :
+                            <span className="badge bg-primary">در حال خرید</span>}
 
                     </td>
                     <td className={"panel-td-items"}>{allTerms[termObj].cost + " تومان"} </td>
@@ -72,7 +74,9 @@ const PanelTableForHpmePage = (props) => {
 
 
                 </tbody>
-            </table>
+            </table> : <Loading />}
+
+
 
         </>
     );

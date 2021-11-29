@@ -51,7 +51,8 @@ const PanelNavbar = (props) => {
 
                     <section className={"top-data"}>
                         <div className={"d-flex justify-content-center"}>
-                            <img src={image} className={"panel-user-image"}/>
+                            {image ? <img src={image} className={"panel-user-image"} alt="..."/> :
+                                <img src={userImage} className={"panel-user-image"} alt="..."/>}
                         </div>
                         <BootstrapTooltip
                             data-bs-toggle="modal"
@@ -64,7 +65,7 @@ const PanelNavbar = (props) => {
 
 
                         <div className={"d-flex justify-content-center"}>
-                            <span className={"panel-user-name"}>{props.userInfo.result.fullName}</span>
+                            <span className={"panel-user-name"}>{userInformation.fullName}</span>
 
                         </div>
                     </section>
