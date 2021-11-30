@@ -35,13 +35,6 @@ const PanelTableForBoughtTerms = (props) => {
     }, [])
 
 
-    // const update = () => {
-    //     console.log(props.userInfo.result.terms);
-    // }
-    //
-    // useEffect(() => {
-    //     update();
-    // }, [])
 
     return (
         <>
