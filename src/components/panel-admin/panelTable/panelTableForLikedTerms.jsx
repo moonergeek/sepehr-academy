@@ -9,12 +9,38 @@ import Loading from "../../common/loading/loadingForHomePage";
 
 const PanelTableForLikedTerms = (props) => {
 
+    const [selectedFile, setSelectedFile] = useState();
     const [likedTerms , setLikedTerms] = useState([]);
-
+    const [preview, setPreview] = useState();
     const [term , setTerm] = useState([]);
 
     const [userInformation, setUserInformation] = useState([]);
     const [loading, setLoading] = useState(false);
+
+
+    useEffect(() => {
+        if (!selectedFile) {
+            setPreview(undefined)
+            return
+        }
+
+        const objectUrl = URL.createObjectURL(selectedFile)
+        setPreview(objectUrl)
+
+        return () => URL.revokeObjectURL(objectUrl)
+    }, [selectedFile]);
+
+
+    const onSelectFile = e => {
+        if (!e.target.files || e.target.files.length === 0) {
+            setSelectedFile(undefined)
+            return
+        }
+
+        setSelectedFile(e.target.files[0])
+    }
+
+
 
     const getUserInformation = async () => {
         try {
@@ -32,17 +58,18 @@ const PanelTableForLikedTerms = (props) => {
 
 
     const getLikedTerms = () => {
-       const result = getItem(userInformation._id + "id") ;
+       const result = getItem("termId") ;
         setLikedTerms(result);
         console.log(userInformation);
+        console.log(result);
     }
 
     const getTerms = () => {
-     console.log(userInformation._id);
-       console.log(likedTerms);
+     // console.log(userInformation._id);
+     //   console.log(likedTerms);
        const result = GetTermById(likedTerms);
        setTerm(result);
-       console.log(result);
+       // console.log(result);
     }
 
 

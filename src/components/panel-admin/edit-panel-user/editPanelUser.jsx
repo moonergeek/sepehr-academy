@@ -10,22 +10,46 @@ import {getItem, setItem} from "../../../core/services/storage/storage";
 import UpdateStuInfo from "../../../core/services/API/student/updateStudentInfo";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
 import Loading from "../../common/loading/loadingForHomePage";
-
+import {useHistory} from "react-router-dom";
 
 
 const EditPanelUser = (props) => {
 
-
+    const history = useHistory();
     const [fullNameValue, setFullNameValue] = useState("");
     const [emailValue, setEmailValue] = useState("");
     const [phoneNumValue, setPhoneNumValue] = useState("");
     const [nationalIdValue, setNationalIdValue] = useState("");
     const [birthDateValue, setBirthDateValue] = useState("");
-    const [loading , setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [image, setImage] = useState("");
-
-
     const [userInformation, setUserInformation] = useState([]);
+    const [selectedFile, setSelectedFile] = useState();
+    const [preview, setPreview] = useState();
+
+
+    useEffect(() => {
+        if (!selectedFile) {
+            setPreview(undefined)
+            return
+        }
+
+        const objectUrl = URL.createObjectURL(selectedFile)
+        setPreview(objectUrl)
+
+        return () => URL.revokeObjectURL(objectUrl)
+    }, [selectedFile]);
+
+
+    const onSelectFile = e => {
+        if (!e.target.files || e.target.files.length === 0) {
+            setSelectedFile(undefined)
+            return
+        }
+
+        setSelectedFile(e.target.files[0])
+    }
+
 
     const getUserInformation = async () => {
         try {
@@ -133,9 +157,10 @@ const EditPanelUser = (props) => {
                 toast.error("انجام نشد");
 
             }
-
+            setTimeout(() => {
+                result && history.push("/dashboard/" + userInformation._id + "/panel")
+            }, 2500);
             console.log(result);
-            window.location.reload();
         } catch (e) {
             console.log(e);
 
@@ -154,7 +179,7 @@ const EditPanelUser = (props) => {
                 autoClose={2000}
                 rtl={true}
             />
-            {loading ?             <div className={"white-background"}>
+            {loading ? <div className={"white-background"}>
                 <div className={"container"}>
                     <div className={"row mb-5 mt-3"}><PanelTitle title={" ویرایش اطلاعات شخصی کاربر"}/></div>
                     <div className="row mb-4 pt-4">
@@ -194,13 +219,18 @@ const EditPanelUser = (props) => {
 
                     <div className={"row userImage"}>
 
-                        <div className={"col-sm-3"}><img src={image} className={"panel-user-upload"}/></div>
+                        {selectedFile ? <div className={"col-sm-3"}>
+                            {selectedFile && <img className={"panel-user-upload"} src={preview} alt={""}/>}
+                        </div> : <div className={"col-sm-3"}><img src={image} className={"panel-user-upload"}/></div>}
+
+
                         <div className={"col-sm-9"}>
                             <div className="mb-3">
                                 <button className={"btn btn-upload"}>
                                     <span className={"upload-avatar-text"}>آپلود آواتار</span>
                                     <img className={"upload-icon"} src={cloud} alt="cloud"/>
-                                    <input className="form-control visibility-none" type="file" id="formFile"
+                                    <input className="form-control visibility-none" onChange={onSelectFile} type="file"
+                                           id="formFile"
                                            aria-label="Search"/>
                                 </button>
                                 <span className={"upload-text-2"}> تصویر خود را بارگذاری کنید...</span>
@@ -215,7 +245,7 @@ const EditPanelUser = (props) => {
                     </div>
 
                 </div>
-            </div> : <Loading />}
+            </div> : <Loading/>}
 
 
         </>

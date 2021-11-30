@@ -39,7 +39,7 @@ const FavComponent = () => {
                 userId: userId,
             };
             console.log(apiObject);
-            setItem(userId + "id" , termId);
+            setItem("termId" , termId);
 
             const result = await PostLikeData(apiObject);
             setLikeSituation(true);

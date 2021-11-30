@@ -4,9 +4,10 @@ import {BootstrapTooltip } from "../../tooltip/bootstrapTooltip"
 import AddStuToTerm from "../../../core/services/API/student/addStudentToTerm";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
 import {toast, ToastContainer} from "react-toastify";
+import {useHistory} from "react-router-dom";
 
 const PanelAddIcon = (props) => {
-
+    const history = useHistory();
     const [userInformation, setUserInformation] = useState([]);
 
 
@@ -41,11 +42,13 @@ const PanelAddIcon = (props) => {
                 toast.error(result.data.message[0].message);
 
             }
+        setTimeout(() => {
+            result && history.push("/dashboard/"+userInformation._id+"/bought" )
+        }, 2500);
         console.log("hello");
         console.log(props.termId);
         console.log(result);
         console.log(userInformation._id)
-        window.location.reload();
     }
 
 

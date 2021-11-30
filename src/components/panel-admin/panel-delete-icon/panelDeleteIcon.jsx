@@ -4,9 +4,10 @@ import {BootstrapTooltip } from "../../tooltip/bootstrapTooltip"
 import RemoveStuToTerm from "../../../core/services/API/student/removeStudentToTerm";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
 import {toast, ToastContainer} from "react-toastify";
+import {useHistory} from "react-router-dom";
 
 const PanelDeleteIcon = (props) => {
-
+    const history = useHistory();
     const [userInformation, setUserInformation] = useState([]);
 
 
@@ -43,11 +44,14 @@ const PanelDeleteIcon = (props) => {
             toast.error(result.data.message[0].message);
 
         }
+        setTimeout(() => {
+            result && history.push("/dashboard/"+userInformation._id+"/panel" )
+        }, 2500);
         console.log("hello");
         console.log(props.termId);
         console.log(result);
         console.log(userInformation._id);
-        window.location.reload();
+
     }
 
     return (
