@@ -33,13 +33,15 @@ const PanelTableForLikedTerms = (props) => {
 
     const getLikedTerms = () => {
        const result = getItem(userInformation._id + "id") ;
-        setLikedTerms(result)
+        setLikedTerms(result);
+        console.log(userInformation);
     }
 
     const getTerms = () => {
      console.log(userInformation._id);
        console.log(likedTerms);
        const result = GetTermById(likedTerms);
+       setTerm(result);
        console.log(result);
     }
 

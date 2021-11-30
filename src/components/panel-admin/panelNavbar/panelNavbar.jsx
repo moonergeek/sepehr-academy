@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./panelNavbar.css";
 import background from "../../../assets/img/background.png";
-import userImage from "../../../assets/img/user.png";
+import userImage from "../../../assets/img/userAvatar.svg";
 import logOut from "../../../assets/img/logout(2).png";
 import BookmarkTwoToneIcon from "@mui/icons-material/BookmarkTwoTone";
 import LocalLibraryTwoToneIcon from "@mui/icons-material/LocalLibraryTwoTone";
@@ -16,7 +16,6 @@ import {BootstrapTooltip} from "../../tooltip/bootstrapTooltip";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import {Link} from "react-router-dom";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
-import PostImage from "../../../core/services/API/uploadImg/postImage.api";
 import {getItem} from "../../../core/services/storage/storage";
 
 
@@ -47,8 +46,6 @@ const PanelNavbar = (props) => {
                         className="card-img-top panel-background"
                         alt="..."
                     />
-
-
                     <section className={"top-data"}>
                         <div className={"d-flex justify-content-center"}>
                             {image ? <img src={image} className={"panel-user-image"} alt="..."/> :
@@ -69,6 +66,7 @@ const PanelNavbar = (props) => {
 
                         </div>
                     </section>
+
 
                     <div className="card-body panel-navbar-body">
                         <ul className="list-group list-group-flush">
