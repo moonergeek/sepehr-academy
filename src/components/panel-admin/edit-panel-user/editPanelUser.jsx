@@ -127,14 +127,15 @@ const EditPanelUser = (props) => {
             const result = await UpdateStuInfo(obj, id);
             console.log(result.statusText);
             if (result.statusText === "OK") {
-                toast.success(result.data.message[0].message);
+                toast.success("اطلاعات شما به روز شد");
 
             } else {
-                toast.error(result.data.message[0].message);
+                toast.error("انجام نشد");
 
             }
 
-            console.log(result)
+            console.log(result);
+            window.location.reload();
         } catch (e) {
             console.log(e);
 

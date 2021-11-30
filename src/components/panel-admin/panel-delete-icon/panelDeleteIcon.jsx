@@ -46,7 +46,8 @@ const PanelDeleteIcon = (props) => {
         console.log("hello");
         console.log(props.termId);
         console.log(result);
-        console.log(userInformation._id)
+        console.log(userInformation._id);
+        window.location.reload();
     }
 
     return (

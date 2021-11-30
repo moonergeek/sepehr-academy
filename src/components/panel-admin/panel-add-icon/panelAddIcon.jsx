@@ -35,16 +35,17 @@ const PanelAddIcon = (props) => {
 
         const result = await AddStuToTerm(termID , userInformation._id);
         if (result.statusText === "OK") {
-            toast.success(result.data.message[0].message);
+            toast.success("انجام شد");
 
-        } else {
-            toast.error(result.data.message[0].message);
+            } else {
+                toast.error("انجام نشد");
 
-        }
+            }
         console.log("hello");
         console.log(props.termId);
         console.log(result);
         console.log(userInformation._id)
+        window.location.reload();
     }
 
 
