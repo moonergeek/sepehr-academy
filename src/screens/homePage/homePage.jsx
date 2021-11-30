@@ -16,7 +16,7 @@ const HomePage = (props) => {
 
         <>
             {props.loading ?     <>
-                <Header menuList={props.menuList}/>
+                <Header menuList={props.menuList}  userInfo={props.userInfo}/>
                 <Banner
                     placeholder={props.placeholder}
                     title={props.bannerTitle}

@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import delete_icon from "../../../assets/img/cancel.png"
+import add_icon from "../../../assets/img/add.png"
 import {BootstrapTooltip } from "../../tooltip/bootstrapTooltip"
-import RemoveStuToTerm from "../../../core/services/API/student/removeStudentToTerm";
+import AddStuToTerm from "../../../core/services/API/student/addStudentToTerm";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
 import {toast, ToastContainer} from "react-toastify";
 import {useHistory} from "react-router-dom";
 
-const PanelDeleteIcon = (props) => {
+const PanelAddIcon = (props) => {
     const history = useHistory();
     const [userInformation, setUserInformation] = useState([]);
 
@@ -29,30 +29,28 @@ const PanelDeleteIcon = (props) => {
 
     } , [])
 
-
-
-    const removeStudent = async () => {
+    const addStudent = async () => {
         const termID = {
             termId : props.termId
         }
 
-        const result = await RemoveStuToTerm(termID , userInformation._id);
+        const result = await AddStuToTerm(termID , userInformation._id);
         if (result.statusText === "OK") {
             toast.success(result.data.message[0].message);
 
-        } else {
-            toast.error(result.data.message[0].message);
+            } else {
+                toast.error(result.data.message[0].message);
 
-        }
+            }
         setTimeout(() => {
-            result && history.push("/dashboard/"+userInformation._id+"/panel" )
+            result && history.push("/dashboard/"+userInformation._id+"/bought" )
         }, 2500);
         console.log("hello");
         console.log(props.termId);
         console.log(result);
-        console.log(userInformation._id);
-
+        console.log(userInformation._id)
     }
+
 
     return (
         <>
@@ -62,11 +60,11 @@ const PanelDeleteIcon = (props) => {
                 autoClose={2000}
                 rtl={true}
             />
-            <BootstrapTooltip placeMent={"left"} title="حذف">
-            <img width={16} style={{opacity:"90%" , position:"relative" , left:"-15px"}} src={delete_icon} alt="delete_icon" onClick={removeStudent}/>
+            <BootstrapTooltip placeMent={"left"} title="ثبت نام">
+                <img width={16} style={{opacity:"90%" , position:"relative" , left:"-15px"}} src={add_icon} alt="add_icon" onClick={addStudent}/>
             </BootstrapTooltip>
         </>
     );
 };
 
-export default PanelDeleteIcon;
+export default PanelAddIcon;

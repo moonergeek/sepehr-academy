@@ -41,6 +41,7 @@ import {GetAll6BlogData} from "../core/services/API/blog/get6BlogData.api";
 import {GetAllCoursesData} from "../core/services/API/course/getAllCourses.api";
 import {GetAllBlogsData} from "../core/services/API/blog/getAllBlogs.api";
 import {paginate} from "../core/utils/paginate";
+import GetUserDetails from "../core/services/API/auth/GetUserDetail.api";
 
 const AuthUser = () => {
     const [menuList] = useState(menuItems);
@@ -113,7 +114,16 @@ const AuthUser = () => {
 
 
     };
+    const [userInfo, setUserInfo] = useState([]);
+
+    const getUserInfo = async () => {
+        const result = await GetUserDetails();
+        // console.log(result);
+        setUserInfo(result);
+        // console.log(result.result.terms)
+    }
     useEffect(() => {
+        getUserInfo();
         getHomePageCourses();
         getFavCourses();
         get6BlogData();
@@ -133,6 +143,7 @@ const AuthUser = () => {
                         exact
                         render={() => (
                             <HomePage
+                                userInfo={userInfo}
                                 menuList={menuList}
                                 placeholder={placeHolder}
                                 bannerTitle={bannerTitle}
@@ -167,6 +178,7 @@ const AuthUser = () => {
                                 onPageChange={handlePageChange}
                                 footerInfo={footerInfo}
                                 loading={loadingForCourses}
+                                userInfo={userInfo}
                             />
                         )}
                     />
@@ -180,13 +192,14 @@ const AuthUser = () => {
                                 accProfileList={accProfileList}
                                 accConfigList={accConfigList}
                                 footerInfo={footerInfo}
+                                userInfo={userInfo}
                             />
                         )}
                     />
                     <Route
                         path={"/about"}
                         render={() => (
-                            <About menuList={menuList} footerInfo={footerInfo}/>
+                            <About menuList={menuList} footerInfo={footerInfo}   userInfo={userInfo}/>
                         )}
                     />
 
@@ -201,13 +214,14 @@ const AuthUser = () => {
                                 pageSize={pageSize}
                                 currentPage={currentPage}
                                 onPageChange={handlePageChange}
+                                userInfo={userInfo}
                             />
                         )}
                     />
                     <Route
                         path={"/request"}
                         render={() => (
-                            <DarkhasteMoshavere menuList={menuList} footerInfo={footerInfo}/>
+                            <DarkhasteMoshavere menuList={menuList} footerInfo={footerInfo}   userInfo={userInfo}/>
                         )}
                     />
 
@@ -222,7 +236,7 @@ const AuthUser = () => {
                                 footerInfo={footerInfo}
                                 fullCourseInfo={paginatedCourses}
                                 loading={loadingForCourses}
-
+                                userInfo={userInfo}
                             />
                         )}
                     />
@@ -244,7 +258,7 @@ const AuthUser = () => {
                                 currentPage={currentPage}
                                 onPageChange={handlePageChange}
                                 loading={loadingForBlog}
-
+                                userInfo={userInfo}
                             />
                         )}
                     />
@@ -256,11 +270,12 @@ const AuthUser = () => {
                                 footerInfo={footerInfo}
                                 maghale={allBlogData}
                                 loading={loadingForBlog}
+                                userInfo={userInfo}
                             />
                         )}
                     />
 
-                    <Route path={"/dashboard/:id"} component={() => <PanelAdmin/>}/>
+                    <Route path={"/dashboard/:id"} component={() => <PanelAdmin userInfo={userInfo}/>}/>
 
                     <Route path={"/cart"} component={() => <Cart/>}/>
                     <Redirect  to="/not-found" />

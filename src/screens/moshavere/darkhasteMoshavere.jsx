@@ -7,7 +7,7 @@ import PostStuReqForm from "../../components/moshavere-req/postStuReqForm/postSt
 function DarkhasteMoshavere(props) {
     return (
         <div>
-            <Header menuList={props.menuList}/>
+            <Header menuList={props.menuList} userInfo={props.userInfo}/>
             <Title Title={"مشاوره"}/>
             <PostStuReqForm/>
             <Footer footerInfo={props.footerInfo}/>

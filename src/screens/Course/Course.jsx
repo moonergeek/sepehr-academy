@@ -27,7 +27,7 @@ const Course = (props) => {
         <>
 
             <>
-                <Header menuList={props.menuList}/>
+                <Header menuList={props.menuList} userInfo={props.userInfo}/>
                 <div className="container">
                     <div className="row mt-5">
                         <div

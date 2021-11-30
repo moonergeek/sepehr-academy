@@ -10,9 +10,11 @@ import {useParams} from "react-router-dom";
 import GetCountLikeById from "../../../../core/services/API/like/getCountLike";
 import ThumbDownAltTwoToneIcon from '@mui/icons-material/ThumbDownAltTwoTone';
 import PostDisLikeData from "../../../../core/services/API/like/postDisLike";
+import {setItem} from "../../../../core/services/storage/storage";
 
 
 const FavComponent = () => {
+
     const {id} = useParams();
     const [courseByIdData, setCourseByIdData] = useState([]);
     const getCourseById = async () => {
@@ -36,6 +38,9 @@ const FavComponent = () => {
                 termId: termId,
                 userId: userId,
             };
+            console.log(apiObject);
+            setItem("termId" , termId);
+
             const result = await PostLikeData(apiObject);
             setLikeSituation(true);
             if (!result.success) {
@@ -49,7 +54,7 @@ const FavComponent = () => {
         GetCountLikeById(courseByIdData._id)
     };
 
-    const disLikeikeButton = async () => {
+    const disLikeButton = async () => {
         if (userInfo && userInfo.result.role === "student") {
             const termId = courseByIdData._id;
             const userId = userInfo.result._id;
@@ -104,7 +109,7 @@ const FavComponent = () => {
                     <span className="dislike-count">{termLikesById.dislike}</span>
 
                     <span className={"dislike-icon"}>
-                    <ThumbDownAltTwoToneIcon onClick={disLikeikeButton}/>
+                    <ThumbDownAltTwoToneIcon onClick={disLikeButton}/>
 
                 </span>
                 </div>

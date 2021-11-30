@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import logoGreen from "../../assets/img/logo green.png";
 import "./header.css"
 import {BsThreeDots, FaCircle, FaUserPlus, MdShoppingCart,} from "react-icons/all";
-import userImage from "../../assets/img/img4.png";
+import userImage from "../../assets/img/userAvatar.svg";
 import {NavLink, Link} from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import {BootstrapTooltip} from "../tooltip/bootstrapTooltip"
@@ -13,9 +13,10 @@ import GetUserDetails from "../../core/services/API/auth/GetUserDetail.api";
 
 const Header = (props) => {
     const [userInformation, setUserInformation] = useState([]);
-
+    const [image, setImage] = useState("");
     const getUserInformation = async () => {
         try {
+            setImage(getItem(props.userInfo.result._id + "image"));
             const result = await GetUserDetails();
             setUserInformation(result.result);
         } catch (err) {
@@ -75,11 +76,16 @@ const Header = (props) => {
                                                         <div className="dropdown">
                                                             <Link to={`/dashboard/${userInformation._id}`}>
                                                                 <div className={"border-violet"}>
-                                                                    <img src={userImage} width={50}
-                                                                         className={"user-icon dropdown-toggle image-user-class"}
-                                                                         id="dropdownMenuButton1"
-                                                                         aria-expanded="false"
-                                                                         alt={"user-image"}/>
+                                                                    {image ? <img src={image} width={50}
+                                                                                  className={"user-icon dropdown-toggle image-user-class"}
+                                                                                  id="dropdownMenuButton1"
+                                                                                  aria-expanded="false"
+                                                                                  alt={"user-image"}/> :
+                                                                        <img src={userImage} width={50}
+                                                                             className={"user-icon dropdown-toggle image-user-class"}
+                                                                             id="dropdownMenuButton1"
+                                                                             aria-expanded="false"
+                                                                             alt={"user-image"}/>}
                                                                 </div>
                                                             </Link>
                                                         </div>

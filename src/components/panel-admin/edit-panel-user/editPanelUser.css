@@ -24,7 +24,10 @@
     opacity: 80%;
 }
 .panel-user-upload{
-    width: 57px;
+    margin-right: 10px;
+    border-radius: 100%;
+    width: 50px;
+    height: 51px;
 }
 .visibility-none{
     opacity: 0;
@@ -80,4 +83,16 @@
 }
 .btn-green:hover{
     color: white;
+}
+.change {
+    border: none;
+    background: #FFFFFF;
+    color: #198643 !important;
+    width: 360px;
+    box-shadow: 0 3px 10px #E1F7ED;
+    border-radius: 5px;
+}
+
+.userImage{
+    margin-top: 40px;
 }

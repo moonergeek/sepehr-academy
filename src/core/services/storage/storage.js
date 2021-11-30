@@ -1,6 +1,7 @@
 // save item in localStorage
 const setItem = (key, value) => {
   localStorage.setItem(key, value);
+
 };
 
 // get an item from localStorage with its key

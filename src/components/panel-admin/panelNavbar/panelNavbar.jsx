@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./panelNavbar.css";
 import background from "../../../assets/img/background.png";
-import userImage from "../../../assets/img/img4.png";
+import userImage from "../../../assets/img/userAvatar.svg";
 import logOut from "../../../assets/img/logout(2).png";
 import BookmarkTwoToneIcon from "@mui/icons-material/BookmarkTwoTone";
 import LocalLibraryTwoToneIcon from "@mui/icons-material/LocalLibraryTwoTone";
@@ -16,13 +16,15 @@ import {BootstrapTooltip} from "../../tooltip/bootstrapTooltip";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import {Link} from "react-router-dom";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
+import {getItem} from "../../../core/services/storage/storage";
 
 
 const PanelNavbar = (props) => {
     const [userInformation, setUserInformation] = useState([]);
-
+    const [image, setImage] = useState("");
     const getUserInformation = async () => {
         try {
+            setImage(getItem(props.userInfo.result._id + "image"));
             const result = await GetUserDetails();
             setUserInformation(result.result);
         } catch (err) {
@@ -31,7 +33,7 @@ const PanelNavbar = (props) => {
     }
     useEffect(() => {
         getUserInformation()
-    }, []);
+    }, [userInformation]);
 
 
     return (
@@ -44,11 +46,10 @@ const PanelNavbar = (props) => {
                         className="card-img-top panel-background"
                         alt="..."
                     />
-
-
                     <section className={"top-data"}>
                         <div className={"d-flex justify-content-center"}>
-                            <img src={userImage} className={"panel-user-image"}/>
+                            {image ? <img src={image} className={"panel-user-image"} alt="..."/> :
+                                <img src={userImage} className={"panel-user-image"} alt="..."/>}
                         </div>
                         <BootstrapTooltip
                             data-bs-toggle="modal"
@@ -61,9 +62,11 @@ const PanelNavbar = (props) => {
 
 
                         <div className={"d-flex justify-content-center"}>
-                            <span className={"panel-user-name"}>مسعود حسامی</span>
+                            <span className={"panel-user-name"}>{userInformation.fullName}</span>
+
                         </div>
                     </section>
+
 
                     <div className="card-body panel-navbar-body">
                         <ul className="list-group list-group-flush">
@@ -87,7 +90,7 @@ const PanelNavbar = (props) => {
                                 </Link>
                             </li>
                             <li className="list-group-item panel-list-item">
-                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}`}>
+                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}/bought`}>
                                     <BookmarkTwoToneIcon
                                         className={"panel-navList-icons"}
                                         fontSize={"small"}
@@ -123,12 +126,12 @@ const PanelNavbar = (props) => {
                                 </Link>
                             </li>
                             <li className="list-group-item panel-list-item">
-                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}`}>
+                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}/liked`}>
                                     <LocalLibraryTwoToneIcon
                                         className={"panel-navList-icons"}
                                         fontSize={"small"}
                                     />
-                                    دوره های رایگان
+                                    دوره های مورد علاقه
                                 </Link>
                             </li>
                             <li className="list-group-item panel-list-item">

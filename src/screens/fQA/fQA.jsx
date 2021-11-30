@@ -10,7 +10,7 @@ import Title from "../../components/moshavere-req/Title/Title";
 const FQA = (props) => {
     return (
         <>
-            <Header menuList={props.menuList}/>
+            <Header menuList={props.menuList} userInfo={props.userInfo}/>
             <Title Title={"سوالات متداول"}/>
             <div className={"container mt-4 pt-2"}>
                 <div className={"row"}>
