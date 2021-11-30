@@ -5,8 +5,10 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import {toast, ToastContainer} from "react-toastify";
 import PostStuReq from "../../../core/services/API/studentRequest/postStuReq.api";
+import {useHistory} from "react-router-dom";
 
 const PostStuReqForm = () => {
+    const history = useHistory()
     useEffect(() => {
 
     }, [])
@@ -26,6 +28,9 @@ const PostStuReqForm = () => {
         console.log(StudentReq)
         console.log(result);
         toast.success(result.data.message[0].message);
+        setTimeout(()=>{
+            result && history.push("/")
+        },2500)
     }
 
     const validate = (values) => {
