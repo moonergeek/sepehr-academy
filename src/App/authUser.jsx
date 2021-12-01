@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Redirect, Route, Switch} from "react-router-dom";
 import HomePage from "../screens/homePage/homePage";
 import CoursesPage from "../screens/coursesPage/coursesPage";
-import FQA from "../screens/fQA/fQA";
+import FAQ from "../screens/fAQ/fAQ";
 import About from "../screens/about/About";
 import Teachers from "../screens/teachers/Teachers";
 import DarkhasteMoshavere from "../screens/moshavere/darkhasteMoshavere";
@@ -28,17 +28,8 @@ import {
     maghalatTitleJson,
     placeHolderForMaghalatJson
 } from "../core/services/jsonFiles/titles.json";
-import {
-    accConfigListJson,
-    accCoursesListJson,
-    accFullListJson,
-    accProfileListJson
-} from "../core/services/jsonFiles/accordionData.json";
+
 import {footerInfoJson} from "../core/services/jsonFiles/footerData.json";
-import {GetCoursesData} from "../core/services/API/course/getHomePageCourses.api";
-import {GetFavCoursesData} from "../core/services/API/course/getFavCourses.api";
-import {GetAll6BlogData} from "../core/services/API/blog/get6BlogData.api";
-import {GetAllCoursesData} from "../core/services/API/course/getAllCourses.api";
 import {GetAllBlogsData} from "../core/services/API/blog/getAllBlogs.api";
 import {paginate} from "../core/utils/paginate";
 import GetUserDetails from "../core/services/API/auth/GetUserDetail.api";
@@ -57,11 +48,7 @@ const AuthUser = () => {
     const [favCoursesTitle] = useState(favCoursesTitleJson);
     const [pageSize] = useState(12);
     const [currentPage, setCurrentPage] = useState(1);
-    //accordion data
-    const [accFullList] = useState(accFullListJson);
-    const [accProfileList] = useState(accProfileListJson);
-    const [accCoursesList] = useState(accCoursesListJson);
-    const [accConfigList] = useState(accConfigListJson);
+
     //blog
     const [maghalatTitle] = useState(maghalatTitleJson);
     const [placeHolderForMaghalat] = useState(placeHolderForMaghalatJson);
@@ -73,40 +60,12 @@ const AuthUser = () => {
 
     //loading
     const [loadingForBlog, setLoadingForBlog] = useState(false);
-    const [loadingForCourses, setLoadingForCourses] = useState(false);
-    const [loadingFor6Blog, setLoadingFor6Blog] = useState(false);
-    const [loadingForFavCourses, setLoadingForFavCourses] = useState(false);
-    const [loadingForHomePageCourses, setLoadingForHomePageCourses] = useState(false);
 
 
     //backend-api
-    const [courseData, setCourseData] = useState([]);
-    const [favCourseData, setFavCourseData] = useState([]);
-    const [blogData, setBlogData] = useState([]);
-    const [allCoursesData, setAllCoursesData] = useState([]);
+
     const [allBlogData, setAllBlogData] = useState([]);
 
-    const getHomePageCourses = async () => {
-        const result = await GetCoursesData();
-        setCourseData(result);
-        setLoadingForHomePageCourses(true);
-    };
-    const getFavCourses = async () => {
-        const result = await GetFavCoursesData();
-        setFavCourseData(result);
-        setLoadingForFavCourses(true);
-    };
-    const get6BlogData = async () => {
-        const result = await GetAll6BlogData();
-        setBlogData(result);
-        setLoadingFor6Blog(true);
-    };
-
-    const getAllCourses = async () => {
-        const result = await GetAllCoursesData();
-        setAllCoursesData(result);
-        setLoadingForCourses(true);
-    };
     const getAllBlogs = async () => {
         const result = await GetAllBlogsData();
         setAllBlogData(result);
@@ -124,13 +83,9 @@ const AuthUser = () => {
     }
     useEffect(() => {
         getUserInfo();
-        getHomePageCourses();
-        getFavCourses();
-        get6BlogData();
-        getAllCourses();
         getAllBlogs();
     }, []);
-    const paginatedCourses = paginate(allCoursesData, currentPage, pageSize);
+
     const paginatedMaghalat = paginate(allBlogData, currentPage, 6);
 
 
@@ -150,18 +105,12 @@ const AuthUser = () => {
                                 bannerDetail={bannerDetail}
                                 coursesTitle={coursesTitle}
                                 coursesBtnTitle={coursesBtnTitle}
-                                courseInfo={courseData}
                                 blogTitle={blogTitle}
                                 blogBtnTitle={blogBtnTitle}
-                                blogInfo={blogData}
                                 teachersInfo={teachersInfo}
                                 teachersTitle={teachersTitle}
-                                favCoursesInfo={favCourseData}
                                 favCoursesTitle={favCoursesTitle}
                                 footerInfo={footerInfo}
-                                loading={loadingForHomePageCourses}
-
-
                             />
                         )}
                     />
@@ -171,13 +120,7 @@ const AuthUser = () => {
                             <CoursesPage
                                 menuList={menuList}
                                 placeHolder={placeHolder}
-                                fullCourseInfo={paginatedCourses}
-                                itemsCount4Paginate={Object.keys(allCoursesData).length}
-                                pageSize={pageSize}
-                                currentPage={currentPage}
-                                onPageChange={handlePageChange}
                                 footerInfo={footerInfo}
-                                loading={loadingForCourses}
                                 userInfo={userInfo}
                             />
                         )}
@@ -185,12 +128,8 @@ const AuthUser = () => {
                     <Route
                         path={"/questions"}
                         render={() => (
-                            <FQA
+                            <FAQ
                                 menuList={menuList}
-                                accFullList={accFullList}
-                                accCoursesList={accCoursesList}
-                                accProfileList={accProfileList}
-                                accConfigList={accConfigList}
                                 footerInfo={footerInfo}
                                 userInfo={userInfo}
                             />
@@ -210,8 +149,6 @@ const AuthUser = () => {
                                 placeHolder={placeHolder}
                                 menuList={menuList}
                                 footerInfo={footerInfo}
-                                itemsCount4Paginate={Object.keys(courseData).length}
-                                pageSize={pageSize}
                                 currentPage={currentPage}
                                 onPageChange={handlePageChange}
                                 userInfo={userInfo}
@@ -234,8 +171,6 @@ const AuthUser = () => {
                             <Course
                                 menuList={menuList}
                                 footerInfo={footerInfo}
-                                fullCourseInfo={paginatedCourses}
-                                loading={loadingForCourses}
                                 userInfo={userInfo}
                             />
                         )}

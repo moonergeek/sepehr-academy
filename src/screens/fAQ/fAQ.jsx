@@ -1,13 +1,19 @@
 import React from 'react';
-import "./fQA.css"
+import "./fAQ.css"
 import Badge from "@mui/material/Badge";
 import {NavLink, Redirect, Route, Switch} from "react-router-dom";
 import Accordion from "../../components/acc-question/accordion";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import Title from "../../components/moshavere-req/Title/Title";
+import {
+    accConfigListJson,
+    accCoursesListJson,
+    accFullListJson,
+    accProfileListJson
+} from "../../core/services/jsonFiles/accordionData.json";
 
-const FQA = (props) => {
+const FAQ = (props) => {
     return (
         <>
             <Header menuList={props.menuList} userInfo={props.userInfo}/>
@@ -17,7 +23,7 @@ const FQA = (props) => {
                     <div className={"col-12"}>
                     <nav className="nav nav-pills nav-fill">
 
-                        <Badge badgeContent={Object.keys(props.accFullList).length} color="success">
+                        <Badge badgeContent={Object.keys(accFullListJson).length} color="success">
 
                                 <NavLink className="nav-link question-NavLink" aria-current="page" to={"/questions/all"}>همه
                                     موارد</NavLink>
@@ -33,10 +39,10 @@ const FQA = (props) => {
                     <div className={"col-sm-12"}>
                     <Switch>
 
-                        <Route path={"/questions/all"} component={() => <Accordion accList={props.accFullList}/>}/>
-                        <Route path={"/questions/courses"} component={() => <Accordion accList={props.accCoursesList}/>}/>
-                        <Route path={"/questions/profile"} component={() => <Accordion accList={props.accProfileList}/>}/>
-                        <Route path={"/questions/config"} component={() => <Accordion accList={props.accConfigList}/>}/>
+                        <Route path={"/questions/all"} component={() => <Accordion accList={accFullListJson}/>}/>
+                        <Route path={"/questions/courses"} component={() => <Accordion accList={accCoursesListJson}/>}/>
+                        <Route path={"/questions/profile"} component={() => <Accordion accList={accProfileListJson}/>}/>
+                        <Route path={"/questions/config"} component={() => <Accordion accList={accConfigListJson}/>}/>
                         <Redirect from={"/questions"} to={"/questions/all"}/>
                     </Switch>
                     </div>
@@ -47,4 +53,4 @@ const FQA = (props) => {
     );
 };
 
-export default FQA;
+export default FAQ;

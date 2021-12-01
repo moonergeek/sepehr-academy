@@ -14,7 +14,7 @@ import Footer from "../../components/footer/footer";
 import Title from "../../components/moshavere-req/Title/Title";
 
 const Teachers = (props) => {
-  const [teacherInfo, setTeacherInfo] = useState([
+  const [teacherInfo] = useState([
     {
       id: 1,
       title: "محمد بحرالعلومی",
@@ -44,8 +44,8 @@ const Teachers = (props) => {
           </form>
           <Teacher teacherInfo={teacherInfo} />
           <form className="d-flex mb-2 justify-content-center mt-5">
-            <Pagination itemsCount={props.itemsCount4Paginate}
-                        pageSize={props.pageSize}
+            <Pagination itemsCount={8}
+                        pageSize={6}
                         currentPage={props.currentPage}
                         onPageChange={props.onPageChange}
             />

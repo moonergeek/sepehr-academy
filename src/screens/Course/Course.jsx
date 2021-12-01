@@ -10,15 +10,16 @@ import {useParams} from "react-router-dom";
 import GetCourseById from "../../core/services/API/course/getCourseById.api";
 import Loading from "../../components/common/loading/loadingForHomePage";
 
-
 const Course = (props) => {
 
     const {id} = useParams();
 
     const [courseByIdData, setCourseByIdData] = useState([]);
+    const [loadingForCourse, setLoadingForCourse] = useState(false);
     const getCourseById = async () => {
         const result = await GetCourseById(id);
         setCourseByIdData(result);
+        setLoadingForCourse(true);
     };
     useEffect(() => {
         getCourseById();
@@ -36,7 +37,7 @@ const Course = (props) => {
                         </div>
 
                         <div className="col-lg-8 order-first order-lg-last d-flex flex-column align-items-center">
-                            {props.loading ? (<CourseImg courseData={courseByIdData}/>) : (
+                            {loadingForCourse ? (<CourseImg courseData={courseByIdData}/>) : (
                                 <Loading/>
                             )}
 

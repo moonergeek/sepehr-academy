@@ -1,25 +1,40 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./coursesPage.css"
 import Header from "../../components/header/header";
-import SearchBox from "../../components/searchBox/serachbox";
 import DropDownBtn from "../../components/dropDownBtn/dropDownBtn";
 import CoursesBody from "../../components/courses/coursesBody/coursesBody";
 import Pagination from "../../components/common/pagination/pagination";
 import Footer from "../../components/footer/footer";
 import Title from "../../components/moshavere-req/Title/Title";
-import Course from "../Course/Course";
-import {Route} from "react-router-dom";
-import {Spinner} from "react-bootstrap";
 import SearchBoxForCourses from "../../components/searchBox/searchBoxForCourses/searchBoxForCourses";
 import Loading from "../../components/common/loading/loading";
+import {GetAllCoursesData} from "../../core/services/API/course/getAllCourses.api";
+import {paginate} from "../../core/utils/paginate";
 
 
 const CoursesPage = (props) => {
+    const [allCoursesData, setAllCoursesData] = useState([]);
+    const [loadingForCourses, setLoadingForCourses] = useState(false);
+    const [pageSize] = useState(12);
+    const [currentPage, setCurrentPage] = useState(1);
 
+    const getAllCourses = async () => {
+        const result = await GetAllCoursesData();
+        setAllCoursesData(result);
+        setLoadingForCourses(true);
+    };
+    useEffect(() => {
+        getAllCourses();
+    }, []);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
+    const paginatedCourses = paginate(allCoursesData, currentPage, pageSize);
 
     return (
         <>
-            {console.log(props.fullCourseInfo)}
             <Header menuList={props.menuList} userInfo={props.userInfo}/>
             <Title Title={"دوره ها"}/>
 
@@ -34,17 +49,17 @@ const CoursesPage = (props) => {
                         </div>
                     </div>
                 </div>
-                {props.loading ? <>
+                {loadingForCourses ? <>
                     <div>
-                        <CoursesBody courseInfo={props.fullCourseInfo}/>
+                        <CoursesBody courseInfo={paginatedCourses}/>
                     </div>
 
                     <div className="d-flex justify-content-center">
                         <form className="d-flex mb-2">
-                            <Pagination itemsCount={props.itemsCount4Paginate}
-                                        pageSize={props.pageSize}
-                                        currentPage={props.currentPage}
-                                        onPageChange={props.onPageChange}
+                            <Pagination itemsCount={Object.keys(allCoursesData).length}
+                                        pageSize={pageSize}
+                                        currentPage={currentPage}
+                                        onPageChange={handlePageChange}
                             />
                         </form>
                     </div>
