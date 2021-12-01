@@ -14,31 +14,18 @@ import GetUserDetails from "../../core/services/API/auth/GetUserDetail.api";
 const Header = (props) => {
 
     const [userInfo, setUserInfo] = useState([]);
-
     const getUserInfo = async () => {
         const result = await GetUserDetails();
         setUserInfo(result.result);
-        console.log(result.result)
     }
-
     useEffect(() => {
         getUserInfo();
     }, []);
 
-
-
-
-    const [userInformation, setUserInformation] = useState([]);
     const [image, setImage] = useState("");
     const getUserInformation = async () => {
         try {
             setImage(getItem(userInfo._id + "image"));
-            console.log(userInfo._id)
-            // console.log(getItem(props.userInfo._id + "image"))
-            // console.log(props.userInfo);
-            // const result = await GetUserDetails();
-            // setUserInformation(result.result);
-            // console.log(result.result)
         } catch (err) {
             console.log("header api error :" + err)
         }
@@ -48,17 +35,8 @@ const Header = (props) => {
     }, [userInfo]);
 
 
-
-
-
-
-
-
-    // console.log(userInformation._id)
-
     return (
         <>
-            {/*{console.log(userInformation._id)}*/}
             <div className="container mt-3 mb-4">
                 <div className="row">
                     <nav className="navbar navbar-expand-lg navbar-light">

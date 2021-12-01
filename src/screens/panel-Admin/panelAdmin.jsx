@@ -13,6 +13,8 @@ import PanelBoughtTerms from "../../components/panel-admin/panel-bought-terms/pa
 import GetUserDetails from "../../core/services/API/auth/GetUserDetail.api";
 
 const PanelAdmin = () => {
+    const history = useHistory();
+    const { id } = useParams();
     const [userInfo, setUserInfo] = useState([]);
 
     const getUserInfo = async () => {
@@ -23,8 +25,7 @@ const PanelAdmin = () => {
         getUserInfo();
     }, []);
 
-    const history = useHistory();
-    const { id } = useParams();
+
 
     return (
         <>
