@@ -13,6 +13,7 @@ const LayoutApp = () => {
         const result = await GetUserDetails();
         setUserInfo(result);
     }
+
     useEffect(() => {
         getUserInfo();
     }, []);
@@ -22,7 +23,6 @@ const LayoutApp = () => {
             <Header menuList={menuItems} userInfo={userInfo}/>
             <Routing/>
             <Footer footerInfo={footerInfoJson}/>
-
         </>
     );
 };

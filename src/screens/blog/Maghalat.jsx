@@ -6,9 +6,12 @@ import Title from "../../components/moshavere-req/Title/Title";
 import Loading from "../../components/common/loading/loading";
 import {GetAllBlogsData} from "../../core/services/API/blog/getAllBlogs.api";
 import {paginate} from "../../core/utils/paginate";
+import {
+    maghalatTitleJson,
+    placeHolderForMaghalatJson
+} from "../../core/services/jsonFiles/titles.json";
 
-
-const Maghalat = (props) => {
+const Maghalat = () => {
 
     const [allBlogData, setAllBlogData] = useState([]);
     const [loadingForBlog, setLoadingForBlog] = useState(false);
@@ -35,8 +38,8 @@ const Maghalat = (props) => {
     return (
         <>
             <div>
-                <Title Title={"مقالات"}/>
-                <Sort placeHolder={props.placeHolder}/>
+                <Title Title={maghalatTitleJson}/>
+                <Sort placeHolder={placeHolderForMaghalatJson}/>
                 {loadingForBlog ? <>
                     <Card maghale={allBlogData} fullInfo={paginatedMaghalat}/>
                     <div className="d-flex justify-content-center">
@@ -48,7 +51,7 @@ const Maghalat = (props) => {
                             />
                         </form>
                     </div>
-                </> : <Loading />}
+                </> : <Loading/>}
             </div>
 
         </>

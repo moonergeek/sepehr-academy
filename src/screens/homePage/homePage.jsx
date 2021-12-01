@@ -9,8 +9,19 @@ import Loading from "../../components/common/loading/loadingForHomePage";
 import {GetCoursesData} from "../../core/services/API/course/getHomePageCourses.api";
 import {GetFavCoursesData} from "../../core/services/API/course/getFavCourses.api";
 import {GetAll6BlogData} from "../../core/services/API/blog/get6BlogData.api";
+import {
+    bannerDetailJson,
+    bannerTitleJson, blogBtnTitleJson, blogTitleJson, coursesBtnTitleJson,
+    courseTitleJson,
+    searchPlaceHolderJson
+} from "../../core/services/jsonFiles/bannerItems.json";
+import {teachersInfoJson, teachersTitleJson} from "../../core/services/jsonFiles/teachersInfo.json";
+import {
+    favCoursesTitleJson,
+} from "../../core/services/jsonFiles/titles.json";
 
-const HomePage = (props) => {
+
+const HomePage = () => {
     const [courseData, setCourseData] = useState([]);
     const [favCourseData, setFavCourseData] = useState([]);
     const [blogData, setBlogData] = useState([]);
@@ -36,34 +47,31 @@ const HomePage = (props) => {
     }, []);
 
     return (
-
         <>
             {loadingForHomePageCourses ? <>
                 <Banner
-                    placeholder={props.placeholder}
-                    title={props.bannerTitle}
-                    details={props.bannerDetail}/>
+                    placeholder={searchPlaceHolderJson}
+                    title={bannerTitleJson}
+                    details={bannerDetailJson}/>
                 <TechLogos/>
-                <Courses coursesTitle={props.coursesTitle}
-                         coursesBtnTitle={props.coursesBtnTitle}
+                <Courses coursesTitle={courseTitleJson}
+                         coursesBtnTitle={coursesBtnTitleJson}
                          courseInfo={courseData}
 
                 />
-                <Blog blogTitle={props.blogTitle}
-                      blogBtnTitle={props.blogBtnTitle}
+                <Blog blogTitle={blogTitleJson}
+                      blogBtnTitle={blogBtnTitleJson}
                       blogInfo={blogData}
                 />
-                <TeachersBanner teachersInfo={props.teachersInfo}
-                                teachersTitle={props.teachersTitle}
+                <TeachersBanner teachersInfo={teachersInfoJson}
+                                teachersTitle={teachersTitleJson}
                 />
                 <FavCourses favCoursesInfo={favCourseData}
-                            favCoursesTitle={props.favCoursesTitle}
-                            coursesBtnTitle={props.coursesBtnTitle}
+                            favCoursesTitle={favCoursesTitleJson}
+                            coursesBtnTitle={coursesBtnTitleJson}
                 />
             </> : <Loading/>}
-
         </>
-
     );
 };
 
