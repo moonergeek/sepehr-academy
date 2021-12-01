@@ -9,11 +9,10 @@ import Mahan from "../../assets/img/mahan.jpg";
 import Sina from "../../assets/img/sina.png";
 import SearchBox from "../../components/searchBox/serachbox";
 import Pagination from "../../components/common/pagination/pagination";
-import Header from "../../components/header/header";
-import Footer from "../../components/footer/footer";
 import Title from "../../components/moshavere-req/Title/Title";
 
 const Teachers = (props) => {
+  const [currentPage, setCurrentPage] = useState(1);
   const [teacherInfo] = useState([
     {
       id: 1,
@@ -32,10 +31,11 @@ const Teachers = (props) => {
     { id: 5, title: "ماهان جعفری", des: "مدرس دوره بوتسترپ", img: Mahan },
     { id: 6, title: "سینا رضایی", des: "مدرس دوره سی شارپ", img: Sina },
   ]);
-
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
   return (
     <>
-      <Header menuList={props.menuList} userInfo={props.userInfo}/>
       <Title Title={"معرفی مدرسین"}/>
       <div className="container">
         <div className="row mt-4">
@@ -46,13 +46,12 @@ const Teachers = (props) => {
           <form className="d-flex mb-2 justify-content-center mt-5">
             <Pagination itemsCount={8}
                         pageSize={6}
-                        currentPage={props.currentPage}
-                        onPageChange={props.onPageChange}
+                        currentPage={currentPage}
+                        onPageChange={handlePageChange}
             />
           </form>
         </div>
       </div>
-      <Footer footerInfo={props.footerInfo}/>
     </>
   );
 };

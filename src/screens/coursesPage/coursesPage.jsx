@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import "./coursesPage.css"
-import Header from "../../components/header/header";
 import DropDownBtn from "../../components/dropDownBtn/dropDownBtn";
 import CoursesBody from "../../components/courses/coursesBody/coursesBody";
 import Pagination from "../../components/common/pagination/pagination";
-import Footer from "../../components/footer/footer";
 import Title from "../../components/moshavere-req/Title/Title";
 import SearchBoxForCourses from "../../components/searchBox/searchBoxForCourses/searchBoxForCourses";
 import Loading from "../../components/common/loading/loading";
@@ -35,7 +33,6 @@ const CoursesPage = (props) => {
 
     return (
         <>
-            <Header menuList={props.menuList} userInfo={props.userInfo}/>
             <Title Title={"دوره ها"}/>
 
             <div className={"container pt-1 mt-4"}>
@@ -66,8 +63,6 @@ const CoursesPage = (props) => {
                 </> : <Loading/>}
 
             </div>
-            <Footer footerInfo={props.footerInfo}/>
-
         </>
     );
 };

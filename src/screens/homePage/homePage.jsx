@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import Header from "../../components/header/header";
 import Banner from "../../components/banner/banner";
 import TechLogos from "../../components/tech-logos/techLogos";
 import Courses from "../../components/courses/courses";
 import Blog from "../../components/blog/blog";
 import TeachersBanner from "../../components/teachers_banner/teachersBanner";
 import FavCourses from "../../components/courses/favCourses/favCourses";
-import Footer from "../../components/footer/footer";
 import Loading from "../../components/common/loading/loadingForHomePage";
 import {GetCoursesData} from "../../core/services/API/course/getHomePageCourses.api";
 import {GetFavCoursesData} from "../../core/services/API/course/getFavCourses.api";
@@ -41,7 +39,6 @@ const HomePage = (props) => {
 
         <>
             {loadingForHomePageCourses ? <>
-                <Header menuList={props.menuList} userInfo={props.userInfo}/>
                 <Banner
                     placeholder={props.placeholder}
                     title={props.bannerTitle}
@@ -63,7 +60,6 @@ const HomePage = (props) => {
                             favCoursesTitle={props.favCoursesTitle}
                             coursesBtnTitle={props.coursesBtnTitle}
                 />
-                <Footer footerInfo={props.footerInfo}/>
             </> : <Loading/>}
 
         </>

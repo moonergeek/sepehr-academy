@@ -4,8 +4,6 @@ import CourseImg from "../../components/Course/CourseImg/CourseImg";
 import CourseDetails from "../../components/Course/CourseDetails/CourseDetails";
 import Comments from "../../components/Comments/Comments";
 import "../../components/Course/Course.css";
-import Header from "../../components/header/header";
-import Footer from "../../components/footer/footer";
 import {useParams} from "react-router-dom";
 import GetCourseById from "../../core/services/API/course/getCourseById.api";
 import Loading from "../../components/common/loading/loadingForHomePage";
@@ -28,7 +26,6 @@ const Course = (props) => {
         <>
 
             <>
-                <Header menuList={props.menuList} userInfo={props.userInfo}/>
                 <div className="container">
                     <div className="row mt-5">
                         <div
@@ -48,7 +45,6 @@ const Course = (props) => {
                         </div>
                     </div>
                 </div>
-                <Footer footerInfo={props.footerInfo}/>{" "}
             </>
 
         </>

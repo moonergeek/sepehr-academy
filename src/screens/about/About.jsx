@@ -10,7 +10,6 @@ import Title from "../../components/moshavere-req/Title/Title";
 const About = (props) => {
   return (
     <>
-      <Header menuList={props.menuList} userInfo={props.userInfo}/>
         <Title Title={"درباره پژوهشگاه"}/>
 
       <div className="container">
@@ -26,7 +25,6 @@ const About = (props) => {
           </div>
         </div>
       </div>
-      <Footer footerInfo={props.footerInfo}/>
     </>
   );
 };

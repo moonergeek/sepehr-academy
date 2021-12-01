@@ -35,10 +35,9 @@ const PanelNavbar = (props) => {
         getUserInformation()
     }, [userInformation]);
 
-
     return (
         <>
-            <div className={"navbar-panel-width position-fixed"}>
+            <div className={"navbar-panel-width"}>
                 <div className="card">
                     <img
                         height={135}

@@ -31,7 +31,7 @@ const Header = (props) => {
 
     return (
         <>
-            <div className="container mt-3">
+            <div className="container mt-3 mb-4">
                 <div className="row">
                     <nav className="navbar navbar-expand-lg navbar-light">
                         <div className="container-fluid">
@@ -104,17 +104,18 @@ const Header = (props) => {
                                                             <ul className="dropdown-menu headerDrop-menu"
                                                                 aria-labelledby="dropdownMenuButton1">
                                                                 <div className={"d-flex justify-content-center"}>
-                                                                    <li>
-                                                                        <Link
-                                                                            className="dropdown-item headerDrop-item "
-                                                                            to={"/login"}>ورود</Link>
-                                                                    </li>
+                                                                    <Link to={"/login"}>
+                                                                        <li className="dropdown-item headerDrop-item ">
+                                                                            ورود
+                                                                        </li>
+                                                                    </Link>
                                                                 </div>
                                                                 <div className={"d-flex justify-content-center"}>
-                                                                    <li><Link
-                                                                        className="dropdown-item headerDrop-item"
-                                                                        to={"/register"}>ثبت
-                                                                        نام</Link></li>
+                                                                    <Link to={"/register"}>
+                                                                        <li className="dropdown-item headerDrop-item">
+                                                                            ثبت نام
+                                                                        </li>
+                                                                    </Link>
                                                                 </div>
                                                             </ul>
                                                         </div>

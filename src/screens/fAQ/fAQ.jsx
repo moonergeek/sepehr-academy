@@ -3,8 +3,6 @@ import "./fAQ.css"
 import Badge from "@mui/material/Badge";
 import {NavLink, Redirect, Route, Switch} from "react-router-dom";
 import Accordion from "../../components/acc-question/accordion";
-import Header from "../../components/header/header";
-import Footer from "../../components/footer/footer";
 import Title from "../../components/moshavere-req/Title/Title";
 import {
     accConfigListJson,
@@ -16,7 +14,6 @@ import {
 const FAQ = (props) => {
     return (
         <>
-            <Header menuList={props.menuList} userInfo={props.userInfo}/>
             <Title Title={"سوالات متداول"}/>
             <div className={"container mt-4 pt-2"}>
                 <div className={"row"}>
@@ -48,7 +45,6 @@ const FAQ = (props) => {
                     </div>
                 </div>
             </div>
-            <Footer footerInfo={props.footerInfo}/>
         </>
     );
 };

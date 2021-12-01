@@ -8,20 +8,23 @@ import PanelHomePage from "../../components/panel-admin/panel-homePage/panelHome
 import {clearStorage} from "../../core/services/storage/storage";
 import {useHistory} from "react-router-dom";
 import "./panelAdmin.css";
-import GetUserDetails from "../../core/services/API/auth/GetUserDetail.api";
 import PanelLikedTerms from "../../components/panel-admin/panel-likedTerms/panelLikedTerms";
 import PanelBoughtTerms from "../../components/panel-admin/panel-bought-terms/panelBoughtTerms";
+import GetUserDetails from "../../core/services/API/auth/GetUserDetail.api";
 
-const PanelAdmin = (props) => {
+const PanelAdmin = () => {
+    const [userInfo, setUserInfo] = useState([]);
+
+    const getUserInfo = async () => {
+        const result = await GetUserDetails();
+        setUserInfo(result);
+    }
+    useEffect(() => {
+        getUserInfo();
+    }, []);
+
     const history = useHistory();
-
     const { id } = useParams();
-
-
-
-
-
-
 
     return (
         <>
@@ -70,8 +73,8 @@ const PanelAdmin = (props) => {
             </div>
             <div className={"container-fluid"}>
                 <div className={"row"}>
-                    <div className={"col-lg-3 display-sm-navbar mt-3"}>
-                        <PanelNavbar userInfo={props.userInfo}/>
+                    <div className={"col-lg-3 display-sm-navbar mt-3 me-4"}>
+                        <PanelNavbar userInfo={userInfo}/>
                     </div>
                     <div className={"col-lg-8 col-md-12 pt-3 me-2"}>
                         <div className={"row"}>
@@ -82,24 +85,21 @@ const PanelAdmin = (props) => {
                         <Switch>
                             <Route
                                 path={"/dashboard/:id/panel"}
-                                component={() => <PanelHomePage title={" گزارش دوره های در حال خرید"} userInfo={props.userInfo}/>}
-                            />
-                            {console.log(id)}
-                            <Route
-                                path={"/dashboard/" + id + "/edit"}
-                                component={() => <EditPanelUser userInfo={props.userInfo}/>}
+                                component={() => <PanelHomePage title={" گزارش دوره های در حال خرید"} userInfo={userInfo}/>}
                             />
                             <Route
-                                path={"/dashboard/" + id + "/liked"}
-                                component={() => <PanelLikedTerms userInfo={props.userInfo} title={" گزارش دوره های مورد علاقه"}/>}
+                                path={"/dashboard/:id/edit"}
+                                component={() => <EditPanelUser userInfo={userInfo}/>}
+                            />
+                            <Route
+                                path={"/dashboard/:id/liked"}
+                                component={() => <PanelLikedTerms userInfo={userInfo} title={" گزارش دوره های مورد علاقه"}/>}
                             />
 
                             <Route
-                                path={"/dashboard/" + id + "/bought"}
-                                component={() => <PanelBoughtTerms userInfo={props.userInfo} title={" گزارش دوره های خریداری شده"}/>}
+                                path={"/dashboard/:id/bought"}
+                                component={() => <PanelBoughtTerms userInfo={userInfo} title={" گزارش دوره های خریداری شده"}/>}
                             />
-
-
                             <Redirect from={"/dashboard/:id"} to={"/dashboard/:id/panel"}/>
                         </Switch>
                     </div>
