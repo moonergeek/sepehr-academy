@@ -12,26 +12,32 @@ import {getItem} from "../../core/services/storage/storage";
 import GetUserDetails from "../../core/services/API/auth/GetUserDetail.api";
 
 const Header = (props) => {
-    const [userInformation, setUserInformation] = useState([]);
+
+    const [userInfo, setUserInfo] = useState([]);
+    const getUserInfo = async () => {
+        const result = await GetUserDetails();
+        setUserInfo(result.result);
+    }
+    useEffect(() => {
+        getUserInfo();
+    }, []);
+
     const [image, setImage] = useState("");
     const getUserInformation = async () => {
         try {
-            setImage(getItem(props.userInfo.result._id + "image"));
-            const result = await GetUserDetails();
-            setUserInformation(result.result);
+            setImage(getItem(userInfo._id + "image"));
         } catch (err) {
             console.log("header api error :" + err)
         }
     }
     useEffect(() => {
         getUserInformation()
-    }, []);
+    }, [userInfo]);
 
-    console.log(userInformation._id)
 
     return (
         <>
-            <div className="container mt-3">
+            <div className="container mt-3 mb-4">
                 <div className="row">
                     <nav className="navbar navbar-expand-lg navbar-light">
                         <div className="container-fluid">
@@ -74,7 +80,8 @@ const Header = (props) => {
                                                 <BootstrapTooltip placeMent={"left"} title="داشبرد">
                                                     <div className={"inline-block-2"}>
                                                         <div className="dropdown">
-                                                            <Link to={`/dashboard/${userInformation._id}`}>
+                                                            <Link to={`/dashboard/${userInfo._id}/panel`}>
+
                                                                 <div className={"border-violet"}>
                                                                     {image ? <img src={image} width={50}
                                                                                   className={"user-icon dropdown-toggle image-user-class"}
@@ -104,17 +111,18 @@ const Header = (props) => {
                                                             <ul className="dropdown-menu headerDrop-menu"
                                                                 aria-labelledby="dropdownMenuButton1">
                                                                 <div className={"d-flex justify-content-center"}>
-                                                                    <li>
-                                                                        <Link
-                                                                            className="dropdown-item headerDrop-item "
-                                                                            to={"/login"}>ورود</Link>
-                                                                    </li>
+                                                                    <Link to={"/login"}>
+                                                                        <li className="dropdown-item headerDrop-item ">
+                                                                            ورود
+                                                                        </li>
+                                                                    </Link>
                                                                 </div>
                                                                 <div className={"d-flex justify-content-center"}>
-                                                                    <li><Link
-                                                                        className="dropdown-item headerDrop-item"
-                                                                        to={"/register"}>ثبت
-                                                                        نام</Link></li>
+                                                                    <Link to={"/register"}>
+                                                                        <li className="dropdown-item headerDrop-item">
+                                                                            ثبت نام
+                                                                        </li>
+                                                                    </Link>
                                                                 </div>
                                                             </ul>
                                                         </div>

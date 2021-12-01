@@ -6,11 +6,7 @@ const CourseInfo = (props) => {
       <div className="info">
         <h5 className="mt-4 info-title">{props.courseData.courseName}</h5>
         <p className="mt-2 info-des">
-          این پایتون چیه که انقدر سر زبون ها افتاده و هرجا بری صحبتش هست؟زبان
-          برنامه نویسی پایتون زبانی با یادگیری آسان تلقی میشود و به همین دلیل
-          بسیاری از برنامه نویس های تازه کار آن را به عنوان زبان برنامه نویسی
-          خود انتخاب میکنند.زیرا پایتون به عنوان یک زبان همه منظوره ساخته و
-          توسعه داده شده است و محدود به توسعه و نوع خاصی از نرم افزار نیست.
+          {props.courseData.description}
         </p>
         <h5 className="mt-4 info-title">چرا باید از این دوره استفاده بکنم؟</h5>
         <p className="mt-2 info-des">

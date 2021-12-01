@@ -17,7 +17,7 @@ const CourseData = (props) => {
           <img src={icon1} alt="teacher" />
         </span>
         <span className="title">مدرس دوره : </span>
-        <span className="des"> {props.courseData.description}</span>
+        <span className="des"> حسامی</span>
       </div>
 
       <div className="time mt-3">

@@ -24,9 +24,11 @@ const PanelNavbar = (props) => {
     const [image, setImage] = useState("");
     const getUserInformation = async () => {
         try {
-            setImage(getItem(props.userInfo.result._id + "image"));
+            setImage(getItem(props.userInfo._id + "image"));
+            console.log(getItem(props.userInfo._id + "image"))
             const result = await GetUserDetails();
             setUserInformation(result.result);
+            // console.log(result.result)
         } catch (err) {
             console.log("header api error :" + err)
         }
@@ -35,10 +37,9 @@ const PanelNavbar = (props) => {
         getUserInformation()
     }, [userInformation]);
 
-
     return (
         <>
-            <div className={"navbar-panel-width position-fixed"}>
+            <div className={"navbar-panel-width"}>
                 <div className="card">
                     <img
                         height={135}
