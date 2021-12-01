@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import NotificationsNoneTwoToneIcon from "@mui/icons-material/NotificationsNoneTwoTone";
@@ -6,6 +6,8 @@ import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import HomeTwoToneIcon from "@mui/icons-material/HomeTwoTone";
 import { makeStyles } from '@mui/styles';
 import {Link} from "react-router-dom";
+import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
+import GetAllTerms from "../../../core/services/API/terms/getAllTerms";
 
 const PanelFloatBtn = () => {
     const useStyles = makeStyles({
@@ -23,13 +25,34 @@ const PanelFloatBtn = () => {
         },
     });
     const classes = useStyles();
+
+    const [userInformation, setUserInformation] = useState([]);
+
+    const getUserInformation = async () => {
+        try {
+
+            const result = await GetUserDetails();
+            setUserInformation(result.result);
+        } catch (err) {
+            console.log("header api error :" + err)
+        }
+    }
+
+
+    useEffect(() => {
+
+        getUserInformation()
+    }, [])
+
+
+
     return (
         <>
             <Box sx={{'& > :not(style)': {m: 1}}}>
                 <Fab size="small" className={classes.violet} aria-label="edit">
                     <NotificationsNoneTwoToneIcon/>
                 </Fab>
-                <Link to={"/dashboard/edit"}>
+                <Link to={"/dashboard/" + userInformation._id + "/edit"}>
                     <Fab size="small" className={classes.yellow} aria-label="edit">
                         <EditTwoToneIcon/>
                     </Fab>

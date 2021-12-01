@@ -5,6 +5,7 @@ import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
 import GetAllTerms from "../../../core/services/API/terms/getAllTerms";
 import PanelAddIcon from "../panel-add-icon/panelAddIcon";
 import Loading from "../../common/loading/loading";
+import PanelDeleteIcon from "../panel-delete-icon/panelDeleteIcon";
 
 
 const PanelTableForHpmePage = (props) => {
@@ -71,7 +72,7 @@ const PanelTableForHpmePage = (props) => {
                         <td className={"panel-td-items"}>{userInformation.terms[termObj].cost + " تومان"} </td>
                         <td className={"panel-td-items"}>
 
-                            <PanelAddIcon userInfo={props.userInfo} termId={userInformation.terms[termObj]._id}/>
+                            <PanelDeleteIcon userInfo={props.userInfo} termId={userInformation.terms[termObj]._id}/>
                         </td>
                     </> :        <>             <th scope="row" className={"panel-th-items"}>{termObj}</th>
                         <td className={"panel-td-items"}>4554-01</td>
