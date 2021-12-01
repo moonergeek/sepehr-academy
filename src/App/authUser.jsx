@@ -30,8 +30,6 @@ import {
 } from "../core/services/jsonFiles/titles.json";
 
 import {footerInfoJson} from "../core/services/jsonFiles/footerData.json";
-import {GetAllBlogsData} from "../core/services/API/blog/getAllBlogs.api";
-import {paginate} from "../core/utils/paginate";
 import GetUserDetails from "../core/services/API/auth/GetUserDetail.api";
 
 const AuthUser = () => {
@@ -46,7 +44,6 @@ const AuthUser = () => {
     const [teachersInfo] = useState(teachersInfoJson);
     const [teachersTitle] = useState(teachersTitleJson);
     const [favCoursesTitle] = useState(favCoursesTitleJson);
-    const [pageSize] = useState(12);
     const [currentPage, setCurrentPage] = useState(1);
 
     //blog
@@ -58,35 +55,15 @@ const AuthUser = () => {
         setCurrentPage(page);
     };
 
-    //loading
-    const [loadingForBlog, setLoadingForBlog] = useState(false);
-
-
-    //backend-api
-
-    const [allBlogData, setAllBlogData] = useState([]);
-
-    const getAllBlogs = async () => {
-        const result = await GetAllBlogsData();
-        setAllBlogData(result);
-        setLoadingForBlog(true);
-
-
-    };
     const [userInfo, setUserInfo] = useState([]);
 
     const getUserInfo = async () => {
         const result = await GetUserDetails();
-        // console.log(result);
         setUserInfo(result);
-        // console.log(result.result.terms)
     }
     useEffect(() => {
         getUserInfo();
-        getAllBlogs();
     }, []);
-
-    const paginatedMaghalat = paginate(allBlogData, currentPage, 6);
 
 
     return (
@@ -138,7 +115,7 @@ const AuthUser = () => {
                     <Route
                         path={"/about"}
                         render={() => (
-                            <About menuList={menuList} footerInfo={footerInfo}   userInfo={userInfo}/>
+                            <About menuList={menuList} footerInfo={footerInfo} userInfo={userInfo}/>
                         )}
                     />
 
@@ -158,7 +135,7 @@ const AuthUser = () => {
                     <Route
                         path={"/request"}
                         render={() => (
-                            <DarkhasteMoshavere menuList={menuList} footerInfo={footerInfo}   userInfo={userInfo}/>
+                            <DarkhasteMoshavere menuList={menuList} footerInfo={footerInfo} userInfo={userInfo}/>
                         )}
                     />
 
@@ -186,13 +163,6 @@ const AuthUser = () => {
                                 maghalatTitle={maghalatTitle}
                                 placeHolder={placeHolderForMaghalat}
                                 footerInfo={footerInfo}
-                                maghale={allBlogData}
-                                fullInfo={paginatedMaghalat}
-                                itemsCount4Paginate={allBlogData.length}
-                                pageSize={pageSize}
-                                currentPage={currentPage}
-                                onPageChange={handlePageChange}
-                                loading={loadingForBlog}
                                 userInfo={userInfo}
                             />
                         )}
@@ -203,8 +173,6 @@ const AuthUser = () => {
                             <Maghale
                                 menuList={menuList}
                                 footerInfo={footerInfo}
-                                maghale={allBlogData}
-                                loading={loadingForBlog}
                                 userInfo={userInfo}
                             />
                         )}
@@ -213,7 +181,7 @@ const AuthUser = () => {
                     <Route path={"/dashboard/:id"} component={() => <PanelAdmin userInfo={userInfo}/>}/>
 
                     <Route path={"/cart"} component={() => <Cart/>}/>
-                    <Redirect  to="/not-found" />
+                    <Redirect to="/not-found"/>
                 </Switch>
             </main>
         </>
