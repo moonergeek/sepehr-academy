@@ -17,7 +17,7 @@ const PanelAdmin = () => {
 
     const getUserInfo = async () => {
         const result = await GetUserDetails();
-        setUserInfo(result);
+        setUserInfo(result.result);
     }
     useEffect(() => {
         getUserInfo();

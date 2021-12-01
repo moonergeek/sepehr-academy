@@ -12,25 +12,53 @@ import {getItem} from "../../core/services/storage/storage";
 import GetUserDetails from "../../core/services/API/auth/GetUserDetail.api";
 
 const Header = (props) => {
+
+    const [userInfo, setUserInfo] = useState([]);
+
+    const getUserInfo = async () => {
+        const result = await GetUserDetails();
+        setUserInfo(result.result);
+        console.log(result.result)
+    }
+
+    useEffect(() => {
+        getUserInfo();
+    }, []);
+
+
+
+
     const [userInformation, setUserInformation] = useState([]);
     const [image, setImage] = useState("");
     const getUserInformation = async () => {
         try {
-            setImage(getItem(props.userInfo.result._id + "image"));
-            const result = await GetUserDetails();
-            setUserInformation(result.result);
+            setImage(getItem(userInfo._id + "image"));
+            console.log(userInfo._id)
+            // console.log(getItem(props.userInfo._id + "image"))
+            // console.log(props.userInfo);
+            // const result = await GetUserDetails();
+            // setUserInformation(result.result);
+            // console.log(result.result)
         } catch (err) {
             console.log("header api error :" + err)
         }
     }
     useEffect(() => {
         getUserInformation()
-    }, []);
+    }, [userInfo]);
 
-    console.log(userInformation._id)
+
+
+
+
+
+
+
+    // console.log(userInformation._id)
 
     return (
         <>
+            {/*{console.log(userInformation._id)}*/}
             <div className="container mt-3 mb-4">
                 <div className="row">
                     <nav className="navbar navbar-expand-lg navbar-light">
@@ -74,7 +102,8 @@ const Header = (props) => {
                                                 <BootstrapTooltip placeMent={"left"} title="داشبرد">
                                                     <div className={"inline-block-2"}>
                                                         <div className="dropdown">
-                                                            <Link to={`/dashboard/${userInformation._id}`}>
+                                                            <Link to={`/dashboard/${userInfo._id}/panel`}>
+
                                                                 <div className={"border-violet"}>
                                                                     {image ? <img src={image} width={50}
                                                                                   className={"user-icon dropdown-toggle image-user-class"}

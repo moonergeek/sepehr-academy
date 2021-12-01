@@ -12,6 +12,7 @@ const LayoutApp = () => {
     const getUserInfo = async () => {
         const result = await GetUserDetails();
         setUserInfo(result);
+        console.log(result.result)
     }
 
     useEffect(() => {
