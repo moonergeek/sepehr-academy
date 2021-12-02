@@ -13,26 +13,26 @@ import GetUserDetails from "../../core/services/API/auth/GetUserDetail.api";
 
 const Header = (props) => {
 
-    const [userInfo, setUserInfo] = useState([]);
-    const getUserInfo = async () => {
-        const result = await GetUserDetails();
-        setUserInfo(result.result);
-    }
-    useEffect(() => {
-        getUserInfo();
-    }, []);
-
-    const [image, setImage] = useState("");
-    const getUserInformation = async () => {
-        try {
-            setImage(getItem(userInfo._id + "image"));
-        } catch (err) {
-            console.log("header api error :" + err)
-        }
-    }
-    useEffect(() => {
-        getUserInformation()
-    }, [userInfo]);
+    // const [userInfo, setUserInfo] = useState([]);
+    // const getUserInfo = async () => {
+    //     const result = await GetUserDetails();
+    //     setUserInfo(result.result);
+    // }
+    // useEffect(() => {
+    //     getUserInfo();
+    // }, []);
+    //
+    // const [image, setImage] = useState("");
+    // const getUserInformation = async () => {
+    //     try {
+    //         setImage(getItem(userInfo._id + "image"));
+    //     } catch (err) {
+    //         console.log("header api error :" + err)
+    //     }
+    // }
+    // useEffect(() => {
+    //     getUserInformation()
+    // }, [userInfo]);
 
 
     return (

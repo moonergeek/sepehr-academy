@@ -7,7 +7,7 @@ import {Redirect, Route, Switch, useParams} from "react-router-dom";
 import PanelHomePage from "../../components/panel-admin/panel-homePage/panelHomePage";
 import {clearStorage} from "../../core/services/storage/storage";
 import {useHistory} from "react-router-dom";
-import "./panelAdmin.css";
+import "../../components/panel-admin/panelAdmin.css";
 import PanelLikedTerms from "../../components/panel-admin/panel-likedTerms/panelLikedTerms";
 import PanelBoughtTerms from "../../components/panel-admin/panel-bought-terms/panelBoughtTerms";
 import GetUserDetails from "../../core/services/API/auth/GetUserDetail.api";
