@@ -11,7 +11,6 @@ const GetUserDetails = async () => {
 
     const result = await http.get(`${MainUrl}api/student/${decoded._id}`);
     return result.data;
-    console.log(result.data)
   }
 };
 

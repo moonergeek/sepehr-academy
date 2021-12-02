@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom";
 import GetNewsById from "../../core/services/API/blog/getNewsById.api";
 import {GetAllBlogsData} from "../../core/services/API/blog/getAllBlogs.api";
 
-function Maghale(props) {
+function Maghale() {
     const {id} = useParams();
 
     const [newsByIdData, setNewsByIdData] = useState([]);

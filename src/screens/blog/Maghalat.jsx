@@ -16,7 +16,7 @@ const Maghalat = () => {
     const [allBlogData, setAllBlogData] = useState([]);
     const [loadingForBlog, setLoadingForBlog] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize] = useState(12);
+    const [pageSize] = useState(6);
 
     const getAllBlogs = async () => {
         const result = await GetAllBlogsData();
@@ -33,7 +33,7 @@ const Maghalat = () => {
         getAllBlogs();
     }, []);
 
-    const paginatedMaghalat = paginate(allBlogData, currentPage, 6);
+    const paginatedMaghalat = paginate(allBlogData, currentPage, pageSize);
 
     return (
         <>

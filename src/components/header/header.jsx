@@ -16,7 +16,7 @@ const Header = (props) => {
     const [userInfo, setUserInfo] = useState([]);
     const getUserInfo = async () => {
         const result = await GetUserDetails();
-        setUserInfo(result);
+        setUserInfo(result.result);
     }
     useEffect(() => {
         getUserInfo();
@@ -25,7 +25,7 @@ const Header = (props) => {
     const [image, setImage] = useState("");
     const getUserInformation = async () => {
         try {
-            setImage(getItem(userInfo.result._id + "image"));
+            setImage(getItem(userInfo._id + "image"));
         } catch (err) {
             console.log("header api error :" + err)
         }
@@ -80,7 +80,7 @@ const Header = (props) => {
                                                 <BootstrapTooltip placeMent={"left"} title="داشبرد">
                                                     <div className={"inline-block-2"}>
                                                         <div className="dropdown">
-                                                            <Link to={`/dashboard/${userInfo.result._id}/panel`}>
+                                                            <Link to={`/dashboard/${userInfo._id}/panel`}>
 
                                                                 <div className={"border-violet"}>
                                                                     {image ? <img src={image} width={50}

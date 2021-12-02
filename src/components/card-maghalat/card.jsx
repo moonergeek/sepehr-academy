@@ -1,10 +1,10 @@
-import React, {Component, useEffect, useState} from "react";
+import React from "react";
 import "./card.css"
 import BlogLine from "../common/blogLine/blogLine";
 import ReadBtn from "../common/readBtn/readBtn";
 import Comment from "../common/comment/comment";
 import Like from "../common/like/like";
-import {Link, Route, Router, Switch} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Card = (props) => {
 
