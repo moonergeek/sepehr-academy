@@ -15,8 +15,16 @@ const Header = (props) => {
 
     const [userInfo, setUserInfo] = useState([]);
     const getUserInfo = async () => {
-        const result = await GetUserDetails();
-        setUserInfo(result.result);
+
+        console.log(getItem("token"))
+        if (getItem("token") === false){
+
+        }
+        else {
+            const result = await GetUserDetails();
+            setUserInfo(result.result);
+        }
+
     }
     useEffect(() => {
         getUserInfo();
@@ -24,11 +32,17 @@ const Header = (props) => {
 
     const [image, setImage] = useState("");
     const getUserInformation = async () => {
-        try {
-            setImage(getItem(userInfo._id + "image"));
-        } catch (err) {
-            console.log("header api error :" + err)
+        if (getItem("token") === false){
+
         }
+        else {
+            try {
+                setImage(getItem(userInfo._id + "image"));
+            } catch (err) {
+                console.log("header api error :" + err)
+            }
+        }
+
     }
     useEffect(() => {
         getUserInformation()

@@ -3,7 +3,7 @@ import "../../Course.css"
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PostLikeData from "../../../../core/services/API/like/postLike.api";
-import {toast} from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
 import GetCourseById from "../../../../core/services/API/course/getCourseById.api";
 import GetUserDetails from "../../../../core/services/API/auth/GetUserDetail.api";
 import {useParams} from "react-router-dom";
@@ -94,7 +94,12 @@ const FavComponent = () => {
 
     return (
         <>
-
+            <ToastContainer
+                position="top-center"
+                limit={1}
+                autoClose={2000}
+                rtl={true}
+            />
             <div className="fav-background mt-5 rounded-3 p-3 d-flex justify-content-center">
 
                 <span className="fav-link">{termLikesById.like}</span>

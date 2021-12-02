@@ -1,5 +1,5 @@
 import React from 'react';
-import "./forgetPass.css"
+import "../../components/Login/forgetPass.css"
 import picture from  "../../assets/img/svg/Mask Group 1.svg"
 import {useFormik} from "formik";
 import {Link} from "react-router-dom";

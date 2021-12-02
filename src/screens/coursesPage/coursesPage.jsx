@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import "./coursesPage.css"
+import "../../components/courses/coursesPage.css"
 import DropDownBtn from "../../components/dropDownBtn/dropDownBtn";
 import CoursesBody from "../../components/courses/coursesBody/coursesBody";
 import Pagination from "../../components/common/pagination/pagination";

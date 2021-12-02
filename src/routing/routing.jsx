@@ -12,7 +12,7 @@ import ForgetPass from "../screens/forgetPass/forgetPass";
 import Course from "../screens/Course/Course";
 import NotFound from "../screens/NotFound/NotFound";
 import Maghalat from "../screens/blog/Maghalat";
-import Maghale from "../screens/blog/maghale";
+import Maghale from "../screens/article/maghale";
 import PanelAdmin from "../screens/panel-Admin/panelAdmin";
 import Cart from "../screens/cart/Cart";
 

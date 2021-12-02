@@ -3,8 +3,6 @@ import "../../components/about/About.css";
 import AboutImg from "../../components/about/AboutImg/AboutImg";
 import AboutTitle from "../../components/about/AboutTitle/AboutTitle";
 import AboutDes from "../../components/about/AboutDes/AboutDes";
-import Header from "../../components/header/header";
-import Footer from "../../components/footer/footer";
 import Title from "../../components/moshavere-req/Title/Title";
 
 const About = (props) => {

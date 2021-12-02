@@ -1,5 +1,5 @@
 import React from 'react';
-import "./fAQ.css"
+import "../../components/moshavere-req/fAQ.css"
 import Badge from "@mui/material/Badge";
 import {NavLink, Redirect, Route, Switch} from "react-router-dom";
 import Accordion from "../../components/acc-question/accordion";

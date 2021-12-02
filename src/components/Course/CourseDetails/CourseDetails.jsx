@@ -3,8 +3,8 @@ import CourseData from "./CourseData/CourseData";
 import SignButton from "./SignButton/SignButton";
 import AskQuestions from "./AskQuestions/AskQuestions";
 import Sharing from "./Sharing/Sharing";
-import FavComponent from "../../../screens/Course/CourseDetails/favComponent/favComponent";
-import SeeSavedFavs from "../../../screens/Course/CourseDetails/seeSavedFavs/seeSavedFavs";
+import FavComponent from "./favComponent/favComponent";
+import SeeSavedFavs from "./seeSavedFavs/seeSavedFavs";
 
 
 const CourseDetails = (props) => {

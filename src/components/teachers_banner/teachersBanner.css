@@ -1,44 +1,50 @@
-.teacher-back{
+.teacher-back {
     background: #F3FCF8;
     box-shadow: 0 3px 6px #E1F7ED;
 }
-.teacher-png{
+
+.teacher-png {
     width: 400px;
 }
-.teacher-title{
+
+.teacher-title {
     font-size: 19px;
     color: #323E73;
     margin-top: 40px;
     margin-right: 140px;
 }
 
+
 /*miniSlider Styles*/
-#miniGallery > .miniItems{
-    width:75px;
-    height:100%;
+
+#miniGallery>.miniItems {
+    width: 75px;
+    height: 100%;
     float: right;
     text-align: center;
-
 }
-#miniGallery > .miniItems > img{
-    width:70%;
+
+#miniGallery>.miniItems>img {
+    width: 70%;
     margin-top: 40px;
-
 }
+
 #miniSlideshow {
     overflow: hidden;
-    height:100%;
+    height: 100%;
     position: relative;
 }
-#miniSlideshow > #miniGallery {
+
+#miniSlideshow>#miniGallery {
     width: 500%;
-    height:100%;
+    height: 100%;
     position: relative;
     right: 50px;
     transition: 0.5s;
 }
-#miniSlideshow > #miniRight {
-    background:url("../../assets/img/icons/next.png") no-repeat;
+
+#miniSlideshow>#miniRight {
+    background: url("../../assets/img/icons/next.png") no-repeat;
     background-size: 70%;
     cursor: pointer;
     width: 40px;
@@ -47,23 +53,25 @@
     top: 55px;
     right: 0px;
     opacity: 70%;
-
 }
-#miniSlideshow > #miniLeft {
+
+#miniSlideshow>#miniLeft {
     width: 40px;
     background: url("../../assets/img/icons/left-arrow.png") no-repeat;
     background-size: 70%;
     cursor: pointer;
-    height:180px;
+    height: 180px;
     position: absolute;
     top: 55px;
     left: 100px;
     opacity: 70%;
 }
-.mini-text{
+
+.mini-text {
     margin-top: 9px;
     font-size: 14px;
     color: #323E73;
 }
+
 
 /*miniSlider end*/

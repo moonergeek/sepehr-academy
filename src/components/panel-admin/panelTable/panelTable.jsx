@@ -17,7 +17,6 @@ const PanelTable = (props) => {
         <>
 
 
-            {/*<img className={"table-course-img"} src={props.userInfo.result.terms[0].course.image} alt="course1"/>*/}
             <table className="table panel-table table-borderless">
                 <thead className={"thead-color"}>
                 <tr className={"tr-color"}>

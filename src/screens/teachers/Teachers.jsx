@@ -5,6 +5,7 @@ import SearchBox from "../../components/searchBox/serachbox";
 import Pagination from "../../components/common/pagination/pagination";
 import Title from "../../components/moshavere-req/Title/Title";
 import {teachersData} from "../../core/services/jsonFiles/teachersData.json"
+import SearchBoxForTeachers from "../../components/searchBox/searchBoxForTeachers/searchBoxForTeachers";
 
 const Teachers = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,7 +18,7 @@ const Teachers = () => {
       <div className="container">
         <div className="row mt-4">
           <form className="d-flex  mb-5 col-md-12 col-lg-12 col-sm-12 col-12 justify-content-center">
-            <SearchBox placeHolder={"جستجو نام استاد"}/>
+            <SearchBoxForTeachers placeHolder={"جستجو نام استاد"}  teacherInfo={teachersData}/>
           </form>
           <Teacher teacherInfo={teachersData} />
           <form className="d-flex mb-2 justify-content-center mt-5">

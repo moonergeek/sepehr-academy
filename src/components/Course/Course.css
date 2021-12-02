@@ -30,10 +30,6 @@
   width: 100%;
 }
 
-.sign-btn:hover {
-  background-color: #21ce70 !important;
-}
-
 .ask-questions {
   background-color: #e1f7ed;
   color: #323e73;
@@ -44,13 +40,12 @@
 .question-link {
   color: #61ce70;
   padding: 0 3px 0 3px;
-  cursor: pointer;
 }
 
 .share {
   margin-right: 8px;
   padding: 10px 0;
-  box-shadow: 0 3px 10px #e1f7ed;
+  box-shadow: 0 3px 10px #E1F7ED;
   color: #323e73;
 }
 
@@ -80,18 +75,38 @@
 }
 
 .light-green-shadow {
-  box-shadow: 0 3px 10px #e1f7ed;
+  box-shadow: 0 3px 10px #E1F7ED;
 }
 
-.img-padding {
-  padding: 40px 100px;
-}
-.order-first {
-  background: #fbfefd;
-  margin-bottom: 30px;
+.fav-background {
+  background-color: #fff0f3;
+  color: #323e73;
+  width: 100%;
+  font-size: 15px;
 }
 
-.linkedin {
-  position: relative;
-  top: -2px;
+.fav-link {
+  color: #e5383b;
+  padding: 0 3px 0 3px;
+  cursor: pointer;
+}
+
+.seeSavedFavs-background {
+  background-color: #caf0f8;
+  color: #323e73;
+  width: 100%;
+  font-size: 15px;
+}
+
+.seeSavedFavs-link {
+  color: #6930c3;
+  padding: 0 3px 0 3px;
+  cursor: pointer;
+}
+.dislike-count{
+  margin: 8px;
+  cursor: pointer;
+}
+.dislike-icon{
+  cursor: pointer;
 }
