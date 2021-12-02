@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import NotificationsNoneTwoToneIcon from "@mui/icons-material/NotificationsNoneTwoTone";
@@ -7,7 +7,6 @@ import HomeTwoToneIcon from "@mui/icons-material/HomeTwoTone";
 import { makeStyles } from '@mui/styles';
 import {Link} from "react-router-dom";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
-import GetAllTerms from "../../../core/services/API/terms/getAllTerms";
 import {useStateIfMounted} from "use-state-if-mounted";
 
 const PanelFloatBtn = () => {

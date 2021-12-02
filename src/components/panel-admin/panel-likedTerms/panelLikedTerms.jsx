@@ -7,12 +7,13 @@ import {getItem} from "../../../core/services/storage/storage";
 import GetTermById from "../../../core/services/API/terms/getTermById";
 import PanelTableForLikedTerms from "../panelTable/panelTableForLikedTerms";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
+import {useStateIfMounted} from "use-state-if-mounted";
 
 const PanelLikedTerms = (props) => {
 
-    const [likedTerm, setLikedTerm] = useState([]);
-    const [term, setTerm] = useState([]);
-    const [userInformation, setUserInformation] = useState([]);
+    const [likedTerm, setLikedTerm] = useStateIfMounted([]);
+    const [term, setTerm] = useStateIfMounted([]);
+    const [userInformation, setUserInformation] = useStateIfMounted([]);
 
 
     const getUserInformation = async () => {

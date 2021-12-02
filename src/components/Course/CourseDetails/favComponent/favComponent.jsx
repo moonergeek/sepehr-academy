@@ -11,18 +11,19 @@ import GetCountLikeById from "../../../../core/services/API/like/getCountLike";
 import ThumbDownAltTwoToneIcon from '@mui/icons-material/ThumbDownAltTwoTone';
 import PostDisLikeData from "../../../../core/services/API/like/postDisLike";
 import {setItem} from "../../../../core/services/storage/storage";
+import {useStateIfMounted} from "use-state-if-mounted";
 
 
 const FavComponent = () => {
 
     const {id} = useParams();
-    const [courseByIdData, setCourseByIdData] = useState([]);
+    const [courseByIdData, setCourseByIdData] = useStateIfMounted([]);
     const getCourseById = async () => {
         const result = await GetCourseById(id);
         setCourseByIdData(result);
     };
-    const [likeSituation, setLikeSituation] = useState(false);
-    const [userInfo, setUserInfo] = useState([]);
+    const [likeSituation, setLikeSituation] = useStateIfMounted(false);
+    const [userInfo, setUserInfo] = useStateIfMounted([]);
 
     const getUserInfo = async () => {
         const result = await GetUserDetails();
@@ -76,11 +77,11 @@ const FavComponent = () => {
     };
 
 
-    const [termLikesById, setTermLikesById] = useState([]);
+    // const [termLikesById, setTermLikesById] = useStateIfMounted([]);
     const getTermLikesById = async () => {
 
         const result = await GetCountLikeById(courseByIdData._id);
-        setTermLikesById(result.result);
+        // setTermLikesById(result.result);
     };
 
     useEffect(() => {
@@ -102,7 +103,7 @@ const FavComponent = () => {
             />
             <div className="fav-background mt-5 rounded-3 p-3 d-flex justify-content-center">
 
-                <span className="fav-link">{termLikesById.like}</span>
+                <span className="fav-link">{"termLikesById.like"}</span>
                 <span className="fav-link">
 
                     {likeSituation ? <FavoriteIcon/> : <FavoriteTwoToneIcon onClick={likeButton}/>}
@@ -111,7 +112,7 @@ const FavComponent = () => {
                 |
                 <div className={"dislike"}>
 
-                    <span className="dislike-count">{termLikesById.dislike}</span>
+                    <span className="dislike-count">{"termLikesById.dislike"}</span>
 
                     <span className={"dislike-icon"}>
                     <ThumbDownAltTwoToneIcon onClick={disLikeButton}/>
@@ -121,7 +122,7 @@ const FavComponent = () => {
 
             </div>
 
-            {console.log(getTermLikesById())}
+            {/*{console.log(getTermLikesById())}*/}
         </>
     );
 };

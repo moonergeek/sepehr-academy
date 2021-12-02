@@ -98,44 +98,41 @@ const SearchBox = (props) => {
             </div>
 
 
-            {filteredDataForBlog.length != 0 || filteredDataForCourses.length != 0 ? (
+            {filteredDataForBlog.length !== 0 || filteredDataForCourses.length !== 0 ? (
                 <div className={"controllerForHomePage"}>
                     <div className="dataResult">
 
                         {filteredDataForBlog.slice(0, 5).map((value, key) => {
                             return (
-                                <>
+                                <div key={value._id}>
+                                    <div>
                                     <p className={"titleHeader"}>مقاله</p>
                                     <div className={"holder"}>
                                         <Link to={"/blog/maghale/" + value._id}>
-
                                             <img className={"itemsImg"} src={value.image} alt={""}/>
-
-
-                                            <a className="dataItem" target="_blank">
+                                            <span className="dataItem">
                                                 <p>{value.title} </p>
-                                            </a>
-
+                                            </span>
                                         </Link>
                                     </div>
-
+                                    </div>
                                     {filteredDataForCourses.map((value,) => {
                                         return (
-                                            <>
+                                            <div key={value._id}>
                                                 <p className={"titleHeader"}>دوره</p>
                                                 <div className={"holder"}>
                                                     <Link to={"/course/" + value._id}>
                                                         <img className={"itemsImg"} src={value.image} alt={""}/>
-                                                        <a className="dataItem" target="_blank">
+                                                        <span className="dataItem">
                                                             <p>{value.courseName}</p>
-                                                        </a>
+                                                        </span>
                                                     </Link>
                                                 </div>
-                                            </>
+                                            </div>
                                         )
                                     })}
 
-                                </>
+                                </div>
                             );
                         })}
                     </div>

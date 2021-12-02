@@ -5,10 +5,11 @@ import "../common/comment/comment.css"
 import ModeCommentTwoToneIcon from '@mui/icons-material/ModeCommentTwoTone';
 
 import axios from "axios";
+import {useStateIfMounted} from "use-state-if-mounted";
 
 const CommentShow = () => {
     const params = useParams().id;
-    const [state, setState] = useState([]);
+    const [state, setState] = useStateIfMounted([]);
     const GetAllComments = async () => {
         const result = await axios.get(
             "https://academy-reaction.herokuapp.com/api/comment/"
@@ -27,7 +28,7 @@ const CommentShow = () => {
                     نظرات کاربران :
                 </h5>
                 {state.map((comm) => (
-                    <div>
+                    <div key={comm.username}>
                         <div className="container mt-5 d-flex comment-border">
                             <div>
                                 <img width="40%" className="responsive-img" src={cm} alt={"..."}/>

@@ -45,12 +45,6 @@ const SearchBoxForCourses = (props) => {
     };
 
 
-
-
-
-
-
-
     return (
 
         <div className="search  me-2">
@@ -59,7 +53,7 @@ const SearchBoxForCourses = (props) => {
                 <input
                     className={"inputTag"}
                     type="text"
-                    placeholder={props.placeHolder}
+                    placeholder={props.placeholder}
                     value={wordEntered}
                     onChange={handleFilter}
                 />
@@ -71,18 +65,18 @@ const SearchBoxForCourses = (props) => {
                     )}
                 </div>
             </div>
-            {filteredData.length != 0 && (
+            {filteredData.length !== 0 && (
                 <div className={"controllerForCourses"}>
                 <div className="dataResultForCourses">
                     {filteredData.slice(0, 15).map((value, key) => {
 
                         return (
-                            <div className={"holderForCourses"}>
+                            <div key={value._id} className={"holderForCourses"}>
                             <Link to={"/course/" + value._id}>
                                 <img className={"itemsImgForCourses"} src={value.image} alt={""}/>
-                            <a className="dataItemForCourses"  target="_blank">
+                            <span className="dataItemForCourses">
                                 <p>{value.courseName} </p>
-                            </a>
+                            </span>
                             </Link>
                             </div>
                         );

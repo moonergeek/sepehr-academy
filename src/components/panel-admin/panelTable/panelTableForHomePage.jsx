@@ -9,8 +9,7 @@ import PanelDeleteIcon from "../panel-delete-icon/panelDeleteIcon";
 import {useStateIfMounted} from "use-state-if-mounted";
 
 
-const PanelTableForHpmePage = (props) => {
-    const [value, setValue] = useStateIfMounted('checking value...');
+const PanelTableForHomePage = (props) => {
     const [allTerms, setAllTerms] = useStateIfMounted([]);
     const [loading, setLoading] = useStateIfMounted(false);
     const [userInformation, setUserInformation] = useStateIfMounted([]);
@@ -115,4 +114,4 @@ const PanelTableForHpmePage = (props) => {
     );
 };
 
-export default PanelTableForHpmePage;
+export default PanelTableForHomePage;

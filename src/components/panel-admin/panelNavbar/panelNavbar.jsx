@@ -17,11 +17,12 @@ import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import {Link} from "react-router-dom";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
 import {getItem} from "../../../core/services/storage/storage";
+import {useStateIfMounted} from "use-state-if-mounted";
 
 
 const PanelNavbar = (props) => {
-    const [userInformation, setUserInformation] = useState([]);
-    const [image, setImage] = useState("");
+    const [userInformation, setUserInformation] = useStateIfMounted([]);
+    const [image, setImage] = useStateIfMounted("");
     const getUserInformation = async () => {
         try {
             setImage(getItem(props.userInfo._id + "image"));
@@ -58,7 +59,7 @@ const PanelNavbar = (props) => {
                             placement={"left"}
                             title="خروج"
                         >
-                            <img src={logOut} className={"logOut-img"}/>
+                            <img src={logOut} className={"logOut-img"} alt={"..."}/>
                         </BootstrapTooltip>
 
 

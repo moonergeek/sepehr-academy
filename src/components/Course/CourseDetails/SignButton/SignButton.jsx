@@ -17,30 +17,30 @@ const SignButton = () => {
 
             {getItem("token") ? (
                 <div
-                    class="modal fade"
+                    className="modal fade"
                     id="exampleModal"
-                    tabindex="-1"
+                    tabIndex="-1"
                     aria-labelledby="exampleModalLabel"
                     aria-hidden="true"
                 >
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content">
+                            <div className="modal-header">
                                 <button
                                     type="button"
-                                    class="btn-close"
+                                    className="btn-close"
                                     data-bs-dismiss="modal"
                                     aria-label="Close"
                                 />
                             </div>
-                            <h5 class="modal-body d-flex justify-content-center text-color">
+                            <h5 className="modal-body d-flex justify-content-center text-color">
                                 آیا میخواهید در دوره عضو شوید؟
                             </h5>
 
-                            <div class="modal-footer d-flex justify-content-center">
+                            <div className="modal-footer d-flex justify-content-center">
                                 <button
                                     type="button"
-                                    class="btn panel-no"
+                                    className="btn panel-no"
                                     data-bs-dismiss="modal"
                                 >
                                     خیر
@@ -48,7 +48,7 @@ const SignButton = () => {
                                 <Link to="/cart">
                                     <button
                                         type="button"
-                                        class="btn sign-btn"
+                                        className="btn sign-btn"
                                         data-bs-dismiss="modal"
                                     >
                                         بله
@@ -60,32 +60,32 @@ const SignButton = () => {
                 </div>
             ) : (
                 <div
-                    class="modal fade"
+                    className="modal fade"
                     id="exampleModal"
-                    tabindex="-1"
+                    tabIndex="-1"
                     aria-labelledby="exampleModalLabel"
                     aria-hidden="true"
                 >
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content">
+                            <div className="modal-header">
                                 <button
                                     type="button"
-                                    class="btn-close"
+                                    className="btn-close"
                                     data-bs-dismiss="modal"
                                     aria-label="Close"
                                 />
                             </div>
-                            <h5 class="modal-body d-flex justify-content-center text-color">
+                            <h5 className="modal-body d-flex justify-content-center text-color">
                                 شما هنوز وارد سایت ما نشدید
                             </h5>
 
-                            <img className="img-padding" src={modalSign}/>
-                            <div class="modal-footer d-flex justify-content-center">
+                            <img className="img-padding" src={modalSign} alt={"..."}/>
+                            <div className="modal-footer d-flex justify-content-center">
                                 <Link to="/login">
                                     <button
                                         type="button"
-                                        class="btn sign-btn"
+                                        className="btn sign-btn"
                                         data-bs-dismiss="modal"
                                     >
                                         ورود
@@ -94,7 +94,7 @@ const SignButton = () => {
                                 <Link to="/register">
                                     <button
                                         type="button"
-                                        class="btn panel-no"
+                                        className="btn panel-no"
                                         data-bs-dismiss="modal"
                                     >
                                         ثبت نام

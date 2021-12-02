@@ -53,7 +53,7 @@ const SearchBoxForBlog = (props) => {
                 <input
                     className={"inputTag"}
                     type="text"
-                    placeholder={props.placeHolder}
+                    placeholder={props.placeholder}
                     value={wordEntered}
                     onChange={handleFilter}
                 />
@@ -65,17 +65,17 @@ const SearchBoxForBlog = (props) => {
                     )}
                 </div>
             </div>
-            {filteredData.length != 0 && (
+            {filteredData.length !== 0 && (
                 <div className={"controllerForBlog"}>
                 <div className="dataResultForBlog">
                     {filteredData.slice(0, 5).map((value, key) => {
                         return (
-                            <div className={"holderForBlog"}>
+                            <div key={value._id} className={"holderForBlog"}>
                             <Link to={"/blog/maghale/" + value._id}>
                                 <img className={"itemsImgForBlog"} src={value.image} alt={""}/>
-                                <a className="dataItemForBlog" target="_blank">
+                                <span className="dataItemForBlog">
                                     <p>{value.title} </p>
-                                </a>
+                                </span>
 
                             </Link>
                     </div>
