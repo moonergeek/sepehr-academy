@@ -6,13 +6,14 @@ import GetAllTerms from "../../../core/services/API/terms/getAllTerms";
 import PanelAddIcon from "../panel-add-icon/panelAddIcon";
 import Loading from "../../common/loading/loading";
 import PanelDeleteIcon from "../panel-delete-icon/panelDeleteIcon";
+import {useStateIfMounted} from "use-state-if-mounted";
 
 
 const PanelTableForHpmePage = (props) => {
-
-    const [allTerms, setAllTerms] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [userInformation, setUserInformation] = useState([]);
+    const [value, setValue] = useStateIfMounted('checking value...');
+    const [allTerms, setAllTerms] = useStateIfMounted([]);
+    const [loading, setLoading] = useStateIfMounted(false);
+    const [userInformation, setUserInformation] = useStateIfMounted([]);
 
     const getUserInformation = async () => {
         try {
@@ -27,10 +28,15 @@ const PanelTableForHpmePage = (props) => {
         }
     }
 
+    // useEffect(() => {
+    //     getUserInformation().then(() => {
+    //         setValue("done!"); // no more error
+    //     });
+    // }, []);
 
     useEffect(() => {
 
-        getUserInformation()
+        getUserInformation();
     }, [])
 
 

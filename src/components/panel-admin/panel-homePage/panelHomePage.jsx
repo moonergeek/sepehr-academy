@@ -3,10 +3,11 @@ import PanelTitle from "../panel-title/panelTitle";
 import PanelFloatBtn from "../panel-float-btn/panelFloatBtn";
 import PanelTableForHpmePage from "../panelTable/panelTableForHomePage";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
+import {useStateIfMounted} from "use-state-if-mounted";
 
 const PanelHomePage = (props) => {
 
-    const [userInformation, setUserInformation] = useState([]);
+    const [userInformation, setUserInformation] = useStateIfMounted([]);
 
 
 

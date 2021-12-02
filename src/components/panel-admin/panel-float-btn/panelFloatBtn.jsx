@@ -8,6 +8,7 @@ import { makeStyles } from '@mui/styles';
 import {Link} from "react-router-dom";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
 import GetAllTerms from "../../../core/services/API/terms/getAllTerms";
+import {useStateIfMounted} from "use-state-if-mounted";
 
 const PanelFloatBtn = () => {
     const useStyles = makeStyles({
@@ -26,7 +27,7 @@ const PanelFloatBtn = () => {
     });
     const classes = useStyles();
 
-    const [userInformation, setUserInformation] = useState([]);
+    const [userInformation, setUserInformation] = useStateIfMounted([]);
 
     const getUserInformation = async () => {
         try {
