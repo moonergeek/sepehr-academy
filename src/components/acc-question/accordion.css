@@ -20,10 +20,10 @@
     background-color:#E1F7ED;
 }
 .accordion-button::after{
-    background-image: url("../../assets/img/add.png");
+    background-image: url("../../assets/img/icons/add.png");
    position: absolute;
     left: 25px;
 }
 .accordion-button:not(.collapsed)::after{
-    background-image: url("../../assets/img/minus.png");
+    background-image: url("../../assets/img/lines/minus.png");
 }

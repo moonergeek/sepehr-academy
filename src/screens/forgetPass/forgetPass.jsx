@@ -1,6 +1,6 @@
 import React from 'react';
 import "./forgetPass.css"
-import picture from  "../../assets/img/Mask Group 1.svg"
+import picture from  "../../assets/img/svg/Mask Group 1.svg"
 import {useFormik} from "formik";
 import {Link} from "react-router-dom";
 import {BsArrowLeftShort} from "react-icons/all";

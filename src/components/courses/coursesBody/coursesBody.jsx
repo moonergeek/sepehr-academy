@@ -1,8 +1,8 @@
 import React from 'react';
 import "./coursesBody.css"
-import userIcon from "../../../assets/img/user light blue.png"
-import lineImage from "../../../assets/img/Component 8 – 1.png"
-import stopWatch from "../../../assets/img/stopwatch.png"
+import userIcon from "../../../assets/img/icons/user light blue.png"
+import lineImage from "../../../assets/img/lines/Component 8 – 1.png"
+import stopWatch from "../../../assets/img/icons/stopwatch.png"
 import {Link} from "react-router-dom";
 
 const CoursesBody = (props) => {

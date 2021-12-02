@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import logoGreen from "../../assets/img/logo green.png";
+import logoGreen from "../../assets/img/graphics/logo green.png";
 import "./header.css"
 import {BsThreeDots, FaCircle, FaUserPlus, MdShoppingCart,} from "react-icons/all";
-import userImage from "../../assets/img/img4.png";
+import userImage from "../../assets/img/user-images/img4.png";
 import {NavLink, Link} from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import {BootstrapTooltip} from "../tooltip/bootstrapTooltip"
@@ -16,7 +16,7 @@ const Header = (props) => {
     const [userInfo, setUserInfo] = useState([]);
     const getUserInfo = async () => {
         const result = await GetUserDetails();
-        setUserInfo(result.result);
+        setUserInfo(result);
     }
     useEffect(() => {
         getUserInfo();
@@ -25,7 +25,7 @@ const Header = (props) => {
     const [image, setImage] = useState("");
     const getUserInformation = async () => {
         try {
-            setImage(getItem(userInfo._id + "image"));
+            setImage(getItem(userInfo.result._id + "image"));
         } catch (err) {
             console.log("header api error :" + err)
         }
@@ -80,7 +80,7 @@ const Header = (props) => {
                                                 <BootstrapTooltip placeMent={"left"} title="داشبرد">
                                                     <div className={"inline-block-2"}>
                                                         <div className="dropdown">
-                                                            <Link to={`/dashboard/${userInfo._id}/panel`}>
+                                                            <Link to={`/dashboard/${userInfo.result._id}/panel`}>
 
                                                                 <div className={"border-violet"}>
                                                                     {image ? <img src={image} width={50}

@@ -1,7 +1,7 @@
 import React from "react";
-import linkedin from "../../../../../assets/img/linkedin.png";
-import telegram from "../../../../../assets/img/telegram(1).svg";
-import facebook from "../../../../../assets/img/facebook.svg";
+import linkedin from "../../../../../assets/img/icons/linkedin.png";
+import telegram from "../../../../../assets/img/svg/telegram(1).svg";
+import facebook from "../../../../../assets/img/svg/facebook.svg";
 
 const Icons = () => {
   return (

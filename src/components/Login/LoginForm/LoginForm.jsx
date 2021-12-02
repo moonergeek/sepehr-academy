@@ -4,7 +4,7 @@ import LoginButton from "../LoginButton/LoginButton";
 import { Link, useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
-import eyeImg from "../../../assets/img/eyeicon.png";
+import eyeImg from "../../../assets/img/icons/eyeicon.png";
 import "../Login.css";
 import LoginUser from "../../../core/services/API/auth/Login.api";
 

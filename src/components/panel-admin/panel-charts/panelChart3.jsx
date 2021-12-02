@@ -1,5 +1,5 @@
 import React from 'react';
-import chart3 from "../../../assets/img/charts 3.png"
+import chart3 from "../../../assets/img/charts/charts 3.png"
 
 const PanelChart3 = () => {
     return (

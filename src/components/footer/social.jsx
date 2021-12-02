@@ -1,5 +1,5 @@
 import React from 'react';
-import social from "../../assets/img/Group 21.svg";
+import social from "../../assets/img/svg/Group 21.svg";
 import "./footer.css"
 
 const Social = () => {

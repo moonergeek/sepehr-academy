@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import AuthUser from "./authUser";
+import AuthUser from "./authUser/authUser";
 import CoursesProvider from "../core/services/Context/Courses/CoursesProvider";
 
 const App = () => {

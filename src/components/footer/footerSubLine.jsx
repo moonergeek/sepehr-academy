@@ -1,6 +1,6 @@
 import React from 'react';
 import "./footer.css"
-import footerSubLine from "../../assets/img/Component 8 – 1.png";
+import footerSubLine from "../../assets/img/lines/Component 8 – 1.png";
 
 const FooterSubLine = () => {
     return (

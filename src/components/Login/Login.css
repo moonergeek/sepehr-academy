@@ -4,7 +4,7 @@
 }
 
 .login-container {
-    background: url("../../assets/img/background.png") repeat-x 30%;
+    background: url("../../assets/img/backgrounds/background.png") repeat-x 30%;
     box-shadow: 0 3px 10px #e1f7ed !important;
 }
 
@@ -65,7 +65,7 @@
 
 @media only screen and (max-width: 1200px) {
     .login-container {
-        background: url("../../assets/img/background.png") repeat-x;
+        background: url("../../assets/img/backgrounds/background.png") repeat-x;
     }
     .login-image {
         width: 450px;

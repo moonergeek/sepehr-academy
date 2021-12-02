@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Cart.css";
-import Repic from "../../assets/img/1280px-React-icon.svg.png";
-import Angu from "../../assets/img/Angular_full_color_logo.svg.png";
-import Vue from "../../assets/img/1184px-Vue.js_Logo_2.svg.png";
+import Repic from "../../assets/img/icons/1280px-React-icon.svg.png";
+import Angu from "../../assets/img/icons/Angular_full_color_logo.svg.png";
+import Vue from "../../assets/img/icons/1184px-Vue.js_Logo_2.svg.png";
 
 const Cart = () => {
   const [state, setState] = useState([

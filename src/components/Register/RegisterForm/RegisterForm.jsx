@@ -4,7 +4,7 @@ import RegisterButton from "../RegisterButton/RegisterButton";
 import { useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
-import eyeImg from "../../../assets/img/eyeicon.png";
+import eyeImg from "../../../assets/img/icons/eyeicon.png";
 import "../Register.css";
 import RegisterUser from "../../../core/services/API/auth/Register.api";
 

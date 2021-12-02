@@ -1,8 +1,8 @@
 import React from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
-import image1 from "../../assets/img/teachers1.png"
-import image2 from "../../assets/img/teachers2.png"
+import image1 from "../../assets/img/user-images/teachers1.png"
+import image2 from "../../assets/img/user-images/teachers2.png"
 import "./slideShowTeachers.css"
 
 const slideImages = [

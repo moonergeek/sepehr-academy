@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer, toast} from 'react-toastify';
 import "./editPanelUser.css"
 import PanelTitle from "../panel-title/panelTitle";
-import cloud from "../../../assets/img/cloud-computing.png"
+import cloud from "../../../assets/img/icons/cloud-computing.png"
 import PostImage from "../../../core/services/API/uploadImg/postImage.api";
 import 'react-toastify/dist/ReactToastify.css';
 import {getItem, setItem} from "../../../core/services/storage/storage";

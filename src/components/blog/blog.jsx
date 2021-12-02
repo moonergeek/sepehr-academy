@@ -1,7 +1,6 @@
 import React from 'react';
 import "./blog.css"
 import CourseHeader from "../courses/courseHeader/courseHeader";
-import blogBanner from "../../assets/img/006.jpg"
 import ReadBtn from "../common/readBtn/readBtn";
 import Comment from "../common/comment/comment";
 import Like from "../common/like/like";
