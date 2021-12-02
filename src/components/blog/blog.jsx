@@ -1,7 +1,6 @@
 import React from 'react';
 import "./blog.css"
 import CourseHeader from "../courses/courseHeader/courseHeader";
-import blogBanner from "../../assets/img/blogs/006.jpg"
 import ReadBtn from "../common/readBtn/readBtn";
 import Comment from "../common/comment/comment";
 import Like from "../common/like/like";
@@ -21,7 +20,7 @@ const Blog = (props) => {
                     </div>
                     <div className="document-body mt-4">
                         <div className="row">
-                            {Object.keys(props.blogInfo).map(blogObj => <div key={blogObj} className="col-sm-12 col-md-6 col-lg-4">
+                            {Object.keys(props.blogInfo).map(blogObj => <div key={props.blogInfo[blogObj]._id} className="col-sm-12 col-md-6 col-lg-4">
                                 <Link to={`/blog/maghale/${props.blogInfo[blogObj]._id}`} className={"Link"}>
                                 <div className="card mb-5">
                                     <img src={props.blogInfo[blogObj].image} className="card-img-top" alt="..."/>

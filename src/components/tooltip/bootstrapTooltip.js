@@ -4,7 +4,7 @@ import {tooltipClasses} from "@mui/material";
 import React from "react";
 
 export const BootstrapTooltip = styled(({className, ...props}) => (
-    <Tooltip placement={props.placeMent} {...props} arrow classes={{popper: className}}/>
+    <Tooltip placement={props.placement} {...props} arrow classes={{popper: className}}/>
 ))(({theme}) => ({
     [`& .${tooltipClasses.arrow}`]: {
         color: theme.palette.common.black,

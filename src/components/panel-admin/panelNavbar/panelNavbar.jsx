@@ -55,7 +55,7 @@ const PanelNavbar = (props) => {
                         <BootstrapTooltip
                             data-bs-toggle="modal"
                             data-bs-target="#exampleModal"
-                            placeMent={"left"}
+                            placement={"left"}
                             title="خروج"
                         >
                             <img src={logOut} className={"logOut-img"}/>

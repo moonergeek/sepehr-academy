@@ -62,7 +62,7 @@ const PanelDeleteIcon = (props) => {
                 autoClose={2000}
                 rtl={true}
             />
-            <BootstrapTooltip placeMent={"left"} title="حذف">
+            <BootstrapTooltip placement={"left"} title="حذف">
             <img width={16} style={{opacity:"90%" , position:"relative" , left:"-15px"}} src={delete_icon} alt="delete_icon" onClick={removeStudent}/>
             </BootstrapTooltip>
         </>

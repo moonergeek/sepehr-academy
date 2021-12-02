@@ -9,7 +9,7 @@ import {Link} from "react-router-dom";
 const FooterMenuHeader = (props) => {
     return (
         <>
-            {Object.entries(props.footerInfo).map(item => <div className="col-md-3 col-6">
+            {Object.entries(props.footerInfo).map(item => <div key={item[1].title} className="col-md-3 col-6">
                 <div className="title-header">
                     <div className="row">
                         <div className="col-sm-12">

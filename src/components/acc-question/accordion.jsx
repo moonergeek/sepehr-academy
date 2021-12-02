@@ -5,7 +5,7 @@ const Accordion = (props) => {
     return (
         <>
             <div className="accordion mb-4" id="accordionExample">
-                {Object.keys(props.accList).map(item =>  <div className="accordion-item">
+                {Object.keys(props.accList).map(item =>  <div key={props.accList[item].id} className="accordion-item">
                     <h2 className="accordion-header" id={props.accList[item].id}>
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target={"#" + props.accList[item].div_id} aria-expanded="true" aria-controls={props.accList[item].div_id}>

@@ -17,10 +17,9 @@ const Header = (props) => {
     const getUserInfo = async () => {
 
         console.log(getItem("token"))
-        if (getItem("token") === false){
+        if (getItem("token") === false) {
 
-        }
-        else {
+        } else {
             const result = await GetUserDetails();
             setUserInfo(result.result);
         }
@@ -32,10 +31,9 @@ const Header = (props) => {
 
     const [image, setImage] = useState("");
     const getUserInformation = async () => {
-        if (getItem("token") === false){
+        if (getItem("token") === false) {
 
-        }
-        else {
+        } else {
             try {
                 setImage(getItem(userInfo._id + "image"));
             } catch (err) {
@@ -73,17 +71,14 @@ const Header = (props) => {
                                 </div>
                                 <div className="d-flex justify-content-start ">
                                     <form className="d-flex header-icons">
-                                        <Link className="nav-link ">
                                             <FaCircle className={"circle margin"} fontSize={42}/>
-                                            <BootstrapTooltip placeMent={"right"} title="سبد خرید">
+                                            <BootstrapTooltip placement={"right"} title="سبد خرید">
                                                 <div className={"inline-block"}>
                                                     <Badge className={"shopping-badge"} badgeContent={4}
                                                            color="secondary">
                                                         <Link to="/cart">
-
                                                             <MdShoppingCart fontSize={24}
                                                                             className={"shopping-card-icon"}/>
-
                                                         </Link>
                                                     </Badge>
                                                 </div>
@@ -91,7 +86,7 @@ const Header = (props) => {
 
                                             {getItem("token") ? <><FaCircle className={"circle opacity-none"}
                                                                             fontSize={42}/>
-                                                <BootstrapTooltip placeMent={"left"} title="داشبرد">
+                                                <BootstrapTooltip placement={"left"} title="داشبرد">
                                                     <div className={"inline-block-2"}>
                                                         <div className="dropdown">
                                                             <Link to={`/dashboard/${userInfo._id}/panel`}>
@@ -113,7 +108,7 @@ const Header = (props) => {
                                                     </div>
                                                 </BootstrapTooltip></> : <><FaCircle className={"circle"}
                                                                                      fontSize={42}/>
-                                                <BootstrapTooltip placeMent={"left"} title="ثبت نام">
+                                                <BootstrapTooltip placement={"left"} title="ثبت نام">
                                                     <div className={"inline-block-2"}>
                                                         <div className="dropdown">
                                                             <FaUserPlus fontSize={24}
@@ -142,8 +137,6 @@ const Header = (props) => {
                                                         </div>
                                                     </div>
                                                 </BootstrapTooltip></>}
-
-                                        </Link>
                                     </form>
 
                                 </div>

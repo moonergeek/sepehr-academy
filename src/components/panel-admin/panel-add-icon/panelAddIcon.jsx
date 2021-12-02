@@ -60,7 +60,7 @@ const PanelAddIcon = (props) => {
                 autoClose={2000}
                 rtl={true}
             />
-            <BootstrapTooltip placeMent={"left"} title="ثبت نام">
+            <BootstrapTooltip placement={"left"} title="ثبت نام">
                 <img width={16} style={{opacity:"90%" , position:"relative" , left:"-15px"}} src={add_icon} alt="add_icon" onClick={addStudent}/>
             </BootstrapTooltip>
         </>
