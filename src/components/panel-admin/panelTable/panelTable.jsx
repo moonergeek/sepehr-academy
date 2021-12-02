@@ -2,12 +2,7 @@ import React, {useEffect, useState} from 'react';
 import "./panelTable.css"
 import {FcNumericalSorting12} from "react-icons/all";
 import PanelDeleteIcon from "../panel-delete-icon/panelDeleteIcon";
-import course1 from "../../../assets/img/02.jpg"
-import course2 from "../../../assets/img/03.jpg"
-import course3 from "../../../assets/img/09.jpg"
-import course4 from "../../../assets/img/01.jpg"
-import course5 from "../../../assets/img/04.jpg"
-import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
+
 
 const PanelTable = (props) => {
 
@@ -23,7 +18,6 @@ const PanelTable = (props) => {
         <>
 
 
-            {/*<img className={"table-course-img"} src={props.userInfo.result.terms[0].course.image} alt="course1"/>*/}
             <table className="table panel-table table-borderless">
                 <thead className={"thead-color"}>
                 <tr className={"tr-color"}>

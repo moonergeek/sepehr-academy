@@ -1,9 +1,9 @@
 import React from 'react';
 import "./footer.css"
-import footerLine from "../../assets/img/Path 1.svg";
-import enamad from "../../assets/img/Group 20.svg"
-import samandehi from "../../assets/img/Group 19.svg"
-import zarrinPal from "../../assets/img/Group 18.svg"
+import footerLine from "../../assets/img/svg/Path 1.svg";
+import enamad from "../../assets/img/svg/Group 20.svg"
+import samandehi from "../../assets/img/svg/Group 19.svg"
+import zarrinPal from "../../assets/img/svg/Group 18.svg"
 import {Link} from "react-router-dom";
 
 const FooterMenuHeader = (props) => {

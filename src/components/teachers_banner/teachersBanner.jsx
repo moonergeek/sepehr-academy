@@ -1,6 +1,6 @@
 import React from 'react';
 import "./teachersBanner.css"
-import why from "../../assets/img/why.png"
+import why from "../../assets/img/graphics/why.png"
 import "./miniSlider"
 import SlideShowTeachers from "../slideShow-teachers/slideshowTeachers";
 

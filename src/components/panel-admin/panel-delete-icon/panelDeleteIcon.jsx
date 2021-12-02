@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import delete_icon from "../../../assets/img/cancel.png"
+import delete_icon from "../../../assets/img/icons/cancel.png"
 import {BootstrapTooltip } from "../../tooltip/bootstrapTooltip"
 import RemoveStuToTerm from "../../../core/services/API/student/removeStudentToTerm";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";

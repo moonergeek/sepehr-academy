@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import logoGreen from "../../assets/img/logo green.png";
+import logoGreen from "../../assets/img/graphics/logo green.png";
 import "./header.css"
 import {BsThreeDots, FaCircle, FaUserPlus, MdShoppingCart,} from "react-icons/all";
-import userImage from "../../assets/img/img4.png";
+import userImage from "../../assets/img/user-images/img4.png";
 import {NavLink, Link} from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import {BootstrapTooltip} from "../tooltip/bootstrapTooltip"

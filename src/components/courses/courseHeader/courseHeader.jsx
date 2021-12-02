@@ -1,6 +1,6 @@
 import React from 'react';
 import "./courseHeader.css"
-import lineImage from "../../../assets/img/header-line.png"
+import lineImage from "../../../assets/img/lines/header-line.png"
 import SeeAllBtn from "./seeAllBtn";
 
 const CourseHeader = (props) => {

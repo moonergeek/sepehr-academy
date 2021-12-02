@@ -1,6 +1,6 @@
 import React from 'react';
 import "./techlogos.css"
-import techLogo from "../../assets/img/technology-logo.svg"
+import techLogo from "../../assets/img/svg/technology-logo.svg"
 
 const TechLogos = () => {
     return (

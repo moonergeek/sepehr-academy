@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import modalSign from "../../../../assets/img/modalSign.svg";
+import modalSign from "../../../../assets/img/svg/modalSign.svg";
 import { getItem } from "../../../../core/services/storage/storage";
 
 const SignButton = () => {

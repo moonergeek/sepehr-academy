@@ -1,5 +1,5 @@
 import React from "react";
-import register from "../../../assets/img/register.svg";
+import register from "../../../assets/img/svg/register.svg";
 
 const LoginImg = () => {
   return (

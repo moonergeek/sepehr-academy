@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import add_icon from "../../../assets/img/add.png"
+import add_icon from "../../../assets/img/icons/add.png"
 import {BootstrapTooltip } from "../../tooltip/bootstrapTooltip"
 import AddStuToTerm from "../../../core/services/API/student/addStudentToTerm";
 import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";

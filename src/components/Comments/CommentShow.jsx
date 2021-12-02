@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
-import cm from "../../assets/img/cm.png";
+import cm from "../../assets/img/icons/cm.png";
 import "../common/comment/comment.css"
 import ModeCommentTwoToneIcon from '@mui/icons-material/ModeCommentTwoTone';
 
