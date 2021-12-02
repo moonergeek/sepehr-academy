@@ -30,7 +30,7 @@ const CommentShow = () => {
                     <div>
                         <div className="container mt-5 d-flex comment-border">
                             <div>
-                                <img width="40%" className="responsive-img" src={cm}/>
+                                <img width="40%" className="responsive-img" src={cm} alt={"..."}/>
                             </div>
                             <div style={{marginRight: "-75px", marginTop: "4px"}}>
                                 <h5 className="fw-bold text-color">{comm.username}</h5>

@@ -13,7 +13,7 @@ import Loading from "../../common/loading/loadingForHomePage";
 import {useHistory} from "react-router-dom";
 
 
-const EditPanelUser = (props) => {
+const EditPanelUser = () => {
 
     const history = useHistory();
     const [fullNameValue, setFullNameValue] = useState("");
@@ -184,13 +184,13 @@ const EditPanelUser = (props) => {
                     <div className={"row mb-5 mt-3"}><PanelTitle title={" ویرایش اطلاعات شخصی کاربر"}/></div>
                     <div className="row mb-4 pt-4">
                         <div className="col pt-2">
-                            <input placeHolder={userInformation.fullName} className={"change form-control me-2"}
+                            <input placeholder={userInformation.fullName} className={"change form-control me-2"}
                                    value={fullNameValue} onChange={handleNameChange}/>
 
 
                         </div>
                         <div className="col pt-2">
-                            <input placeHolder={userInformation.email} value={emailValue}
+                            <input placeholder={userInformation.email} value={emailValue}
                                    className={"change form-control me-2"} onChange={handleEmailChange}/>
 
 
@@ -198,19 +198,19 @@ const EditPanelUser = (props) => {
                     </div>
                     <div className="row mb-3">
                         <div className="col pt-2">
-                            <input placeHolder={userInformation.phoneNumber}
+                            <input placeholder={userInformation.phoneNumber}
                                    className={"change form-control me-2"}
                                    value={phoneNumValue} onChange={handlePhoneNumChange}/>
 
                         </div>
                         <div className="col pt-2">
-                            <input placeHolder={userInformation.birthDate} className={"change form-control me-2"}
+                            <input placeholder={userInformation.birthDate} className={"change form-control me-2"}
                                    value={birthDateValue} onChange={handleBirthDateChange}/>
                         </div>
                     </div>
                     <div className="row mb-3">
                         <div className="col pt-2">
-                            <input placeHolder={userInformation.nationalId} className={"change form-control me-2"}
+                            <input placeholder={userInformation.nationalId} className={"change form-control me-2"}
                                    value={nationalIdValue} onChange={handleNationalIdChange}/>
 
                         </div>
@@ -221,7 +221,7 @@ const EditPanelUser = (props) => {
 
                         {selectedFile ? <div className={"col-sm-3"}>
                             {selectedFile && <img className={"panel-user-upload"} src={preview} alt={""}/>}
-                        </div> : <div className={"col-sm-3"}><img src={image} className={"panel-user-upload"}/></div>}
+                        </div> : <div className={"col-sm-3"}><img src={image} className={"panel-user-upload"} alt={"..."}/></div>}
 
 
                         <div className={"col-sm-9"}>

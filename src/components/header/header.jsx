@@ -16,7 +16,7 @@ const Header = (props) => {
     const [userInfo, setUserInfo] = useState([]);
     const getUserInfo = async () => {
 
-        console.log(getItem("token"))
+        // console.log(getItem("token"))
         if (getItem("token") === false) {
 
         } else {

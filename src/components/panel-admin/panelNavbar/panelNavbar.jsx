@@ -25,7 +25,7 @@ const PanelNavbar = (props) => {
     const getUserInformation = async () => {
         try {
             setImage(getItem(props.userInfo._id + "image"));
-            console.log(getItem(props.userInfo._id + "image"))
+            // console.log(getItem(props.userInfo._id + "image"))
             const result = await GetUserDetails();
             setUserInformation(result.result);
             // console.log(result.result)
@@ -35,7 +35,7 @@ const PanelNavbar = (props) => {
     }
     useEffect(() => {
         getUserInformation()
-    }, [userInformation]);
+    }, []);
 
     return (
         <>

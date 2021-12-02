@@ -13,7 +13,7 @@ export default function Sort(props) {
             <div className={"back-div"}>
                 <div className={"row"}>
                     <form className="d-flex pe-4 py-3 col-md-8 col-lg-9 col-sm-7 col-7">
-                        <SearchBox placeHolder={props.placeHolder}/>
+                        <SearchBox placeholder={props.placeHolder}/>
                     </form>
                     <div className={"col-lg-3 col-md-4 col-sm-5 col-5 pe-2"}>
                         <DropDownBtnForMaghalat/>

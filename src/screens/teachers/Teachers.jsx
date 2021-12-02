@@ -18,7 +18,7 @@ const Teachers = () => {
       <div className="container">
         <div className="row mt-4">
           <form className="d-flex  mb-5 col-md-12 col-lg-12 col-sm-12 col-12 justify-content-center">
-            <SearchBoxForTeachers placeHolder={"جستجو نام استاد"}  teacherInfo={teachersData}/>
+            <SearchBoxForTeachers placeholder={"جستجو نام استاد"}  teacherInfo={teachersData}/>
           </form>
           <Teacher teacherInfo={teachersData} />
           <form className="d-flex mb-2 justify-content-center mt-5">

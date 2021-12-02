@@ -39,7 +39,7 @@ const Maghalat = () => {
         <>
             <div>
                 <Title Title={maghalatTitleJson}/>
-                <Sort placeHolder={placeHolderForMaghalatJson}/>
+                <Sort placeholder={placeHolderForMaghalatJson}/>
                 {loadingForBlog ? <>
                     <Card maghale={allBlogData} fullInfo={paginatedMaghalat}/>
                     <div className="d-flex justify-content-center">

@@ -16,7 +16,7 @@ const PanelDeleteIcon = (props) => {
 
             const result = await GetUserDetails();
             setUserInformation(result.result);
-            console.log(userInformation.terms);
+            // console.log(userInformation.terms);
 
 
         } catch (err) {

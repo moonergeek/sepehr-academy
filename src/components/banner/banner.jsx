@@ -26,7 +26,7 @@ const Banner = (props) => {
                                     </div>
                                     <div className="row">
                                         <form className="d-flex pe-4 pt-4 col-md-9 col-lg-10 col-sm-10 ">
-                                            <SearchBox placeHolder={props.placeholder}/>
+                                            <SearchBox placeholder={props.placeholder}/>
                                         </form>
                                     </div>
                                     <div className="row">

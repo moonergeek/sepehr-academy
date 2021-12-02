@@ -51,9 +51,9 @@ const PanelTableForHpmePage = (props) => {
                 </thead>
                 <tbody>
 
-                {Object.keys(allTerms).map(termObj => <tr key={termObj} className={"green-hover"}>
-
-                    {userInformation.terms[termObj] ? <>
+                {Object.keys(allTerms).map(termObj => <tr key={termObj}
+                                                          className={"green-hover"}>{userInformation.terms[termObj] ?
+                    <>
                         <th scope="row" className={"panel-th-items"}>{termObj}</th>
                         <td className={"panel-td-items"}>4554-01</td>
                         <td className={"panel-td-items"}>
@@ -74,26 +74,28 @@ const PanelTableForHpmePage = (props) => {
 
                             <PanelDeleteIcon userInfo={props.userInfo} termId={userInformation.terms[termObj]._id}/>
                         </td>
-                    </> :        <>             <th scope="row" className={"panel-th-items"}>{termObj}</th>
+                    </>: <>
+                        <th scope="row" className={"panel-th-items"}>{termObj}</th>
                         <td className={"panel-td-items"}>4554-01</td>
                         <td className={"panel-td-items"}>
-                        <img className={"table-course-img"} src={allTerms[termObj].course.image} alt=""/>
-                    {allTerms[termObj].course.courseName}
+                            <img className={"table-course-img"} src={allTerms[termObj].course.image} alt=""/>
+                            {allTerms[termObj].course.courseName}
                         </td>
                         <td className={"panel-td-items"}> {allTerms[termObj].course.description}</td>
                         <td className={"panel-td-items"}> 1400/01/20</td>
 
                         <td className={"panel-td-items"}>
-                    {userInformation.terms[termObj] ? <span className="badge bg-success"> خریداری شده</span> :
-                        <span className="badge bg-primary">در حال خرید</span>}
+                            {userInformation.terms[termObj] ? <span className="badge bg-success"> خریداری شده</span> :
+                                <span className="badge bg-primary">در حال خرید</span>}
 
                         </td>
                         <td className={"panel-td-items"}>{allTerms[termObj].cost + " تومان"} </td>
                         <td className={"panel-td-items"}>
 
-                        <PanelAddIcon userInfo={props.userInfo} termId={allTerms[termObj]._id}/>
-                        </td> </>}
-
+                            <PanelAddIcon userInfo={props.userInfo} termId={allTerms[termObj]._id}/>
+                        </td>
+                    </>
+                    }
 
 
                 </tr>)}
