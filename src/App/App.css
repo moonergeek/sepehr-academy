@@ -52,6 +52,9 @@ body {
   .display-sm-navbar{
     display: none;
   }
+  .searchForHomePage input{
+    width: 350px !important;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -119,5 +122,8 @@ body {
   }
   .nav-item{
     font-size: 15px !important;
+  }
+  .searchForHomePage input{
+    width: 250px !important;
   }
 }
