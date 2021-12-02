@@ -1,7 +1,7 @@
 import React from 'react';
 import "./banner.css"
-import services from "../../assets/img/banner-services.svg"
-import manImage from "../../assets/img/part_1.svg"
+import services from "../../assets/img/svg/banner-services.svg"
+import manImage from "../../assets/img/svg/part_1.svg"
 import SearchBox from "../searchBox/serachbox";
 
 
@@ -26,7 +26,7 @@ const Banner = (props) => {
                                     </div>
                                     <div className="row">
                                         <form className="d-flex pe-4 pt-4 col-md-9 col-lg-10 col-sm-10 ">
-                                            <SearchBox placeHolder={props.placeholder}/>
+                                            <SearchBox placeholder={props.placeholder}/>
                                         </form>
                                     </div>
                                     <div className="row">

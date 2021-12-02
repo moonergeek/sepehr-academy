@@ -1,29 +1,35 @@
-.accordion-item{
+.accordion-item {
     color: #323e73;
     background-color: #FBFEFD;
     border-color: #E1F7ED;
     box-shadow: 0 3px 12px #E1F7ED;
 }
-.accordion-button{
+
+.accordion-button {
     color: #3C6E71;
     background-color: #FBFEFD;
 }
-.accordion-button:focus{
+
+.accordion-button:focus {
     box-shadow: none;
 }
-.accordion-button:checked{
+
+.accordion-button:checked {
     color: #198643 !important;
-    background-color:#E1F7ED;
+    background-color: #E1F7ED;
 }
-.accordion-button:not(.collapsed){
+
+.accordion-button:not(.collapsed) {
     color: #198643;
-    background-color:#E1F7ED;
+    background-color: #E1F7ED;
 }
-.accordion-button::after{
-    background-image: url("../../assets/img/add.png");
-   position: absolute;
+
+.accordion-button::after {
+    background-image: url("../../assets/img/icons/add.png");
+    position: absolute;
     left: 25px;
 }
-.accordion-button:not(.collapsed)::after{
-    background-image: url("../../assets/img/minus.png");
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("../../assets/img/lines/minus.png");
 }

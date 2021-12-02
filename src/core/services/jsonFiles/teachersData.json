@@ -1,0 +1,40 @@
+{
+  "teachersData": [
+    {
+      "id": 1,
+      "title": "محمد بحرالعلومی",
+      "des": "مدرس دوره های اصلی آموزشگاه",
+      "img": "http://res.cloudinary.com/df9w7u89a/image/upload/v1638365869/x2e3oqhihur4cdddmdax.jpg"
+    },
+    {
+      "id": 2,
+      "title": "حامد نظری",
+      "des": "مدرس دوره های طراحی رابط کاربری",
+      "img": "http://res.cloudinary.com/df9w7u89a/image/upload/v1638365900/mcf7uqsyoo8ebfxc9puz.jpg"
+    },
+    {
+      "id": 3,
+      "title": "سالار نیلی",
+      "des": "مدرس دوره ریکت",
+      "img": "http://res.cloudinary.com/df9w7u89a/image/upload/v1638365758/cqhxcfzir6jhgrf5sbjl.jpg"
+    },
+    {
+      "id": 4,
+      "title": "مسعود حسامی",
+      "des": "مدرس دوره تایپ اسکریپت",
+      "img": "http://res.cloudinary.com/df9w7u89a/image/upload/v1638365926/bgvmhwb2xllk4tukzlvw.jpg"
+    },
+    {
+      "id": 5,
+      "title": "ماهان جعفری",
+      "des": "مدرس دوره بوتسترپ",
+      "img": "http://res.cloudinary.com/df9w7u89a/image/upload/v1638365953/hvrndzbevycifgfve8vk.jpg"
+    },
+    {
+      "id": 6,
+      "title": "سینا رضایی",
+      "des": "مدرس دوره سی شارپ",
+      "img": "http://res.cloudinary.com/df9w7u89a/image/upload/v1638365994/pnpympguixhfdfjgdgcf.png"
+    }
+  ]
+}

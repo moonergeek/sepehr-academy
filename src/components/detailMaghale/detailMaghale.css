@@ -1,49 +1,51 @@
-.Image{
+.Image {
     position: relative;
     top: 130px;
-margin-bottom: 300px;
-
+    margin-bottom: 300px;
 }
 
-.Title{
+.Title {
     text-align: center;
 }
 
-.Info{
+.Info {
     margin: 200px auto;
     position: relative;
-    top:150px;
+    top: 150px;
     color: #BFC3D6;
 }
 
-.Author{
-
-
+.Author {
     display: flex;
     justify-content: left;
 }
 
-
-.Date{
+.Date {
     display: flex;
     justify-content: right;
     position: relative;
     top: -42px;
 }
 
-.Topic{
+.Topic {
     text-align: center;
     margin-bottom: 130px;
     position: relative;
-    top:50px;
+    top: 50px;
 }
 
-.img{
+.img {
     height: 423px;
 }
-.main{
+
+.main {
     box-shadow: 0 3px 10px #E1F7ED;
-    width: 500px;
+    width: 40%;
     height: 100%;
-    margin: 100px auto;
+    margin: 30px auto;
+}
+
+.load {
+    position: relative;
+    right: 50%;
 }

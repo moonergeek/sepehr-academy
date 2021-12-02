@@ -5,7 +5,7 @@ const Teacher = ({ teacherInfo }) => {
   return (
     <>
       {teacherInfo.map((teacher) => (
-        <div className="col-lg-4 col-md-6 d-flex justify-content-center mb-4">
+        <div key={teacher.title} className="col-lg-4 col-md-6 d-flex justify-content-center mb-4">
           <div className="card rounded shadow-sm teacher-card" style={{ width: "18rem" }}>
             <img
               src={teacher.img}
@@ -15,7 +15,7 @@ const Teacher = ({ teacherInfo }) => {
             <div className="card-body d-flex flex-column align-items-center">
               <h5 className="card-title fw-bold">{teacher.title}</h5>
               <p className="card-text teacher-des">{teacher.des}</p>
-              <a href="#" className="btn btn-success">
+              <a href="https://www.google.com/" className="btn btn-success">
                 مشاهده دوره ها
               </a>
             </div>

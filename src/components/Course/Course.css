@@ -57,8 +57,7 @@
 }
 
 .course-img {
-  width: 96%;
-  height: 96%;
+  width: 65%;
 }
 
 .info {
@@ -74,6 +73,40 @@
   color: #7a81a1;
   font-size: 15px;
 }
-.light-green-shadow{
+
+.light-green-shadow {
   box-shadow: 0 3px 10px #E1F7ED;
+}
+
+.fav-background {
+  background-color: #fff0f3;
+  color: #323e73;
+  width: 100%;
+  font-size: 15px;
+}
+
+.fav-link {
+  color: #e5383b;
+  padding: 0 3px 0 3px;
+  cursor: pointer;
+}
+
+.seeSavedFavs-background {
+  background-color: #caf0f8;
+  color: #323e73;
+  width: 100%;
+  font-size: 15px;
+}
+
+.seeSavedFavs-link {
+  color: #6930c3;
+  padding: 0 3px 0 3px;
+  cursor: pointer;
+}
+.dislike-count{
+  margin: 8px;
+  cursor: pointer;
+}
+.dislike-icon{
+  cursor: pointer;
 }

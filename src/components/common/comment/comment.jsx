@@ -1,6 +1,6 @@
 import React from 'react';
 import "./comment.css"
-import commentIcon from "../../../assets/img/comment.png";
+import commentIcon from "../../../assets/img/icons/comment.png";
 
 const Comment = () => {
     return (

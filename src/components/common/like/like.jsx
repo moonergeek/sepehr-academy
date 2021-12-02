@@ -1,12 +1,15 @@
-import React from 'react';
-import likeIcon from "../../../assets/img/like.png";
+import React from "react";
 
-const Like = () => {
+const Like = props => {
+    let classes = "fa fa-heart";
+    if (!props.liked) classes += "-o";
     return (
-        <>
-            <img className="doc-icon" src={likeIcon}
-                 alt="like"/>
-        </>
+        <i
+            onClick={props.onClick}
+            style={{ cursor: "pointer" }}
+            className={classes}
+            aria-hidden="true"
+        />
     );
 };
 

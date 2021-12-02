@@ -1,0 +1,52 @@
+{
+  "footerInfoJson": [
+    {
+      "title": "دسترسی",
+      "lineImage": "https://res.cloudinary.com/df9w7u89a/image/upload/v1636662451/nnieybsymefcssdjijnz.svg",
+      "it1": {
+        "title": " دوره ها",
+        "routeAddress": "/courses"
+      },
+      "it2": {
+        "title": "معرفی مدرسین",
+        "routeAddress": "/teachers"
+      },
+      "it3": {
+        "title": "بلاگ",
+        "routeAddress": "/blog"
+      }
+    },
+    {
+      "title": "متداول",
+      "lineImage": "https://res.cloudinary.com/df9w7u89a/image/upload/v1636662451/nnieybsymefcssdjijnz.svg",
+      "it1": {
+        "title": " پرسش و پاسخ ",
+        "routeAddress": "/questions"
+      },
+      "it2": {
+        "title": "درخواست مشاوره",
+        "routeAddress": "/request"
+      },
+      "it3": {
+        "title": "ورود",
+        "routeAddress": "/login"
+      }
+    },
+    {
+      "title": "ارتباط با ما",
+      "lineImage": "https://res.cloudinary.com/df9w7u89a/image/upload/v1636662451/nnieybsymefcssdjijnz.svg",
+      "it1": {
+        "title": "تماس با ما",
+        "routeAddress": "/about"
+      },
+      "it2": {
+        "title": " درباره ما",
+        "routeAddress": "/about"
+      },
+      "it3": {
+        "title": "رزومه",
+        "routeAddress": "/about"
+      }
+    }
+  ]
+}

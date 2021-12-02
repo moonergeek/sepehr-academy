@@ -1,15 +1,15 @@
 import React from "react";
-import icon1 from "../../../../assets/img/courseIcon1.svg";
-import icon2 from "../../../../assets/img/courseIcon2.svg";
-import icon3 from "../../../../assets/img/courseIcon3.svg";
-import icon4 from "../../../../assets/img/courseIcon4.svg";
-import icon5 from "../../../../assets/img/courseIcon5.svg";
+import icon1 from "../../../../assets/img/svg/courseIcon1.svg";
+import icon2 from "../../../../assets/img/svg/courseIcon2.svg";
+import icon3 from "../../../../assets/img/svg/courseIcon3.svg";
+import icon4 from "../../../../assets/img/svg/courseIcon4.svg";
+import icon5 from "../../../../assets/img/svg/courseIcon5.svg";
 
 const CourseData = () => {
   return (
     <>
       <div className="price mb-3">
-        قیمت این دوره : <span className="price-number">500000 تومان</span>
+        قیمت این دوره : <span className="price-number">4000 تومان  </span>
       </div>
       <div className="teacher">
         <span className="icon">

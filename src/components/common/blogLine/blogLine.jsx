@@ -1,5 +1,5 @@
 import React from 'react';
-import blogLine from "../../../assets/img/Component 8 – 1.png";
+import blogLine from "../../../assets/img/lines/Component 8 – 1.png";
 import "./blogLine.css"
 
 const BlogLine = () => {
