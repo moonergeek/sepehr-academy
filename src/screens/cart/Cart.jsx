@@ -40,12 +40,11 @@ const Cart = () => {
                   <th>تصویر</th>
                   <th>نام دوره</th>
                   <th>قیمت</th>
-                  <th></th>
+                  <th/>
                 </tr>
               </thead>
               <tbody>
                 {state.map((item) => (
-                  <>
                     <tr key={item.num}>
                       <th>{item.num}</th>
                       <td>
@@ -67,7 +66,6 @@ const Cart = () => {
                         </button>
                       </td>
                     </tr>
-                  </>
                 ))}
               </tbody>
             </table>

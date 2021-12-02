@@ -19,7 +19,7 @@ const CoursesBody = (props) => {
 
                                     <h5 className="card-title"> {item[1].course.courseName} </h5>
                                 </Link>
-                                <p className="card-text">
+                                <div className="card-text">
                                     <div className="mt-2">
                                         <img className="card-user-image col-8" src={userIcon}
                                              alt=""/>
@@ -48,7 +48,7 @@ const CoursesBody = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                </p>
+                                </div>
                             </div>
                         </div>
                     </div>)}

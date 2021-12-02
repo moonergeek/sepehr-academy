@@ -26,7 +26,7 @@ const Card = (props) => {
                                 <div className="card-body">
                                     <p className="document-number">{" مقاله شماره " + (props.fullInfo.findIndex(x => x._id === props.fullInfo[blogObj]._id) + 1)}</p>
                                     <h5 className="doc-title">{props.fullInfo[blogObj].title} </h5>
-                                    <p className="card-text">
+                                    <div className="card-text">
                                         <div className="mt-2">
                                             <p className="document-details">{props.fullInfo[blogObj].text}
                                             </p>
@@ -45,7 +45,7 @@ const Card = (props) => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </p>
+                                    </div>
                                 </div>
                             </div>
                         </Link>

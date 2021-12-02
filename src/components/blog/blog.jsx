@@ -27,7 +27,7 @@ const Blog = (props) => {
                                     <div className="card-body">
                                         <p className="document-number">{" مقاله شماره " + (props.blogInfo.findIndex(x => x._id === props.blogInfo[blogObj]._id) + 1)}</p>
                                         <h5 className="doc-title">{props.blogInfo[blogObj].title} </h5>
-                                        <p className="card-text">
+                                        <div className="card-text">
                                             <div className="mt-2">
                                                 <p className="document-details">{props.blogInfo[blogObj].text}
                                                 </p>
@@ -46,7 +46,7 @@ const Blog = (props) => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </p>
+                                        </div>
                                     </div>
                                 </div>
                                 </Link>

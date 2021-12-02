@@ -6,7 +6,7 @@ import CoursesProvider from "../core/services/Context/Courses/CoursesProvider";
 const App = () => {
   return (
     <>
-      <CoursesProvider>
+      <CoursesProvider value={{}}>
         <AuthUser />
       </CoursesProvider>
     </>
