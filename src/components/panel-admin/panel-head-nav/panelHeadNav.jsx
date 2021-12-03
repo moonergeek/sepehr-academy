@@ -110,5 +110,4 @@ const PanelHeadNav = (props) => {
         </>
     );
 };
-
 export default PanelHeadNav;
