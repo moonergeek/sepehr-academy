@@ -99,6 +99,7 @@ const Header = (props) => {
                       <>
                         <FaCircle
                           className={"circle"}
+                          style={{ position: "relative", left: "-10px" }}
                           fontSize={42}
                         />
                         <BootstrapTooltip placement={"left"} title="داشبرد">
@@ -111,7 +112,7 @@ const Header = (props) => {
                                       src={image}
                                       width={50}
                                       className={
-                                        "user-icon dropdown-toggle image-user-class"
+                                        "user-icon-image dropdown-toggle image-user-class"
                                       }
                                       id="dropdownMenuButton1"
                                       aria-expanded="false"
