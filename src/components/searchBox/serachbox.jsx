@@ -70,11 +70,7 @@ const SearchBox = (props) => {
         setWordEntered("");
     };
 
-
     // const handleEmpty = ()
-
-
-
 
     return (
 

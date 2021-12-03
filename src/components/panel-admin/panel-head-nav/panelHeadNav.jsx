@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import "./panelHeadNav.css"
 import AnalyticsTwoToneIcon from "@mui/icons-material/AnalyticsTwoTone";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
@@ -10,10 +10,24 @@ import LocalLibraryTwoToneIcon from "@mui/icons-material/LocalLibraryTwoTone";
 import LocalOfferTwoToneIcon from "@mui/icons-material/LocalOfferTwoTone";
 import ModeCommentTwoToneIcon from "@mui/icons-material/ModeCommentTwoTone";
 import HomeTwoToneIcon from "@mui/icons-material/HomeTwoTone";
-import PanelFloatBtn from "../panel-float-btn/panelFloatBtn";
 import {Link} from "react-router-dom";
+import {useStateIfMounted} from "use-state-if-mounted";
+import GetUserDetails from "../../../core/services/API/auth/GetUserDetail.api";
 
-const PanelHeadNav = () => {
+const PanelHeadNav = (props) => {
+    const [userInformation, setUserInformation] = useStateIfMounted([]);
+    const getUserInformation = async () => {
+        try {
+            const result = await GetUserDetails();
+            setUserInformation(result.result);
+        } catch (err) {
+            console.log("header api error :" + err)
+        }
+    }
+    useEffect(() => {
+        getUserInformation()
+    }, []);
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,49 +35,67 @@ const PanelHeadNav = () => {
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                             aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon"/>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav panel-head-nav">
                             <Link className={"link-link"} to={"dashboard/panel"}>
                                 <li className="nav-item panel-list-item header-items">
-                                    <AnalyticsTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                    داشبرد
+                                    <Link className={"link-link"} to={`/dashboard/${userInformation._id}`}>
+                                        <AnalyticsTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                        داشبرد
+                                    </Link>
                                 </li>
                             </Link>
                             <li className="nav-item panel-list-item header-items">
-                                <ShoppingCartTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                سبد خرید
+                                <Link className={"link-link"} to={"/cart"}>
+                                    <ShoppingCartTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    سبد خرید
+                                </Link>
                             </li>
                             <li className="nav-item panel-list-item header-items">
-                                <BookmarkTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                دوره های خریداری شده
+                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}/bought`}>
+                                    <BookmarkTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    دوره های خریداری شده
+                                </Link>
                             </li>
                             <Link className={"link-link"} to={"/dashboard/edit"}>
                                 <li className="nav-item panel-list-item header-items">
-                                    <EditTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                    ویرایش پروفایل
+                                    <Link className={"link-link"} to={`/dashboard/${userInformation._id}/edit`}>
+                                        <EditTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                        ویرایش پروفایل
+                                    </Link>
                                 </li>
                             </Link>
                             <li className="nav-item panel-list-item header-items">
-                                <EvStationTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                شارژ کردن کیف پول
+                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}`}>
+                                    <EvStationTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    شارژ کردن کیف پول
+                                </Link>
                             </li>
                             <li className="nav-item panel-list-item header-items">
-                                <CategoryTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                دسته بندی دوره ها
+                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}`}>
+                                    <CategoryTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    دسته بندی دوره ها
+                                </Link>
                             </li>
                             <li className="nav-item panel-list-item header-items">
-                                <LocalLibraryTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                دوره های رایگان
+                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}/liked`}>
+                                    <LocalLibraryTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    دوره های مورد علاقه
+                                </Link>
                             </li>
                             <li className="nav-item panel-list-item header-items">
-                                <LocalOfferTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                تخفیفات روزانه
+                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}`}>
+                                    <LocalOfferTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    تخفیفات روزانه
+                                </Link>
                             </li>
                             <li className="nav-item panel-list-item header-items">
-                                <ModeCommentTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
-                                ثبت نظرات
+                                <Link className={"link-link"} to={`/dashboard/${userInformation._id}`}>
+                                    <ModeCommentTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
+                                    ثبت نظرات
+                                </Link>
                             </li>
                             <Link className={"link-link"} to={"/"}>
                                 <li className="nav-item panel-list-item header-items">
