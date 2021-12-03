@@ -39,14 +39,12 @@ const PanelHeadNav = (props) => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav panel-head-nav">
-                            <Link className={"link-link"} to={"dashboard/panel"}>
                                 <li className="nav-item panel-list-item header-items">
                                     <Link className={"link-link"} to={`/dashboard/${userInformation._id}`}>
                                         <AnalyticsTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                         داشبرد
                                     </Link>
                                 </li>
-                            </Link>
                             <li className="nav-item panel-list-item header-items">
                                 <Link className={"link-link"} to={"/cart"}>
                                     <ShoppingCartTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
@@ -59,14 +57,12 @@ const PanelHeadNav = (props) => {
                                     دوره های خریداری شده
                                 </Link>
                             </li>
-                            <Link className={"link-link"} to={"/dashboard/edit"}>
                                 <li className="nav-item panel-list-item header-items">
                                     <Link className={"link-link"} to={`/dashboard/${userInformation._id}/edit`}>
                                         <EditTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                         ویرایش پروفایل
                                     </Link>
                                 </li>
-                            </Link>
                             <li className="nav-item panel-list-item header-items">
                                 <Link className={"link-link"} to={`/dashboard/${userInformation._id}`}>
                                     <EvStationTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
@@ -97,12 +93,12 @@ const PanelHeadNav = (props) => {
                                     ثبت نظرات
                                 </Link>
                             </li>
-                            <Link className={"link-link"} to={"/"}>
-                                <li className="nav-item panel-list-item header-items">
+                            <li className="nav-item panel-list-item header-items">
+                                <Link className={"link-link"} to={"/"}>
                                     <HomeTwoToneIcon className={"panel-navList-icons"} fontSize={"small"}/>
                                     بازگشت به خانه
-                                </li>
-                            </Link>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>

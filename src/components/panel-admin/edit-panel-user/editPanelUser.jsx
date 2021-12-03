@@ -159,7 +159,9 @@ const EditPanelUser = () => {
             }
             setTimeout(() => {
                 result && history.push("/dashboard/" + userInformation._id + "/panel")
+                // window.location.reload(true)
             }, 2500);
+
             console.log(result);
         } catch (e) {
             console.log(e);

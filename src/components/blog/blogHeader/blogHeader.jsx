@@ -1,22 +1,22 @@
 import React from 'react';
-import "./courseHeader.css"
+import "../../courses/courseHeader/courseHeader.css"
 import lineImage from "../../../assets/img/lines/header-line.png"
-import SeeAllBtn from "./seeAllBtn";
 import {Link} from "react-router-dom";
+import SeeAllBtn from "../../courses/courseHeader/seeAllBtn";
 
-const CourseHeader = (props) => {
+const BlogHeader = (props) => {
     return (
         <>
             <div className="course-header">
                 <div className="row">
                     <div className="col-sm-12">
                 <span className="header-title">
-                    {props.coursesTitle}
+                    {props.blogTitle}
                 </span>
                         <div className="d-flex justify-content-end">
                             <form className="d-flex">
-                                <Link to={"/courses"}>
-                                    <SeeAllBtn coursesBtnTitle={props.coursesBtnTitle}/>
+                                <Link to={"/blog"}>
+                                    <SeeAllBtn coursesBtnTitle={props.blogBtnTitle}/>
                                 </Link>
                             </form>
                         </div>
@@ -29,7 +29,7 @@ const CourseHeader = (props) => {
             </div>
 
         </>
-);
+    );
 };
 
-export default CourseHeader;
+export default BlogHeader;

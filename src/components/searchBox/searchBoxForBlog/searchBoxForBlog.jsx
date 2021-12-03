@@ -53,7 +53,7 @@ const SearchBoxForBlog = (props) => {
                 <input
                     className={"inputTag"}
                     type="text"
-                    placeholder={props.placeholder}
+                    placeholder={" جستجو در مقالات ... "}
                     value={wordEntered}
                     onChange={handleFilter}
                 />

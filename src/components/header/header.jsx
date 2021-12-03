@@ -26,7 +26,7 @@ const Header = (props) => {
   };
   useEffect(() => {
     getUserInfo();
-  }, []);
+  }, [userInfo]);
 
   const [image, setImage] = useState("");
   const getUserInformation = async () => {

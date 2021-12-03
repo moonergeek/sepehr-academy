@@ -1,11 +1,11 @@
 import React from 'react';
 import "./blog.css"
-import CourseHeader from "../courses/courseHeader/courseHeader";
 import ReadBtn from "../common/readBtn/readBtn";
 import Comment from "../common/comment/comment";
 import Like from "../common/like/like";
 import BlogLine from "../common/blogLine/blogLine";
 import {Link} from "react-router-dom";
+import BlogHeader from "./blogHeader/blogHeader";
 
 
 const Blog = (props) => {
@@ -15,8 +15,8 @@ const Blog = (props) => {
             <section className="documents">
                 <div className="container">
                     <div className="document-header course-header">
-                        <CourseHeader coursesTitle={props.blogTitle}
-                                      coursesBtnTitle={props.blogBtnTitle}/>
+                        <BlogHeader blogTitle={props.blogTitle}
+                                      blogBtnTitle={props.blogBtnTitle}/>
                     </div>
                     <div className="document-body mt-4">
                         <div className="row">
