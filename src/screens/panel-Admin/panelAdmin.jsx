@@ -24,9 +24,6 @@ const PanelAdmin = () => {
     useEffect(() => {
         getUserInfo();
     }, []);
-
-
-
     return (
         <>
             <div
