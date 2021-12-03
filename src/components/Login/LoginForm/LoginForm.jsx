@@ -26,6 +26,7 @@ const LoginForm = () => {
     setTimeout(() => {
       {
         result && history.push("/");
+        window.location.reload(true);
       }
     }, 2500);
   };

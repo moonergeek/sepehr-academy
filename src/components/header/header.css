@@ -66,6 +66,12 @@
   right: -2px;
   top: 12px;
 }
+.user-icon-image {
+  position: relative;
+  color: #e1f7ed;
+  left: -6px;
+  top: 12px;
+}
 .margin {
   margin-left: -15px;
 }
@@ -98,7 +104,6 @@
   border-bottom: 1px solid #eee;
 }
 
-
 .image-user-class {
   margin-left: 8px;
   position: relative;
@@ -108,10 +113,9 @@
   height: 51px;
 }
 
-.border-violet{
+.border-violet {
   border: 2px solid green;
   border-radius: 100%;
   width: 50px;
   height: 51px;
-
 }
