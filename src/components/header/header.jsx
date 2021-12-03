@@ -97,40 +97,37 @@ const Header = (props) => {
 
                     {getItem("token") ? (
                       <>
-                        <FaCircle
-                          className={"circle"}
-                          style={{ position: "relative", left: "-10px" }}
-                          fontSize={42}
-                        />
-                        <BootstrapTooltip placement={"left"} title="داشبرد">
+                        <BootstrapTooltip
+                          style={{ marginRight: "34px" }}
+                          placement={"left"}
+                          title="داشبرد"
+                        >
                           <div className={"inline-block-2"}>
                             <div className="dropdown">
                               <Link to={`/dashboard/${userInfo._id}/panel`}>
-                                <div className={"border-violet"}>
-                                  {image ? (
-                                    <img
-                                      src={image}
-                                      width={50}
-                                      className={
-                                        "user-icon-image dropdown-toggle image-user-class"
-                                      }
-                                      id="dropdownMenuButton1"
-                                      aria-expanded="false"
-                                      alt={"user-image"}
-                                    />
-                                  ) : (
-                                    <img
-                                      src={userImage}
-                                      width={50}
-                                      className={
-                                        "user-icon dropdown-toggle image-user-class"
-                                      }
-                                      id="dropdownMenuButton1"
-                                      aria-expanded="false"
-                                      alt={"user-image"}
-                                    />
-                                  )}
-                                </div>
+                                {image ? (
+                                  <img
+                                    src={image}
+                                    width={50}
+                                    className={
+                                      "user-icon-image dropdown-toggle image-user-class"
+                                    }
+                                    id="dropdownMenuButton1"
+                                    aria-expanded="false"
+                                    alt={"user-image"}
+                                  />
+                                ) : (
+                                  <img
+                                    src={userImage}
+                                    width={50}
+                                    className={
+                                      "user-icon dropdown-toggle image-user-class"
+                                    }
+                                    id="dropdownMenuButton1"
+                                    aria-expanded="false"
+                                    alt={"user-image"}
+                                  />
+                                )}
                               </Link>
                             </div>
                           </div>
