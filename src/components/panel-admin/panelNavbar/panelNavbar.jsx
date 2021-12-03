@@ -36,7 +36,7 @@ const PanelNavbar = (props) => {
     }
     useEffect(() => {
         getUserInformation()
-    }, []);
+    }, [userInformation]);
 
     return (
         <>
