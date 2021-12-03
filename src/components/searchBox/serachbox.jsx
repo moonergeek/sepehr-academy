@@ -84,7 +84,7 @@ const SearchBox = (props) => {
                 <input
                     className={"inputTag"}
                     type="text"
-                    placeholder={props.placeHolder}
+                    placeholder={props.placeholder}
                     value={wordEntered}
                     onChange={handleFilter}
                 />

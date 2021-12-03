@@ -94,7 +94,7 @@ const FavComponent = () => {
         rtl={true}
       />
       <div className="fav-background mt-5 rounded-3 p-3 d-flex justify-content-center">
-        <span className="fav-link">{"termLikesById.like"}</span>
+        <span className="fav-link">{" لایک "}</span>
         <span className="fav-link">
           {likeSituation ? (
             <FavoriteIcon />
@@ -104,15 +104,12 @@ const FavComponent = () => {
         </span>
         |
         <div className={"dislike"}>
-          <span className="dislike-count">{"termLikesById.dislike"}</span>
-
+          <span className="dislike-count">{" دیسلایک "}</span>
           <span className={"dislike-icon"}>
             <ThumbDownAltTwoToneIcon onClick={disLikeButton} />
           </span>
         </div>
       </div>
-
-      {/*{console.log(getTermLikesById())}*/}
     </>
   );
 };
