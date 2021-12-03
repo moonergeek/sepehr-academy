@@ -1,99 +1,91 @@
-
 .card-title {
-    color: #323E73;
-    font-size: 15px;
-    cursor: pointer;
+  color: #323e73;
+  font-size: 15px;
+  cursor: pointer;
 }
-.doc-title{
-    color: #323E73;
-    font-size: 17px;
-    cursor: pointer;
+.doc-title {
+  color: #323e73;
+  font-size: 17px;
+  cursor: pointer;
 }
 
 .doc-title:hover {
-    color: #23A455;
+  color: #23a455;
 }
 
 /*card-maghalat title hover*/
 
 .doc-title::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 2px;
-    background-color: #23A455;
-    transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: #23a455;
+  transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .doc-title:hover::before {
-        left: 0;
-        right: auto;
-        width: 100%;
-    }
+  .doc-title:hover::before {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
 }
 
-
 .card {
-    border: none;
-    box-shadow: 2px 3px 8px #E1F7ED;
-    cursor: pointer;
+  border: none;
+  box-shadow: 2px 3px 8px #e1f7ed;
+  cursor: pointer;
 }
 
 .card-user-image {
-    width: 16px;
-    cursor: pointer;
-
+  width: 16px;
+  cursor: pointer;
 }
 
 .course-teacher {
-    font-size: 15px;
-    color: #323E73;
-    opacity: 70%;
-    cursor: pointer;
+  font-size: 15px;
+  color: #323e73;
+  cursor: pointer;
 }
 
 .card-line {
-    width: 100%;
-    opacity: 40%;
-    margin-top: 16px;
+  width: 100%;
+  margin-top: 16px;
 }
 
 .card-end {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
 .card-stopwatch {
-    width: 16px;
-    cursor: pointer;
+  width: 16px;
+  cursor: pointer;
 }
 
 .card-time {
-    color: #323E73;
-    font-size: 13px;
-    cursor: pointer;
-    opacity: 80%;
+  color: #323e73;
+  font-size: 13px;
+  cursor: pointer;
 }
-.document-details{
-    font-size: 14px;
+.document-details {
+  font-size: 14px;
 }
 
 .card-price {
-
-    color: #23A455;
-    font-size: 14px;
-    cursor: pointer;
+  color: #23a455;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .document-number {
-    font-size: 14px;
-    color: #198643;
+  font-size: 14px;
+  color: #198643;
 }
 
-.document-details{
-    font-size: 14px;
-    color: #323E73;
-    opacity: 75%;
+.document-details {
+  font-size: 14px;
+  color: #323e73;
 }

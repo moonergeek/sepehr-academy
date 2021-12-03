@@ -1,30 +1,29 @@
 .doc-icon {
-    width: 20px;
-    opacity: 65%;
-    margin-right: 12px;
-    margin-top: 10px;
+  width: 20px;
+  margin-right: 12px;
+  margin-top: 10px;
 }
-.comment-background{
-    border-radius: 20px;
+.comment-background {
+  border-radius: 20px;
 }
-.comment-border{
-    border-right: 4px solid #757bc8;
-    margin-right: -11px;
-    background-color: rgba(126, 217, 229,0.2);
-    border-radius: 15px;
+.comment-border {
+  border-right: 4px solid #757bc8;
+  margin-right: -11px;
+  background-color: rgba(126, 217, 229, 0.2);
+  border-radius: 15px;
 }
-.comments-title{
-    color: #5e60ce;
-    border-top: 2px dashed #757bc8;
+.comments-title {
+  color: #5e60ce;
+  border-top: 2px dashed #757bc8;
 }
-.response-to-comment{
-    color: #613dc1;
-    position: relative;
-    left: 45px;
-    top: -40px;
-    cursor: pointer;
-    font-size: 15px;
+.response-to-comment {
+  color: #613dc1;
+  position: relative;
+  left: 45px;
+  top: -40px;
+  cursor: pointer;
+  font-size: 15px;
 }
-.response-to-comment:hover{
-    color: #2a9134;
+.response-to-comment:hover {
+  color: #2a9134;
 }

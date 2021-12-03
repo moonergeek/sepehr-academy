@@ -1,13 +1,12 @@
-.slider-item{
-    height: 112px;
+.slider-item {
+  height: 112px;
 }
-.teachers-name{
-    position: relative;
-    top: 90px;
-    left: -25px;
-     color: #323e73;
-    opacity: 80%;
+.teachers-name {
+  position: relative;
+  top: 90px;
+  left: -25px;
+  color: #323e73;
 }
-.margin{
-    margin-right: 15px;
+.margin {
+  margin-right: 15px;
 }
