@@ -8,7 +8,6 @@ import eyeImg from "../../../assets/img/icons/eyeicon.png";
 import "../Login.css";
 import LoginUser from "../../../core/services/API/auth/Login.api";
 
-
 const LoginForm = () => {
   const initialValues = {
     email: "",
@@ -54,7 +53,12 @@ const LoginForm = () => {
   const [passwordShown, setPasswordShown] = useState(true);
   return (
     <>
-      <ToastContainer position="top-center" limit={1} autoClose={2500} rtl={true}/>
+      <ToastContainer
+        position="top-center"
+        limit={1}
+        autoClose={2500}
+        rtl={true}
+      />
       <form onSubmit={formik.handleSubmit} className="mt-4">
         <div className="mb-3">
           <input
@@ -75,11 +79,9 @@ const LoginForm = () => {
           </div>
         </div>
 
-
         <div className="mb-3 pass-form">
           <input
             type={passwordShown ? "password" : "text"}
-
             className="form-control"
             placeholder="رمز عبور"
             id="password"
@@ -90,7 +92,6 @@ const LoginForm = () => {
             autoComplete="off"
           />
 
-
           <div
             className="pass-eye"
             onClick={() => {
@@ -99,7 +100,6 @@ const LoginForm = () => {
           >
             <img src={eyeImg} />
           </div>
-
 
           <div className="text-danger mt-1">
             {formik.touched.password && formik.errors.password ? (

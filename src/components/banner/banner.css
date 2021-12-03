@@ -1,37 +1,36 @@
 .banner {
-    width: 95%;
-    height: 100%;
-    background-image: url("../../assets/img/backgrounds/background-4.png");
-    box-shadow: 0 3px 6px #E1F7ED;
-    border-radius: 10px;
+  width: 95%;
+  height: 100%;
+  background-image: url("../../assets/img/backgrounds/background-4.png");
+  box-shadow: 0 3px 6px #e1f7ed;
+  border-radius: 10px;
 }
 
 .banner-img {
-    width: 275px;
-    height: 300px;
+  width: 275px;
+  height: 300px;
 }
 
 .banner-text {
-    color: #323E73;
-    font-size: 19px;
-    font-weight: 600;
+  color: #323e73;
+  font-size: 19px;
+  font-weight: 600;
 }
 
 .banner-detail {
-    color: #323E73;
-    font-size: 16px;
-    opacity: 80%;
+  color: #323e73;
+  font-size: 16px;
 }
 
 .services-img {
-    width: 340px;
-    height: 100px;
-    cursor: pointer;
+  width: 340px;
+  height: 100px;
+  cursor: pointer;
 }
 
 .circle-background {
-    width: 290px;
-    height: 300px;
-    background-image: url("../../assets/img/circles/Ellipse 2.png");
-    box-shadow: 0 3px 10px #E1F7ED;
+  width: 290px;
+  height: 300px;
+  background-image: url("../../assets/img/circles/Ellipse 2.png");
+  box-shadow: 0 3px 10px #e1f7ed;
 }
