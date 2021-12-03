@@ -64,6 +64,7 @@ const PanelAdmin = () => {
                                 onClick={() => {
                                     clearStorage();
                                     history.push("/");
+                                    window.location.reload(true);
                                 }}
                             >
                                 بله
