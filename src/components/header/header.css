@@ -84,12 +84,15 @@
   display: inline-block;
   position: relative;
   right: -20px;
+  cursor: pointer;
 }
 .inline-block-2 {
+  /* margin-right: 34px; */
   display: inline-block;
   position: relative;
   right: -34px;
   top: -4px;
+  cursor: pointer;
 }
 .headerDrop-menu {
   background: #fbfefd !important;
